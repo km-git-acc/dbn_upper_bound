@@ -19,18 +19,19 @@ http://michaelnielsen.org/polymath1
 (Note: once there is a project page there for this project, this link should be updated)
 
 
+Computational Requirements
 --------------------------------------------------------------------------------------------
-Computational Prequisities
---------------------------------------------------------------------------------------------
-For Python, numpy, scipy and matplotlib will likely be necessary, apart from any specific libraries
+For Python, numpy and scipy will likely be beneficial, apart from any specific libraries
 
 For other languages, please update accordingly
 
+The algorithms can likely run on any machine, but better configs will certainly help
 
----------------------------------------------------------------------------------------------
 Results
 ---------------------------------------------------------------------------------------------
-Please express your results here. Do double check your results, and triple check especially if you find a non real zero for any t>0, since the implications are huge! 
+Please express your results here. A sample format can be your name or handle, t checked, T and epsilon verified, etc. Once there are multiple results, we can arrange it as a table. Also, once you are sure about your results, please update them or ask them to be updated on the Polymath page as well.
+
+Do double check your results, and triple check especially if you find a non real zero for any t>0, since the implications are huge! 
 
 
 ---------------------------------------------------------------------------------------------
