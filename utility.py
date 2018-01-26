@@ -8,7 +8,7 @@ PI_sq = PI*PI
 #print PI
 #print PI_sq
 
-def phi_decay(u,n_max=10):
+def phi_decay(u,n_max=100):
     running_sum=0
     for n in range(1,n_max+1):
         term1=2*PI_sq*pow(n,4)*exp(9*u) - 3*PI*pow(n,2)*exp(5*u)
