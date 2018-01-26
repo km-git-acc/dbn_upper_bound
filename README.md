@@ -14,9 +14,8 @@ For the Polymath proposal, please check this link,
 https://terrytao.wordpress.com/2018/01/24/polymath-proposal-upper-bounding-the-de-bruijn-newman-constant/
 
 
-For the wiki, comprehensive list of papers, permanent record of results, please head to the Polymath website
-http://michaelnielsen.org/polymath1
-(Note: once there is a project page there for this project, this link should be updated)
+For the wiki, comprehensive list of papers, permanent record of results, please head to the Polymath webpage
+http://michaelnielsen.org/polymath1/index.php?title=De_Bruijn-Newman_constant
 
 
 Computational Requirements
