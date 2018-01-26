@@ -2,7 +2,7 @@
 Computational effort to upper bound the de Bruijn-Newman constant as part of a Polymath project
 -----------------------------------------------------------------------------------------------
 
-As you may know, Prof. Terence Tao will be launching and moderating a Polymath project to upper bound the de Bruijn-Newman constant (dBN constant for brevity). This will involve both 1) an Analytic or theory part (hard math) to derive/refine several formulas and estimates, and 2) a computational part to verify whether the de Bruijn family of functions H_t have zero free regions in the regions indicated by theory or not.
+As you may know, Prof. Terence Tao will be launching and moderating a Polymath project to upper bound the de Bruijn-Newman constant (dBN constant for brevity). This will involve both 1) an Analytic or theory part (hard math) to derive/refine several formulas and estimates, and 2) a computational part to check whether the de Bruijn family of functions H_t are zero free in the regions marked for numerical verification.
 
 This repo is meant to facilitate the computational aspect.
 
