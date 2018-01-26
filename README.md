@@ -34,6 +34,5 @@ Please express your results here. A sample format can be your name or handle, t 
 Do double check your results, and triple check especially if you find a non real zero for any t>0, since the implications are huge! 
 
 
----------------------------------------------------------------------------------------------
 Other Sections - Please add as needed
 ---------------------------------------------------------------------------------------------
