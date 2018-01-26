@@ -10,7 +10,7 @@ For general direction, theory, blogposts, discussions on latest results, etc. pl
 https://terrytao.wordpress.com/
 
 
-For the Polymath proposal, please check this link
+For the Polymath proposal, please check this link,
 https://terrytao.wordpress.com/2018/01/24/polymath-proposal-upper-bounding-the-de-bruijn-newman-constant/
 
 
