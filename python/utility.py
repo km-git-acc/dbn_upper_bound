@@ -8,6 +8,11 @@ PI_sq = PI*PI
 #print PI
 #print PI_sq
 
+def Nt(t,T):
+      T=float(T)
+      T_by_4PI = T/(4*PI)
+      return T_by_4PI*log(T_by_4PI) - T_by_4PI + t*log(T) 
+
 def phi_decay(u,n_max=100):
     running_sum=0
     for n in range(1,n_max+1):
