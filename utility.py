@@ -11,7 +11,7 @@ PI_sq = PI*PI
 def Nt(t,T):
       T=float(T)
       T_by_4PI = T/(4*PI)
-      return T_by_4PI*ln(T_by_4PI) - T_by_4PI + t*ln(T) 
+      return T_by_4PI*log(T_by_4PI) - T_by_4PI + t*log(T) 
 
 def phi_decay(u,n_max=100):
     running_sum=0
