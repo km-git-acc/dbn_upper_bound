@@ -14,7 +14,9 @@ def Nt(t, T):
     Evaluates equation (4) in Terry's blog
     https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/
     :param t: the "time" parameter
+    :type t: float
     :param T: height
+    :type T: float
     :return: right side of (4) in the blog link
     """
     T = float(T)
@@ -27,7 +29,9 @@ def phi_decay(u, n_max=100):
     """
     Add docstring
     :param u:
+    :type u:
     :param n_max:
+    :type n_max: integer
     :return:
     """
     running_sum = 0
@@ -43,8 +47,11 @@ def Ht_complex_integrand(u, z, t):
     """
     Add docstring
     :param u:
+    :type u:
     :param z:
+    :type z:
     :param t:
+    :type t:
     :return:
     """
     return exp(t*u*u)*phi_decay(u)*cos(z*u)
@@ -54,7 +61,9 @@ def Ht_complex(z, t):
     """
     Add docstring
     :param z:
+    :type z:
     :param t:
+    :type t:
     :return:
     """
     #may work well only for small to medium values of z
@@ -69,7 +78,9 @@ def Ht_complex_root_finding_helper(z_as_array, t):
     """
     Add docstring
     :param z_as_array:
+    :type z_as_array:
     :param t:
+    :type t:
     :return:
     """
     z = float(z_as_array[0]) + 1j*float(z_as_array[1])
