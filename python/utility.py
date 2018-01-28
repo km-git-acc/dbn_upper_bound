@@ -1,17 +1,21 @@
-import math
 from math import *
 
 #pi upto 20 decimal places. add further precision if necessary
 PI = 3.14159265358979323846
 PI_sq = PI*PI
 
-#print PI
-#print PI_sq
 
-def Nt(t,T):
+def Nt(t, T):
+      """
+      Evaluates equation (4) in Terry's blog
+      https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/
+      :param t: the "time" parameter
+      :param T: height
+      :return: right side of (4) in the blog link
+      """
       T=float(T)
       T_by_4PI = T/(4*PI)
-      return T_by_4PI*log(T_by_4PI) - T_by_4PI + t*log(T) 
+      return T_by_4PI*log(T_by_4PI) - T_by_4PI + (t/16.0)*log(T_by_4PI)
 
 def phi_decay(u,n_max=100):
     running_sum=0
