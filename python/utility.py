@@ -40,6 +40,15 @@ def Ht_complex(z,t):
     imag_part = quad(imag_func, 0, 10, args=(z,t))
     return (real_part[0] + 1j*imag_part[0], real_part[1], imag_part[1])
 
+def Ht_complex_root_finding_helper(z_as_array,t):
+    z = float(z_as_array[0]) + 1j*float(z_as_array[1])
+    Ht = Ht_complex(z,t)[0]
+    return (scipy.real(Ht),scipy.imag(Ht))
+
+def Ht_complex_root_finder(complex_guess,t):
+    result = fsolve(Ht_complex_root_finding_helper,[scipy.real(complex_guess),scipy.imag(complex_guess)],args=(t,))
+    return result[0]+1j*result[1]
+
 def Ht_complex_zlarge(z,t):
     '''Approx formula for Ht for large z values
        check last section of https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/'''
