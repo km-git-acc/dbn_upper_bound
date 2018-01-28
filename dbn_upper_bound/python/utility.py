@@ -1,8 +1,12 @@
+"""
+This module contains various math utilities for the main project
+"""
+
 import scipy
-from scipy.integrate import *
-from scipy.optimize import *
-import numpy as np
+from scipy.integrate import quad
+from scipy.optimize import fsolve
 from cmath import *
+
 
 #pi upto 20 decimal places. add further precision if necessary
 PI = 3.14159265358979323846
