@@ -12,9 +12,9 @@ def Ht_real(z,t):
      return quad(Ht_real_integrand, 0, 10, args=(z,t))
 
 #check values of Ht_real
-for t in range(0,6):
-      t=float(t)/10.0
-      print(t)
-      for i in range(0,10000):
-            z=float(i)/100
-            print(t,z, Ht_real(z,t))
+#for t in range(0,6):
+ #     t=float(t)/10.0
+  #    print(t)
+   #   for i in range(0,10000):
+    #        z=float(i)/100
+     #       print(t,z, Ht_real(z,t))
