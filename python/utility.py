@@ -40,6 +40,22 @@ def Ht_complex(z,t):
     imag_part = quad(imag_func, 0, 10, args=(z,t))
     return (real_part[0] + 1j*imag_part[0], real_part[1], imag_part[1])
 
+def Ht_complex_zlarge(z,t):
+    '''Approx formula for Ht for large z values
+       check last section of https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/'''
+    x=float(scipy.real(z))
+    y=float(scipy.imag(z))
+    t=float(t)
+    x_by_4PI = x/(4*PI)
+    B = ((PI*t/16)+(x/4))*log(x_by_4PI) - (x/4) + PI*(9+y)/8
+    A1 = PI_sq*sqrt(PI/(2*1j*x))*pow(x_by_4PI,(9+y)/4)
+    A2 = exp(-1*PI*x/8)
+    A3 = exp((t/16)*pow(log(x_by_4PI),2) - (t*PI_sq/64))
+    Ht_without_PIby8_amplitude = A1*A3*exp(-1j*B)
+    Ht = Ht_without_PIby8_amplitude*A2
+    Ht_magnitude = abs(Ht)
+    return (Ht,Ht_magnitude,Ht_without_PIby8_amplitude)
+
 def Ht_real_integrand(u, z, t):
      if(abs(scipy.imag(z))>0 or abs(scipy.imag(t))>0 or abs(scipy.imag(u))>0): 
         print ("complex values not allowed for this function")
