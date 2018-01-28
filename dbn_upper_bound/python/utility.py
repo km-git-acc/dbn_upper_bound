@@ -6,10 +6,7 @@ import scipy
 from scipy.integrate import quad
 from scipy.optimize import fsolve
 from cmath import *
-
-#pi upto 20 decimal places. add further precision if necessary
-PI = 3.14159265358979323846
-PI_sq = PI*PI
+from dbn_upper_bound.python.constants import PI, PI_sq
 
 
 def Nt(t, T):
