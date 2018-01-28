@@ -1,4 +1,7 @@
-from math import *
+import scipy
+from scipy.integrate import *
+import numpy as np
+from cmath import *
 
 #pi upto 20 decimal places. add further precision if necessary
 PI = 3.14159265358979323846
@@ -26,9 +29,28 @@ def phi_decay(u,n_max=100):
         #print n,term1, term2, running_sum
     return running_sum
 
+def Ht_complex_integrand(u, z, t):
+     return exp(t*u*u)*phi_decay(u)*cos(z*u)
+
+def Ht_real_integrand(u, z, t):
+     return exp(t*u*u)*phi_decay(u)*cos(z*u)
+
+def Ht_real(z,t):
+     #return quad(Ht_real_integrand, 0, np.inf, args=(z,t)) #causing overflow errors so np.inf replaced with 10
+     return quad(Ht_real_integrand, 0, 10, args=(z,t))
+
+def Ht_complex(z,t):
+    #may work well only for small to medium values of z  
+    def real_func(a,b,c): return scipy.real(Ht_complex_integrand(a,b,c))
+    def imag_func(a,b,c): return scipy.imag(Ht_complex_integrand(a,b,c))   
+    real_part = quad(real_func, 0, 10, args=(z,t))
+    imag_part = quad(imag_func, 0, 10, args=(z,t))
+    return (real_part[0] + 1j*imag_part[0], real_part[1], imag_part[1])
+
+
 #check phi_decay values
-print phi_decay(0.001)
-print phi_decay(0.01)
-print phi_decay(0.1)
-print phi_decay(0.5)
-print phi_decay(1)
+'''print (phi_decay(0.001))
+print (phi_decay(0.01))
+print (phi_decay(0.1))
+print (phi_decay(0.5))
+print (phi_decay(1))'''
