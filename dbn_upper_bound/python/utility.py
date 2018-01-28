@@ -5,7 +5,7 @@ This module contains various math utilities for the main project
 import scipy
 from scipy.integrate import quad
 from scipy.optimize import fsolve
-from cmath import *
+from cmath import exp, log, cos, sqrt
 from dbn_upper_bound.python.constants import PI, PI_sq
 
 
