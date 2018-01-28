@@ -1,5 +1,6 @@
 import scipy
 from scipy.integrate import *
+from scipy.optimize import *
 import numpy as np
 from cmath import *
 
