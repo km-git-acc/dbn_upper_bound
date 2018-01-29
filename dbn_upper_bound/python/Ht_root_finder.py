@@ -2,7 +2,8 @@
 TODO: Add details on what this module does
 """
 from scipy.optimize import fsolve
-from Ht_real_compute import Ht_real
+from utility import *
+#from Ht_real_compute import Ht_real
 
 H0_z1 = 2*14.1347251417346937904572519835624702707842
 H0_z2 = 2*21.022039638771554992628479593896902777
