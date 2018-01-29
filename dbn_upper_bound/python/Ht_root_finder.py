@@ -1,8 +1,9 @@
 """
-TODO: Add details on what this module does
+Find new roots for H_t1 using known roots for H_t2, and a root finding algorithm like fsolve. t2 will often be zero since we know zeta roots. 
+A similar thing has also been done in Ht_probable_roots using first 1000 zeta zeroes.
 """
 from scipy.optimize import fsolve
-from utility import *
+from utility import Ht_real
 #from Ht_real_compute import Ht_real
 
 H0_z1 = 2*14.1347251417346937904572519835624702707842
