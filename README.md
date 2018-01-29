@@ -22,8 +22,19 @@ For other languages, please update accordingly
 
 The algorithms can likely run on any machine, but better configs will certainly help
 
-We need to include information on 
-1. Setting up the 
+## Steps to setup a Python 3.6 virtual environment
+1. Install the virtual environment
+```bash
+python3.6 -m venv venv
+```
+2. Activate the virtual environment
+```bash
+source venv/bin/activate
+```
+3. Make sure you have the required packages inside the virtual environment. 
+```bash
+pip install -r python_requirements.txt
+```
 
 ## Results
 ---------------------------------------------------------------------------------------------
