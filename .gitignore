@@ -11,3 +11,4 @@ env/
 build/
 data/
 .idea/
+venv/
