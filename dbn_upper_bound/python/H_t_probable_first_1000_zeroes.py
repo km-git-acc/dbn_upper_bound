@@ -6,7 +6,7 @@ sys.stdout = f
 
 from scipy.optimize import fsolve
 from first_1000_zeta import first_1000_zeta
-from utility import *
+from utility import Ht_real
 #from Ht_real_compute import Ht_real
 
 first_1000_H0_zero = [x*2 for x in first_1000_zeta]
