@@ -18,9 +18,9 @@ l = 1
 
 k = 1000
 
-for j in range(0, 50):
+for j in range(1, 50):
     t = .01*j
-    for i, nearby_root in enumerate(first_1000_H0_zero[1:k]):
+    for i, nearby_root in enumerate(first_1000_H0_zero[l-1:k-1]):
         Ht_root = fsolve(Ht_real, nearby_root, args=(t,))[0]
         print(t, i, Ht_root)
 
