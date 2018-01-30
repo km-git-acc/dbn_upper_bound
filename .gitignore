@@ -1,0 +1,14 @@
+# Compiled source #
+###################
+*.pyc
+.env
+.pylintrc
+
+# Directories #
+############
+__pycache__/
+env/
+build/
+data/
+.idea/
+venv/
