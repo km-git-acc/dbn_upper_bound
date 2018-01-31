@@ -156,6 +156,36 @@ def Ht_real(z, t):
     # causing overflow errors so np.inf replaced with 10
     return quad(Ht_real_integrand, 0, 10, args=(z, t))
 
+
+def Ittheta_scaled_by_exp_z_pi_by_8(b,beta,t,theta=0):
+   def Ittheta_integrand_scaled_by_exp_z_pi_by_8(v,b,beta,t,theta):
+       return exp(t*(v+1j*theta)*(v+1j*theta) - beta*exp(4*(v+1j*theta)) + 1j*b*(v+1j*theta)+ PI*scipy.real(b)/8) 
+   def real_func(a1,a2,a3,a4,a5): return scipy.real(Ittheta_integrand_scaled_by_exp_z_pi_by_8(a1,a2,a3,a4,a5))
+   def imag_func(a1,a2,a3,a4,a5): return scipy.imag(Ittheta_integrand_scaled_by_exp_z_pi_by_8(a1,a2,a3,a4,a5))   
+   real_part = quad(real_func, 0, 10, args=(b,beta,t,theta))
+   imag_part = quad(imag_func, 0, 10, args=(b,beta,t,theta))
+   return real_part[0] + 1j*imag_part[0]
+
+def Kttheta_scaled_by_exp_z_pi_by_8(z,t,n=5):
+    theta = PI/8 - 1/(4*scipy.real(z))
+    running_sum=0
+    for n in range(1,5):
+        running_sum += 2*PI_sq*n*n*n*n*Ittheta_scaled_by_exp_z_pi_by_8(z-9j,PI*n*n,t,theta) - 3*PI*n*n*Ittheta_scaled_by_exp_z_pi_by_8(z-5j,PI*n*n,t,theta)
+    return running_sum
+
+def Ht_large_scaled_by_exp_z_pi_by_8(z,t):
+    return 0.5*(Kttheta_scaled_by_exp_z_pi_by_8(z,t) + Kttheta_scaled_by_exp_z_pi_by_8(z.conjugate(),t).conjugate()) 
+
+def Ht_large_root_finding_helper(z_as_array,t):
+    z = float(z_as_array[0]) + 1j*float(z_as_array[1])
+    val = Ht_large_scaled_by_exp_z_pi_by_8(z,t)
+    return (scipy.real(val),scipy.imag(val))
+
+def Ht_large_root_finder(complex_guess,t):
+    result = fsolve(Ht_large_root_finding_helper,[scipy.real(complex_guess),scipy.imag(complex_guess)],args=(t,))
+    return result[0]+1j*result[1]
+
+
 #check phi_decay values
 '''print(phi_decay(0.001))
 print(phi_decay(0.01))
