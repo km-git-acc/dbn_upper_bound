@@ -11,7 +11,8 @@ d = end of t-range divided by 100
 The t-increment is in steps of 0.01
 
 For example, out_01_1000_20_22.txt means the following. The file contains
-the first 1000 zeroes of H_t for t in (0.20, 0.21, 0.22)
+the first 1000 zeroes of H_t for t in (0.20, 0.21). (The range() loop is not
+inclusive of the d in computation).
 
 Edit: Files added on/after 29 January 2018 should be calculated using the
 version of the python code from at least 28 January 2018.
