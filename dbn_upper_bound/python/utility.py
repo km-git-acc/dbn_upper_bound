@@ -1,6 +1,6 @@
 """
 This module contains various math utilities for the main project
-Most functions here are implementations of formulas derived in Tery's blogpost 
+Most functions here are implementations of formulas derived in Terry's blogpost 
 https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/ [TT_Ht]
 
 """
