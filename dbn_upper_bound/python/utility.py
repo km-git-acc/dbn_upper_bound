@@ -1,5 +1,8 @@
 """
 This module contains various math utilities for the main project
+Most functions here are implementations of formulas derived in Tery's blogpost 
+https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/ [TT_Ht]
+
 """
 
 from cmath import exp, log, cos, sqrt
@@ -11,8 +14,7 @@ from dbn_upper_bound.python.constants import PI, PI_sq
 
 def Nt(t, T):
     """
-    Evaluates equation (4) in Terry's blog
-    https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/
+    Evaluates equation (4) in [TT_Ht]
     :param t: the "time" parameter
     :type t: float
     :param T: height
@@ -27,7 +29,7 @@ def Nt(t, T):
 
 def phi_decay(u, n_max=100):
     """
-    Add docstring
+    Phi function in the H_t integrand that decays rapidly with increasing n
     :param u:
     :type u:
     :param n_max:
@@ -45,7 +47,7 @@ def phi_decay(u, n_max=100):
 
 def Ht_complex_integrand(u, z, t):
     """
-    Add docstring
+    complex valued H_t integrand
     :param u:
     :type u:
     :param z:
@@ -59,7 +61,7 @@ def Ht_complex_integrand(u, z, t):
 
 def Ht_complex(z, t):
     """
-    Add docstring
+    complex valued H_t integral (refer to introductory section in [TT_Ht]
     :param z:
     :type z:
     :param t:
@@ -76,7 +78,7 @@ def Ht_complex(z, t):
 
 def Ht_complex_root_finding_helper(z_as_array, t):
     """
-    Add docstring
+    Assistant function to the one below
     :param z_as_array:
     :type z_as_array:
     :param t:
@@ -90,7 +92,7 @@ def Ht_complex_root_finding_helper(z_as_array, t):
 
 def Ht_complex_root_finder(complex_guess, t):
     """
-    Add docstring
+    finds a complex valued root of H_t starting using a complex valued guess. Resulting imaginary parts expected to be just rounding errors.
     :param complex_guess:
     :param t:
     :return:
@@ -104,8 +106,7 @@ def Ht_complex_root_finder(complex_guess, t):
 def Ht_complex_zlarge(z, t):
     """
     Approx formula for Ht for large z values
-    check last section of
-    https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/
+    check last section of [TT_Ht]
     :param z:
     :param t:
     :return:
@@ -126,7 +127,7 @@ def Ht_complex_zlarge(z, t):
 
 def Ht_real_integrand(u, z, t):
     """
-    Add docstring
+    Real valued integrand for Ht
     :param u:
     :param z:
     :param t:
@@ -143,7 +144,7 @@ def Ht_real_integrand(u, z, t):
 
 def Ht_real(z, t):
     """
-    Add docstring
+    Ht as a real valued integral
     :param z:
     :param t:
     :return:
@@ -159,7 +160,8 @@ def Ht_real(z, t):
 
 def Ittheta_scaled_by_exp_z_pi_by_8(b,beta,t,theta=0):
     """
-    Some details here please. Hard to follow what's happening :(
+    refer to eqn (3) in [TT_Ht]
+    eqn (3) scaled here by exp(pi*x/8) since the reciprocal is expected to the main decay term in Ittheta 
     :param b:
     :param beta:
     :param t:
@@ -177,7 +179,8 @@ def Ittheta_scaled_by_exp_z_pi_by_8(b,beta,t,theta=0):
 
 def Kttheta_scaled_by_exp_z_pi_by_8(z,t,n=5):
     """
-
+    refer to section just prior to eqn (3) in [TT_Ht]
+    Calculating Kttheta (scaled here by exp(pi*x/8))
     :param z:
     :param t:
     :param n:
@@ -192,7 +195,8 @@ def Kttheta_scaled_by_exp_z_pi_by_8(z,t,n=5):
 
 def Ht_large_scaled_by_exp_z_pi_by_8(z,t):
     """
-
+    refer to eqn (2) in [TT_Ht]
+    Calculating Ht (scaled here by exp(pi*x/8)), with hopefully good behavior for larger z values
     :param z:
     :param t:
     :return:
@@ -202,7 +206,7 @@ def Ht_large_scaled_by_exp_z_pi_by_8(z,t):
 
 def Ht_large_root_finding_helper(z_as_array,t):
     """
-
+    Assistant function to the one below
     :param z_as_array:
     :param t:
     :return:
@@ -214,7 +218,7 @@ def Ht_large_root_finding_helper(z_as_array,t):
 
 def Ht_large_root_finder(complex_guess,t):
     """
-
+    Ht root finding using Ht_large_scaled_by_exp_z_pi_by_8(z,t)
     :param complex_guess:
     :param t:
     :return:
