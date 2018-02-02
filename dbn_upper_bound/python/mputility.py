@@ -2,7 +2,7 @@
 Could be quite slow to compute but much more accurate'''
 
 from dbn_upper_bound.python.constants import PI
-from mpmath import mp, mpf, mpc, exp, power, log, cos, sqrt, quad, findroot
+from mpmath import mp, mpf, mpc, exp, power, log, cos, sqrt, quad, findroot, gamma, floor
 
 mp.dps=20
 
@@ -53,4 +53,27 @@ def Ht_large(z,t):
 def Ht_large_root_finder(complex_guess,t):
     result = findroot(lambda z: Ht_large(z,t),mpc(complex_guess))
     return result
+
+def Ft(s,t):
+    # works only for x > 14 approx due to the sqrt(x/4PI) factor
+    term1 = power(PI,-1*s/2)*gamma((s+4)/2)
+    x=2*s.imag
+    N = int(sqrt(x/(4*PI)))
+    #print (s,t,term1,x,N)
+    running_sum=0
+    for n in range(1,N+1):
+        running_sum += exp((t/16)*power(log((s+4)/(2*PI*n*n)),2) )/power(n,s) # main eqn + PI*x/8
+    return term1*running_sum
+
+def Ht_AFE(z,t):
+    '''From https://terrytao.wordpress.com/2018/01/27/polymath15-first-thread-computing-h_t-asymptotics-and-dynamics-of-zeroes/#comment-491988'''
+    z,t = mpc(z),mpc(t)
+    f_arg1 = (1 + 1j*z.real - z.imag)/2
+    f_arg2 = (1 + 1j*z.real + z.imag)/2
+    #print (z,t,f_arg1,f_arg2)
+    result = 0.25*(Ft(f_arg1,t) + Ft(f_arg2,t).conjugate())
+    #print(result)
+    return result
+
+
 
