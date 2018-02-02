@@ -32,3 +32,25 @@ def Ht_complex_root_finder(complex_guess,t):
     result = findroot(lambda z: Ht_complex(z,t),mpc(complex_guess))
     return result
 
+def Ittheta(b,beta,t,theta=0):
+   def Ittheta_integrand(v,b,beta,t,theta):
+       #print(v,b,beta,t,theta)
+       return exp(t*(v+1j*theta)*(v+1j*theta) - beta*exp(4*(v+1j*theta)) + 1j*b*(v+1j*theta))###+ PI*(b.real)/8) 
+   return quad(lambda v: Ittheta_integrand(v,b,beta,t,theta), [0, 100])
+
+def Kttheta(z,t,n=5):
+    theta = mpf(PI/8 - 1/(4*z.real))
+    #print (theta)
+    running_sum=0
+    for n in range(1,5):
+        running_sum += 2*PI_sq*n*n*n*n*Ittheta(z-9j,PI*n*n,t,theta) - 3*PI*n*n*Ittheta(z-5j,PI*n*n,t,theta)
+    return running_sum
+
+def Ht_large(z,t):
+    z,t=mpc(z),mpc(t)
+    return 0.5*(Kttheta(z,t) + Kttheta(z.conjugate(),t).conjugate()) 
+
+def Ht_large_root_finder(complex_guess,t):
+    result = findroot(lambda z: Ht_large(z,t),mpc(complex_guess))
+    return result
+
