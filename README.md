@@ -18,7 +18,9 @@ For the wiki, comprehensive list of papers, permanent record of results, please 
 1. [Python 3.6](https://docs.python.org/3/library/venv.html)
 2. Packages in python_requirements.txt 
 
-For other languages, please update accordingly
+For Julia, please check the Julia fork https://github.com/km-git-acc/DBNUpperBound.jl, maintained by WilCrofter.
+
+For other languages, please update accordingly.
 
 The algorithms can likely run on any machine, but better configs will certainly help
 
@@ -35,6 +37,19 @@ source venv/bin/activate
 ```bash
 pip install -r python_requirements.txt
 ```
+
+## Running H_t evaluations
+--------------------------------------------------------------------------------------------
+There are two main files in the python folder containing commonly used functions, utility.py and mputility.py. mputility uses the mpmath library which is preferred for H_t(z) for large z values.
+
+Getting to workable code is quite simple. For eg.
+
+from mputility import *
+Ht_AFE(10000000.0,0.2)
+
+which evaluates H_t using the approx functional eqn for z=10000000.0 and t=0.2
+
+For a sample file showing how a large range of z values can be explored and roots found, please check sample_afe_calc.py. 
 
 ## Results
 ---------------------------------------------------------------------------------------------
