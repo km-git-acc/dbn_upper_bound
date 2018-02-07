@@ -46,7 +46,8 @@ for i in range(1, 5000000001):
     curr_eval = (Ht_AFE(z, t).real)*mp.exp(mp.pi()*z/8)
     root_check = sign_change(curr_eval, prev_eval)
     if root_check == 1:
-        approx_root = mp.findroot(lambda y: Ht_AFE_ABC(y,t).real,[z,z-step_size],solver="bisect") 
+        try: approx_root = mp.findroot(lambda y: Ht_AFE_ABC(y,t).real,[z,z-step_size],solver="bisect")
+        except: approx_root = z - step_size/2    
         print(approx_root)
         rootcount += 1
         htroots.append([t, rootcount, approx_root])
