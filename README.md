@@ -46,7 +46,9 @@ Getting to workable code is quite simple. For eg.
 
 from mputility import *
 
+
 Ht_AFE_ABC(10000000.0,0.2)
+
 
 which evaluates H_t using the approx functional eqn for z=10000000.0 and t=0.2
 
