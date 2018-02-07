@@ -46,11 +46,13 @@ Getting to workable code is quite simple. For eg.
 
 from mputility import *
 
-Ht_AFE(10000000.0,0.2)
+
+Ht_AFE_ABC(10000000.0,0.2)
+
 
 which evaluates H_t using the approx functional eqn for z=10000000.0 and t=0.2
 
-For a sample file showing how a large range of z values can be explored and roots found, please check sample_afe_calc.py. 
+For a sample file showing how a large range of z values can be explored and roots found, please check sample_afe_abc_calc.py. 
 
 ## Results
 ---------------------------------------------------------------------------------------------
