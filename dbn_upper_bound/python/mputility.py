@@ -141,14 +141,14 @@ def Ht_AFE_ABC(z,t):
     A_pre = (1/16)*s*(s-1)*mp.power(mp.pi(),-1*s/2)*mp.gamma(s/2)
     A_sum = 0.0
     for n in range(1,N+1):
-        if t>0: A_sum += mp.exp((t/16)*mp.power(mp.log((s+4)/(2*mp.pi()*n*n)),2))/mp.power(n,s)
+        if t.real>0: A_sum += mp.exp((t/16)*mp.power(mp.log((s+4)/(2*mp.pi()*n*n)),2))/mp.power(n,s)
         else: A_sum += 1/mp.power(n,s) 
     A = A_pre*A_sum
 
     B_pre = (1/16)*s*(s-1)*mp.power(mp.pi(),(s-1)/2)*mp.gamma((1-s)/2)
     B_sum = 0.0
     for m in range(1,M+1):
-        if t>0: B_sum += mp.exp((t/16)*mp.power(mp.log((5-s)/(2*mp.pi()*m*m)),2))/mp.power(m,1-s)
+        if t.real>0: B_sum += mp.exp((t/16)*mp.power(mp.log((5-s)/(2*mp.pi()*m*m)),2))/mp.power(m,1-s)
         else: B_sum += 1/mp.power(m,1-s) 
     B = B_pre*B_sum
 
