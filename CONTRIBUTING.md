@@ -47,4 +47,11 @@ pylint --rcfile=pylintrc myfile.py
 
 #### Running unit tests
 
-Not applicable for now.
+All the tests are located in
+dbn_upper_bound/tests
+
+To run python unit tests the command is
+```bash
+python -m unittest
+```
+You need to run this in the root folder
