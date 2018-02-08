@@ -155,39 +155,95 @@ def psi(p):
     term4 = mp.cos(mp.pi()*p)
     return term1*term2*term3/term4
 
-def Ht_AFE_ABC(z,t):
-    '''This is the much more accurate approx functional eqn posted by Terry at 
+
+def Ht_AFE_A(z, t):
+    """
+    This is the much more accurate approx functional eqn posted by Terry at
     https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/#comment-492182
-    Note: the C term has been turned into -1*C'''
-    z,t = mp.mpc(z),mp.mpc(t)
-    s = (1 + 1j*z.real - z.imag)/2
+    :param z: point at which H_t is computed
+    :param t: the "time" parameter
+    :return: the A part in Ht
+    """
+    z, t = mp.mpc(z), mp.mpc(t)
+    s = (1 + 1j * z.real - z.imag)/2
+    tau = mp.sqrt(s.imag/(2 * mp.pi()))
+    N = int(tau)
+
+    A_pre = (1/16) * s * (s-1) \
+            * mp.power(mp.pi(), -1*s/2) * mp.gamma(s/2)
+    A_sum = 0.0
+    for n in range(1, N+1):
+        if t.real>0:
+            A_sum += mp.exp((t/16) * mp.power(mp.log((s+4)/(2*mp.pi()*n*n)), 2))/mp.power(n, s)
+        else:
+            A_sum += 1/mp.power(n, s)
+
+    return A_pre * A_sum
+
+
+def Ht_AFE_B(z, t):
+    """
+    This is the much more accurate approx functional eqn posted by Terry at
+    https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/#comment-492182
+    :param z: point at which H_t is computed
+    :param t: the "time" parameter
+    :return: the B part in Ht
+    """
+    z, t = mp.mpc(z), mp.mpc(t)
+    s = (1 + 1j * z.real - z.imag) / 2
     tau = mp.sqrt(s.imag/(2*mp.pi()))
+    M = int(tau)
+
+    B_pre = (1/16) * s * (s-1) * mp.power(mp.pi(), (s-1)/2) * mp.gamma((1-s)/2)
+    B_sum = 0.0
+    for m in range(1, M+1):
+        if t.real>0:
+            B_sum += mp.exp((t/16) * mp.power(mp.log((5-s)/(2 * mp.pi() * m * m)), 2))/mp.power(m, 1-s)
+        else:
+            B_sum += 1/mp.power(m, 1-s)
+
+    return B_pre * B_sum
+
+
+def Ht_AFE_C(z, t):
+    """
+    This is the much more accurate approx functional eqn posted by Terry at
+    https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/#comment-492182
+    :param z: point at which H_t is computed
+    :param t: the "time" parameter
+    :return: the C part in Ht
+    """
+    z, t = mp.mpc(z), mp.mpc(t)
+    s = (1 + 1j * z.real - z.imag) / 2
+    tau = mp.sqrt(s.imag/(2 * mp.pi()))
     N = int(tau)
     M = int(tau)
 
-    A_pre = (1/16)*s*(s-1)*mp.power(mp.pi(),-1*s/2)*mp.gamma(s/2)
-    A_sum = 0.0
-    for n in range(1,N+1):
-        if t.real>0: A_sum += mp.exp((t/16)*mp.power(mp.log((s+4)/(2*mp.pi()*n*n)),2))/mp.power(n,s)
-        else: A_sum += 1/mp.power(n,s) 
-    A = A_pre*A_sum
+    C_pre1 = -(1/16) * s * (s-1) * mp.power(mp.pi(), -1 * s/2) * mp.gamma(s/2)
+    C_pre2 = mp.gamma(1-s) * mp.exp(-1j * mp.pi() * s)/(2j * mp.pi())
+    C_pre3 = mp.power(2j * mp.pi() * M, s-1) * mp.exp(-1 * t * mp.pi() * mp.pi()/64)
+    C_psi = psi((s/(2j * M * mp.pi())) - N)
 
-    B_pre = (1/16)*s*(s-1)*mp.power(mp.pi(),(s-1)/2)*mp.gamma((1-s)/2)
-    B_sum = 0.0
-    for m in range(1,M+1):
-        if t.real>0: B_sum += mp.exp((t/16)*mp.power(mp.log((5-s)/(2*mp.pi()*m*m)),2))/mp.power(m,1-s)
-        else: B_sum += 1/mp.power(m,1-s) 
-    B = B_pre*B_sum
+    return C_pre1 * C_pre2 * C_pre3 * C_psi
 
-    C_pre1 = -1*A_pre
-    C_pre2 = mp.gamma(1-s)*mp.exp(-1j*mp.pi()*s)/(2j*mp.pi())
-    C_pre3 = mp.power(2j*mp.pi()*M,s-1)*mp.exp(-1*t*mp.pi()*mp.pi()/64)
-    C_psi = psi((s/(2j*M*mp.pi())) - N)
-    C = C_pre1*C_pre2*C_pre3*C_psi
+
+def Ht_AFE_ABC(z, t):
+    """
+    This is the much more accurate approx functional eqn posted by Terry at
+    https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/#comment-492182
+    :param z: point at which H_t is computed
+    :param t: the "time" parameter
+    :return: Ht as a sum of A, B, C
+    """
+    A = Ht_AFE_A(z, t)
+    B = Ht_AFE_B(z, t)
+    C = Ht_AFE_C(z, t)
 
     H = A+B+C
-    if z.imag==0: return H.real
-    else: return H
+    if z.imag == 0:
+        return H.real
+    else:
+        return H
 
 
 '''End H_t approx functional eqn (Ht_AFE) block'''
