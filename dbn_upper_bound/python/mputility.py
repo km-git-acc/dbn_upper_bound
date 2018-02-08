@@ -1,30 +1,57 @@
-'''This module has commonly used functions computed using the mpmath library, hence arbitray precision, 
-instead of using scipy as in utility.py. For explanations of the first few functions, please check utility.py. The new ones are explained below.
-Default precision is set to 30 significant digits below, but this can be overriden in your code.
-If you can get the gmpy2 library installed, that could provide a major speed boost for mpmath'''
+"""
+This module has commonly used functions computed using the
+mpmath library, hence arbitray precision,
+instead of using scipy as in utility.py. For explanations of the
+first few functions, please check utility.py. The new ones are explained below.
+Default precision is set to 30 significant digits below, but
+this can be overriden in your code. If you can get the gmpy2 library
+installed, that could provide a major speed boost for mpmath
 
-'''The new functions (not present in utility.py) are 
-1) The main and helper functions for computing the Riemann Siegel Z function used to compute zeta zeroes (for benchmarking purposes),
-2) The approx functional eqn Ht_AFE and helper functions for computing H_t as derived here 
-http://michaelnielsen.org/polymath1/index.php?title=Asymptotics_of_H_t''' 
+The new functions (not present in utility.py) are
+1) The main and helper functions for computing the Riemann Siegel
+    Z function used to compute zeta zeroes (for benchmarking purposes),
+2) The approx functional eqn Ht_AFE and helper functions for
+    computing H_t as derived here
+http://michaelnielsen.org/polymath1/index.php?title=Asymptotics_of_H_t
+"""
 
 from mpmath import mp
 
-mp.dps=30
+mp.dps = 30
 
-def phi_decay(u,n_max=100):
-    running_sum=0
-    u=mp.mpc(u)
-    for n in range(1,n_max+1):
-        term1=2*mp.pi()*mp.pi()*mp.power(n,4)*mp.exp(9*u) - 3*mp.pi()*mp.power(n,2)*mp.exp(5*u)
-        term2=mp.exp(-1*mp.pi()*mp.power(n,2)*mp.exp(4*u))
-        running_sum += term1*term2
-        #print n,term1, term2, running_sum
+
+def phi_decay(u, n_max=100):
+    """
+    Computes \Phi(u) in Terry' blog at
+    https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/
+    :param u: input complex number
+    :param n_max: upper limit for summation. It has to be a positive
+    integer
+    :return: \Phi(u)
+    """
+    running_sum = 0
+    u = mp.mpc(u)
+    for n in range(1, n_max+1):
+        term1 = 2 * mp.pi() * mp.pi() * mp.power(n, 4) * mp.exp(9*u) \
+                - 3 * mp.pi() * mp.power(n, 2) * mp.exp(5*u)
+        term2 = mp.exp(-1*mp.pi() * mp.power(n, 2) * mp.exp(4*u))
+        running_sum += term1 * term2
+
     return running_sum
 
+
 def Ht_complex_integrand(u, z, t):
-     u,z,t=mp.mpc(u),mp.mpc(z),mp.mpc(t)
-     return mp.exp(t*u*u)*phi_decay(u)*mp.cos(z*u)
+    """
+    Computes the integrand of \H_t(u) in Terry' blog at
+    https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/
+    :param u: integration parameter
+    :param z: point at which H_t is computed
+    :param t: the "time" parameter
+    :return: integrand of H_t(z)
+    """
+    u, z, t = mp.mpc(u), mp.mpc(z), mp.mpc(t)
+    return mp.exp(t*u*u) * phi_decay(u) * mp.cos(z*u)
+
 
 def Ht_complex(z,t):
     #may work well only for small to medium values of z  
