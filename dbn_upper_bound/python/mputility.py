@@ -15,6 +15,7 @@ The new functions (not present in utility.py) are
 http://michaelnielsen.org/polymath1/index.php?title=Asymptotics_of_H_t
 """
 
+import csv
 from mpmath import mp
 
 mp.dps = 30
@@ -245,5 +246,27 @@ def Ht_AFE_ABC(z, t):
     else:
         return H
 
-
 '''End H_t approx functional eqn (Ht_AFE) block'''
+
+'''Miscellanous useful functions'''
+def Nt(t,T):
+    t,T=mp.mpf(t),mp.mpf(T)
+    Tsmall = T/(4*mp.pi())
+    N0 = Tsmall*mp.log(Tsmall) - Tsmall
+    extra = (t/16.0)*mp.log(Tsmall)
+    Nt = N0 + extra
+    return Nt.real
+
+def expected_zero_gap(t,T):
+    t,T=mp.mpf(t),mp.mpf(T)
+    return (T-0.9*T)/(Nt(t,T)-Nt(t,0.9*T))
+
+def append_data(filename,rows):
+    with open(filename, 'a') as csvfile:
+         writer = csv.writer(csvfile, delimiter=',',quotechar='"', quoting=csv.QUOTE_MINIMAL)
+         writer.writerows(rows)
+
+def sign_change(x, y):
+    if x*y < 0: return 1
+    else: return 0
+
