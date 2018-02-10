@@ -4,7 +4,7 @@ regularly spaced
 Caution: Near smaller heights, it will miss many of the zeroes'''
 
 import csv
-from mputility import Ht_AFE_ABC, Nt, expected_zero_gap, sign_change, append_data
+from mputility import Ht_AFE_ABC, expected_zero_gap, sign_change, append_data
 
 mp.pretty=True
 mp.dps=40
