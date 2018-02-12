@@ -181,13 +181,36 @@ def Ht_AFE_A(z, t):
     return A_pre * A_sum
 
 
+def Ht_AFE_B0(z, t):
+    """
+    This is the much more accurate approx functional eqn posted by Terry at
+    https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/#comment-492182
+    :param z: point at which Ht_AFE_B0 is computed
+    :param t: the "time" parameter
+    :return: the B0 part in B (essentially set m = 1)
+    """
+    z, t = mp.mpc(z), mp.mpc(t)
+    s = (1 + 1j * z.real - z.imag) / 2
+    tau = mp.sqrt(s.imag/(2*mp.pi()))
+
+    B_pre = (1/16) * s * (s-1) * mp.power(mp.pi(), (s-1)/2) * mp.gamma((1-s)/2)
+    B_sum = 0.0
+    for m in range(1, 2):
+        if t.real>0:
+            B_sum += mp.exp((t/16) * mp.power(mp.log((5-s)/(2 * mp.pi() * m * m)), 2))/mp.power(m, 1-s)
+        else:
+            B_sum += 1/mp.power(m, 1-s)
+
+    return B_pre * B_sum
+
+
 def Ht_AFE_B(z, t):
     """
     This is the much more accurate approx functional eqn posted by Terry at
     https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/#comment-492182
-    :param z: point at which H_t is computed
+    :param z: point at which Ht_AFE_B is computed
     :param t: the "time" parameter
-    :return: the B part in Ht
+    :return: the B part in B
     """
     z, t = mp.mpc(z), mp.mpc(t)
     s = (1 + 1j * z.real - z.imag) / 2
@@ -209,7 +232,7 @@ def Ht_AFE_C(z, t):
     """
     This is the much more accurate approx functional eqn posted by Terry at
     https://terrytao.wordpress.com/2018/02/02/polymath15-second-thread-generalising-the-riemann-siegel-approximate-functional-equation/#comment-492182
-    :param z: point at which H_t is computed
+    :param z: point at which Ht_AFE_C is computed
     :param t: the "time" parameter
     :return: the C part in Ht
     """

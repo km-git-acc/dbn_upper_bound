@@ -2,3 +2,5 @@ numpy==1.14.0
 pylint==1.8.2
 scipy==1.0.0
 mpmath==1.0.0
+matplotlib==2.1.2
+PyQt5==5.10
