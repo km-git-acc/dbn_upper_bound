@@ -25,9 +25,9 @@ x_max = 10E6
 x = np.linspace(x_min, x_max)
 
 data = {}
-data['abc_b0'] = [[], []]
-data['ab_b0'] = [[], []]
-data['c_b0'] = [[], []]
+data['abc_b0'] = [[], [], []]
+data['ab_b0'] = [[], [], []]
+data['c_b0'] = [[], [], []]
 
 for xi in x:
     z = mp.mpc(xi, y)
@@ -41,22 +41,36 @@ for xi in x:
 
     data['abc_b0'][0].append(abc_b0.real)
     data['abc_b0'][1].append(abc_b0.imag)
+    data['abc_b0'][2].append(mp.norm(abc_b0))
 
     data['ab_b0'][0].append(ab_b0.real)
     data['ab_b0'][1].append(ab_b0.imag)
+    data['ab_b0'][2].append(mp.norm(ab_b0))
 
     data['c_b0'][0].append(c_b0.real)
     data['c_b0'][1].append(c_b0.imag)
+    data['c_b0'][2].append(mp.norm(c_b0))
 
-fig = plt.subplots(1, 3)
-plt.subplot(131)
+fig = plt.subplots(2, 3)
+plt.subplot(231)
 plt.title(' (A + B - C)/B0 ')
 plt.plot(data['abc_b0'][0], data['abc_b0'][1], '-*')
-plt.subplot(132)
+plt.subplot(232)
 plt.title(' (A + B)/B0 ')
 plt.plot(data['ab_b0'][0], data['ab_b0'][1], '-*r')
-plt.subplot(133)
+plt.subplot(233)
 plt.title(' C/B0 ')
 plt.plot(data['c_b0'][0], data['c_b0'][1], '-*r')
+
+plt.subplot(234)
+plt.title(' |(A + B - C)/B0| ')
+plt.plot(data['abc_b0'][2], '-*')
+plt.subplot(235)
+plt.title(' |(A + B)/B0| ')
+plt.plot(data['ab_b0'][2], '-*r')
+plt.subplot(236)
+plt.title(' |C/B0| ')
+plt.plot(data['c_b0'][0], '-*r')
+
 
 plt.suptitle('x_min: ' + '%.0e'  % x_min + ', x_max: ' + '%.0e'  % x_max)
