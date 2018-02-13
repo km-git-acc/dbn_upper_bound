@@ -6,7 +6,7 @@ derivations which shows that for t>0 the zeros start getting more
 regularly spaced
 Caution: Near smaller heights, it will miss many of the zeroes
 """
-import mpmath as mp
+from mpmath import mp
 from dbn_upper_bound.python.mputility import \
     (Ht_AFE_ABC, expected_zero_gap, sign_change, append_data)
 
