@@ -80,5 +80,9 @@ plt.plot(data['ht_ab_b0'][2], '-*r')
 # plt.title(' |C/B0| ')
 # plt.plot(data['c_b0'][2], '-*r')
 
-plt.suptitle('x_min: ' + '%.0e'  % x_min + ', x_max: ' + '%.0e'  % x_max)
+plt.suptitle('x_min: ' + '%.0e'  % x_min
+             + ', x_max: ' + '%.0e'  % x_max
+             + '\n' +
+             't: ' + '%.1f' % t + ', y: ' + '%.1f' % y
+              )
 
