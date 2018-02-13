@@ -252,8 +252,7 @@ def Nt(t, T):
     Tsmall = T/(4 * mp.pi())
     N0 = Tsmall * mp.log(Tsmall) - Tsmall
     extra = (t/16.0) * mp.log(Tsmall)
-    Nt = N0 + extra
-    return Nt.real
+    return (N0 + extra).real
 
 def expected_zero_gap(t, T):
     t, T = mp.mpf(t), mp.mpf(T)
