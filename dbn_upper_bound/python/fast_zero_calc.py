@@ -1,9 +1,14 @@
-'''This example file shows how to quickly detect sign changes and find approximate roots for t>0 near large heights T
-It is inspired from the Gram's law and one of Terry's derivations which shows that for t>0 the zeros start getting more 
+"""
+This example file shows how to quickly detect sign changes
+and find approximate roots for t>0 near large heights T
+It is inspired from the Gram's law and one of Terry's
+derivations which shows that for t>0 the zeros start getting more
 regularly spaced
-Caution: Near smaller heights, it will miss many of the zeroes'''
-
-from mputility import Ht_AFE_ABC, expected_zero_gap, sign_change, append_data
+Caution: Near smaller heights, it will miss many of the zeroes
+"""
+import mpmath as mp
+from dbn_upper_bound.python.mputility import \
+    (Ht_AFE_ABC, expected_zero_gap, sign_change, append_data)
 
 mp.pretty = True
 mp.dps = 40
@@ -31,7 +36,7 @@ for i in range(1, 5000001):
         htroots.append([t, rootcount, approx_root, interval_min, interval_max, midpoint_estimate_flag])
         known_root = approx_root
     else: known_root += avggap
-    if rootcount%100 == 0: 
+    if rootcount % 100 == 0:
         append_data(Htrootfilename, htroots)
         htroots = []
 
