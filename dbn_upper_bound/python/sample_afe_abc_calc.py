@@ -8,7 +8,7 @@ will be stored in output/numbers folder
 import csv
 import os
 from mpmath import mp
-from mputility import Ht_AFE_ABC
+from dbn_upper_bound.python.mputility import Ht_AFE_ABC
 
 
 def get_file_path(fname):

@@ -6,7 +6,7 @@ from cmath import exp, log, cos, sqrt
 from scipy.integrate import quad
 from scipy.optimize import fsolve
 import scipy
-from constants import PI, PI_sq
+from dbn_upper_bound.python.constants import PI, PI_sq
 
 
 def Nt(t, T):
