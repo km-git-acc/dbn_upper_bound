@@ -53,10 +53,17 @@ def Ht_complex_integrand(u, z, t):
     return mp.exp(t*u*u) * phi_decay(u) * mp.cos(z*u)
 
 
-def Ht_complex(z,t):
-    #may work well only for small to medium values of z  
-    part = mp.quad(lambda u: Ht_complex_integrand(u,z,t), [0, 10])
+def Ht_complex(z, t):
+    """
+    Computes H_t using quadrature.
+    may work well only for small to medium values of z
+    :param z: point at which H_t is computed
+    :param t: the "time" parameter
+    :return: H_t(z, t)
+    """
+    part = mp.quad(lambda u: Ht_complex_integrand(u, z, t), [0, 10])
     return part
+
 
 def Ht_complex_root_finder(complex_guess,t):
     result = mp.findroot(lambda z: Ht_complex(z,t),mp.mpc(complex_guess))

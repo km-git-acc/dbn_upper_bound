@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from dbn_upper_bound.python.mputility \
-    import (Ht_AFE_A, Ht_AFE_B, Ht_AFE_C, Ht_AFE_B0)
+    import (Ht_AFE_A, Ht_AFE_B, Ht_AFE_C, Ht_AFE_B0, Ht_complex)
 
 
 mp.dps = 30
@@ -28,6 +28,7 @@ data = {}
 data['abc_b0'] = [[], [], []]
 data['ab_b0'] = [[], [], []]
 data['c_b0'] = [[], [], []]
+data['ht_ab_b0'] = [[], [], []]
 
 for xi in x:
     z = mp.mpc(xi, y)
@@ -38,6 +39,7 @@ for xi in x:
     abc_b0 = (a + b - c)/b0
     ab_b0 = (a + b) / b0
     c_b0 = c / b0
+    ht_ab_b0 = (Ht_complex(z, t) - a - b)/b0
 
     data['abc_b0'][0].append(abc_b0.real)
     data['abc_b0'][1].append(abc_b0.imag)
@@ -47,9 +49,9 @@ for xi in x:
     data['ab_b0'][1].append(ab_b0.imag)
     data['ab_b0'][2].append(mp.norm(ab_b0))
 
-    data['c_b0'][0].append(c_b0.real)
-    data['c_b0'][1].append(c_b0.imag)
-    data['c_b0'][2].append(mp.norm(c_b0))
+    data['ht_ab_b0'][0].append(ht_ab_b0.real)
+    data['ht_ab_b0'][1].append(ht_ab_b0.imag)
+    data['ht_ab_b0'][2].append(mp.norm(ht_ab_b0))
 
 fig = plt.subplots(2, 3)
 plt.subplot(231)
@@ -59,8 +61,11 @@ plt.subplot(232)
 plt.title(' (A + B)/B0 ')
 plt.plot(data['ab_b0'][0], data['ab_b0'][1], '-*r')
 plt.subplot(233)
-plt.title(' C/B0 ')
-plt.plot(data['c_b0'][0], data['c_b0'][1], '-*r')
+plt.title(' (H_t - A - B)/B0 ')
+plt.plot(data['ht_ab_b0'][0], data['ht_ab_b0'][1], '-*r')
+# plt.subplot(233)
+# plt.title(' C/B0 ')
+# plt.plot(data['c_b0'][0], data['c_b0'][1], '-*r')
 
 plt.subplot(234)
 plt.title(' |(A + B - C)/B0| ')
@@ -69,8 +74,11 @@ plt.subplot(235)
 plt.title(' |(A + B)/B0| ')
 plt.plot(data['ab_b0'][2], '-*r')
 plt.subplot(236)
-plt.title(' |C/B0| ')
-plt.plot(data['c_b0'][0], '-*r')
-
+plt.title(' |(H_t - A - B)/B0| ')
+plt.plot(data['ht_ab_b0'][2], '-*r')
+# plt.subplot(236)
+# plt.title(' |C/B0| ')
+# plt.plot(data['c_b0'][2], '-*r')
 
 plt.suptitle('x_min: ' + '%.0e'  % x_min + ', x_max: ' + '%.0e'  % x_max)
+
