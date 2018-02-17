@@ -8,15 +8,15 @@ Caution: Near smaller heights, it will miss many of the zeroes
 """
 from mpmath import mp
 from dbn_upper_bound.python.mputility import \
-    (Ht_AFE_ABC, expected_zero_gap, sign_change, append_data)
+    (Ht_AFE_ADJ_AB, expected_zero_gap, sign_change, append_data)
 
 mp.pretty = True
 mp.dps = 40
-t = 0.5
+t = 0.4
 Htrootfilename = "Htroots_"+str(t)+".csv"
 htroots = []
 rootcount = 0
-known_root = 515857.5795
+known_root = 684130
 midpoint_estimate_flag = 0
 for i in range(1, 5000001):
     avggap = expected_zero_gap(t, known_root)
