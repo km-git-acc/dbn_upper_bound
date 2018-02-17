@@ -315,6 +315,8 @@ def adjusted_AB_analysis(z,t):
     return (AplusB, B0, ABB0, abs(ABB0), ddxBB0, abs(ddxBB0)) 
 
 def Ht_AFE_ADJ_AB(z,t):
+    '''This uses the adjusted A'+B' estimate to compute H_t for moderate to large T, where the C term is small.
+    Also, there are some rearrangements to the A' and B' formulas to make them faster to compute''' 
     z,t = mp.mpc(z),mp.mpc(t)
     s = (1 + 1j*z.real - z.imag)/2
     tau = mp.sqrt(s.imag/(2*mp.pi()))
