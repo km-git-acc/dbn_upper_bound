@@ -347,6 +347,76 @@ def Ht_AFE_ADJ_AB(z,t):
     if z.imag==0: return H.real
     else: return H
 
+def alpha1(s):
+    return 1/(2*s) + 1/(s-1) + 0.5*mp.log(s/(2*mp.pi()))
+
+def H01(s):
+    return 0.5*s*(s-1)*mp.power(mp.pi(),-1*s/2)*mp.sqrt(2*mp.pi())*mp.exp((s/2-0.5)*mp.log(s/2)-s/2)
+
+def eps_err(s,t):
+    sigma = s.real
+    T = s.imag
+    N = int((mp.sqrt((T - t*mp.pi()/8)/(2*mp.pi()))).real)
+    alph = alpha1(s)
+    term1 = sigma + (t/2)*(alph.real) - (t/4)*mp.log(N)
+    term2 = (t*t/4)*(abs(alph)**2) + (1/3.0) + t
+    return 0.5*mp.zeta(term1)*mp.exp(term2/(2*(T-3.33)))*term2
+    
+def vwf_err(t,T):
+    #sigma=s.real
+    #T=s.imag
+    Tdash=T - 1j*mp.pi()*t/8
+    T0 = 10.0
+    T0dash = T0-mp.pi()*t/8
+    
+    def v(sigma,t):
+        a0 = mp.sqrt(T0dash/(2*mp.pi()))
+        return 1+0.4*mp.power(9,sigma)/a0 + 0.346*mp.power(2,3*sigma/2)/(a0**2)
+    def w(sigma,t):
+        wterm1=1+(sigma**2)/(T0dash**2)
+        wterm2=1+((1-sigma)**2)/(T0dash**2)
+        wterm3=(sigma-1)*mp.log(wterm1)/4 + ((T0dash/2.0)*mp.atan(sigma/T0dash) - sigma/2) + 1/(12.0*(Tdash-0.33))
+        return mp.sqrt(wterm1) * mp.sqrt(wterm2) * mp.exp(wterm3) 
+    def f(sigma,t):
+        fterm1=1/mp.sqrt(2*mp.pi()*t)
+        fterm2=exp((-1/t)*((sigma-sigma0)**2)) + exp((-1/t)*((1-sigma-sigma0)**2))
+        return fterm1*fterm2
+    return mp.quad(lambda sigma: v(sigma,t)*w(sigma,t)*f(sigma,t), [-10000,10000]) 
+
+def Ht_Effective(z,t):
+    z,t = mp.mpc(z),mp.mpc(t)
+    sigma = (1-z.imag)/2
+    T = (z.real)/2
+    s1 = sigma + 1j*T
+    s2 = 1-sigma + 1j*T
+    N = int((mp.sqrt((T - t*mp.pi()/8)/(2*mp.pi()))).real)
+    #N=int(mp.sqrt(s1.imag/(2*mp.pi())))
+    
+    alph1 = alpha1(s1)
+    alph2 = alpha1(s2).conjugate()
+    abs_alph1_sq = abs(alph1)**2
+    abs_alph2_sq = abs(alph2)**2
+    
+    A0 = mp.exp((t/4)*alph1*alph1)*H01(s1)
+    B0 = mp.exp((t/4)*alph2*alph2)*(H01(s2).conjugate())
+    A_sum = 0.0
+    B_sum = 0.0
+    for n in range(1,N+1):
+        A_sum += 1/mp.power(n,s1 + (t/2)*alph1 - (t/4)*mp.log(n))
+        B_sum += 1/mp.power(n,1-s1 + (t/2)*alph2 - (t/4)*mp.log(n))
+    A = A0*A_sum
+    B = B0*B_sum
+    
+    epserr = A0*eps_err(s1,t)/(T-3.33) + B0*eps_err(s2,t)/(T-3.33)
+    '''C0 = mp.sqrt(mp.pi())*mp.exp(-1*(t/64)*(mp.pi()**2))*mp.power(T-1j*mp.pi()*t/8,1.5)*mp.exp(mp.pi()*T/4)
+    C = C0*vwf_err(t,T) 
+    toterr = (epserr + C)/8.0'''
+    toterr=epserr/8.0
+    
+    H = (A + B)/8.0
+    if z.imag==0: return (H.real,toterr.real)
+    else: return (H,toterr)
+    
 '''End H_t approx functional eqn (Ht_AFE) block'''
 
 '''Miscellanous useful functions'''
