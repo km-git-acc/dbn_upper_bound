@@ -410,5 +410,5 @@ def sign_change(x, y):
     else: return 0
 
 def nonnegative(x):
-    if x>=0: return x
+    if x.real>=0: return x
     else: return 0.0
