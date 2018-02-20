@@ -383,8 +383,8 @@ def Ht_Effective(z,t):
     toterr = (epserr + C) / 8.0
     
     H = (A + B) / 8.0
-    if z.imag==0: return (H.real, toterr.real)
-    else: return (H, toterr)
+    if z.imag==0: return (H.real, C.real/H.real, toterr.real/H.real)
+    else: return (H, C/H, toterr/H)
 
 '''End H_t approx functional eqn (Ht_AFE) block'''
 
