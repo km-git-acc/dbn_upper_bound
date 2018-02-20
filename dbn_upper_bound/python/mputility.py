@@ -168,7 +168,7 @@ def Ht_AFE_A(z, t):
     tau = mp.sqrt(s.imag/(2 * mp.pi()))
     N = int(tau)
     
-    A_pre = (1/16) * s * (s-1) \
+    A_pre = (1/16.0) * s * (s-1) \
             * mp.power(mp.pi(), -1*s/2) * mp.gamma(s/2)
     A_sum = 0.0
     for n in range(1, N+1):
@@ -193,7 +193,7 @@ def Ht_AFE_B(z, t):
     tau = mp.sqrt(s.imag/(2*mp.pi()))
     M = int(tau)
     
-    B_pre = (1/16) * s * (s-1) * mp.power(mp.pi(), (s-1)/2) * mp.gamma((1-s)/2)
+    B_pre = (1/16.0) * s * (s-1) * mp.power(mp.pi(), (s-1)/2) * mp.gamma((1-s)/2)
     B_sum = 0.0
     for m in range(1, M+1):
         if t.real > 0:
@@ -258,7 +258,7 @@ def Ht_AFE_ADJ_AB(z,t):
     s_like2 = (5-s)/2
     log_sp1 = mp.log(s_like1/mp.pi())
     log_sp2 = mp.log(s_like2/mp.pi())
-    initial_term = (1/4) * mp.sqrt(2*mp.pi())
+    initial_term = 0.25 * mp.sqrt(2*mp.pi())
     A0 = initial_term * mp.power(mp.pi(),-1*s/2) * mp.exp((s_like1-0.5)*mp.log(s_like1) - s_like1 + (t/16)*mp.power(log_sp1,2))
     B0 = initial_term * mp.power(mp.pi(),(s-1)/2) * mp.exp((s_like2-0.5)*mp.log(s_like2) - s_like2 + (t/16)*mp.power(log_sp2,2))
     A_sum_exponent = s + (t/4) * log_sp1
