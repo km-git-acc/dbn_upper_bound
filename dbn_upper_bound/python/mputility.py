@@ -293,7 +293,7 @@ def eps_err(s,t):
     term2 = (t*t/4)*(abs(alph)**2) + (1/3.0) + t
     return 0.5*mp.zeta(term1)*mp.exp(term2/(2*(T-3.33)))*term2
 
-def vwf_err(s_orig,t,lim=mp.inf):    
+'''def vwf_err(s_orig,t,lim=mp.inf):    
     def v(sigma,s,t):
         T0 = s.imag
         T0dash = T0 - mp.pi()*t/8    
@@ -313,7 +313,45 @@ def vwf_err(s_orig,t,lim=mp.inf):
         fterm1 = 0.5/mp.sqrt(mp.pi()*t)
         fterm2 = mp.exp((-1/t)*((sigma-sigma0)**2)) + mp.exp((-1/t)*((1-sigma-sigma0)**2))
         return fterm1*fterm2
-    return mp.quad(lambda sigma: v(sigma,s_orig,t)*w(sigma,s_orig,t)*f(sigma,s_orig,t), [-1*lim,lim]) 
+    return mp.quad(lambda sigma: v(sigma,s_orig,t)*w(sigma,s_orig,t)*f(sigma,s_orig,t), [-1*lim,lim])''' 
+
+def vwf_err(s_orig, t, lim=5, h=0.05):    
+    def v(sigma, s, t):
+        T0 = s.imag
+        T0dash = T0 - mp.pi() * t / 8    
+        a0 = mp.sqrt(T0dash/(2*mp.pi()))
+        if(sigma >= 0):
+            return 1 + 0.4 * mp.power(9,sigma) / a0 + 0.346 * mp.power(2,3*sigma/2) / (a0**2)
+        if(sigma < 0):
+            K = mp.floor(-1*sigma) + 3
+            ksum = 0.0
+            for k in range(1,K+2): ksum += mp.power(1.1/a0,k) * mp.gamma(mp.mpf(k)/2)
+            return 1 + mp.power(0.9,mp.ceil(-1*sigma)) * ksum
+    def w(sigma, s, t):
+        T = s.imag
+        T0 = T
+        T0dash = T0 - mp.pi() * t / 8.0
+        Tdash = T - mp.pi() * t / 8.0
+        wterm1=1+(sigma**2)/(T0dash**2)
+        wterm2=1+((1-sigma)**2)/(T0dash**2)
+        wterm3 = (sigma-1) * mp.log(wterm1)/4.0 + nonnegative((T0dash/2.0) * mp.atan(sigma/T0dash) - sigma/2.0) + 1/(12.0*(Tdash-0.33))
+        return mp.sqrt(wterm1) * mp.sqrt(wterm2) * mp.exp(wterm3) 
+    def f(sigma, s, t):
+        sigma0 = s.real
+        fterm1 = 0.5/mp.sqrt(mp.pi()*t)
+        fterm2 = mp.exp((-1/t)*((sigma-sigma0)**2)) + mp.exp((-1/t)*((1-sigma-sigma0)**2))
+        return fterm1 * fterm2
+    lower_limit = -1.0*lim
+    higher_limit = 1.0*lim
+    integral_sum = 0.0
+    sigma = lower_limit
+    while(sigma <= higher_limit): 
+        sumterm = v(sigma,s_orig,t) * w(sigma,s_orig,t) * f(sigma,s_orig,t)
+        if((sigma == lower_limit) or (sigma == higher_limit)): sumterm /= 2
+        integral_sum += sumterm
+        sigma += h
+    integral_sum *= h
+    return integral_sum
 
 def Ht_Effective(z,t):
     z,t = mp.mpc(z),mp.mpc(t)
@@ -329,26 +367,25 @@ def Ht_Effective(z,t):
     abs_alph1_sq = abs(alph1)**2
     abs_alph2_sq = abs(alph2)**2
     
-    A0 = mp.exp((t/4)*alph1*alph1)*H01(s1)
-    B0 = mp.exp((t/4)*alph2*alph2)*(H01(s2).conjugate())
+    A0 = mp.exp((t/4)*alph1*alph1) * H01(s1)
+    B0 = mp.exp((t/4)*alph2*alph2) * (H01(s2).conjugate())
     A_sum = 0.0
     B_sum = 0.0
     for n in range(1,N+1):
         A_sum += 1/mp.power(n,s1 + (t/2)*alph1 - (t/4)*mp.log(n))
         B_sum += 1/mp.power(n,1-s1 + (t/2)*alph2 - (t/4)*mp.log(n))
-    A = A0*A_sum
-    B = B0*B_sum
+    A = A0 * A_sum
+    B = B0 * B_sum
     
-    epserr = A0*eps_err(s1,t)/(T-3.33) + B0*eps_err(s2,t)/(T-3.33)
-    C0 = mp.sqrt(mp.pi())*mp.exp(-1*(t/64)*(mp.pi()**2))*mp.power(T-1j*mp.pi()*t/8,1.5)*mp.exp(-1*mp.pi()*T/4)
-    C = C0*vwf_err(s1,t) 
-    toterr = (epserr + C)/8.0
-    #toterr=epserr/8.0
+    epserr = A0 * eps_err(s1,t)/(T-3.33) + B0 * eps_err(s2,t)/(T-3.33)
+    C0 = mp.sqrt(mp.pi()) * mp.exp(-1*(t/64)*(mp.pi()**2)) * mp.power(T-mp.pi()*t/8,1.5) * mp.exp(-1*mp.pi()*T/4)
+    C = C0 * vwf_err(s1,t) 
+    toterr = (epserr + C) / 8.0
     
-    H = (A + B)/8.0
-    if z.imag==0: return (H.real,toterr.real)
-    else: return (H,toterr)
-    
+    H = (A + B) / 8.0
+    if z.imag==0: return (H.real, toterr.real)
+    else: return (H, toterr)
+
 '''End H_t approx functional eqn (Ht_AFE) block'''
 
 '''Miscellanous useful functions'''
@@ -371,3 +408,7 @@ def append_data(filename, rows):
 def sign_change(x, y):
     if x*y < 0: return 1
     else: return 0
+
+def nonnegative(x):
+    if x>=0: return x
+    else: return 0.0
