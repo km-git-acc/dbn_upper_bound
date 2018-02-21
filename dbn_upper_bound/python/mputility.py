@@ -279,10 +279,10 @@ def Ht_AFE_ADJ_AB(z,t):
     else: return H
 
 def alpha1(s):
-    return 1/(2*s) + 1/(s-1) + 0.5*mp.log(s/(2*mp.pi()))
+    return 0.5/s + 1/(s-1) + 0.5*mp.log(s/(2*mp.pi()))
 
 def H01(s):
-    return 0.5*s*(s-1)*mp.power(mp.pi(),-1*s/2)*mp.sqrt(2*mp.pi())*mp.exp((s/2-0.5)*mp.log(s/2)-s/2)
+    return 0.5*s*(s-1)*mp.power(mp.pi(),-0.5*s)*mp.sqrt(2*mp.pi())*mp.exp((0.5*s-0.5)*mp.log(0.5*s)-0.5*s)
 
 def eps_err(s,t):
     sigma = s.real
@@ -290,35 +290,19 @@ def eps_err(s,t):
     N = int((mp.sqrt((T - t*mp.pi()/8)/(2*mp.pi()))).real)
     alph = alpha1(s)
     term1 = sigma + (t/2)*(alph.real) - (t/4)*mp.log(N)
+    neg_term1 = -1*term1
     term2 = (t*t/4)*(abs(alph)**2) + (1/3.0) + t
-    return 0.5*mp.zeta(term1)*mp.exp(term2/(2*(T-3.33)))*term2
-
-'''def vwf_err(s_orig,t,lim=mp.inf):    
-    def v(sigma,s,t):
-        T0 = s.imag
-        T0dash = T0 - mp.pi()*t/8    
-        a0 = mp.sqrt(T0dash/(2*mp.pi()))
-        return 1+0.4*mp.power(9,sigma)/a0 + 0.346*mp.power(2,3*sigma/2)/(a0**2)
-    def w(sigma,s,t):
-        T0 = s.imag
-        T0dash = T0 - mp.pi()*t/8
-        T = s.imag
-        Tdash = T - 1j*mp.pi()*t/8
-        wterm1=1+(sigma**2)/(T0dash**2)
-        wterm2=1+((1-sigma)**2)/(T0dash**2)
-        wterm3=(sigma-1)*mp.log(wterm1)/4 + ((T0dash/2.0)*mp.atan(sigma/T0dash) - sigma/2) + 1/(12.0*(Tdash-0.33))
-        return mp.sqrt(wterm1) * mp.sqrt(wterm2) * mp.exp(wterm3) 
-    def f(sigma,s,t):
-        sigma0=s.real
-        fterm1 = 0.5/mp.sqrt(mp.pi()*t)
-        fterm2 = mp.exp((-1/t)*((sigma-sigma0)**2)) + mp.exp((-1/t)*((1-sigma-sigma0)**2))
-        return fterm1*fterm2
-    return mp.quad(lambda sigma: v(sigma,s_orig,t)*w(sigma,s_orig,t)*f(sigma,s_orig,t), [-1*lim,lim])''' 
-
-def vwf_err(s_orig, t, lim=5, h=0.05):    
+    if term1.real > 1:
+        zsum = mp.zeta(term1)
+    else:
+        zsum = 0.0
+        for n in range(1,N+1): zsum += mp.power(n,neg_term1)
+    return 0.5*zsum*mp.exp(term2/(2*(T-3.33)))*term2
+        
+def vwf_err(s_orig, t, lim=10, h=0.05):    
     def v(sigma, s, t):
         T0 = s.imag
-        T0dash = T0 - mp.pi() * t / 8    
+        T0dash = T0 - mp.pi() * t / 8.0    
         a0 = mp.sqrt(T0dash/(2*mp.pi()))
         if(sigma >= 0):
             return 1 + 0.4 * mp.power(9,sigma) / a0 + 0.346 * mp.power(2,3*sigma/2) / (a0**2)
@@ -357,9 +341,10 @@ def Ht_Effective(z,t):
     z,t = mp.mpc(z),mp.mpc(t)
     sigma = (1-z.imag)/2
     T = (z.real)/2
+    Tdash = T - t*mp.pi()/8.0
     s1 = sigma + 1j*T
     s2 = 1-sigma + 1j*T
-    N = int((mp.sqrt((T - t*mp.pi()/8)/(2*mp.pi()))).real)
+    N = int((mp.sqrt(Tdash/(2*mp.pi()))).real)
     #N=int(mp.sqrt(s1.imag/(2*mp.pi())))
     
     alph1 = alpha1(s1)
@@ -377,15 +362,15 @@ def Ht_Effective(z,t):
     A = A0 * A_sum
     B = B0 * B_sum
     
-    epserr = abs(A0 * eps_err(s1,t)/(T-3.33) + B0 * eps_err(s2,t)/(T-3.33)) / 8.0
-    C0 = mp.sqrt(mp.pi()) * mp.exp(-1*(t/64)*(mp.pi()**2)) * mp.power(T-mp.pi()*t/8,1.5) * mp.exp(-1*mp.pi()*T/4)
+    epserr = (abs(A0 * eps_err(s1,t)/(T-3.33)) + abs(B0 * eps_err(s2,t)/(T-3.33))) / 8.0
+    C0 = mp.sqrt(mp.pi()) * mp.exp(-1*(t/64)*(mp.pi()**2)) * mp.power(Tdash,1.5) * mp.exp(-1*mp.pi()*T/4)
     C = C0 * vwf_err(s1,t) / 8.0 
     #print (C0,vwf_err(s1,t),C)
     toterr = epserr + C
     
     H = (A + B) / 8.0
     if z.imag==0: return (H.real, toterr.real/H.real)
-    else: return (H, abs(toterr/H))
+    else: return (H, toterr.real/abs(H))
 
 '''End H_t approx functional eqn (Ht_AFE) block'''
 
