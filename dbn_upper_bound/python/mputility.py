@@ -299,7 +299,7 @@ def eps_err(s,t):
         for n in range(1,N+1): zsum += mp.power(n,neg_term1)
     return 0.5*zsum*mp.exp(term2/(2*(T-3.33)))*term2
         
-def vwf_err(s_orig, t, lim=10, h=0.05):    
+def vwf_err(s_orig, t, lim=10, h=0.01):    
     def v(sigma, s, t):
         T0 = s.imag
         T0dash = T0 - mp.pi() * t / 8.0    
