@@ -377,14 +377,15 @@ def Ht_Effective(z,t):
     A = A0 * A_sum
     B = B0 * B_sum
     
-    epserr = A0 * eps_err(s1,t)/(T-3.33) + B0 * eps_err(s2,t)/(T-3.33)
+    epserr = abs(A0 * eps_err(s1,t)/(T-3.33) + B0 * eps_err(s2,t)/(T-3.33)) / 8.0
     C0 = mp.sqrt(mp.pi()) * mp.exp(-1*(t/64)*(mp.pi()**2)) * mp.power(T-mp.pi()*t/8,1.5) * mp.exp(-1*mp.pi()*T/4)
-    C = C0 * vwf_err(s1,t) 
-    toterr = (epserr + C) / 8.0
+    C = C0 * vwf_err(s1,t) / 8.0 
+    #print (C0,vwf_err(s1,t),C)
+    toterr = epserr + C
     
     H = (A + B) / 8.0
-    if z.imag==0: return (H.real, C.real/H.real, toterr.real/H.real)
-    else: return (H, C/H, toterr/H)
+    if z.imag==0: return (H.real, toterr.real/H.real)
+    else: return (H, abs(toterr/H))
 
 '''End H_t approx functional eqn (Ht_AFE) block'''
 
