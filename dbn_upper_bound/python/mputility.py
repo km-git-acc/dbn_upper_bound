@@ -91,7 +91,7 @@ def RSZ_upto_c0(x):
     p = tau - N
     running_sum = 0
     for n in range(1, N+1):
-        running_sum =0#+= mp.cos(RStheta(x) - x * mp.log(n)) / mp.sqrt(n)
+        running_sum += mp.cos(RStheta(x)-(x * mp.log(n))) / mp.sqrt(n)
     return (2 * running_sum + mp.power(-1, N-1) * mp.power(tau, -0.5) * c0(p)).real
 
 def RSZ_upto_c1(x):
@@ -101,7 +101,7 @@ def RSZ_upto_c1(x):
     p = tau - N
     running_sum = 0
     for n in range(1, N+1):
-        running_sum += mp.cos(RStheta(x)-x*mp.log(n)) / mp.sqrt(n)
+        running_sum += mp.cos(RStheta(x)-(x*mp.log(n))) / mp.sqrt(n)
     return (2 * running_sum + mp.power(-1, N-1) * mp.power(tau, -0.5) * (c0(p) - (1/tau) * c1(p))).real
 
 '''End Riemann Siegel Z block'''
