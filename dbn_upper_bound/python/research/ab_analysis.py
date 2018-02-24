@@ -77,6 +77,9 @@ def adjusted_AB_analysis(z, t):
     ABB0 = AplusB / B0
     return (AplusB, B0, ABB0, abs(ABB0), ddxBB0, abs(ddxBB0))
 
+def deltaN(n,N):
+    if n<=N: return 1.0
+    else: return 0.0
 
 def divdelta(n,div):
     if n%div==0: return 1.0
