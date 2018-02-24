@@ -308,7 +308,8 @@ def eps_err(s, t):
         for n in range(1, N+1): zsum += mp.power(n, neg_term1)
     return 0.5 * zsum * mp.exp(term2/(2 * (T - 3.33))) * term2
         
-def vwf_err(s_orig, t, lim=10, h=0.01):    
+def vwf_err_old(s_orig, t, lim=10, h=0.01):
+    '''This is the older vwf function in which v, w and f are independent and simpler to understand'''
     def v(sigma, s, t):
         T0 = s.imag
         T0dash = T0 - mp.pi() * t / 8.0    
@@ -346,6 +347,41 @@ def vwf_err(s_orig, t, lim=10, h=0.01):
     integral_sum *= h
     return integral_sum
 
+def vwf_err(s_orig, t, lim=10, h=0.01):
+    '''This is the new optimized vwf function where v,w,f are passed only the relevant parameters'''
+    def v(sigma, t, a0, ksumcache):
+        if(sigma >= 0):
+            return 1 + 0.4 * mp.power(9, sigma) / a0 + 0.346 * mp.power(2, 3*sigma/2.0) / (a0**2)
+        if(sigma < 0):
+            K = int(mp.floor(-1*sigma) + 3)
+            return 1 + mp.power(0.9, mp.ceil(-1 * sigma)) * ksumcache[K]
+    def w(sigma, t, T0dash):
+        wterm1=1+(sigma**2)/(T0dash**2)
+        wterm2=1+((1-sigma)**2)/(T0dash**2)
+        wterm3 = (sigma-1) * mp.log(wterm1)/4.0 + nonnegative((T0dash/2.0) * mp.atan(sigma/T0dash) - sigma/2.0) + 1/(12.0*(T0dash-0.33))
+        return mp.sqrt(wterm1) * mp.sqrt(wterm2) * mp.exp(wterm3) 
+    def f(sigma, t, sigma0):
+        fterm1 = 0.5/mp.sqrt(mp.pi()*t)
+        fterm2 = mp.exp((-1/t) * ((sigma-sigma0)**2)) + mp.exp((-1/t) * ((1-sigma-sigma0)**2))
+        return fterm1 * fterm2
+    sigma0 = s_orig.real
+    T = s_orig.imag
+    T0 = T
+    T0dash = T0 - mp.pi()*t/8.0    
+    a0 = mp.sqrt(T0dash/(2*mp.pi()))
+    ktermcache = [mp.power(1.1/a0, k) * mp.gamma(mp.mpf(k)/2.0) for k in range(1,lim+5)]
+    ksumcache = list(accumulate(ktermcache))
+    lower_limit, higher_limit = -1.0*lim, 1.0*lim
+    integral_sum = 0.0
+    sigma = lower_limit
+    while(sigma <= higher_limit): 
+        sumterm = v(sigma, t, a0, ksumcache) * w(sigma, t, T0dash) * f(sigma, t, sigma0)
+        if((sigma == lower_limit) or (sigma == higher_limit)): sumterm /= 2
+        integral_sum += sumterm
+        sigma += h
+    integral_sum *= h
+    return integral_sum
+
 def Ht_Effective(z, t):
     """
     This uses the effective approximation of H_t from Terry's blog
@@ -360,15 +396,17 @@ def Ht_Effective(z, t):
     s1 = sigma + 1j*T
     s2 = 1-sigma + 1j*T
     N = int((mp.sqrt(Tdash/(2*mp.pi()))).real)
-    #N=int(mp.sqrt(s1.imag/(2*mp.pi())))
     
     alph1 = alpha1(s1)
     alph2 = alpha1(s2).conjugate()
-    abs_alph1_sq = abs(alph1)**2
-    abs_alph2_sq = abs(alph2)**2
+    A0_expo = (t/4.0)*alph1*alph1
+    B0_expo = (t/4.0)*alph2*alph2
+    H01_est1 = H01(s1)
+    H01_est2 = H01(s2).conjugate()
     
-    A0 = mp.exp((t/4.0)*alph1*alph1) * H01(s1)
-    B0 = mp.exp((t/4.0)*alph2*alph2) * (H01(s2).conjugate())
+    #begin main estimate block
+    A0 = mp.exp(A0_expo) * H01_est1
+    B0 = mp.exp(B0_expo) * H01_est2
     A_sum = 0.0
     B_sum = 0.0
     for n in range(1, N+1):
@@ -376,15 +414,23 @@ def Ht_Effective(z, t):
         B_sum += 1/mp.power(n, 1-s1 + (t/2.0) * alph2 - (t/4.0) * mp.log(n))
     A = A0 * A_sum
     B = B0 * B_sum
-    
-    epserr = (abs(A0 * eps_err(s1, t)/(T - 3.33)) + abs(B0 * eps_err(s2, t)/(T - 3.33))) / 8.0
-    C0 = mp.sqrt(mp.pi()) * mp.exp(-1*(t/64.0)*(mp.pi()**2)) * mp.power(Tdash, 1.5) * mp.exp(-1 * mp.pi() * T/4.0)
-    C = C0 * vwf_err(s1, t) / 8.0 
-    #print (C0, vwf_err(s1, t), C)
-    toterr = epserr + C
-    
     H = (A + B) / 8.0
-    if z.imag==0: return (H.real, toterr.real/H.real)
+    #end main estimate block
+    
+    #begin error block
+    A0_err_expo = (t/4.0)*(abs(alph1)**2)  #A0_expo.real may also work
+    B0_err_expo = (t/4.0)*(abs(alph2)**2)  #B0_expo.real may also work
+    epserr_1 = mp.exp(A0_err_expo)*abs(H01_est1)*abs(eps_err(s1, t))/((T - 3.33)*8.0)
+    epserr_2 = mp.exp(B0_err_expo)*abs(H01_est2)*abs(eps_err(s2, t))/((T - 3.33)*8.0)
+    epserr = epserr_1 + epserr_2
+    
+    C0 = mp.sqrt(mp.pi()) * mp.exp(-1*(t/64.0)*(mp.pi()**2)) * mp.power(Tdash, 1.5) * mp.exp(-1 * mp.pi() * T/4.0)
+    C = C0 * vwf_err(s1, t) / 8.0
+    toterr = epserr + C
+    #print(epserr_1, epserr_2, C0, vwf_err(s1, t), C, toterr.real)
+    #end error block
+    
+    if z.imag==0: return (H.real, toterr.real/abs(H.real))
     else: return (H, toterr.real/abs(H))
 
 '''End H_t effective approximation block'''
