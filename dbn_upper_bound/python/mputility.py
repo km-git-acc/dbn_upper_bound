@@ -16,6 +16,7 @@ The new functions (not present in utility.py) are
 """
 
 import csv
+from itertools import accumulate
 from mpmath import mp
 
 mp.dps = 30
