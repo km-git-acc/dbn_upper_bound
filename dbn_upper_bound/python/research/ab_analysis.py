@@ -1,9 +1,15 @@
 """
 Details about the module goes here
 """
+import csv
 from mpmath import mp
 
 mp.dps = 30
+
+def append_data(filename, rows):
+    with open(filename, 'a') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        writer.writerows(rows)
 
 
 def AB_analysis(z, t):
@@ -141,4 +147,88 @@ mltp = [0.5,0.8,1,1.5,2.5,3,3.5,4]
 xvals = [m*(10**6) for m in mltp]
 for x in xvals:
     print([x]+xmultibound(x))'''
+
+def condcache(N):
+ pow2, pow3, pow5, pow6, pow10, pow15, pow30 = [mp.power(j,0.4) for j in [2,3,5,6,10,15,30]] 
+ expo2, expo3, expo5 = 0.2*mp.log(2), 0.2*mp.log(3), 0.2*mp.log(5)
+ expo6, expo10, expo15, expo30 =  expo2+expo3, expo2+expo5, expo3+expo5, expo2+expo3+expo5
+ exp23, exp25, exp35 = mp.exp(0.2*mp.log(2)*mp.log(3)), mp.exp(0.2*mp.log(2)*mp.log(5)), mp.exp(0.2*mp.log(3)*mp.log(5))
+ exp235 = exp23*exp25*exp35
+ condc=[]
+ for n in range(0,30*N+1):
+     try:   
+        L1 = deltaN(n,N)
+        L2 = deltaN(n,2*N)*divdelta(n,2);   
+        if L2>0: L2 /= mp.power((n/2.0),expo2)
+        L3 = deltaN(n,3*N)*divdelta(n,3)
+        if L3>0 : L3 /= mp.power((n/3.0),expo3)
+        L5 = deltaN(n,5*N)*divdelta(n,5)
+        if L5>0 : L5 /= mp.power((n/5.0),expo5)
+        L6 = deltaN(n,6*N)*divdelta(n,6)
+        if L6>0 : L6 /= (mp.power((n/6.0),expo6)*exp23) 
+        L10 = deltaN(n,10*N)*divdelta(n,10)
+        if L10>0 : L10 /= (mp.power((n/10.0),expo10)*exp25)
+        L15 = deltaN(n,15*N)*divdelta(n,15)
+        if L15>0 : L15 /= (mp.power((n/15.0),expo15)*exp35)
+        L30 = deltaN(n,30*N)*divdelta(n,30)
+        if L30>0 : L30 /= (mp.power((n/30.0),expo30)*exp235)
+        R1 = L1
+        R2 = L2/pow2
+        R3 = L3/pow3
+        R5 = L5/pow5
+        R6 = L6/pow6 
+        R10 = L10/pow10
+        R15 = L15/pow15
+        R30 = L30/pow30 
+        condc.append([0.0, L1, R1, L1-L2, R1-R2, L1-L2-L3+L6, R1-R2-R3+R6, L1-L2-L3-L5+L6+L10+L15-L30, R1-R2-R3-R5+R6+R10+R15-R30])
+     except:  condc.append([0.0 for _ in range(9)])
+ return condc
+
+def abtoybound(N,y,t,cond):
+    sigma1, sigma2 = 0.5*(1+y), 0.5*(1-y)
+    sum1_L, sum1_R, sum12_L, sum12_R, sum123_L, sum123_R, sum1235_L, sum1235_R = [0.0 for _ in range(8)]
+    ddxsum1_L, ddxsum1_R, ddxsum12_L, ddxsum12_R, ddxsum123_L, ddxsum123_R, ddxsum1235_L, ddxsum1235_R = [0.0 for _ in range(8)]
+    factorN = 1/mp.power(N,0.4)
+    for n in range(1,30*N+1):
+        nf=float(n)
+        denom1 = mp.power(nf,sigma1+(t/4.0)*mp.log(N*N/nf))
+        denom2 = mp.power(nf,sigma2+(t/4.0)*mp.log(N*N/nf))        
+        term1_L = abs(cond[n][1]/denom1); term1_R = abs(cond[n][2]/denom2); sum1_L+=term1_L; sum1_R+=term1_R; ddxsum1_L+=mp.log(n)*term1_L; ddxsum1_R+=mp.log(n)*term1_R
+        term12_L = abs(cond[n][3]/denom1); term12_R = abs(cond[n][4]/denom2); sum12_L+=term12_L; sum12_R+=term12_R; ddxsum12_L+=mp.log(n)*term12_L; ddxsum12_R+=mp.log(n)*term12_R
+        term123_L = abs(cond[n][5]/denom1); term123_R = abs(cond[n][6]/denom2); sum123_L+=term123_L; sum123_R+=term123_R; ddxsum123_L+=mp.log(n)*term123_L; ddxsum123_R+=mp.log(n)*term123_R
+        term1235_L = abs(cond[n][7]/denom1); term1235_R = abs(cond[n][8]/denom2); sum1235_L+=term1235_L; sum1235_R+=term1235_R; ddxsum1235_L+=mp.log(n)*term1235_L; ddxsum1235_R+=mp.log(n)*term1235_R
+    sum1_L, sum12_L, sum123_L, sum1235_L = sum1_L - 1, sum12_L - 1, sum123_L - 1, sum1235_L - 1
+    sum1_R, sum12_R, sum123_R, sum1235_R = sum1_R*factorN, sum12_R*factorN, sum123_R*factorN, sum1235_R*factorN
+    ddxsum1_L, ddxsum12_L, ddxsum123_L, ddxsum1235_L = 0.5*ddxsum1_L, 0.5*ddxsum12_L, 0.5*ddxsum123_L, 0.5*ddxsum1235_L
+    ddxsum1_R, ddxsum12_R, ddxsum123_R, ddxsum1235_R = 0.5*ddxsum1_R*factorN, 0.5*ddxsum12_R*factorN, 0.5*ddxsum123_R*factorN, 0.5*ddxsum1235_R*factorN
+    
+    abdiff1, ddxsum1       = 1 - sum1_L    - sum1_R,    ddxsum1_L    + ddxsum1_R
+    abdiff12, ddxsum12     = 1 - sum12_L   - sum12_R,   ddxsum12_L   + ddxsum12_R
+    abdiff123, ddxsum123   = 1 - sum123_L  - sum123_R,  ddxsum123_L  + ddxsum123_R
+    abdiff1235, ddxsum1235 = 1 - sum1235_L - sum1235_R, ddxsum1235_L + ddxsum1235_R
+    return [sum1_L,sum1_R,abdiff1,ddxsum1_L,ddxsum1_R,ddxsum1,sum12_L,sum12_R,abdiff12,ddxsum12_L,ddxsum12_R,ddxsum12,sum123_L,sum123_R,abdiff123,ddxsum123_L,ddxsum123_R,ddxsum123,sum1235_L,sum1235_R,abdiff1235,ddxsum1235_L,ddxsum1235_R,ddxsum1235]
+
+import time
+s=time.time()
+mp.pretty=True
+y=0.4
+t=0.4
+Nrange = range(1,2001)
+Nrows = []
+abtoydata="abtoy_data.csv"
+c = condcache(N)
+for N in Nrange:
+    c = condcache(N)
+    x_lower,x_upper = mp.ceil(4*mp.pi()*N**2), mp.floor(4*mp.pi()*(N+1)**2)
+    Nth_row = [t,y,x_lower,x_upper,N]+abtoybound(N,y,t,c)
+    Nrows.append(Nth_row)
+    print(Nth_row)
+    if N % 10 == 0: append_data(abtoydata, Nrows); Nrows = []
+
+append_data(abtoydata, Nrows)
+
+e=time.time()
+e-s
+
+
 
