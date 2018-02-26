@@ -296,3 +296,43 @@ while z.real < xend:
 append_data(abtoyx_data, evaldata); print(z.real); evaldata = []
 '''
 
+from itertools import chain, combinations
+from operator import mul
+from functools import reduce
+
+def findsubsets(S,m):
+    return set(combinations(S, m))
+
+def powerset(iterable):
+    xs = list(iterable)
+    return list(chain.from_iterable(combinations(xs,n) for n in range(len(xs)+1)))
+
+def abtoy_generalbound(N,numfactors=1):
+    pset = [2,3,5,7,11,13,17,19,23]
+    pset = pset[:numfactors]
+    pprod = reduce(mul, pset)
+    ppset = powerset(pset)[1:]
+    L_sum, R_sum = 0.0, 0.0
+    factorN = 1/mp.power(N,0.4)
+    for n in range(1,pprod*N + 1):
+      lcond = deltaN(n,N)
+      rcond = deltaN(n,N)
+      for comb in ppset:
+            combprod = reduce(mul, comb)
+            if len(comb)>1:
+                subcomb = findsubsets(comb,2)
+                subcombprods = [mp.log(i[0])*mp.log(i[1]) for i in subcomb]
+                sumexpcombprod = mp.exp(0.2*sum(subcombprods))
+                denom2 = mp.power(n/float(combprod),0.2*mp.log(combprod))*sumexpcombprod 
+            else: denom2 = mp.power(n/float(combprod),0.2*mp.log(combprod))
+            lterm = ((-1)**len(comb))*deltaN(n,combprod*N)*divdelta(n,combprod)/denom2
+            rterm = lterm/mp.power(combprod,0.4)
+            lcond += lterm
+            rcond += rterm 
+      L_sum += abs(lcond)/mp.power(n,0.7+0.1*mp.log(N*N/n))
+      R_sum += abs(rcond)/mp.power(n,0.3+0.1*mp.log(N*N/n))
+    L_sum = L_sum - 1
+    R_sum = R_sum*factorN
+    print(N, pset, L_sum, R_sum, 1-L_sum-R_sum) 
+
+#abtoy_generalbound(282,4)
