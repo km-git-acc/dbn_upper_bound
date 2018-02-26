@@ -208,19 +208,37 @@ def abtoybound(N,y,t,cond):
     abdiff1235, ddxsum1235 = 1 - sum1235_L - sum1235_R, ddxsum1235_L + ddxsum1235_R
     return [sum1_L,sum1_R,abdiff1,ddxsum1_L,ddxsum1_R,ddxsum1,sum12_L,sum12_R,abdiff12,ddxsum12_L,ddxsum12_R,ddxsum12,sum123_L,sum123_R,abdiff123,ddxsum123_L,ddxsum123_R,ddxsum123,sum1235_L,sum1235_R,abdiff1235,ddxsum1235_L,ddxsum1235_R,ddxsum1235]
 
-import time
+def abtoy_sharperbound(N,y,t,cond):
+    sigma1 = 0.5*(1+y)
+    sum1, sum2, sum3, sum5 = [0.0 for _ in range(4)]
+    b1 = 1
+    a1 = mp.power(N,-0.4)
+    for n in range(2,30*N+1):
+        nf=float(n)
+        denom = mp.power(nf,sigma1+(t/4.0)*mp.log(N*N))
+        bn = mp.exp((t/4.0)*mp.power(mp.log(nf),2))*abs(cond[n][1])
+        an = mp.power(nf/N,0.4)*bn        
+        bn2, bn3, bn5 = bn*abs(cond[n][3]), bn*abs(cond[n][5]), bn*abs(cond[n][7])
+        an2, an3, an5 = an*abs(cond[n][4]), an*abs(cond[n][6]), an*abs(cond[n][8])
+        sum1 += max(abs(bn+an)/(1+a1), abs(bn-an)/(1-a1))/denom
+        sum2 += max(abs(bn2+an2)/(1+a1), abs(bn2-an2)/(1-a1))/denom
+        sum3 += max(abs(bn3+an3)/(1+a1), abs(bn3-an3)/(1-a1))/denom
+        sum5 += max(abs(bn5+an5)/(1+a1), abs(bn5-an5)/(1-a1))/denom
+    return [sum1,sum2,sum3,sum5]
+
+'''import time
 s=time.time()
 mp.pretty=True
 y=0.4
 t=0.4
 Nrange = range(1,2001)
 Nrows = []
-abtoydata="abtoy_data.csv"
+abtoydata="abtoy_sharperbound_data.csv"
 c = condcache(N)
 for N in Nrange:
     c = condcache(N)
     x_lower,x_upper = mp.ceil(4*mp.pi()*N**2), mp.floor(4*mp.pi()*(N+1)**2)
-    Nth_row = [t,y,x_lower,x_upper,N]+abtoybound(N,y,t,c)
+    Nth_row = [t,y,x_lower,x_upper,N]+abtoy_sharperbound(N,y,t,c)
     Nrows.append(Nth_row)
     print(Nth_row)
     if N % 10 == 0: append_data(abtoydata, Nrows); Nrows = []
@@ -228,7 +246,53 @@ for N in Nrange:
 append_data(abtoydata, Nrows)
 
 e=time.time()
-e-s
+e-s'''
+
+def abtoyx_e3(z,t):
+    x=z.real
+    xdash = x + mp.pi()*t/4.0
+    y=z.imag
+    sigma1, sigma2 = 0.5*(1+y), 0.5*(1-y)
+    s1, s2 = sigma1 + 0.5j*xdash, sigma2 + 0.5j*xdash
+    N=int(mp.sqrt(0.25*x/mp.pi()))
+    sum1_L, sum1_R = 0.0, 0.0
+    factor2 = 1 - 1/mp.power(2.0,s1+(t/4.0)*mp.log(N*N/2.0))
+    factor3 = 1 - 1/mp.power(3.0,s1+(t/4.0)*mp.log(N*N/2.0))
+    factorN = mp.power(N,-0.4)
+    for n in range(1,N+1):
+        n=float(n)
+        sum1_L+=mp.power(n,-1*s1-(t/4.0)*mp.log(N*N/n)) 
+        sum1_R+=mp.power(n,-1*s2-(t/4.0)*mp.log(N*N/n))
+    sum1_R = sum1_R*factorN
+    sum12_L, sum12_R = sum1_L*factor2, sum1_R*factor2
+    sum123_L, sum123_R = sum12_L*factor3, sum12_R*factor3
+    absum1_L, absum1_R, absum12_L, absum12_R, absum123_L, absum123_R = abs(sum1_L), abs(sum1_R), abs(sum12_L), abs(sum12_R), abs(sum123_L), abs(sum123_R) 
+    abdiff1, abdiff12, abdiff123 = absum1_L - absum1_R, absum12_L - absum12_R, absum123_L - absum123_R
+    return [sum1_L, sum1_R, absum1_L, absum1_R, abdiff1, sum12_L, sum12_R, absum12_L, absum12_R, abdiff12, sum123_L, sum123_R, absum123_L, absum123_R, abdiff123]
 
 
+'''import time
+s=time.time()
+mp.pretty=True
+y=0.4
+t=0.4
+xstart = 10**4
+xend = xstart+15000
+zstart = xstart + 1j*y
+mesh_size = 0.05
+z=zstart
+abtoyx_data="abtoy_x_eval_10k_to_25k_mesh_size_0.05.csv"
+evaldata=[]
+i=0
+while z.real < xend: 
+    N = int(mp.sqrt(0.25*z.real/mp.pi()))
+    zrow = [t,y,z.real,N]+abtoyx_e3(z,t)
+    evaldata.append(zrow)
+    #print(zrow)
+    if i % 2000 == 0: append_data(abtoyx_data, evaldata); print(z.real); evaldata = []
+    z += mesh_size
+    i += 1
+
+append_data(abtoyx_data, evaldata); print(z.real); evaldata = []
+'''
 
