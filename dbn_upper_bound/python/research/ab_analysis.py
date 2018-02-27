@@ -374,3 +374,53 @@ def abtoy_general_sharperbound(N,numfactors=1):
 N=220;numf=2
 abtoy_general_sharperbound(N,numf), abtoy_general_sharperbound(N-1,numf)
 '''
+
+def bn(n):
+    nf=mp.mpf(n)
+    return mp.exp(0.1*(mp.log(nf)**2))
+
+def an(n,N):
+    nf=mp.mpf(n)
+    return bn(n)*mp.power(nf/N,0.4)
+
+def lcoeff(d):
+    '''Lambda coefficient can be modified for each divisor according to the desired mollifier'''
+    if d==1: return 1.0
+    elif d==2: return -1*bn(2)
+    elif d==3: return -1*bn(3)
+    #elif d==6: return bn(2)*bn(3)
+    elif d>3: return 0.0
+
+
+def abtoy_custom_mollifier(N,D,divisors):
+    sharpsum = 0.0
+    a1 = mp.power(N,-0.4)
+    divisors = [float(i) for i in divisors]
+    for n in range(2,D*N + 1):
+      bnp, anp = 0.0, 0.0
+      nf=float(n)
+      denom = mp.power(nf,0.7+0.1*mp.log(N*N))
+      for d in divisors:
+          common = deltaN(n,d*N)*divdelta(n,d)*lcoeff(d) 
+          bnp += common*bn(nf/d)
+          anp += common*an(nf/d,N)
+      sharpsum += max(abs(bnp+anp)/(1+a1), abs(bnp-anp)/(1-a1))/denom
+    return [N, sharpsum]
+
+
+'''
+lambda coefficients function lcoeff should be modified according to the desired mollifier
+'''
+
+'''N=341;D=2;divisors=[1,2]
+abtoy_custom_mollifier(N,D,divisors), abtoy_custom_mollifier(N-1,D,divisors)
+
+N=213;D=3;divisors=[1,2,3]
+abtoy_custom_mollifier(N,D,divisors), abtoy_custom_mollifier(N-1,D,divisors)
+
+N=235;D=3;divisors=[1,2,3]
+abtoy_custom_mollifier(N,D,divisors), abtoy_custom_mollifier(N-1,D,divisors)
+
+N=220;D=6;divisors=[1,2,3,6]
+abtoy_custom_mollifier(N,D,divisors), abtoy_custom_mollifier(N-1,D,divisors)'''
+
