@@ -1,0 +1,78 @@
+# code to compute various criteria to ensure that A^toy + B^toy does not vanish for a given value of N.
+
+
+# manually input a choice of N
+N:=192;
+
+
+sigma := 0.7 + 0.1 * log(N^2);
+bn := exp(0.1 * log(n)^2);
+an := (n/N)^(0.4) * bn;
+Bbound := evalf( add( bn / n^sigma, n=1..N));
+Abound := evalf( add( an / n^sigma, n=1..N));
+
+
+# Vanilla triangle inequality bound.  We win if this quantity is less than 2.
+Bbound+Abound;
+
+
+b1 := subs(n=1,bn);
+a1 := subs(n=1,an);
+
+# "Lemma 1" bound.  Again we win if this quantity is less than 2.
+altbound := evalf( add( max( abs(bn+an)/(b1+a1), abs(bn-an)/(b1-a1) )/n^sigma, n=1..N));
+
+
+
+bndf := Heaviside(d*N+0.5-n) * Heaviside(0.5 - irem(n,d)) * subs(n=n/d, bn);
+andf := Heaviside(d*N+0.5-n) * Heaviside(0.5 - irem(n,d)) * subs(n=n/d, an);
+
+bn2 := subs(d=1,bndf) - subs(n=2,bn) * subs(d=2,bndf);
+an2 := subs(d=1,andf) - subs(n=2,bn) * subs(d=2,andf);
+Bbound2 := evalf( add( abs(bn2) / n^sigma, n=1..2*N));
+Abound2 := evalf( add( abs(an2) / n^sigma, n=1..2*N));
+
+# Triangle inequality with Euler_2 factor.  We win if this quantity is less than 2.
+Bbound2+Abound2;
+
+# Euler_2 + Lemma_1.
+altbound2 := evalf( add( max( abs(bn2+an2)/(b1+a1), abs(bn2-an2)/(b1-a1) )/n^sigma, n=1..2*N));
+
+
+bn3 := subs(d=1,bndf) - subs(n=2,bn) * subs(d=2,bndf) - subs(n=3,bn) * subs(d=3,bndf) + subs(n=2,bn) * subs(n=3,bn) * subs(d=6,bndf);
+an3 := subs(d=1,andf) - subs(n=2,bn) * subs(d=2,andf) - subs(n=3,bn) * subs(d=3,andf) + subs(n=2,bn) * subs(n=3,bn) * subs(d=6,andf);
+Bbound3 := evalf( add( abs(bn3) / n^sigma, n=1..6*N));
+Abound3 := evalf( add( abs(an3) / n^sigma, n=1..6*N));
+
+# Euler_3 + Triangle
+Bbound3+Abound3;
+
+# Euler_3 + Lemma1
+altbound3 := evalf( add( max( abs(bn3+an3)/(b1+a1), abs(bn3-an3)/(b1-a1) )/n^sigma, n=1..6*N));
+
+
+bn3p := subs(d=1,bndf) - subs(n=2,bn) * subs(d=2,bndf) - subs(n=3,bn) * subs(d=3,bndf);
+an3p := subs(d=1,andf) - subs(n=2,bn) * subs(d=2,andf) - subs(n=3,bn) * subs(d=3,andf);
+Bbound3p := evalf( add( abs(bn3p) / n^sigma, n=1..3*N));
+Abound3p := evalf( add( abs(an3p) / n^sigma, n=1..3*N));
+
+# Truncated_Euler_3 + Triangle (drop the d=6 factor)
+Bbound3p+Abound3p;
+
+# Truncated_Euler_3 + Lemma1
+altbound3p := evalf( add( max( abs(bn3+an3)/(b1+a1), abs(bn3-an3)/(b1-a1) )/n^sigma, n=1..3*N));
+
+
+
+bn5 := subs(d=1,bndf) - subs(n=2,bn) * subs(d=2,bndf) - subs(n=3,bn) * subs(d=3,bndf) - subs(n=5,bn) * subs(d=5,bndf) + subs(n=2,bn) * subs(n=3,bn) * subs(d=6,bndf) + subs(n=2,bn) * subs(n=5,bn) * subs(d=10,bndf) + subs(n=3,bn) * subs(n=5,bn) * subs(d=15,bndf) - subs(n=2,bn) * subs(n=3,bn) * subs(n=5,bn) * subs(d=30,bndf) ;
+an5 := subs(d=1,andf) - subs(n=2,bn) * subs(d=2,andf) - subs(n=3,bn) * subs(d=3,andf) - subs(n=5,bn) * subs(d=5,andf) + subs(n=2,bn) * subs(n=3,bn) * subs(d=6,andf) + subs(n=2,bn) * subs(n=5,bn) * subs(d=10,andf) + subs(n=3,bn) * subs(n=5,bn) * subs(d=15,andf) - subs(n=2,bn) * subs(n=3,bn) * subs(n=5,bn) * subs(d=30,andf) ;
+Bbound5 := evalf( add( abs(bn5) / n^sigma, n=1..30*N));
+Abound5 := evalf( add( abs(an5) / n^sigma, n=1..30*N));
+
+# Euler_5 + Triangle
+Bbound5+Abound5;
+
+# Euler_5 + Lemma1
+altbound5 := evalf( add( max( abs(bn5+an5)/(b1+a1), abs(bn5-an5)/(b1-a1) )/n^sigma, n=1..30*N));
+
+
