@@ -216,15 +216,17 @@ def abtoy_sharperbound(N,y,t,cond):
     for n in range(2,30*N+1):
         nf=float(n)
         denom = mp.power(nf,sigma1+(t/4.0)*mp.log(N*N))
-        bn = mp.exp((t/4.0)*mp.power(mp.log(nf),2))*abs(cond[n][1])
-        an = mp.power(nf/N,0.4)*bn        
-        bn2, bn3, bn5 = bn*abs(cond[n][3]), bn*abs(cond[n][5]), bn*abs(cond[n][7])
-        an2, an3, an5 = an*abs(cond[n][4]), an*abs(cond[n][6]), an*abs(cond[n][8])
+        #print([cond[n][i] for i in range(1,9)])
+        common1 = mp.exp((t/4.0)*mp.power(mp.log(nf),2))
+        common2 = common1*mp.power(nf/N,0.4)
+        bn, bn2, bn3, bn5 = [common1*cond[n][2*i-1] for i in range(1,5)]
+        an, an2, an3, an5 = [common2*cond[n][2*i] for i in range(1,5)]
         sum1 += max(abs(bn+an)/(1+a1), abs(bn-an)/(1-a1))/denom
         sum2 += max(abs(bn2+an2)/(1+a1), abs(bn2-an2)/(1-a1))/denom
         sum3 += max(abs(bn3+an3)/(1+a1), abs(bn3-an3)/(1-a1))/denom
         sum5 += max(abs(bn5+an5)/(1+a1), abs(bn5-an5)/(1-a1))/denom
     return [sum1,sum2,sum3,sum5]
+
 
 '''import time
 s=time.time()
@@ -308,7 +310,7 @@ def powerset(iterable):
     return list(chain.from_iterable(combinations(xs,n) for n in range(len(xs)+1)))
 
 def abtoy_generalbound(N,numfactors=1):
-    pset = [2,3,5,7,11,13,17,19,23]
+    pset = [2,3,5,7,11,13,17,19,23,29,31]
     pset = pset[:numfactors]
     pprod = reduce(mul, pset)
     ppset = powerset(pset)[1:]
@@ -333,6 +335,42 @@ def abtoy_generalbound(N,numfactors=1):
       R_sum += abs(rcond)/mp.power(n,0.3+0.1*mp.log(N*N/n))
     L_sum = L_sum - 1
     R_sum = R_sum*factorN
-    print(N, pset, L_sum, R_sum, 1-L_sum-R_sum) 
+    return [N, pset, L_sum, R_sum, 1-L_sum-R_sum] 
 
-#abtoy_generalbound(282,4)
+
+def abtoy_general_sharperbound(N,numfactors=1):
+    pset = [2,3,5,7,11,13,17,19,23,29,31]
+    pset = pset[:numfactors]
+    pprod = reduce(mul, pset)
+    ppset = powerset(pset)[1:]
+    sharpsum = 0.0
+    a1 = mp.power(N,-0.4)
+    for n in range(2,pprod*N + 1):
+      nf = float(n)
+      denom = mp.power(nf,0.7+0.1*mp.log(N*N))
+      common1 = mp.exp(0.1*mp.power(mp.log(nf),2))
+      common2 = common1*mp.power(nf/N,0.4)
+      lcond, rcond = deltaN(n,N), deltaN(n,N)
+      for comb in ppset:
+         combprod = reduce(mul, comb)
+         lterm = ((-1)**len(comb))*deltaN(n,combprod*N)*divdelta(n,combprod)
+         if abs(lterm)==1:
+            if len(comb)>1:
+                subcomb = findsubsets(comb,2)
+                subcombprods = [mp.log(i[0])*mp.log(i[1]) for i in subcomb]
+                sumexpcombprod = mp.exp(0.2*sum(subcombprods))
+                denom2 = mp.power(nf/float(combprod),0.2*mp.log(combprod))*sumexpcombprod 
+            else: denom2 = mp.power(nf/float(combprod),0.2*mp.log(combprod))
+            lterm = lterm/denom2
+            rterm = lterm/mp.power(combprod,0.4)
+            lcond += lterm
+            rcond += rterm 
+      bnp, anp = common1*lcond, common2*rcond
+      sharpsum += max(abs(bnp+anp)/(1+a1), abs(bnp-anp)/(1-a1))/denom
+    return [N, pset, sharpsum]
+
+
+'''
+N=220;numf=2
+abtoy_general_sharperbound(N,numf), abtoy_general_sharperbound(N-1,numf)
+'''
