@@ -424,3 +424,34 @@ abtoy_custom_mollifier(N,D,divisors), abtoy_custom_mollifier(N-1,D,divisors)
 N=220;D=6;divisors=[1,2,3,6]
 abtoy_custom_mollifier(N,D,divisors), abtoy_custom_mollifier(N-1,D,divisors)'''
 
+
+import numpy as np
+from scipy.optimize import fmin
+def abtoy_arb_coeff(ldcoeffs):
+    global N,D,divisors
+    ldcoeffs=np.insert(ldcoeffs,0,1)
+    sharpsum = 0.0
+    a1 = mp.power(N,-0.4)
+    divisors = [float(i) for i in divisors]
+    for n in range(2,D*N + 1):
+      bnp, anp = 0.0, 0.0
+      nf=float(n)
+      denom = mp.power(nf,0.7+0.1*mp.log(N*N))
+      for i,d in enumerate(divisors):
+          common = deltaN(n,d*N)*divdelta(n,d)*ldcoeffs[i] 
+          bnp += common*bn(nf/d)
+          anp += common*an(nf/d,N)
+      sharpsum += max(abs(bnp+anp)/(1+a1), abs(bnp-anp)/(1-a1))/denom
+    print(ldcoeffs,sharpsum)
+    return float(sharpsum)
+
+'''
+N=341;D=2;divisors=[1,2]
+fmin(abtoy_arb_coeff,[float(i) for i in [-1*bn(2)]])
+
+N=220;D=6;divisors=[1,2,3,6]
+fmin(abtoy_arb_coeff,[float(i) for i in [-1*bn(2), -1*bn(3), bn(2)*bn(3)]])
+
+N=192;D=30;divisors=[1,2,3,5,6,10,15,30]
+fmin(abtoy_arb_coeff, [float(i) for i in [-1*bn(2), -1*bn(3), -1*bn(5), bn(2)*bn(3), bn(2)*bn(5), bn(3)*bn(5), -1*bn(2)*bn(3)*bn(5)]])
+'''
