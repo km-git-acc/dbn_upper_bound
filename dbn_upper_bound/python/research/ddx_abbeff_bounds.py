@@ -44,7 +44,7 @@ def ddx_aaeff_bound(N,y=0.4,t=0.4):
     for n in range(1,N+1): deriv_sum += abs(-0.5*I*(1+0.5*t*alpha1prime(s))*log(n)/n**(s + 0.5*t*alpha1(s)-0.25*t*log(n)))
     return (N, deriv_sum)
 
-#N bound for (d/dx)|(A_eff + B_eff)/B0_eff|
+#N dependent upper bound for |(d/dx)(A_eff + B_eff)/B0_eff|
 def ddx_abbeff_bound(N,y=0.4,t=0.4):
     y,t = mpf(y), mpf(t)
     xN = 4*pi*N**2 - pi*t/4.0
@@ -63,3 +63,25 @@ def ddx_abbeff_bound(N,y=0.4,t=0.4):
         ddxsum_a += a_numerator/n**expo_a
     ddxsum = ddx_b_pre*ddxsum_b + ddx_a_pre*ddxsum_a
     return (N,ddxsum)
+
+#mod of exact derivative at x -- |(d/dx)(A_eff + B_eff)/B0_eff|
+def ddx_abbeff_x(x,y=0.4,t=0.4):
+    y,t = mpf(y), mpf(t)
+    N = int(sqrt((x+pi*t/4)/(4*pi)))
+    ddxsum_b, ddxsum_a = 0.0, 0.0
+    sb, sa = 0.5*(1+y-I*x), 0.5*(1-y+I*x) 
+    ddx_b_pre = 1.0
+    ddx_a_pre = exp((t/4.0)*(alpha1(sa)**2 - alpha1(sb)**2))*H01(sa)/H01(sb) 
+    expo_b = sb + 0.5*t*alpha1(sb)
+    expo_a = sa + 0.5*t*alpha1(sa)
+    for n in range(1,N+1):
+        bn = exp((t/4.0)*log(n)**2)
+        b_numerator = -bn*log(n)*(-0.5*I - 0.25*I*t*alpha1prime(sb))
+        a_numerator1 = -bn*log(n)*(0.5*I + 0.25*I*t*alpha1prime(sa))
+        ddxloglambda = (-I*t/4.0)*(alpha1(sb)*alpha1prime(sb) + alpha1(1-sb)*alpha1prime(1-sb)) - (I/4.0)*log(sb/(2*pi)) - (I/4.0)*log((1-sb)/(2*pi)) + (I/4.0)*(1/sb + 1/(1-sb))
+        a_numerator2 = -bn*ddxloglambda    #negative factor added since sb was used to compute ddxloglambda
+        ddxsum_b += b_numerator/n**expo_b  
+        ddxsum_a += (a_numerator1 + a_numerator2)/n**expo_a
+    ddxsum = ddx_b_pre*ddxsum_b + ddx_a_pre*ddxsum_a
+    return (x,abs(ddxsum))
+
