@@ -42,7 +42,19 @@ def habbbound(N,y=0.4,t=0.4):
         epsdash2+= cnplus*mp.exp(cnplus/(2*(T1-3.33)))/mp.power(nf,0.5*(1+y) + 0.5*t*(alph_sNplus.real - K) - 0.25*t*mp.log(n))
     normalized_E1 = lambdafac*0.5*epsdash1/(T1-3.33)
     normalized_E2 = 0.5*epsdash2/(T1-3.33)
-    return [N, normalized_E1, normalized_E2]
+    
+    E3_by_E3_main_decay = (1/8.0)*mp.sqrt(mp.pi()) * mp.exp(-1*(t/64.0)*(mp.pi()**2))*mp.exp(0.181/(Tdash1 - 3.33))*(1+5.15/(a0-1.25)) 
+    E3_main_decay_term = mp.power(Tdash1, 1.5) * mp.exp(-1 * mp.pi() * T1/4.0)
+    s2 = 0.5*(1+y) + 1j*T1
+    alph2 = alpha1(s2).conjugate()
+    B0_expo = (t/4.0)*alph2*alph2
+    H01_est2 = H01(s2).conjugate()
+    B0_eff = (1/8.0)*mp.exp(B0_expo) * H01_est2
+    E3_main_decay_by_B0eff = abs(E3_main_decay_term/B0_eff)
+    normalized_E3 = E3_by_E3_main_decay*E3_main_decay_by_B0eff
+    normalized_E = normalized_E1 + normalized_E2 + normalized_E3
+    
+    return [N, normalized_E1, normalized_E2,E3_by_E3_main_decay,E3_main_decay_by_B0eff,normalized_E3,normalized_E]
 
 '''for N in range(1,501):
     print(habbbound(N))'''
