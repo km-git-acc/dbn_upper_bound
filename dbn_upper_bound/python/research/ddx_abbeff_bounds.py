@@ -53,13 +53,16 @@ def ddx_abbeff_bound(N,y=0.4,t=0.4):
     ddx_b_pre = 1 + 0.5*t/(xN-6)
     ddx_a_pre = exp(delta)/N**y
     ddxsum_b, ddxsum_a = 0.0, 0.0
+    #print(ddxsum_b)
     for n in range(1,N+1):
+        #print(ddxsum_b,type(N))
         bn = exp((t/4.0)*log(n)**2)
         expo_b = 0.5*(1+y) + 0.5*t*((3*y-1)/(xNp1**2+1) + log(N))
         expo_a = 0.5*(1-y) + 0.5*t*((2-3*y)/xN**2 + log(N))
         b_numerator = bn*log(n)/2.0
-        a_numerator = bn*(0.25*t*log(n)/(xN-6) + 0.25*log(abs(1-y+I*xNp1)*abs(1+y-I*xNp1)/(4*pi*n**2)) + 0.25*(3*t+1)/(xN*(xN-6)))
+        a_numerator = bn*(0.25*t*log(n)/(xN-6) + 0.25*log(abs(1-y+I*xNp1)*abs(1+y-I*xNp1)/(16*(pi**2)*(n**2))) + 0.25*(3*t+1)/(xN*(xN-6)))
         ddxsum_b += b_numerator/n**expo_b  
         ddxsum_a += a_numerator/n**expo_a
     ddxsum = ddx_b_pre*ddxsum_b + ddx_a_pre*ddxsum_a
     return (N,ddxsum)
+
