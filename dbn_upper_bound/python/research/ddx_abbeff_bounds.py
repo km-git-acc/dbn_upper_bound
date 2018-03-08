@@ -44,7 +44,7 @@ def ddx_aaeff_bound(N,y=0.4,t=0.4):
     for n in range(1,N+1): deriv_sum += abs(-0.5*I*(1+0.5*t*alpha1prime(s))*log(n)/n**(s + 0.5*t*alpha1(s)-0.25*t*log(n)))
     return (N, deriv_sum)
 
-#N bound for (d/dx)|(A_eff + B_eff)/B0_eff|
+#N dependent upper bound for |(d/dx)(A_eff + B_eff)/B0_eff|
 def ddx_abbeff_bound(N,y=0.4,t=0.4):
     y,t = mpf(y), mpf(t)
     xN = 4*pi*N**2 - pi*t/4.0
@@ -65,4 +65,3 @@ def ddx_abbeff_bound(N,y=0.4,t=0.4):
         ddxsum_a += a_numerator/n**expo_a
     ddxsum = ddx_b_pre*ddxsum_b + ddx_a_pre*ddxsum_a
     return (N,ddxsum)
-
