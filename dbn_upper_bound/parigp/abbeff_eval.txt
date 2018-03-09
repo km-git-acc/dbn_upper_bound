@@ -51,7 +51,7 @@ ddx_abbeff_bound(N,y=0.4,t=0.4) = {
 }
 
 
-filename="C:/Users/dhruv/Documents/kalp/WinPython-64bit-3.5.4.1Qt5/dbn/abbeff_data_N_151_300.csv"
+filename="abbeff_data_N_151_300.csv"
 data=List()
 t=0.4;
 c=0.065;
