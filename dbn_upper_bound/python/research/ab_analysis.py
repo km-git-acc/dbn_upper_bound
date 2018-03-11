@@ -455,3 +455,52 @@ fmin(abtoy_arb_coeff,[float(i) for i in [-1*bn(2), -1*bn(3), bn(2)*bn(3)]])
 N=192;D=30;divisors=[1,2,3,5,6,10,15,30]
 fmin(abtoy_arb_coeff, [float(i) for i in [-1*bn(2), -1*bn(3), -1*bn(5), bn(2)*bn(3), bn(2)*bn(5), bn(3)*bn(5), -1*bn(2)*bn(3)*bn(5)]])
 '''
+
+def abeff_trianglebound(N,y,t,cond):
+    sigma1 = 0.5*(1+y)
+    sum1, sum2, sum3, sum5 = [0.0 for _ in range(4)]
+    b1 = 1
+    a1 = mp.power(N,-0.4)
+    xN = 4*mp.pi()*N*N - mp.pi()*t/4.0
+    xNp1 = 4*mp.pi()*(N+1)*(N+1) - mp.pi()*t/4.0
+    delta = mp.pi()*y/(2*(xN - 6 - (14 + 2*y)/mp.pi())) + 2*y*(7+y)*mp.log(abs(1+y+1j*xNp1)/(4*mp.pi))/(xN*xN)
+    expdelta = mp.exp(delta)
+    for n in range(1,30*N+1):
+        nf=float(n)
+        denom = mp.power(nf,sigma1+(t/4.0)*mp.log(N*N))
+        common1 = mp.exp((t/4.0)*mp.power(mp.log(nf),2))
+        common2 = common1*mp.power(nf/N,y)*expdelta*mp.exp(t*y*mp.log(n)/(2*(xN-6)))
+        bn, bn2, bn3, bn5 = [common1*abs(cond[n][2*i-1]) for i in range(1,5)]
+        an, an2, an3, an5 = [common2*abs(cond[n][2*i]) for i in range(1,5)]
+        sum1 += (bn+an)/denom
+        sum2 += (bn2+an2)/denom
+        sum3 += (bn3+an3)/denom
+        sum5 += (bn5+an5)/denom
+    return [N,expdelta] + [2-j for j in [sum1,sum2,sum3,sum5]]
+
+
+def abeff_lemmabound(N,y,t,cond):
+    sigma1 = 0.5*(1+y)
+    sum1, sum2, sum3, sum5 = [0.0 for _ in range(4)]
+    b1 = 1
+    a1 = mp.power(N,-0.4)
+    xN = 4*mp.pi()*N*N - mp.pi()*t/4.0
+    xNp1 = 4*mp.pi()*(N+1)*(N+1) - mp.pi()*t/4.0
+    delta = mp.pi()*y/(2*(xN - 6 - (14 + 2*y)/mp.pi())) + 2*y*(7+y)*mp.log(abs(1+y+1j*xNp1)/(4*mp.pi))/(xN*xN)
+    expdelta = mp.exp(delta)
+    for n in range(2,30*N+1):
+        nf=float(n)
+        denom = mp.power(nf,sigma1+(t/4.0)*mp.log(N*N))
+        #print([cond[n][i] for i in range(1,9)])
+        common1 = mp.exp((t/4.0)*mp.power(mp.log(nf),2))
+        common2 = common1*mp.power(nf/N,y)
+        common3 = expdelta*(mp.exp(t*y*mp.log(n)/(2*(xN-6)))-1)
+        bn, bn2, bn3, bn5 = [common1*cond[n][2*i-1] for i in range(1,5)]
+        an, an2, an3, an5 = [common2*cond[n][2*i] for i in range(1,5)]
+        en, en2, en3, en5 = an*common3, an2*common3, an3*common3, an5*common3
+        sum1 += (en + max((1-a1)*abs(bn+an)/(1+a1), abs(bn-an)))/denom
+        sum2 += (en2 + max((1-a1)*abs(bn2+an2)/(1+a1), abs(bn2-an2)))/denom
+        sum3 += (en3 + max((1-a1)*abs(bn3+an3)/(1+a1), abs(bn3-an3)))/denom
+        sum5 += (en5 + max((1-a1)*abs(bn5+an5)/(1+a1), abs(bn5-an5)))/denom
+    return [N,expdelta] + [1-a1-j for j in [sum1,sum2,sum3,sum5]]
+
