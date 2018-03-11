@@ -1,0 +1,61 @@
+x := 10^6;
+y := 0.4;
+t := 0.4;
+
+
+N0 := floor(sqrt(x/(4*Pi)));
+z := x + I*y;
+s := (1 + I*z)/2;
+sigma := Re(s);
+T := Im(s);
+Tp := T + Pi*t/8;
+sp := sigma + I*Tp;
+
+a := sqrt(Tp/(2*Pi));
+N := floor(a);
+p := 1-2*(a-N);
+
+Stirling := sqrt(2*Pi) * exp( (Z-1/2) * log(Z) - Z );
+
+B0 := (1/8) * (s*(s-1)/2) * Pi^(-(1-s)/2) * GAMMA((1-s)/2) * exp( (t/16) * (log((5-s)/(2*Pi)))^2 );
+B0p := (2/8) * Pi^(-(1-s)/2) * subs(Z = (5-s)/2, Stirling) * exp( (t/16) * (log((5-s)/(2*Pi)))^2 );
+alpha := 1/(2*(1-s)) + 1/(-s) + 1/2 * log((1-s)/(2*Pi));
+B0eff := (1/8) * exp( (t/4) * alpha^2 ) * (s*(s-1)/2) * Pi^(-(1-s)/2) * subs(Z = (1-s)/2, Stirling);
+B0toy := (sqrt(2)/4) * Pi^2 * N^((7+y)/2) * exp( I * ( -(x/4) * log(x/(4*Pi)) + (x/4) + (9-y)*Pi/8 ) + (t/16) * (log(x/(4*Pi)) - Pi*I/2)^2 ) * exp( - Pi * x / 8);
+
+
+B := (1/8) * (s*(s-1)/2) * Pi^(-(1-s)/2) * GAMMA((1-s)/2) * evalf( add( exp( (t/16) * log((5-s)/(2*Pi*n^2))^2 ) / n^(1-s), n=1..N0));
+Bp :=(2/8) * Pi^(-(1-s)/2) * subs(Z = (5-s)/2, Stirling) * evalf( add( exp( (t/16) * log((5-s)/(2*Pi*n^2))^2 ) / n^(1-s), n=1..N0));
+Beff := B0eff * evalf( add( 1 / n^(1-s + t*alpha/2 - t*log(n)/4), n=1..N));
+Btoy := B0toy * evalf( add( 1 / n^(1-s + (t/4) * log(N^2/n) - t*Pi*I/8), n=1..N0));
+
+A := (1/8) * (s*(s-1)/2) * Pi^(-s/2) * GAMMA(s/2) * evalf( add( exp( (t/16) * log((s+4)/(2*Pi*n^2))^2 ) / n^(s), n=1..N0));
+Ap := (2/8) * Pi^(-s/2) * subs(Z = (s+4)/2, Stirling) * evalf( add( exp( (t/16) * log((s+4)/(2*Pi*n^2))^2 ) / n^(s), n=1..N0));
+alpha2 := 1/(2*s) + 1/(s-1) + 1/2 * log(s/(2*Pi));
+A0eff := (1/8) * exp( (t/4) * alpha2^2 ) * (s*(s-1)/2) * Pi^(-s/2) * subs(Z = s/2, Stirling);
+Aeff := A0eff * evalf( add( 1 / n^(s + t*alpha2/2 - t*log(n)/4), n=1..N)); 
+A0toy := B0toy * exp(I*((x/2 + Pi*t/8)*log(x/(4*Pi)) - x/2 - Pi/4)) * N0^(-y);
+Atoy := A0toy * evalf(add(1/n^(s + (t/4) * log(N^2/n) +  t*Pi*I/8), n=1..N0));
+
+
+U := exp( -I * ((Tp/2) * log(Tp/(2*Pi)) - (Tp/2) - Pi/8));
+
+C0 := (exp( Pi*I*(p^2/2 + 3/8) ) - I*sqrt(2)*cos(Pi*p/2)) / (2 * cos(Pi*p));
+
+Ceff := (1/8) * exp( t * Pi^2/64) * (sp*(sp-1)/2) * (-1)^N * (Pi^(-sp/2) * GAMMA(sp/2) * a^(-sigma) * C0 * U + Pi^(-(1-sp)/2) * GAMMA((1-sp)/2) * a^(-(1-sigma)) * conjugate( C0 * U) );
+
+alpha := s/(2 * Pi * I * N) - N;
+
+Psif := 2 * Pi * cos(Pi * (alpha^2 / 2 - alpha - 1/8)) * exp( I * Pi * alpha^2/2 - 5*Pi*I/8) / cos(Pi*alpha);
+
+C := (1/8) * (s*(s-1)/2) * Pi^(-s/2) * GAMMA(s/2) * (exp(-I*Pi*s) * GAMMA(1-s) / (2 * Pi*I)) * (2*Pi*I*N)^(s-1) * Psif;
+
+evalf(A / B0);
+evalf(B / B0);
+evalf(C / B0);
+
+evalf(Aeff / B0eff);
+evalf(Beff / B0eff);
+evalf(abs(Ceff / B0eff));
+
+

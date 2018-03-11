@@ -1,4 +1,4 @@
---- code to evaluate A, A', A^eff, A^toy, B, B', B^eff, B^toy, B_0, B'_0, B^eff_0, B^toy_0 for a given value of x
+# code to evaluate A, A', A^eff, A^toy, B, B', B^eff, B^toy, B_0, B'_0, B^eff_0, B^toy_0 for a given value of x
 
 x := 10^3;
 N := floor(sqrt(x/(4*Pi)));
@@ -7,7 +7,7 @@ t := 0.4;
 z := x + I*y;
 s := (1 + I*z)/2;
 Stirling := sqrt(2*Pi) * exp( (Z-1/2) * log(Z) - Z );
-Np := floor( sqrt( (x/2 - Pi*t/8) / (2*Pi) ) );
+Np := floor( sqrt( (x/2 + Pi*t/8) / (2*Pi) ) );
 
 B0 := (1/8) * (s*(s-1)/2) * Pi^(-(1-s)/2) * GAMMA((1-s)/2) * exp( (t/16) * (log((5-s)/(2*Pi)))^2 );
 B0p := (2/8) * Pi^(-(1-s)/2) * subs(Z = (5-s)/2, Stirling) * exp( (t/16) * (log((5-s)/(2*Pi)))^2 );
@@ -38,7 +38,7 @@ evalf(Aeff/B0eff);
 evalf(Atoy/B0toy);
 
 
--- code for testing upper bounds on Atoy, Btoy, and derivatives, and also incorporating the second Euler factor, for a given value of N
+# code for testing upper bounds on Atoy, Btoy, and derivatives, and also incorporating the second Euler factor, for a given value of N
 
 N:=473;
 
