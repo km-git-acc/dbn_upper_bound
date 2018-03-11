@@ -336,3 +336,114 @@ def abtoy_generalbound(N,numfactors=1):
     print(N, pset, L_sum, R_sum, 1-L_sum-R_sum) 
 
 #abtoy_generalbound(282,4)
+
+
+import csv
+from mpmath import mp
+mp.dps=30
+mp.pretty=True
+
+def append_data(filename, rows):
+    with open(filename, 'a') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        writer.writerows(rows)
+
+def deltaN(n,N):
+    if n<=N: return 1.0
+    else: return 0.0
+
+def divdelta(n,div):
+    if n%div==0: return 1.0
+    else: return 0.0
+
+def condcache(N):
+ pow2, pow3, pow5, pow6, pow10, pow15, pow30 = [mp.power(j,0.4) for j in [2,3,5,6,10,15,30]] 
+ expo2, expo3, expo5 = 0.2*mp.log(2), 0.2*mp.log(3), 0.2*mp.log(5)
+ expo6, expo10, expo15, expo30 =  expo2+expo3, expo2+expo5, expo3+expo5, expo2+expo3+expo5
+ exp23, exp25, exp35 = mp.exp(0.2*mp.log(2)*mp.log(3)), mp.exp(0.2*mp.log(2)*mp.log(5)), mp.exp(0.2*mp.log(3)*mp.log(5))
+ exp235 = exp23*exp25*exp35
+ condc=[]
+ for n in range(0,30*N+1):
+     try:   
+        L1 = deltaN(n,N)
+        L2 = deltaN(n,2*N)*divdelta(n,2);   
+        if L2>0: L2 /= mp.power((n/2.0),expo2)
+        L3 = deltaN(n,3*N)*divdelta(n,3)
+        if L3>0 : L3 /= mp.power((n/3.0),expo3)
+        L5 = deltaN(n,5*N)*divdelta(n,5)
+        if L5>0 : L5 /= mp.power((n/5.0),expo5)
+        L6 = deltaN(n,6*N)*divdelta(n,6)
+        if L6>0 : L6 /= (mp.power((n/6.0),expo6)*exp23) 
+        L10 = deltaN(n,10*N)*divdelta(n,10)
+        if L10>0 : L10 /= (mp.power((n/10.0),expo10)*exp25)
+        L15 = deltaN(n,15*N)*divdelta(n,15)
+        if L15>0 : L15 /= (mp.power((n/15.0),expo15)*exp35)
+        L30 = deltaN(n,30*N)*divdelta(n,30)
+        if L30>0 : L30 /= (mp.power((n/30.0),expo30)*exp235)
+        R1 = L1
+        R2 = L2/pow2
+        R3 = L3/pow3
+        R5 = L5/pow5
+        R6 = L6/pow6 
+        R10 = L10/pow10
+        R15 = L15/pow15
+        R30 = L30/pow30 
+        condc.append([0.0, L1, R1, L1-L2, R1-R2, L1-L2-L3+L6, R1-R2-R3+R6, L1-L2-L3-L5+L6+L10+L15-L30, R1-R2-R3-R5+R6+R10+R15-R30])
+     except:  condc.append([0.0 for _ in range(9)])
+ return condc
+
+def abeff_trianglebound(N,y,t,cond):
+    sigma1 = 0.5*(1+y)
+    sum1, sum2, sum3, sum5 = [0.0 for _ in range(4)]
+    b1 = 1
+    a1 = mp.power(N,-0.4)
+    xN = 4*mp.pi()*N*N - mp.pi()*t/4.0
+    xNp1 = 4*mp.pi()*(N+1)*N - mp.pi()*t/4.0
+    delta = mp.pi()*y/(2*(xN - 6 - (14 + 2*y)/mp.pi())) + 2*y*(7+y)*mp.log(abs(1+y+1j*xNp1)/(4*mp.pi))/(xN*xN)
+    expdelta = mp.exp(delta)
+    for n in range(1,30*N+1):
+        nf=float(n)
+        denom = mp.power(nf,sigma1+(t/4.0)*mp.log(N*N))
+        #print([cond[n][i] for i in range(1,9)])
+        common1 = mp.exp((t/4.0)*mp.power(mp.log(nf),2))
+        common2 = common1*mp.power(nf/N,y)*expdelta*mp.exp(t*y*mp.log(n)/(2*(xN-6)))
+        bn, bn2, bn3, bn5 = [common1*abs(cond[n][2*i-1]) for i in range(1,5)]
+        an, an2, an3, an5 = [common2*abs(cond[n][2*i]) for i in range(1,5)]
+        sum1 += (bn+an)/denom
+        sum2 += (bn2+an2)/denom
+        sum3 += (bn3+an3)/denom
+        sum5 += (bn5+an5)/denom
+    return [N,expdelta] + [2-j for j in [sum1,sum2,sum3,sum5]]
+
+
+def abeff_lemmabound(N,y,t,cond):
+    sigma1 = 0.5*(1+y)
+    sum1, sum2, sum3, sum5 = [0.0 for _ in range(4)]
+    b1 = 1
+    a1 = mp.power(N,-0.4)
+    xN = 4*mp.pi()*N*N - mp.pi()*t/4.0
+    xNp1 = 4*mp.pi()*(N+1)*N - mp.pi()*t/4.0
+    delta = mp.pi()*y/(2*(xN - 6 - (14 + 2*y)/mp.pi())) + 2*y*(7+y)*mp.log(abs(1+y+1j*xNp1)/(4*mp.pi))/(xN*xN)
+    expdelta = mp.exp(delta)
+    for n in range(2,30*N+1):
+        nf=float(n)
+        denom = mp.power(nf,sigma1+(t/4.0)*mp.log(N*N))
+        #print([cond[n][i] for i in range(1,9)])
+        common1 = mp.exp((t/4.0)*mp.power(mp.log(nf),2))
+        common2 = common1*mp.power(nf/N,y)
+        common3 = expdelta*(mp.exp(t*y*mp.log(n)/(2*(xN-6)))-1)
+        bn, bn2, bn3, bn5 = [common1*cond[n][2*i-1] for i in range(1,5)]
+        an, an2, an3, an5 = [common2*cond[n][2*i] for i in range(1,5)]
+        en, en2, en3, en5 = an*common3, an2*common3, an3*common3, an5*common3
+        sum1 += (en + max((1-a1)*abs(bn+an)/(1+a1), abs(bn-an)))/denom
+        sum2 += (en2 + max((1-a1)*abs(bn2+an2)/(1+a1), abs(bn2-an2)))/denom
+        sum3 += (en3 + max((1-a1)*abs(bn3+an3)/(1+a1), abs(bn3-an3)))/denom
+        sum5 += (en5 + max((1-a1)*abs(bn5+an5)/(1+a1), abs(bn5-an5)))/denom
+    return [N,expdelta] + [1-a1-j for j in [sum1,sum2,sum3,sum5]]
+
+for N in range(1,2001):
+    print(abeff_lemmabound(N,0.4,0.4,condcache(N)))
+
+for N in range(1,2001):
+    print(abeff_trianglebound(N,0.4,0.4,condcache(N)))
+
