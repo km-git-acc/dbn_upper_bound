@@ -1,0 +1,210 @@
+
+%\pdfoutput=1
+%\documentclass[fms,times]{cuparticle}
+\documentclass[a4paper,11pt,twoside]{amsart}
+\usepackage{amsmath}
+\usepackage{geometry}
+%\newproof{proof}{Proof}
+\usepackage{amssymb, latexsym}
+\usepackage{verbatim}
+%\usepackage{amscd}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{txfonts}
+\usepackage[breaklinks=true,hidelinks]{hyperref}
+
+%\usepackage{psfig}
+%\usepackage{graphicx}
+%\usepackage{showkeys}  
+%\usepackage{siunitx}
+%\usepackage{tikz-cd}
+%\usepackage{color}
+%\usetikzlibrary{arrows}
+% uncomment this when editing cross-references
+%\numberwithin{equation}{section}
+
+%\volume{}
+%\doi{}
+
+
+% \usepackage{mathabx}
+
+
+\usepackage{mathtools}%                  http://www.ctan.org/pkg/mathtools
+\usepackage[tableposition=top]{caption}% http://www.ctan.org/pkg/caption
+\usepackage{booktabs,dcolumn}%           http://www.ctan.org/pkg/dcolumn + http://www.ctan.org/pkg/booktabs
+
+     
+%\theoremstyle{plain}
+
+\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{theorem}[theorem]{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{principle}[theorem]{Principle}
+\newtheorem{claim}[theorem]{Claim}
+
+%\theoremstyle{definition}
+
+%\newtheorem{roughdef}[subsection]{Rough Definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remarks}[theorem]{Remarks}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+%\newtheorem{problem}[subsection]{Problem}
+%\newtheorem{question}[subsection]{Question}
+
+\newcommand\F{\mathbb{F}}
+\newcommand\E{\mathbb{E}}
+\newcommand\R{\mathbb{R}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\N{\mathbb{N}}
+\newcommand\D{\mathbb{D}}
+\newcommand\C{\mathbb{C}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\T{\mathbb{T}}
+\renewcommand\Re{{\operatorname{Re\,}}}
+\renewcommand\Im{{\operatorname{Im\,}}}
+\newcommand\eps{\varepsilon}
+
+
+
+\renewcommand\P{\mathbf{P}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\alert}[1]{{\bf \color{red} TODO: #1}}
+
+
+\setlength\evensidemargin\oddsidemargin
+%\setlength{\parindent}{0cm}
+
+\begin{document}
+\title[Upper bound for de Bruijn-Newman constant]{Effective approximation of heat flow evolution of the Riemann xi function, and an upper bound for the de Bruijn-Newman constant}
+
+\author{D.H.J. Polymath}
+\address{\url{http://michaelnielsen.org/polymath1/index.php}}
+
+
+\begin{abstract}
+For each $t \in \R$, define the entire function
+$$ H_t(z) \coloneqq \int_0^\infty e^{tu^2} \Phi(u) \cos(zu)\ du$$
+where $\Phi$ is the super-exponentially decaying function
+$$ \Phi(u) \coloneqq \sum_{n=1}^\infty (2\pi^2  n^4 e^{9u} - 3\pi n^2 e^{5u} ) \exp(-\pi n^2 e^{4u} ).$$
+Newman showed that there exists a finite constant $\Lambda$ (the \emph{de Bruijn-Newman constant}) such that the zeroes of $H_t$ are all real precisely when $t \geq \Lambda$.  The Riemann hypothesis is the equivalent to the assertion $\Lambda \leq 0$, and Newman conjectured the complementary bound $\Lambda \geq 0$.
+
+
+\end{abstract}
+
+
+\maketitle
+
+\input intro
+\input heatflow
+\input elementary
+
+ %\appendix
+%\input appendix
+
+
+
+\begin{thebibliography}{99} 
+
+\bibitem{boyd}
+W. G. C. Boyd, \emph{Gamma Function Asymptotics by an Extension of the Method of Steepest Descents}, Proceedings: Mathematical and Physical Sciences, Vol. 447, No. 1931 (Dec. 8, 1994), pp. 609--630.
+
+\bibitem{debr}
+N. C. de Bruijn, \emph{The roots of trigonometric integrals}, Duke J. Math. \textbf{17} (1950), 197--226.
+
+%\bibitem{cmmrs}
+%A. Chang, D. Mehrle, S. J. Miller, T. Reiter, J. Stahl, D. Yott, \emph{Newman's conjecture in function fields}, J. Numb. Thy. \textbf{157} (2015), 154--169.
+%
+
+\bibitem{cnv}
+G. Csordas, T. S. Norfolk, R. S. Varga, \emph{A lower bound for the de Bruijn-Newman constant $\Lambda$}, Numer. Math. \textbf{52} (1988), 483--497.
+
+\bibitem{cosv}
+G. Csordas, A. M. Odlyzko, W. Smith, R. S. Varga, \emph{A new Lehmer pair of zeros and a new lower bound for the De Bruijn-Newman constant Lambda}, Electronic Transactions on Numerical Analysis. \textbf{1} (1993), 104--111.
+
+\bibitem{crv}
+G. Csordas, A. Ruttan, R.S. Varga, \emph{The Laguerre inequalities with applications
+to a problem associated with the Riemann hypothesis}, Numer. Algorithms, \textbf{1} (1991), 305--329.
+
+\bibitem{csv}
+G. Csordas, W. Smith, R. S. Varga, \emph{Lehmer pairs of zeros, the de Bruijn-Newman constant $\Lambda$, and the Riemann hypothesis},  Constr. Approx. \textbf{10} (1994), no. 1, 107--129. 
+
+\bibitem{kkl}
+H. Ki, Y. O. Kim, and J. Lee, \emph{On the de Bruijn-Newman constant}, Advances in Mathematics, \textbf{22} (2009), 281--306.
+
+\bibitem{lehmer}
+D. H. Lehmer, \emph{On the roots of the Riemann zeta-function}, Acta Math. \textbf{95} (1956) 291--298.
+
+\bibitem{montgomery}
+H. L. Montgomery, \emph{The pair correlation of zeros of the zeta function}, Analytic number theory (Proc. Sympos. Pure Math., Vol. XXIV, St. Louis Univ., St. Louis, Mo., 1972), pp. 181--193. Amer. Math. Soc., Providence, R.I., 1973.
+
+\bibitem{MoVa}
+H. L. Montgomery, R. C. Vaughan, Multiplicative number theory. I. Classical theory. Cambridge Studies in Advanced Mathematics, 97. Cambridge University Press, Cambridge, 2007.
+
+\bibitem{newman}
+C. M. Newman, \emph{Fourier transforms with only real zeroes}, Proc. Amer. Math. Soc. \textbf{61} (1976), 246--251.
+
+\bibitem{nrv}
+T. S. Norfolk, A. Ruttan, R. S. Varga, \emph{A lower bound for the de Bruijn-Newman
+constant $\Lambda$ II.}, in A. A. Gonchar and E. B. Saff, editors, Progress in Approximation
+Theory, 403--418. Springer-Verlag, 1992.
+
+\bibitem{odlyzko}
+A. M. Odlyzko, \emph{An improved bound for the de Bruijn-Newman constant}, Numerical Algorithms \textbf{25} (2000), 293--303.
+
+\bibitem{brad}
+B. Rodgers, T. Tao, \emph{The De Bruijn-Newman constant is nonnegative}, preprint.
+
+\bibitem{saouter}
+Y. Saouter, X. Gourdon, P. Demichel, \emph{An improved lower bound for the de Bruijn-Newman constant}, Mathematics of Computation. \textbf{80} (2011), 2281--2287. 
+
+\bibitem{stopple}
+J. Stopple, \emph{Notes on Low discriminants and the generalized Newman conjecture}, Funct. Approx. Comment.
+Math., vol. 51, no. 1 (2014), pp. 23--41.
+
+\bibitem{stopple-2}
+J. Stopple, \emph{Lehmer pairs revisited}, Exp. Math. \textbf{26} (2017), no. 1, 45--53. 
+
+\bibitem{tr}
+H. J. J. te Riele, \emph{A new lower bound for the de Bruijn-Newman constant}, Numer. Math., \textbf{58} (1991), 661--667.
+
+\bibitem{titch}
+E. C. Titchmarsh, The Theory of the Riemann Zeta-function, Second ed. (revised by D. R. Heath-Brown), Oxford University Press, Oxford, 1986.	
+
+
+\end{thebibliography} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

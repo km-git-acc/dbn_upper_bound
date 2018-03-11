@@ -1,0 +1,75 @@
+\section{Initial estimation of $r_{t,n}, R_{t,N}$}
+
+In this section we give some initial estimates on the functions $r_{t,n}, R_{t,N}$ appearing in Section \ref{heatflow-sec}.  We will need the function
+\begin{equation}\label{M-def}
+ M_0(s) \coloneqq \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \sqrt{2\pi} \exp( (\frac{s}{2}-\frac{1}{2})\log \frac{s}{2} - \frac{s}{2} )
+\end{equation}
+defined for all $s$ away from the negative axis.  Clearly this function is non-vanishing.  We may compute the logarithmic derivative $\alpha \coloneqq \frac{M'_0}{M_0}$ of this function as
+\begin{equation}\label{alpha-form}
+ \alpha(s) &= \frac{1}{s} + \frac{1}{s-1} - \frac{1}{2} \log \pi + \frac{1}{2} \log \frac{s}{2} - \frac{1}{2s} \\
+&= \frac{1}{2s} + \frac{1}{s-1} + \frac{1}{2} \log \frac{s}{2\pi}.
+\end{equation}
+We can also compute one further derivative:
+\begin{equation}\label{alpha-deriv}
+ \alpha'(s) = -\frac{1}{2s^2} - \frac{1}{(s-1)^2} + \frac{1}{2 s}.
+\end{equation}
+If $\mathrm{Im}(s) > 3$, we conclude in particular that
+\begin{equation}\label{alpha-deriv-bound}
+\begin{split}
+ \alpha'(s) &= O_{\leq}( \frac{1}{2\Im(s)^2} ) + O_{\leq}( \frac{1}{\Im(s)^2} ) + O_{\leq}( \frac{1}{2\Im(s)} ) \\
+ &= O_{\leq}( \frac{1}{2(\Im(s)-3)} )
+\end{split}
+\end{equation}
+thanks to Lemma \ref{elem-lem}(i).  Finally, we introduce the more general functions
+\begin{equation}\label{Mt-def}
+M_t(s) \coloneqq \exp( \frac{t}{4} \alpha(s)^2 ) M_0(s)
+\end{equation}
+for any $t \geq 0$, as well as the sequence
+$$ b_n(t) \coloneqq \exp( \frac{t}{4} \log^2 n ).$$
+
+\begin{proposition}[Estimate for $r_{t,n}$]  Let $\sigma$ be real, let $T>10$, let $n$ be a positive integer, and let $0 < t \leq 1/2$.  Then 
+$$ r_{t,n}(\sigma+iT) = M_t(\sigma+iT) \frac{b_n}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} (1 + O_{\leq}(\exp( \frac{1}{T-3.33} (\frac{t^2}{8} |\alpha(\sigma+iT) - \log n|^2 + \frac{t}{4} + \frac{1}{6}))-1))$$
+\end{proposition}
+
+\begin{proof}  From \eqref{ron-def}, \eqref{M-def} and Lemma \ref{elem-lem}(v) one has
+$$ 
+r_{0,n}(s) = M_0(s) n^{-s} \exp( O_{\leq}( \frac{1}{6(|s|-0.66)} ) )
+$$
+whenever $\mathrm{Im}(s) > 1$.  Set $\alpha_n \coloneqq \coloneqq \alpha(\sigma+iT) - \log n$ (this is the logarithmic derivative of $M(s) n^{-s}$ at $s=\sigma+iT$).  From \eqref{rtn-def} we have
+$$
+ r_{t,n}(s) = \exp( - \frac{t}{4} \alpha_n^2) \int_\R \exp( - \sqrt{t} v \alpha_n) M( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) 
+\exp( O_{\leq}( \frac{1}{6(|\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n|-0.66)} ) )
+\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
+$$
+By \eqref{alpha-form} and the hypothesis $T \geq 10$, the imaginary part of $\alpha_n$ may be lower bounded by
+$$ \mathrm{Im}(\alpha_n) \geq -\frac{1}{2T} - \frac{1}{T} \geq -0.15;$$
+since $t \leq 1/2$, we conclude that $\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n$ has imaginary part at least $T - 0.08$.  Thus
+$$
+ r_{t,n}(s) = \exp( - \frac{t}{4} \alpha_n^2) \int_\R \exp( - \sqrt{t} v \alpha_n) M( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) \exp( -(\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n ) \log n + O_{\leq}( \frac{1}{6(T - 0.74)} ) )
+\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
+$$
+From \eqref{alpha-deriv-bound} we have
+$$ \alpha'(s) = O_{\leq}( \frac{1}{2(T-3.08)} )$$
+for all $s$ between $\sigma+iT$ and $\sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n$.  Applying Taylor's theorem with remainder to a branch of the complex logarithm of $M_0$, we conclude that
+$$ M_0( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) = M_0(\sigma+iT) \exp( \alpha(\sigma+iT) (\sqrt{t} v + \frac{t}{2} \alpha_n) + O_{\leq}( \frac{1}{4(T-3.08)} |\sqrt{t} v + \frac{t}{2} \alpha_n|^2 )).$$
+Inserting this estimate, writing $\alpha(\sigma+iT) = \alpha_n + \log n$, estimating $\frac{1}{6(T-0.74)}$ by $\frac{1}{6(T-3.08)}$ and $|\sqrt{t} v + \frac{t}{2} \alpha_n|^2$ by $2tv^2 + \frac{t^2}{2} |\alpha_n|^2$, and simplifying, we conclude that
+$$
+ r_{t,n}(s) = M_0(\sigma+iT) \exp( \frac{t}{4} \alpha_n^2 - (\sigma+iT) \log n)
+ \int_\R \exp(  O_{\leq}( \frac{1}{T-3.08} (\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}) ) ) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.$$
+Writing $\alpha_n = \alpha(\sigma+iT) - \log n$ and using \eqref{Mt-def} we see that
+$$ M_0(\sigma+iT) \exp( \frac{t}{4} \alpha_n^2 - (\sigma+iT) \log n) = M_t(\sigma+iT) \frac{b_n}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} $$
+and so it suffices to show that
+$$  \int_\R \exp(  O_{\leq}( \frac{1}{T-3.08} (\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}) ) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv = 1 + O(\exp( \frac{1}{T-3.33} (\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6}))-1).$$
+Since $\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv $ integrates to one, it suffices by Lemma \ref{elem-lem}(iv) to show that
+\begin{equation}\label{ax}
+  \int_\R \exp( \frac{1}{T-3.08} (\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6})) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv \leq \exp( \frac{1}{T-3.33} (\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6})).
+	\end{equation}
+Using \eqref{gaussian}, the left-hand side may be calculated exactly as
+$$ \exp( \frac{1}{T-3.08} (\frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6})) (1 - \frac{t}{2(T-3.08)})^{-1/2}.$$
+Applying Lemma \ref{elem-lem} and using the hypotheses $t \leq 1/2$, $T \geq 10$, one has
+$$ 1 - \frac{t}{2(T-3.08)} = \exp( O_{\leq}( \frac{t}{2(T-3.33)} ))$$
+and hence (bounding $\frac{1}{T-3.08}$ by $\frac{1}{T-3.33}$), we obtain the claim.
+\end{proof}
+
+
+\end{proof}
