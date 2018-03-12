@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  10 MAR 2018 19:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  11 MAR 2018 21:03
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -574,58 +574,102 @@ Package grfext Info: Graphics extension search list:
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (intro.tex [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]) (heatflow.tex [2]
-Overfull \hbox (184.11444pt too wide) has occurred while \output is active
- \OT1/txr/m/n/8 EFFECTIVE APPROXIMATION OF HEAT FLOW EVOLUTION OF THE RIEMANN XI FUNCTION, AND AN UPPER BOUND FOR THE DE
- BRUIJN-NEWMAN CONSTANT []
+ (intro.tex [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]) (heatflow.tex [2] [3]) (elementary.te
+x [4] [5]) (initial.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1.
+
+[6]
+Overfull \hbox (91.54964pt too wide) detected at line 47
+\OML/txmi/m/it/10.95 r[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT\OT1/txr/
+m/n/10.95 ) = [](\OMS/txsy/m/n/10.95  []\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ) [][] [](\OMS/txsy/m/n/10.95  []\OML
+/txmi/m/it/10.95 v[]\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 M\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/1
+0.95 + \OML/txmi/m/it/10.95 iT \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95 v \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95
+ []\OT1/txr/m/n/10.95 ) [](\OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 ([]))[]\OML/txmi/m/it/10.95 e[] dv:
  []
 
-[3]) (elementary.tex [4]
 
-LaTeX Warning: Citation `boyd' on page 5 undefined on input line 43.
-
-
-Overfull \hbox (184.11444pt too wide) has occurred while \output is active
- \OT1/txr/m/n/8 EFFECTIVE APPROXIMATION OF HEAT FLOW EVOLUTION OF THE RIEMANN XI FUNCTION, AND AN UPPER BOUND FOR THE DE
- BRUIJN-NEWMAN CONSTANT []
+Overfull \hbox (105.7487pt too wide) detected at line 54
+\OML/txmi/m/it/10.95 r[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s\OT1/txr/m/n/10.95 ) = [](\OMS/txsy/m/n/10.95  []\OML/
+txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ) [][] [](\OMS/txsy/m/n/10.95  []\OML/txmi/m/it/10.95 v[]\OT1/txr/m/n/10.95 )\OML
+/txmi/m/it/10.95 M\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT \OT1/txr/m/n/1
+0.95 + []\OML/txmi/m/it/10.95 v \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ) [](\OMS/txsy/m/n/10.
+95  \OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT \OT1/txr/m/n/10.95 + []\OML/
+txmi/m/it/10.95 v \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ) [] \OML/txmi/m/it/10.95 n \OT1/txr
+/m/n/10.95 + \OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 ([]))[]\OML/txmi/m/it/10.95 e[] dv:
  []
 
-[5])
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 210.
+[7] [8]
+Overfull \hbox (78.8203pt too wide) detected at line 128
+\OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT\OT1/txr/
+m/n/10.95 ) = (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ue[] []\OT1/txr/m/n/10.95 ([])\OML/txmi/
+m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 iT[]\OT1/txr/m/n/10.95 )(\OML/txmi/m/it/10.95 C[]\OT1/txr/m/n/10.
+95 (\OML/txmi/m/it/10.95 p\OT1/txr/m/n/10.95 ) + \OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 (([] + []) []([])))\OML/txmi
+/m/it/10.95 :
+ []
+
+
+Overfull \hbox (203.89087pt too wide) detected at line 145
+[]\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  []\OML/txmi/m/it/10.95 vi=\OT1/txr/m/n/10.95 4)\OML/txmi/m/it/10.95 R[]\OT1/
+txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/txr/m/n/10.95 + []\OML/txmi/m/
+it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 iT[]\OT1/txr/m/n/10.95
+ ) []([] + \OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 ([]((\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/
+10.95 v\OT1/txr/m/n/10.95 )[] + 6\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95
+ v\OMS/txsy/m/n/10.95 j \OT1/txr/m/n/10.95 + [])))(\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 U\OT
+1/txr/m/n/10.95 ([] [] + \OML/txmi/m/it/10.95 RS[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s[]\OT1/txr/m/n/10.95 ))\OML/
+txmi/m/it/10.95 :
+ []
+
+
+Overfull \hbox (148.5102pt too wide) detected at line 149
+\OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT\OT1/txr/
+m/n/10.95 ) = (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ue[] []\OT1/txr/m/n/10.95 ([])\OML/txmi/
+m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 iT[]\OT1/txr/m/n/10.95 ) [][] [](\OML/txmi/m/it/10.95 O[]\OT1/txr
+/m/n/10.95 ([]((\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 )[] + [])))([] []
+ + \OML/txmi/m/it/10.95 RS[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s[]\OT1/txr/m/n/10.95 ))[]\OML/txmi/m/it/10.95 e[] 
+dv:
+ []
+
+[9] [10] [11] [12] [13])
+Missing character: There is no â in font txr!
+Missing character: There is no € in font txr!
+Missing character: There is no “ in font txr!
+ [14]
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 213.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 210.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 210.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 213.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 213.
  (debruijn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 210.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 210.
-
-
-Package rerunfilecheck Warning: File `debruijn.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `debruijn.out':
-(rerunfilecheck)             Before: 978B2D21A5755F18DB19AF5EED2AC5F0;192
-(rerunfilecheck)             After:  83B4F4EA9C4A9BE6661C0D83D6AC64C7;251.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 210.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 213.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 213.
+Package rerunfilecheck Info: File `debruijn.out' has not changed.
+(rerunfilecheck)             Checksum: B9FE15B325AD28A933FBCD15292B4D59;369.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 213.
  ) 
 Here is how much of TeX's memory you used:
- 9222 strings out of 493303
- 135606 string characters out of 3138857
- 230934 words of memory out of 3000000
- 12415 multiletter control sequences out of 15000+200000
+ 9297 strings out of 493303
+ 136441 string characters out of 3138857
+ 236444 words of memory out of 3000000
+ 12447 multiletter control sequences out of 15000+200000
  39836 words of font info for 101 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,12n,38p,972b,462s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,17n,38p,972b,502s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
 fonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
@@ -633,9 +677,9 @@ fonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb
 /fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/txfonts/txttsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (6 pages, 110177 bytes).
+Output written on debruijn.pdf (15 pages, 166528 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 287 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
+ 49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
