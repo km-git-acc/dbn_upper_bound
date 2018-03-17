@@ -1,0 +1,127 @@
+\p 100
+
+alpha1(s) = return(1/(2*s) + 1/(s-1) + (1/2)*log(s/(2*Pi)));
+alpha1prime(s) = return(-1/(2*s^2) - 1/(s-1)^2 + 1/(2*s));
+H01(s) = return((1/2)*s*(s-1)*Pi^(-s/2)*sqrt(2*Pi)*exp((s/2-1/2)*log(s/2)-s/2));
+S(N,sigmavar,t) = return(sum(n=1,N,n^(sigmavar + (t/4.0)*log(N^2/n))));
+C0(p) = return((exp(Pi*I*(p^2/2 + 3/8)) - I*sqrt(2)*cos(Pi*p/2))/(2*cos(Pi*p)));
+B0_eff(x,y=0.4,t=0.4) = return((1/8)*exp((t/4)*alpha1((1+y-I*x)/2)^2)*H01((1+y-I*x)/2));
+
+thetafunc(x,y=0.4) = return(Pi/8 - atan((9+y)/x));
+alph_factor1(alph,n1) = return((n1^4)/(1-alph) + (4*n1^3)*alph/(1-alph)^2 + 6*(n1^2)*(alph^2 + alph)/(1-alph)^3 + 4*n1*(alph^3 + 4*alph^2 + alph)/(1-alph)^4 + (alph^4 + 11*alph^3 + 11*alph^2 + alph)/(1-alph)^5);
+alph_factor2(alph,n1) = return((n1^2)/(1-alph) + 2*n1*alph/(1-alph)^2 + (alph^2 + alph)/(1-alph)^3);
+tail_factor(t,th,x,n1,a) = return(exp(-t*th^2 - th*x - Pi*(n1^2)*cos(4*th))/(4*Pi*(n1^2)*cos(4*th) - a));
+ddx_tail_factor(t,th,x,n1,a) = return(exp(-t*th^2 - th*x - Pi*(n1^2)*cos(4*th))*(th/(4*Pi*(n1^2)*cos(4*th) - a) + 1/(4*Pi*(n1^2)*cos(4*th) - a)^2));
+integ_tail(t,th,X,n,a) = return(exp(-t*th^2 + t*X^2 - (Pi*n^2)*exp(4*X)*cos(4*th) - th*x + a*X)/(4*(Pi*n^2)*exp(4*X)*cos(4*th) - a - 2*t*X));
+ddx_integ_tail(t,th,X,n,a) = return(exp(-t*th^2 + t*X^2 - (Pi*n^2)*exp(4*X)*cos(4*th) - th*x + a*X)*(abs(X+I*th)*4*(Pi*n^2)*exp(4*X)*cos(4*th)-a-2*t*X+ 1/(4*(Pi*n^2)*exp(4*X)*cos(4*th) - a - 2*t*X)^2));
+I_t_th(t,th,X,b,beta,mstep=4) = return(intnum(u=I*th,I*th+X,exp(t*u^2 - beta*exp(4*u) + I*b*u),mstep));
+J_t_th(t,th,X,b,beta,mstep=4) = return(intnum(u=I*th,I*th+X,u*exp(t*u^2 - beta*exp(4*u) + I*b*u),mstep));
+Jbound_t_th(t,th,X,a,beta) = return(exp(-t*th^2)*intnum(u=0,X,(th+u)*exp(t*u^2 - beta*exp(4*u)*cos(4*th) + a*u)));
+
+Ht_integral(x,y=0.4,t=0.4,n0=6,X=6) = {
+   th = thetafunc(x,y);   
+   main_est1 = 2*(Pi^2)*sum(n=1,n0,(n^4)*(I_t_th(t,th,X,x-(9-y)*I,Pi*n^2) + conj(I_t_th(t,th,X,x-(9+y)*I,Pi*n^2))));
+   main_est2 = 3*Pi*sum(n=1,n0,(n^2)*(I_t_th(t,th,X,x-(5-y)*I,Pi*n^2) + conj(I_t_th(t,th,X,x-(5+y)*I,Pi*n^2))));
+   main_est = (1/2)*(main_est1 - main_est2);
+   return(main_est);   
+}
+
+Ht_integral_err(x,y=0.4,t=0.4,n0=6,X=6) = {
+   th = thetafunc(x,y);
+   n1 = n0+1;
+   alph = exp(-Pi*n1*cos(4*th));
+   sum_tail1 = 2*(Pi^2)*(tail_factor(t,th,x,n1,9+y) + tail_factor(t,th,x,n1,9-y))*alph_factor1(alph,n1); 
+   sum_tail2 = 3*Pi*(tail_factor(t,th,x,n1,5+y) + tail_factor(t,th,x,n1,5-y))*alph_factor2(alph,n1);   
+   sum_tail3 = 2*(Pi^2)*sum(n=1,n0,(n^4)*(integ_tail(t,th,X,n,9+y) + integ_tail(t,th,X,n,9-y)));
+   sum_tail4 = 3*Pi*sum(n=1,n0,(n^2)*(integ_tail(t,th,X,n,5+y) + integ_tail(t,th,X,n,5-y)));   
+   overall_tail = (1/2)*(sum_tail1 + sum_tail2 + sum_tail3 + sum_tail4);
+   return(overall_tail);
+}
+
+ddx_Ht_integral(x,y=0.4,t=0.4,n0=6,X=6) = {
+   th = thetafunc(x,y);   
+   main_est1 = 2*(Pi^2)*sum(n=1,n0,(n^4)*(J_t_th(t,th,X,x-(9-y)*I,Pi*n^2) - conj(J_t_th(t,th,X,x-(9+y)*I,Pi*n^2))));
+   main_est2 = 3*Pi*sum(n=1,n0,(n^2)*(J_t_th(t,th,X,x-(5-y)*I,Pi*n^2) - conj(J_t_th(t,th,X,x-(5+y)*I,Pi*n^2))));
+   main_est = (I/2)*(main_est1 - main_est2);
+   return(main_est);   
+}
+
+ddx_Ht_integral_err(x,y=0.4,t=0.4,n0=6,X=6) = {
+   th = thetafunc(x,y);
+   n1 = n0+1;
+   alph = exp(-Pi*n1*cos(4*th));
+   sum_tail1 = 2*(Pi^2)*(ddx_tail_factor(t,th,x,n1,9+y) + ddx_tail_factor(t,th,x,n1,9-y))*alph_factor1(alph,n1); 
+   sum_tail2 = 3*Pi*(ddx_tail_factor(t,th,x,n1,5+y) + ddx_tail_factor(t,th,x,n1,5-y))*alph_factor2(alph,n1);   
+   sum_tail3 = 2*(Pi^2)*sum(n=1,n0,(n^4)*(ddx_integ_tail(t,th,X,n,9+y) + ddx_integ_tail(t,th,X,n,9-y)));
+   sum_tail4 = 3*Pi*sum(n=1,n0,(n^2)*(ddx_integ_tail(t,th,X,n,5+y) + ddx_integ_tail(t,th,X,n,5-y)));
+   overall_tail = (1/2)*(sum_tail1 + sum_tail2 + sum_tail3 + sum_tail4);
+   return(overall_tail);   
+}
+
+abceff_x(x,y=0.4,t=0.4) = {
+    T = x/2;       
+    Tdash = T + Pi*t/8;
+    a=sqrt(Tdash/(2*Pi));
+    N=floor(a);
+    p = 1 - 2*(a-N);
+    U = exp(-I*((Tdash/2)*log(Tdash/(2*Pi)) - Tdash/2 - Pi/8));
+    sig = (1-y)/2;
+    s = sig + I*T;
+    sdash = sig + I*Tdash;
+    alph1 = alpha1(s);
+    alph2 = alpha1(1-s);
+    A0 = exp((t/4)*alph1^2)*H01(s);
+    B0 = exp((t/4)*alph2^2)*H01(1-s);
+    A_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph1 - s));
+    B_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph2 - (1-s)));
+    A = A0 * A_sum;
+    B = B0 * B_sum;
+    termC1 = Pi^(-sdash/2)*gamma(sdash/2)*(a^(-sig))*C0(p)*U;
+    termC2 = Pi^(-(1-sdash)/2)*gamma((1-sdash)/2)*(a^(-(1-sig)))*conj(C0(p))*conj(U);
+    C = exp(t*Pi^2/64)*(sdash*(sdash-1)/2)*((-1)^N)*(termC1 + termC2);
+    return((A+B-C)/8);
+}
+
+abeff_x(x,y=0.4,t=0.4) = {
+    T = x/2;       
+    Tdash = T + Pi*t/8;
+    a=sqrt(Tdash/(2*Pi));
+    N=floor(a);
+    p = 1 - 2*(a-N);
+    U = exp(-I*((Tdash/2)*log(Tdash/(2*Pi)) - Tdash/2 - Pi/8));
+    sig = (1-y)/2;
+    s = sig + I*T;
+    sdash = sig + I*Tdash;
+    alph1 = alpha1(s);
+    alph2 = alpha1(1-s);
+    A0 = exp((t/4)*alph1^2)*H01(s);
+    B0 = exp((t/4)*alph2^2)*H01(1-s);
+    A_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph1 - s));
+    B_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph2 - (1-s)));
+    A = A0 * A_sum;
+    B = B0 * B_sum;
+    return((A+B)/8);
+}
+
+ddx_Ht_bound(x,y=0.4,t=0.4,n0=50,X=6) = {
+   th = Pi/8 - atan((9+y)/x);
+   main_est1 = 2*(Pi^2)*sum(n=1,n0,(n^4)*(Jbound_t_th(t,th,X,(9-y),Pi*n^2) + Jbound_t_th(t,th,X,(9+y),Pi*n^2)));
+   main_est2 = 3*Pi*sum(n=1,n0,(n^2)*(Jbound_t_th(t,th,X,(5-y),Pi*n^2) + Jbound_t_th(t,th,X,(5+y),Pi*n^2)));
+   main_est = (1/2)*(main_est1 + main_est2);
+   print(main_est);
+   return(main_est);   
+}
+
+newton_quot_Ht_integral(x,y=0.4,t=0.4,h=0.0001) = return((Ht_integral(x+h,y,t)-Ht_integral(x,y,t))/h);
+newton_quot_abc(x,y=0.4,t=0.4,h=0.0001) = return((abceff_x(x+h,y,t)-abceff_x(x,y,t))/h);
+newton_quot_ab(x,y=0.4,t=0.4,h=0.0001) = return((abeff_x(x+h,y,t)-abeff_x(x,y,t))/h);
+
+
+
+\\for(x=20,300,print(x,"  ",abs(Ht_integral(x)/B0_eff(x))*precision(1., 10),"   ",abs(abceff_x(x)/B0_eff(x))*precision(1., 10),"  ",\
+                          abs(ddx_Ht_integral(x)/B0_eff(x))*precision(1., 10)));
+
+\\for(x=20,100,print(x,"  ",abs(ddx_Ht_integral(x)/newton_quot_abc(x,0.4,0.4,0.0000001))*precision(1., 10)));
+
+\\xc=1600;y=0.4;thc = Pi/8 - atan((9+y)/xc);D = ddx_Ht_bound(xc);filename="ddxratio_xc_1600.csv";
+\\for(x=200,16000,write(filename,concat(concat((x/10.0)*precision(1., 10),","),(D*exp(-thc*x/10)/abs(newton_quot_abc(x/10,0.4,0.4,0.0000001)))*precision(1., 10))));
