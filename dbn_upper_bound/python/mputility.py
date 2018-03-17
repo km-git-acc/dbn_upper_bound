@@ -313,7 +313,7 @@ def vwf_err_old(s_orig, t, lim=10, h=0.01):
     '''This is the older vwf function in which v, w and f are independent and simpler to understand'''
     def v(sigma, s, t):
         T0 = s.imag
-        T0dash = T0 - mp.pi() * t / 8.0    
+        T0dash = T0 + mp.pi() * t / 8.0    
         a0 = mp.sqrt(T0dash/(2*mp.pi()))
         if(sigma >= 0):
             return 1 + 0.4 * mp.power(9, sigma) / a0 + 0.346 * mp.power(2, 3*sigma/2.0) / (a0**2)
@@ -325,8 +325,8 @@ def vwf_err_old(s_orig, t, lim=10, h=0.01):
     def w(sigma, s, t):
         T = s.imag
         T0 = T
-        T0dash = T0 - mp.pi() * t / 8.0
-        Tdash = T - mp.pi() * t / 8.0
+        T0dash = T0 + mp.pi() * t / 8.0
+        Tdash = T + mp.pi() * t / 8.0
         wterm1=1+(sigma**2)/(T0dash**2)
         wterm2=1+((1-sigma)**2)/(T0dash**2)
         wterm3 = (sigma-1) * mp.log(wterm1)/4.0 + nonnegative((T0dash/2.0) * mp.atan(sigma/T0dash) - sigma/2.0) + 1/(12.0*(Tdash-0.33))
@@ -368,7 +368,7 @@ def vwf_err(s_orig, t, lim=10, h=0.01):
     sigma0 = s_orig.real
     T = s_orig.imag
     T0 = T
-    T0dash = T0 - mp.pi()*t/8.0    
+    T0dash = T0 + mp.pi()*t/8.0    
     a0 = mp.sqrt(T0dash/(2*mp.pi()))
     ktermcache = [mp.power(1.1/a0, k) * mp.gamma(mp.mpf(k)/2.0) for k in range(1,lim+5)]
     ksumcache = list(accumulate(ktermcache))
@@ -393,7 +393,7 @@ def Ht_Effective(z, t):
     z, t = mp.mpc(z), mp.mpc(t)
     sigma = (1-z.imag)/2.0
     T = (z.real)/2.0
-    Tdash = T - t*mp.pi()/8.0
+    Tdash = T + t*mp.pi()/8.0
     s1 = sigma + 1j*T
     s2 = 1-sigma + 1j*T
     N = int((mp.sqrt(Tdash/(2*mp.pi()))).real)
