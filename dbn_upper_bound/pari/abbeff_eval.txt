@@ -58,8 +58,8 @@ c=0.065;
 i=0;
 for(N=151,300,{
 ddxbound = ddx_abbeff_bound(N);
-xN = floor(4*Pi*N^2 - Pi*t/4);
-xNp1 = ceil(4*Pi*(N+1)^2 - Pi*t/4);
+xN = 4*Pi*N^2 - Pi*t/4;
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
 x=xN;
 while(if(x>xNp1,0,1), i=i+1; if(i%5000==0,print(i);write(filename,data);data=List()); est = abbeff_x(x); abs_est = abs(est); ddxest = ddx_abbeff_x(x); abs_ddxest = abs(ddxest); listput(data,[i,N,ddxbound,c,x,est,abs_est,ddxest,abs_ddxest]); x=x+(abs_est-c)/ddxbound;)
 })
