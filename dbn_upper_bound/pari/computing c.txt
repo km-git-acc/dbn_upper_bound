@@ -1,0 +1,47 @@
+========================
+user-defined functions :
+
+A =
+(Z)->(1/8)*exp((t/4)*(al1(I*real(Z)/2+(1-imag(Z))/2)^2))*H01(I*real(Z)/2+(1-imag(Z))/2)*sum(Y=1,M(Z),1/exp((I*real(Z)/2+(1-imag(Z))/2+t*al1(I*real(Z)/2+(1-imag(Z))/2)/2-(t/4)*log(Y))*log(Y)))
+
+B =
+(Z)->(1/8)*exp((t/4)*conj(al1(I*real(Z)/2+(1+imag(Z))/2))^2)*conj(H01(I*real(Z)/2+(1+imag(Z))/2))*sum(Y=1,M(Z),1/exp((-I*real(Z)/2+(1+imag(Z))/2+conj(t*al1(I*real(Z)/2+(1+imag(Z))/2))/2-(t/4)*log(Y))*log(Y)))
+
+B0 =
+(Z)->(1/8)*exp((t/4)*conj(al1(I*real(Z)/2+(1+imag(Z))/2))^2)*conj(H01(I*real(Z)/2+(1+imag(Z))/2))
+
+C =
+(Z)->(1/8)*exp(t*(Pi^2)/64)*(sp(Z)*(sp(Z)-1)/2)*((-1)^M(Z))*(Pi^(-sp(Z)/2)*gamma(sp(Z)/2)*(a(Z)^(-sig(Z)))*C0(Z)*U(Z)+Pi^(-(1-sp(Z))/2)*gamma((1-sp(Z))/2)*(a(Z)^(-(1-sig(Z))))*conj(C0(Z))*conj(U(Z)))
+
+C0 =
+(Z)->(exp(Pi*I*((p(Z)^2)/2+3/8))-I*sqrt(2)*cos(Pi*p(Z)/2))/(2*cos(Pi*p(Z)))
+
+H01 =
+(S)->(S*(S-1)/2)*exp((-S/2)*log(Pi))*sqrt(2*Pi)*exp((S/2-1/2)*log(S/2)-S/2)
+
+Heff2 =
+(Z)->A(Z)+B(Z)-C(Z)
+
+M =
+(Z)->floor(sqrt((real(Z)/2+Pi*t/8)/(2*Pi)))
+
+Tp =
+(Z)->real(Z)/2+Pi*t/8
+
+U =
+(Z)->exp(-I*((Tp(Z)/2)*log(Tp(Z)/(2*Pi))-Tp(Z)/2-Pi/8))
+
+a =
+(Z)->sqrt((real(Z)/2+Pi*t/8)/(2*Pi))
+
+al1 =
+(S)->1/(2*S)+1/(S-1)+(1/2)*log(S/(2*Pi))
+
+p =
+(Z)->1-2*(a(Z)-M(Z))
+
+sig =
+(Z)->real(sp(Z))
+
+sp =
+(Z)->(1-imag(Z))/2+I*real(Z)/2+I*Pi*t/8

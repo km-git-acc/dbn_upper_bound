@@ -1,0 +1,69 @@
+\section{Applying the fundamental solution for the heat equation}\label{heatflow-sec}
+
+We can write $H_t$ in terms of $H_0$ using the fundamental solution to the heat equation.  Namely, for any $t>0$, we have from \eqref{gaussian} that
+$$
+e^{tu^2} = \int_\R e^{\pm 2 \sqrt{t} vu} \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv$$
+for any complex $u$ and any choice of sign $\pm$. Multiplying by $e^{\pm i zu}$ and averaging, we conclude that
+$$
+e^{tu^2} \cos(zu) = \int_\R \cos((z - 2 i \sqrt{t} v)u) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv$$
+for any complex $z,u$.  Multiplying by $\Phi(u)$ and using Fubini's theorem, we conclude that
+$$ H_t(z) = \int_\R H_0( z - 2i \sqrt{t} v ) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv $$
+for any complex $z$.  Using \eqref{hoz}, we thus have
+\begin{equation}\label{htz}
+ H_t(z) = \int_\R \frac{1}{8} \xi( \frac{1+iz}{2} + \sqrt{t} v ) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
+\end{equation}
+
+We now combine this formula with expansions of the Riemann $\xi$-function.  From \cite[(2.10.6)]{titch} we have the Riemann-Siegel formula
+\begin{equation}\label{xio}
+ \frac{1}{8} \xi(s) = R_{0,0}(s) + R_{0,0}^*(1-s) 
+\end{equation}
+for any complex $s$ that is not an integer (in order to avoid the poles of the Gamma function), where $R_{0,0}(s)$ is the contour integral
+$$ R_{0,0}(s) := \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma(\frac{s}{2}) \int_{0 \swarrow 1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}}\ dw$$
+with $0 \swarrow 1$ any infinite line oriented in the direction $e^{5\pi i/4}$ that crosses the interval $[0,1]$.  From the residue theorem (and the gaussian decrease of $e^{i\pi w^2}$ along the $e^{\pi i/4}$ and $e^{5\pi i/4}$ directions) we may expand
+$$ R_{0,0}(s) = \sum_{n=1}^N r_{0,n}(s)+ R_{0,N}(s)$$
+for any non-negative integer $N$, where $r_{0,n}, R_{0,N}$ are the meromorphic functions
+\begin{align}
+ r_{0,n}(s) &:= \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma(\frac{s}{2}) n^{-s},\label{ron-def} \\
+R_{0,N}(s) &:= \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma(\frac{s}{2}) \int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}}\label{RON-def}
+\end{align}
+and $N \swarrow N+1$ denotes any infinite line oriented in the direction $e^{5\pi i /4}$ that crosses the interval $[N,N+1]$.  For any $z$ that is not purely imaginary, we see from Stirling's approximation that the functions $r_{0,n}(\frac{1+iz}{2} + \sqrt{t} v)$ and $R_{0,N}(\frac{1+iz}{2} + \sqrt{t} v)$ grow slower than gaussian as $v \to \pm \infty$ (indeed they grow like $\exp( O( |v| \log |v| ) )$, where the implied constants depend on $t,z$).  From this and
+\eqref{htz}, \eqref{xio} we conclude that
+\begin{equation}\label{htz-expand}
+ H_t(z) = \sum_{n=1}^N r_{t,n}(\frac{1+iz}{2}) + \sum_{n=1}^N r_{t,n}^*(\frac{1-iz}{2}) + R_{t,N}(\frac{1+iz}{2}) + R_{t,N}^*(\frac{1-iz}{2})
+\end{equation}
+for any $t>0$, any $z$ that is not purely imaginary, and any non-negative integer $N$, where $r_{t,n}(s), R_{t,N}(s)$ are defined for non-real $s$ by the formulae
+\begin{align*}
+ r_{t,n}(s) &:= \int_\R r_{0,n}( s + \sqrt{t} v ) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv\\
+ R_{t,N}(s) &:= \int_\R R_{0,N}( s + \sqrt{t} v ) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv;
+\end{align*}
+these can be thought of as the evolutions of $r_{0,n}, R_{0,N}$ respectively under the forward heat equation.
+
+The functions $r_{0,n}(s), R_{0,N}(s)$ grow slower than gaussian as long as the imaginary part of $s$ is bounded and bounded away from zero.  As a consequence, we may shift contours (replacing $v$ by $v + \frac{\sqrt{t}}{2} \alpha_n$) and write
+\begin{equation}\label{rtn-def}
+ r_{t,n}(s) = \exp( - \frac{t}{4} \alpha_n^2) \int_\R \exp( - \sqrt{t} v \alpha_n) r_{0,n}( s + \sqrt{t} v + \frac{t}{2} \alpha_n) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv
+\end{equation}
+for any complex number $\alpha_n$ with $\mathrm{Im}(s), \mathrm{Im}(s + \frac{t}{2} \alpha_n)$ having the same sign.  Similarly we may write
+\begin{equation}\label{RTN-def}
+ R_{t,N}(s) = \exp( - \frac{t}{4} \beta_N^2) \int_\R \exp( - \sqrt{t} v \beta_N) R_{0,N}( s + \sqrt{t} v + \frac{t}{2} \beta_N) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv
+\end{equation}
+for any complex number $\beta_N$ with $\mathrm{Im}(s), \mathrm{Im}(s + \frac{t}{2} \beta_N)$ having the same sign.  In the spirit of the saddle point method, we will select the parameters $\alpha_n, \beta_N$ later in the paper in order to make the phases in $r_{0,n}, R_{0,N}$ close to stationary, in order to obtain good estimates and approximations for these terms.
+
+One can differentiate the expansion \eqref{htz-expand} term-by-term to conclude that
+$$
+ H'_t(z) = \frac{i}{2} \sum_{n=1}^N r'_{t,n}(\frac{1+iz}{2}) -\frac{i}{2} \sum_{n=1}^N (r'_{t,n})^*(\frac{1-iz}{2}) + \frac{i}{2} R'_{t,N}(\frac{1+iz}{2}) - \frac{i}{2} (R'_{t,N})^*(\frac{1-iz}{2}).$$
+Differentiating \eqref{rtn-def}, \eqref{RTN-def} under the integral sign (which can be justified using the Cauchy integral formula and the subgaussian nature of $r_{0,n}, R_{0,N}$) we also obtain the formulae
+\begin{equation}\label{rtn-deriv}
+ r'_{t,n}(s) = \exp( - \frac{t}{4} \alpha_n^2) \int_\R (\alpha_n + \frac{2v}{\sqrt{t}}) \exp( - \sqrt{t} v \alpha_n) r_{0,n}( s + \sqrt{t} v + \frac{t}{2} \alpha_n) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv
+\end{equation}
+and
+\begin{equation}\label{RTN-deriv}
+ R'_{t,N}(s) = \exp( - \frac{t}{4} \beta_N^2) \int_\R (\beta_N + \frac{2v}{\sqrt{t}}) \exp( - \sqrt{t} v \beta_N) R_{0,N}( s + \sqrt{t} v + \frac{t}{2} \beta_N) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
+\end{equation}
+
+
+
+
+
+
+
+
