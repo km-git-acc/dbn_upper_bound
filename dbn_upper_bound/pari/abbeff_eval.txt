@@ -1,0 +1,65 @@
+\p 30
+
+alpha1(s) = return(1/(2*s) + 1/(s-1) + (1/2)*log(s/(2*Pi)));
+alpha1prime(s) = return(-1/(2*s^2) - 1/(s-1)^2 + 1/(2*s));
+H01(s) = return((1/2)*s*(s-1)*Pi^(-s/2)*sqrt(2*Pi)*exp((s/2-1/2)*log(s/2)-s/2));
+
+abbeff_x(x,y=0.4,t=0.4) = {       
+    s = (1 - y + I*x)/2; 
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    alph1 = alpha1(s);
+    alph2 = alpha1(1-s);
+    A0 = exp((t/4)*alph1^2)*H01(s);
+    B0 = exp((t/4)*alph2^2)*H01(1-s);
+    A_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph1 - s));
+    B_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph2 - (1-s)));
+    A = A0 * A_sum;
+    B = B0 * B_sum;
+    return ((A+B)/B0);
+}
+
+newton_quot_abbeff_x(x,y=0.4,t=0.4,h=0.00001) = return(abs((abbeff_x(x+h,y,t) - abbeff_x(x,y,t))/h));
+
+ddx_abbeff_x(x,y=0.4,t=0.4) = {
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    s = (1+y-I*x)/2;
+    lambda = exp((t/4.0)*(alpha1(1-s)^2 - alpha1(s)^2))*H01(1-s)/H01(s); 
+    expo_b_main = s + 0.5*t*alpha1(s);
+    expo_a_main = 1-s + 0.5*t*alpha1(1-s);
+    b_numer_common = -I/2 - (I/4)*t*alpha1prime(s);
+    a_numer_common = I/2 + (I/4)*t*alpha1prime(1-s);
+    ddxloglambda = (I*t/4)*(alpha1(s)*alpha1prime(s) + alpha1(1-s)*alpha1prime(1-s)) + (I/4)*log(s/(2*Pi)) + (I/4)*log((1-s)/(2*Pi)) - (I/4)*(1/s + 1/(1-s));
+    ddxsum_b = sum(n=1,N,-log(n)*b_numer_common*n^((t/4)*log(n) - expo_b_main));
+    ddxsum_a = sum(n=1,N,(-log(n)*a_numer_common + ddxloglambda)*n^((t/4.0)*log(n) - expo_a_main));
+    ddxsum = ddxsum_b + lambda*ddxsum_a;
+    return(ddxsum);
+}
+
+ddx_abbeff_bound(N,y=0.4,t=0.4) = {
+    xN = 4*Pi*N^2 - Pi*t/4;
+    xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+    delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
+    ddx_b_pre = 1 + 0.5*t/(xN-6);
+    ddx_a_pre = exp(delta)*(N^-y);
+    expo_b_main = (1+y)/2 + (t/2)*((3*y-1)/(xNp1^2+1) + log(N));
+    expo_a_main = (1-y)/2 + (t/2)*((2-3*y)/xN^2 + log(N));
+    a_numer_common = (1/4)*log(abs(1-y+I*xNp1)*abs(1+y-I*xNp1)/(16*Pi^2)) + (1/4)*(3*t+1)/(xN*(xN-6));
+    ddxsum_b = sum(n=1,N,(log(n)/2)*n^((t/4)*log(n) - expo_b_main));
+    ddxsum_a = sum(n=1,N,(log(n)*(t/(4*(xN-6)) - 1/2) + a_numer_common)*n^((t/4)*log(n) - expo_a_main));
+    ddxsum = ddx_b_pre*ddxsum_b + ddx_a_pre*ddxsum_a;
+    return(ddxsum);
+}
+
+
+filename="abbeff_data_N_151_300.csv"
+data=List()
+t=0.4;
+c=0.065;
+i=0;
+for(N=151,300,{
+ddxbound = ddx_abbeff_bound(N);
+xN = 4*Pi*N^2 - Pi*t/4;
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+x=xN;
+while(if(x>xNp1,0,1), i=i+1; if(i%5000==0,print(i);write(filename,data);data=List()); est = abbeff_x(x); abs_est = abs(est); ddxest = ddx_abbeff_x(x); abs_ddxest = abs(ddxest); listput(data,[i,N,ddxbound,c,x,est,abs_est,ddxest,abs_ddxest]); x=x+(abs_est-c)/ddxbound;)
+})

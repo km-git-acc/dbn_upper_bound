@@ -1,0 +1,63 @@
+# code to evaluate A, A', A^eff, A^toy, B, B', B^eff, B^toy, B_0, B'_0, B^eff_0, B^toy_0 for a given value of x
+
+x := 10^3;
+N := floor(sqrt(x/(4*Pi)));
+y := 0.4;
+t := 0.4;
+z := x + I*y;
+s := (1 + I*z)/2;
+Stirling := sqrt(2*Pi) * exp( (Z-1/2) * log(Z) - Z );
+Np := floor( sqrt( (x/2 + Pi*t/8) / (2*Pi) ) );
+
+B0 := (1/8) * (s*(s-1)/2) * Pi^(-(1-s)/2) * GAMMA((1-s)/2) * exp( (t/16) * (log((5-s)/(2*Pi)))^2 );
+B0p := (2/8) * Pi^(-(1-s)/2) * subs(Z = (5-s)/2, Stirling) * exp( (t/16) * (log((5-s)/(2*Pi)))^2 );
+alpha := 1/(2*(1-s)) + 1/(-s) + 1/2 * log((1-s)/(2*Pi));
+B0eff := (1/8) * exp( (t/4) * alpha^2 ) * (s*(s-1)/2) * Pi^(-(1-s)/2) * subs(Z = (1-s)/2, Stirling);
+B0toy := (sqrt(2)/4) * Pi^2 * N^((7+y)/2) * exp( I * ( -(x/4) * log(x/(4*Pi)) + (x/4) + (9-y)*Pi/8 ) + (t/16) * (log(x/(4*Pi)) - Pi*I/2)^2 ) * exp( - Pi * x / 8);
+
+
+B := (1/8) * (s*(s-1)/2) * Pi^(-(1-s)/2) * GAMMA((1-s)/2) * evalf( add( exp( (t/16) * log((5-s)/(2*Pi*n^2))^2 ) / n^(1-s), n=1..N));
+Bp :=(2/8) * Pi^(-(1-s)/2) * subs(Z = (5-s)/2, Stirling) * evalf( add( exp( (t/16) * log((5-s)/(2*Pi*n^2))^2 ) / n^(1-s), n=1..N));
+Beff := B0eff * evalf( add( 1 / n^(1-s + t*alpha/2 - t*log(n)/4), n=1..Np));
+Btoy := B0toy * evalf( add( 1 / n^(1-s + (t/4) * log(N^2/n) - t*Pi*I/8), n=1..N));
+
+A := (1/8) * (s*(s-1)/2) * Pi^(-s/2) * GAMMA(s/2) * evalf( add( exp( (t/16) * log((s+4)/(2*Pi*n^2))^2 ) / n^(s), n=1..N));
+Ap := (2/8) * Pi^(-s/2) * subs(Z = (s+4)/2, Stirling) * evalf( add( exp( (t/16) * log((s+4)/(2*Pi*n^2))^2 ) / n^(s), n=1..N));
+alpha2 := 1/(2*s) + 1/(s-1) + 1/2 * log(s/(2*Pi));
+A0eff := (1/8) * exp( (t/4) * alpha2^2 ) * (s*(s-1)/2) * Pi^(-s/2) * subs(Z = s/2, Stirling);
+Aeff := A0eff * evalf( add( 1 / n^(s + t*alpha2/2 - t*log(n)/4), n=1..Np)); 
+A0toy := B0toy * exp(I*((x/2 + Pi*t/8)*log(x/(4*Pi)) - x/2 - Pi/4)) * N^(-y);
+Atoy := A0toy * evalf(add(1/n^(s + (t/4) * log(N^2/n) +  t*Pi*I/8), n=1..N));
+evalf(B/B0);
+evalf(Bp/B0p);
+evalf(Beff/B0eff);
+evalf(Btoy/B0toy);
+evalf(A/B0);
+evalf(Ap/B0p);
+evalf(Aeff/B0eff);
+evalf(Atoy/B0toy);
+
+
+# code for testing upper bounds on Atoy, Btoy, and derivatives, and also incorporating the second Euler factor, for a given value of N
+
+N:=473;
+
+Bbound := evalf(add(1/n^(0.7+0.1*log(N^2/n)), n=1..N));
+Abound := evalf(N^(-0.4) * add(1/n^(0.3+0.1*log(N^2/n)), n=1..N));
+
+Bderivbound := evalf(add(log(n)/n^(0.7+0.1*log(N^2/n)), n=1..N)/2);
+Aderivbound := evalf(N^(-0.4) * add(log(n)/n^(0.3+0.1*log(N^2/n)), n=1..N)/2);
+
+s := 1.08;
+t := 1;
+Bmult := Heaviside(N+0.5-n) - Heaviside(2*N+0.5-n)*s*(1-irem(n,2)) / (n/2)^(0.2 * log(2)) - Heaviside(3*N+0.5-n)*t*Heaviside(0.5-irem(n,3)) / (n/3)^(0.2 * log(3)) + exp(0.1 * log(2)*log(3)) * s*t*Heaviside(0.5-irem(n,6)) / (n/6)^(0.2*log(6));
+Bbound2 := evalf(add(abs(Bmult)/n^(0.7+0.1*log(N^2/n)), n=1..2*N));
+Bderivbound2 := evalf(add(log(n)*abs(Bmult)/n^(0.7+0.1*log(N^2/n)), n=1..2*N))/2;
+
+
+Amult := Heaviside(N+0.5-n) - s*(1-irem(n,2)) * 2^(-0.4) / (n/2)^(0.2 * log(2))- Heaviside(3*N+0.5-n)*t*Heaviside(0.5-irem(n,3)) * 3^(-0.4) / (n/3)^(0.2 * log(3)) + exp(0.1 * log(2)*log(3)) * s*t*Heaviside(0.5-irem(n,6)) * 6^(-0.4) / (n/6)^(0.2*log(6));
+Abound2 := evalf(N^(-0.4) * add(abs(Amult)/n^(0.3+0.1*log(N^2/n)), n=1..2*N));
+Aderivbound2 := evalf(N^(-0.4) * add(log(n)*abs(Amult)/n^(0.3+0.1*log(N^2/n)), n=1..2*N))/2;
+
+evalf( Bbound2+Abound2 );
+

@@ -1,0 +1,39 @@
+\section{Introduction}
+
+Let $H_0 \colon \C \to \C$ denote the function
+\begin{equation}\label{hoz}
+ H_0(z) \coloneqq \frac{1}{8} \xi\left(\frac{1}{2} + \frac{iz}{2}\right),
+\end{equation}
+where $\xi$ denotes the Riemann xi function
+\begin{equation}\label{sas}
+ \xi(s) \coloneqq \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right) \zeta(s)
+\end{equation}
+(removing the singularities at the poles of the Gamma function) and $\zeta$ is the Riemann zeta function.
+Then $H_0$ is an entire even function with functional equation $H_0(\overline{z}) = \overline{H_0(z)}$, and the Riemann hypothesis is equivalent to the assertion that all the zeroes of $H_0$ are real.
+
+It is a classical fact (see \cite[p. 255]{titch}) that $H_0$ has the Fourier representation
+$$ H_0(z) = \int_0^\infty \Phi(u) \cos(zu)\ du$$
+where $\Phi$ is the super-exponentially decaying function
+\begin{equation}\label{phidef}
+ \Phi(u) \coloneqq \sum_{n=1}^\infty (2\pi^2  n^4 e^{9u} - 3\pi n^2 e^{5u} ) \exp(-\pi n^2 e^{4u} ).
+\end{equation}
+The sum defining $\Phi(u)$ converges absolutely for negative $u$ also.  From Poisson summation one can verify that $\Phi$ satisfies the functional equation $\Phi(u) = \Phi(-u)$ (i.e., $\Phi$ is even).
+
+De Bruijn \cite{debr} introduced the more general family of functions $H_t \colon \C \to \C$ for $t \in \R$ by the formula
+\begin{equation}\label{htdef}
+ H_t(z) \coloneqq \int_0^\infty e^{tu^2} \Phi(u) \cos(zu)\ du.
+\end{equation}
+As noted in \cite[p.114]{csv}, one can view $H_t$ as the evolution of $H_0$ under the backwards heat equation $\partial_t H_t(z)= -\partial_{zz} H_t(z)$.
+As with $H_0$, each of the $H_t$ are entire even functions with functional equation $H_t(\overline{z}) = \overline{H_t(z)}$.  De Bruijn showed that the zeroes of $H_t$ are purely real for $t \geq 1/2$, and if $H_t$ has purely real zeroes for some $t$, then $H_{t'}$ has purely real zeroes for all $t'>t$.  Newman \cite{newman} strengthened this result by showing that there is an absolute constant $-\infty < \Lambda \leq 1/2$, now known as the \emph{De Bruijn-Newman constant}, with the property that $H_t$ has purely real zeroes if and only if $t \geq \Lambda$.  The Riemann hypothesis is then clearly equivalent to the upper bound $\Lambda \leq 0$.  Recently in \cite{brad} the complementary bound $\Lambda \geq 0$ was established, answering a conjecture of Newman \cite{newman}.  Furthermore, Ki, Kim, and Lee \cite{kkl} sharpened the upper bound $\Lambda \leq 1/2$ of de Bruijn \cite{debr} slightly to $\Lambda < 1/2$.  
+
+\section{Notation}
+
+Unless otherwise specified, $\log$ denotes the standard branch of the complex logarithm, thus the branch cut is on the negative real axis and imaginary part in $(-\pi,\pi]$.  We then define the standard complex powers $z^w \coloneqq \exp( w \log z)$, and in particular define the standard square root $\sqrt{z} \coloneqq z^{1/2}$.  We record the standard gaussian identity
+\begin{equation}\label{gaussian}
+ \int_\R \exp(-(au^2+bu+c))\ du = \sqrt{\frac{\pi}{a}} \exp( \frac{b^2}{4a} - c)
+\end{equation}
+for any complex numbers $a,b,c$ with $\mathrm{Re} a > 0$.
+
+To obtain effective estimates, it is convenient to use the notation $O_{\leq}(X)$ to denote any quantity that is bounded in magnitude by $X$.  Any expression of the form $A=B$ using this notation should be interpreted as the assertion that any quantity of the form $A$ is also of the form $B$, thus for instance $O_{\leq}(1) + O_{\leq}(1) = O_{\leq}(3)$.  (In particular, the equality relation is no longer symmetric with this notation.)
+
+If $F$ is a meromorphic function, we use $F'$ to denote its derivative.  We also use $F^*$ to denote the reflection $F^*(s) := \overline{F(\overline{s})}$ of $F$.  Observe from analytic continuation that if $F:\C \to \C$ is meromorphic and is real-valued on $\R$ then it is equal to its own reflection: $F = F^*$.
