@@ -503,4 +503,3 @@ def abeff_lemmabound(N,y,t,cond):
         sum3 += (en3 + max((1-a1)*abs(bn3+an3)/(1+a1), abs(bn3-an3)))/denom
         sum5 += (en5 + max((1-a1)*abs(bn5+an5)/(1+a1), abs(bn5-an5)))/denom
     return [N,expdelta] + [1-a1-j for j in [sum1,sum2,sum3,sum5]]
-
