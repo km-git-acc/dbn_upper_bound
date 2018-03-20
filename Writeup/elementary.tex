@@ -5,19 +5,19 @@ We have the following elementary estimates:
 \begin{lemma}[Elementary estimates]\label{elem-lem} Let $x > 0$.
 \begin{itemize}
 \item[(i)] If $a > 0$ and $b \geq 0$ are such that $x > b/a$, then
-$$O_{\leq}(\frac{a}{x}) + O_{\leq}( \frac{b}{x^2} ) = O_{\leq}( \frac{a}{x-b/a} ).$$
+$$O_{\leq}\left(\frac{a}{x}\right) + O_{\leq}\left( \frac{b}{x^2}\right ) = O_{\leq}\left( \frac{a}{x-b/a} \right).$$
 More generally, if $a > 0$ and $b,c \geq 0$ are such that $x > b/a, \sqrt{c/a}$, then
-$$O_{\leq}(\frac{a}{x}) + O_{\leq}( \frac{b}{x^2} ) + O_{\leq}( \frac{c}{x^3}) = O_{\leq}( \frac{a}{x-\max(b/a,\sqrt{c/a})} ).$$
+$$O_{\leq}\left(\frac{a}{x}\right) + O_{\leq}\left( \frac{b}{x^2} \right) + O_{\leq}\left( \frac{c}{x^3}\right) = O_{\leq}\left( \frac{a}{x-\max(b/a,\sqrt{c/a})} \right).$$
 \item[(ii)]  If $x > 1$, then
-$$\log(1 + O_{\leq}(\frac{1}{x}) ) = O_{\leq}(\frac{1}{x-1}).$$
+$$\log\left(1 + O_{\leq}\left(\frac{1}{x}\right) \right) = O_{\leq}\left(\frac{1}{x-1}\right).$$
 or equivalently
-$$1 + O_{\leq}(\frac{1}{x}) = \exp( O_{\leq}(\frac{1}{x-1}) ).$$
+$$1 + O_{\leq}\left(\frac{1}{x}\right) = \exp\left( O_{\leq}\left(\frac{1}{x-1}\right) \right).$$
 \item[(iii)]  If $x > 1/2$, then
-$$\exp( O_{\leq}(\frac{1}{x}) ) = 1 + O_{\leq}( \frac{1}{x-0.5} ).$$
+$$\exp\left( O_{\leq}\left(\frac{1}{x}\right) \right) = 1 + O_{\leq}\left( \frac{1}{x-0.5} \right).$$
 \item[(iv)]  We have
-$$ \exp(O_{\leq}(x)) = 1 + O_{\leq}(e^x-1).$$
+$$ \exp\left(O_{\leq}(x)\right) = 1 + O_{\leq}(e^x-1).$$
 \item[(v)] If $z$ is a complex number with $|\mathrm{Im}(z)| \geq 1$ or $\mathrm{Re} z \geq 1$, then
-$$ \Gamma(z) = \sqrt{2\pi} \exp( (z-\frac{1}{2}) \log z - z + O_{\leq}( \frac{1}{12(|z| - 0.33)} )).$$
+$$ \Gamma(z) = \sqrt{2\pi} \exp\left( (z-\frac{1}{2}) \log z - z + O_{\leq}\left( \frac{1}{12(|z| - 0.33)} \right)\right).$$
 \item[(vi)] If $a,b > 0$ and $x \geq x_0 \geq \exp(b/a)$, then
 $$\log^a x \leq \frac{\log^a x_0}{x_0^b} x^b.$$
 \end{itemize}
@@ -28,28 +28,28 @@ $$ \frac{a}{x-t} = \frac{a}{x} + \frac{at}{x^2} + \frac{at^2}{x^3} + \dots$$
 whenever $0 \leq t < x$.
 
 For Claim (ii), we use the Taylor expansion of the logarithm to note that
-$$\log( 1 + O_{\leq}(\frac{1}{x}) ) = O_{\leq}(\frac{1}{x} + \frac{1}{2x^2} + \frac{1}{3x^3} + \dots)$$
+$$\log\left( 1 + O_{\leq}\left(\frac{1}{x}\right) \right) = O_{\leq}\left(\frac{1}{x} + \frac{1}{2x^2} + \frac{1}{3x^3} + \dots\right)$$
 which on comparison with the geometric series formula
 $$\frac{1}{x-1} = \frac{1}{x} + \frac{1}{x^2} + \frac{1}{x^3} + \dots$$
 gives the claim.  Similarly for Claim (iii), we may compare the Taylor expansion
-$$\exp( O_{\leq}(\frac{1}{x}) ) = 1 + O_{\leq}(\frac{1}{x} + \frac{1}{2! x^2} + \frac{1}{3! x^3} + \dots)$$
+$$\exp\left( O_{\leq}\left(\frac{1}{x}\right) \right) = 1 + O_{\leq}\left(\frac{1}{x} + \frac{1}{2! x^2} + \frac{1}{3! x^3} + \dots\right)$$
 with the geometric series formula
 $$ \frac{1}{x-0.5} = \frac{1}{x} + \frac{1}{2x^2} + \frac{1}{2^2 x^3} + \dots$$
 and note that $k! \geq 2^k$ for all $k \geq 2$.
 
 Claim (iv) follows from the trivial identity $e^x = 1 + (e^x-1)$ and the elementary inequality $e^{-x} \geq 1 - (e^x-1)$.
-For Claim (v), we may use the functional equation $\Gamma(\overline{z}) = \overline{\Gamma(z)}$ to assume that $\mathrm{Im}(z) \geq 0$.  We use equations (1.13), (3.1), (3.14) and (3.15) of \cite{boyd} to obtain the Stirling approximation
-$$ \Gamma(z) = \sqrt{2\pi} \exp( (z-\frac{1}{2}) \log z - z ) (1 + \frac{1}{12 z} + R_2(z) )$$
+For Claim (v), we may use the functional equation $\Gamma = \Gamma^*$ to assume that $\mathrm{Im}(z) \geq 0$.  We use equations (1.13), (3.1), (3.14) and (3.15) of \cite{boyd} to obtain the Stirling approximation
+$$ \Gamma(z) = \sqrt{2\pi} \exp\left( \left(z-\frac{1}{2}\right) \log z - z \right) \left(1 + \frac{1}{12 z} + R_2(z) \right)$$
 where the remainder $R_2(z)$ obeys the bound
 $$ |R_2(z)| \leq (2 \sqrt{2}+1) \frac{C_2 \Gamma(2)}{(2\pi)^3 |z|^2} $$
 for $\mathrm{Re}(z) \geq 0$ and
 $$|R_2(z)| \leq (2 \sqrt{2}+1) \frac{C_2 \Gamma(2)}{(2\pi)^3 |z|^2 |1 - e^{2\pi i z}|} $$
 for $\mathrm{Re}(z) \leq 0$, where $C_2$ is the constant
-$$ C_2 := \frac{1}{2} (1 + \zeta(2)) = \frac{1}{2} (1 + \frac{\pi^2}{6}).$$
+$$ C_2 := \frac{1}{2} (1 + \zeta(2)) = \frac{1}{2} \left(1 + \frac{\pi^2}{6}\right).$$
 In the latter case, we have $\mathrm{Im}(z) \geq 1$ by hypothesis, and hence $|1 - e^{2\pi i z}| \geq 1 - e^{-2\pi}$.  We conclude that in all ranges of $z$ of interest, we have
-$$|R_2(z)| \leq \frac{0.0205}{|z|^2}$$
+$$|R_2(z)| \leq (2 \sqrt{2}+1) \frac{C_2 \Gamma(2)}{(2\pi)^3 |z|^2 (1 - e^{-2\pi})} \leq \frac{0.0205}{|z|^2}$$
 and hence by Claim (i)
-$$ \Gamma(z) = \sqrt{2\pi} \exp( (z-\frac{1}{2}) \log z - z ) (1 + O_{\leq}( \frac{1}{12(|z| - 0.246)} )) $$
+$$ \Gamma(z) = \sqrt{2\pi} \exp\left( \left(z-\frac{1}{2}\right) \log z - z \right) \left(1 + O_{\leq}\left( \frac{1}{12(|z| - 0.246)} \right)\right) $$
 and the claim then follows by Claim (ii).  
 
 For Claim (vi), it suffices to show that the function $x \mapsto \frac{\log^a x}{x^b}$ is nonincreasing for $x \geq \exp(b/a)$.  Taking logarithms and writing $y = \log x$, it suffices to show that $a \log y - by$ is non-increasing for $y \geq b/a$, but this is clear from taking a derivative.

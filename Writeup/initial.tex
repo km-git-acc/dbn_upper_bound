@@ -4,9 +4,9 @@ In this section we give some initial estimates on the functions $r_{t,n}, R_{t,N
 
 We begin with the estimation of $r_{t,n}$.  We will need the function
 \begin{equation}\label{M-def}
- M_0(s) \coloneqq \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \sqrt{2\pi} \exp( (\frac{s}{2}-\frac{1}{2})\log \frac{s}{2} - \frac{s}{2} )
+ M_0(s) \coloneqq \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \sqrt{2\pi} \exp\left( \left(\frac{s}{2}-\frac{1}{2}\right)\log \frac{s}{2} - \frac{s}{2} \right)
 \end{equation}
-defined for all $s$ away from the negative axis.  Clearly this function is non-vanishing.  We may compute the logarithmic derivative $\alpha \coloneqq \frac{M'_0}{M_0}$ of this function as
+defined for all $s$ away from the negative axis.  Clearly this function is non-vanishing for all such $s$.  We may compute the logarithmic derivative $\alpha \coloneqq \frac{M'_0}{M_0}$ of this function as
 \begin{equation}\label{alpha-form}
 \begin{split}
  \alpha(s) &= \frac{1}{s} + \frac{1}{s-1} - \frac{1}{2} \log \pi + \frac{1}{2} \log \frac{s}{2} - \frac{1}{2s} \\
@@ -20,8 +20,8 @@ We can also compute one further derivative:
 If $\mathrm{Im}(s) > 3$, we conclude in particular that
 \begin{equation}\label{alpha-deriv-bound}
 \begin{split}
- \alpha'(s) &= O_{\leq}( \frac{1}{2\Im(s)^2} ) + O_{\leq}( \frac{1}{\Im(s)^2} ) + O_{\leq}( \frac{1}{2\Im(s)} ) \\
- &= O_{\leq}( \frac{1}{2(\Im(s)-3)} )
+ \alpha'(s) &= O_{\leq}\left( \frac{1}{2\Im(s)^2} \right) + O_{\leq}\left( \frac{1}{\Im(s)^2} \right) + O_{\leq}\left( \frac{1}{2\Im(s)} \right) \\
+ &= O_{\leq}\left( \frac{1}{2(\Im(s)-3)} \right)
 \end{split}
 \end{equation}
 thanks to Lemma \ref{elem-lem}(i).  Finally, we introduce the more general functions
@@ -29,50 +29,61 @@ thanks to Lemma \ref{elem-lem}(i).  Finally, we introduce the more general funct
 M_t(s) \coloneqq \exp( \frac{t}{4} \alpha(s)^2 ) M_0(s)
 \end{equation}
 for any $t \geq 0$, as well as the sequence
-$$ b_n(t) \coloneqq \exp( \frac{t}{4} \log^2 n ).$$
+\begin{equation}\label{bn-def}
+b_n^t \coloneqq \exp( \frac{t}{4} \log^2 n ).
+\end{equation}
 
 \begin{proposition}[Estimate for $r_{t,n}$]  Let $\sigma$ be real, let $T>10$, let $n$ be a positive integer, and let $0 < t \leq 1/2$.  Then 
-$$ r_{t,n}(\sigma+iT) = M_t(\sigma+iT) \frac{b_n}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} (1 + O_{\leq}(\exp( \frac{1}{T-3.33} (\frac{t^2}{8} |\alpha(\sigma+iT) - \log n|^2 + \frac{t}{4} + \frac{1}{6}))-1))$$
+$$ r_{t,n}(\sigma+iT) = M_t(\sigma+iT) \frac{b_n^t}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} \left(1 + O_{\leq}(\epsilon_{t,n}(\sigma+iT))\right)$$
+where
+$$ \epsilon_{t,n}(\sigma+iT) \coloneqq \exp\left( \frac{1}{T-3.33} \left(\frac{t^2}{8} |\alpha(\sigma+iT) - \log n|^2 + \frac{t}{4} + \frac{1}{6}\right)\right)-1,$$
 \end{proposition}
 
 \begin{proof}  From \eqref{ron-def}, \eqref{M-def} and Lemma \ref{elem-lem}(v) one has
 $$ 
-r_{0,n}(s) = M_0(s) n^{-s} \exp( O_{\leq}( \frac{1}{6(|s|-0.66)} ) )
+r_{0,n}(s) = M_0(s) n^{-s} \exp\left( O_{\leq}\left( \frac{1}{6(|s|-0.66)} \right) \right)
 $$
-whenever $\mathrm{Im}(s) > 1$.  Set $\alpha_n \coloneqq \coloneqq \alpha(\sigma+iT) - \log n$ (this is the logarithmic derivative of $M(s) n^{-s}$ at $s=\sigma+iT$).  From \eqref{rtn-def} we have
-$$
- r_{t,n}(\sigma+iT) = \exp( - \frac{t}{4} \alpha_n^2) \int_\R \exp( - \sqrt{t} v \alpha_n) M( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) 
-\exp( O_{\leq}( \frac{1}{6(|\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n|-0.66)} ) )
+whenever $\mathrm{Im}(s) > 2$.  Let $\alpha_n$ denote the quantity
+\begin{equation}\label{alphan-def}
+\alpha_n \coloneqq \alpha(\sigma+iT) - \log n;
+\end{equation}
+this is the logarithmic derivative of $M(s) n^{-s}$ at $s=\sigma+iT$.  From \eqref{rtn-def} we have
+\begin{align*}
+ r_{t,n}(\sigma+iT) &= \exp\left( - \frac{t}{4} \alpha_n^2\right) \int_\R \exp\left( - \sqrt{t} v \alpha_n\right) M_0( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) \times \\
+&\quad \times \exp\left( -(\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n ) \log n + O_{\leq}\left( \frac{1}{6(|\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n|-0.66)} \right) \right)
 \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
-$$
+\end{align*}
 By \eqref{alpha-form} and the hypothesis $T \geq 10$, the imaginary part of $\alpha_n$ may be lower bounded by
 $$ \mathrm{Im}(\alpha_n) \geq -\frac{1}{2T} - \frac{1}{T} \geq -0.15;$$
 since $t \leq 1/2$, we conclude that $\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n$ has imaginary part at least $T - 0.08$.  Thus
-$$
- r_{t,n}(s) = \exp( - \frac{t}{4} \alpha_n^2) \int_\R \exp( - \sqrt{t} v \alpha_n) M( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) \exp( -(\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n ) \log n + O_{\leq}( \frac{1}{6(T - 0.74)} ) )
+\begin{align*}
+ r_{t,n}(s) &= \exp( - \frac{t}{4} \alpha_n^2) \int_\R \exp( - \sqrt{t} v \alpha_n) M_0( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) \times
+\\
+&\quad \times \exp\left( -(\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n ) \log n + O_{\leq}\left( \frac{1}{6(T - 0.74)} \right) \right)
 \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
-$$
+\end{align*}
 From \eqref{alpha-deriv-bound} we have
-$$ \alpha'(s) = O_{\leq}( \frac{1}{2(T-3.08)} )$$
+$$ \alpha'(s) = O_{\leq}\left( \frac{1}{2(T-3.08)} \right)$$
 for all $s$ between $\sigma+iT$ and $\sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n$.  Applying Taylor's theorem with remainder to a branch of the complex logarithm of $M_0$, we conclude that
-$$ M_0( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) = M_0(\sigma+iT) \exp( \alpha(\sigma+iT) (\sqrt{t} v + \frac{t}{2} \alpha_n) + O_{\leq}( \frac{1}{4(T-3.08)} |\sqrt{t} v + \frac{t}{2} \alpha_n|^2 )).$$
+$$ M_0( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) = M_0(\sigma+iT) \exp\left( \alpha(\sigma+iT) (\sqrt{t} v + \frac{t}{2} \alpha_n) + O_{\leq}\left( \frac{|\sqrt{t} v + \frac{t}{2} \alpha_n|^2}{4(T-3.08)}  \right)\right).$$
 Inserting this estimate, writing $\alpha(\sigma+iT) = \alpha_n + \log n$, estimating $\frac{1}{6(T-0.74)}$ by $\frac{1}{6(T-3.08)}$ and $|\sqrt{t} v + \frac{t}{2} \alpha_n|^2$ by $2tv^2 + \frac{t^2}{2} |\alpha_n|^2$, and simplifying, we conclude that
-$$
- r_{t,n}(s) = M_0(\sigma+iT) \exp( \frac{t}{4} \alpha_n^2 - (\sigma+iT) \log n)
- \int_\R \exp(  O_{\leq}( \frac{1}{T-3.08} (\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}) ) ) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.$$
-Writing $\alpha_n = \alpha(\sigma+iT) - \log n$ and using \eqref{Mt-def} we see that
-$$ M_0(\sigma+iT) \exp( \frac{t}{4} \alpha_n^2 - (\sigma+iT) \log n) = M_t(\sigma+iT) \frac{b_n}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} $$
+\begin{align*}
+ r_{t,n}(s) &= M_0(\sigma+iT) \exp\left( \frac{t}{4} \alpha_n^2 - (\sigma+iT) \log n\right) \times \\
+&\quad \times  \int_\R \exp\left(  O_{\leq}\left( \frac{\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}}{T-3.08} \right) \right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
+\end{align*}
+Using \eqref{alphan-def}, \eqref{Mt-def}, \eqref{bn-def} we see that
+$$ M_0(\sigma+iT) \exp\left( \frac{t}{4} \alpha_n^2 - (\sigma+iT) \log n\right) = M_t(\sigma+iT) \frac{b_n^t}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} $$
 and so it suffices to show that
-$$  \int_\R \exp(  O_{\leq}( \frac{1}{T-3.08} (\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}) ) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv = 1 + O(\exp( \frac{1}{T-3.33} (\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6}))-1).$$
-Since $\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv $ integrates to one, it suffices by Lemma \ref{elem-lem}(iv) to show that
+$$  \int_\R \exp\left( O_{\leq}\left( \frac{\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}}{T-3.08} \right) \right)\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv = 1 + O\left(\exp\left( \frac{\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right)-1\right).$$
+Since $\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv $ integrates to one, and $\frac{1}{T-3.08} \leq \frac{1}{T-3.33}$, it suffices by Lemma \ref{elem-lem}(iv) to show that
 \begin{equation}\label{ax}
-  \int_\R \exp( \frac{1}{T-3.08} (\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6})) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv \leq \exp( \frac{1}{T-3.33} (\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6})).
+  \int_\R \exp\left( \frac{t v^2}{2(T-3.08)} \right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv \leq \exp\left( \frac{t}{4(T-3.33)} \right).
 	\end{equation}
 Using \eqref{gaussian}, the left-hand side may be calculated exactly as
-$$ \exp( \frac{1}{T-3.08} (\frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6})) (1 - \frac{t}{2(T-3.08)})^{-1/2}.$$
+$$ \left(1 - \frac{t}{2(T-3.08)}\right)^{-1/2}.$$
 Applying Lemma \ref{elem-lem}(ii) and using the hypotheses $t \leq 1/2$, $T \geq 10$, one has
 $$ 1 - \frac{t}{2(T-3.08)} = \exp( O_{\leq}( \frac{t}{2(T-3.33)} ))$$
-and hence (bounding $\frac{1}{T-3.08}$ by $\frac{1}{T-3.33}$), we obtain the claim.
+and the claim follows.
 \end{proof}
 
 Now we begin the estimation of $R_{t,N}$.  We begin with the following estimates of Arias de Reyna \cite{arias} on the term $\int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}}$ appearing in \eqref{RON-def}:
@@ -83,15 +94,15 @@ s &\coloneqq \sigma + iT' \label{s-def}\\
 a &\coloneqq \sqrt{\frac{T'}{2\pi}} \label{a-def}\\
 N &\coloneqq \lfloor a \rfloor \label{N-def}\\
 p &\coloneqq 1 - 2(a-N) \label{p-def}\\
-U &\coloneqq \exp( -i(\frac{T'}{2} \log \frac{T'}{2\pi} - \frac{T'}{2} - \frac{\pi}{8}) )\label{U-def}.
+U &\coloneqq \exp\left( -i\left(\frac{T'}{2} \log \frac{T'}{2\pi} - \frac{T'}{2} - \frac{\pi}{8}\right) \right)\label{U-def}.
 \end{align}
 Let $K$ be a positive integer.  Then we have an expansion
-$$ \int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}} = (-1)^{N-1} U a^{-\sigma} (\sum_{k=0}^K \frac{C_k(p,\sigma)}{a^k} + RS_K(s)) $$
-where $C_0(p,\sigma) = C_0(p)$ is independent of $\sigma$ and is given explicitly by
+$$ \int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}} = (-1)^{N-1} U a^{-\sigma} \left(\sum_{k=0}^K \frac{C_k(p,\sigma)}{a^k} + RS_K(s)\right) $$
+where $C_0(p,\sigma) = C_0(p)$ is independent of $\sigma$ and is given explicitly by the formula
 \begin{equation}\label{C0-def}
-C_0(p)= \frac{e^{\pi i (\frac{p^2}{2} +\frac{3}{8})} - i \sqrt{2} \cos \frac{\pi p}{2}}{2 \cos(\pi p)}
+C_0(p) \coloneqq \frac{e^{\pi i (\frac{p^2}{2} +\frac{3}{8})} - i \sqrt{2} \cos \frac{\pi p}{2}}{2 \cos(\pi p)}
 \end{equation}
-(removing the singularities at $p = \pm 1/2$), while for $k \geq 1$ the $C_k(p,\sigma)$ obey the bounds
+(removing the singularities at $p = \pm 1/2$), while for $k \geq 1$ the $C_k(p,\sigma)$ are quantities obeying the bounds
 \begin{equation}\label{ck-bound-1}
 |C_k(p,\sigma)| \leq \frac{\sqrt{2}}{2\pi} \frac{9^\sigma \Gamma(k/2)}{2^k}
 \end{equation}
@@ -99,13 +110,13 @@ for $\sigma>0$ and
 \begin{equation}\label{ck-bound-2}
 |C_k(p,\sigma)| \leq \frac{2^{\frac{1}{2}-\sigma}}{2\pi} \frac{\Gamma(k/2)}{2\pi ((3-2\log 2)\pi)^{k/2}}
 \end{equation}
-for $\sigma \leq 0$, while the error term $RS_K(s)$ obeys the bounds
+for $\sigma \leq 0$, while the error term $RS_K(s)$ is a quantity obeying the bounds
 \begin{equation}\label{rsk-bound-1}
 |RS_K(s)| \leq \frac{1}{7} 2^{3\sigma/2} \frac{\Gamma((K+1)/2)}{(a/1.1)^{K+1}}
 \end{equation}
 for $\sigma \geq 0$, and
 \begin{equation}\label{rsk-bound-2}
-|RS_K(s)| \leq \frac{1}{2} (\frac{9}{10})^{\lceil -\sigma \rceil} \frac{\Gamma((K+1)/2)}{(a/1.1)^{K+1}}
+|RS_K(s)| \leq \frac{1}{2} \left(\frac{9}{10}\right)^{\lceil -\sigma \rceil} \frac{\Gamma((K+1)/2)}{(a/1.1)^{K+1}}
 \end{equation}
 if $\sigma < 0$ and $K + \sigma \geq 2$.
 \end{proposition}
@@ -125,52 +136,62 @@ $$ T' \coloneqq T + \frac{\pi t}{8} $$
 and then define $a,N,p,U,C_0(p)$ using \eqref{a-def}, \eqref{N-def}, \eqref{U-def}, \eqref{C0-def}
 Then 
 $$
- R_{t,N}(\sigma+iT) = (-1)^{N-1} U e^{\pi i \sigma/4} \exp( \frac{t \pi^2}{64}) M_0(iT') ( C_0(p) + O_{\leq}( (\frac{0.366 \times 9^\sigma + 0.887}{a-0.125} + \frac{5}{3(T'-3.33)}) \exp( \frac{4.89}{T'-3.33} ) )).$$
+ R_{t,N}(\sigma+iT) = (-1)^{N-1} U e^{\pi i \sigma/4} \exp\left( \frac{t \pi^2}{64}\right) M_0(iT') ( C_0(p) + O_{\leq}( \epsilon'(\sigma+iT)))$$
+where
+$$ \epsilon'(\sigma+iT) \coloneqq \left(\frac{0.366 \times 9^\sigma + 1.023 \times 2^{-\sigma}}{a-0.125} + \frac{5}{3(T'-3.33)}\right) \exp\left( \frac{3.49}{T'-3.33} \right).$$
 \end{proposition}
 
 \begin{proof}  We apply \eqref{RTN-def} with $\beta_N := \pi i/4$ to obtain
-$$ R_{t,N}(\sigma+iT) = \exp( \frac{t \pi^2}{64}) \int_\R \exp( - \sqrt{t} v \pi i/4) R_{0,N}( \sigma+iT' + \sqrt{t} v) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.$$
+$$ R_{t,N}(\sigma+iT) = \exp\left( \frac{t \pi^2}{64}\right) \int_\R \exp\left( - \frac{\sqrt{t} v \pi i}{4}\right) R_{0,N}( \sigma+iT' + \sqrt{t} v) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.$$
 From \eqref{RON-def} we have
-$$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = \frac{1}{8} \frac{s_v(s_v-1)}{2} \pi^{-s_v/2} \Gamma(\frac{s_v}{2}) (-1)^{N-1} U a^{-\sigma-\sqrt{t} v}
-(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)) $$
-for any positive integer $K_v$ that we permit to depend on $v$, where $s_v \coloneqq \sigma + iT' + \sqrt{t} v$. From \eqref{M-def} and Lemma \ref{elem-lem}(v) we thus have
-$$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = M_0(s_v) \exp( O_{\leq}(\frac{1}{12(T'-0.33)}) ) (-1)^{N-1} U a^{-\sigma-\sqrt{t} v}
-(\sum_{k=0}^K \frac{C_k(p,\sigma)}{a^k} + RS_K(s_v)).$$
+$$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = \frac{1}{8} \frac{s_v(s_v-1)}{2} \pi^{-s_v/2} \Gamma\left(\frac{s_v}{2}\right) (-1)^{N-1} U a^{-\sigma-\sqrt{t} v}
+\left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right) $$
+for any positive integer $K_v$ that we permit to depend (in a measurable fashion) on $v$, where $s_v \coloneqq \sigma + iT' + \sqrt{t} v$. From \eqref{M-def} and Lemma \ref{elem-lem}(v) we thus have
+$$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = M_0(s_v) \exp\left( O_{\leq}\left(\frac{1}{12(T'-0.33)}\right) \right) (-1)^{N-1} U a^{-\sigma-\sqrt{t} v}
+\left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_K(s_v)\right).$$
 From \eqref{alpha-deriv-bound} and Taylor expansion of a logarithm of $M$, we have
-$$ M_0(s_v) = M_0(iT') \exp( \alpha(iT') (\sigma + \sqrt{t} v) + O_{\leq}( \frac{1}{4(T'-0.33)} (\sigma + \sqrt{t} v)^2 ) );$$
+$$ M_0(s_v) = M_0(iT') \exp\left( \alpha(iT') (\sigma + \sqrt{t} v) + O_{\leq}\left( \frac{(\sigma + \sqrt{t} v)^2}{4(T'-0.33)} \right) \right);$$
 from \eqref{alpha-form}, \eqref{a-def} one has
-$$ \alpha(iT') = O_{\leq}( \frac{1}{2T'}) + O_{\leq}( \frac{1}{T'}) + \frac{1}{2} \log \frac{iT'}{2\pi} = \log a + \frac{i\pi}{4} + O_{\leq}( \frac{3}{2T'}).$$
-Bounding $\frac{3}{2T'}$ by $\frac{6}{4(T'-0.33)}$, we conclude that
-$$ \exp( - \sqrt{t} v \pi i/4) R_{0,N}( \sigma+iT' + \sqrt{t} v) = 
-M_0(iT') \exp( \frac{\pi i \sigma}{4} + O_{\leq}(\frac{1}{4(T'-0.33)} ((\sigma + \sqrt{t} v)^2+6|\sigma+\sqrt{t} v|+\frac{1}{3}) ) ) (-1)^{N-1} U (\sum_{k=0}^{K_v} \frac{C_k(p, \sigma+\sqrt{t} v)}{a^k} + RS_{K_v}(s_v)).$$
+$$ \alpha(iT') = O_{\leq}\left( \frac{1}{2T'}\right) + O_{\leq}\left( \frac{1}{T'}\right) + \frac{1}{2} \log \frac{iT'}{2\pi} = \log a + \frac{i\pi}{4} + O_{\leq}\left( \frac{3}{2T'}\right)$$
+and hence (bounding $\frac{3}{2T'}$ by $\frac{6}{4(T'-0.33)}$)
+$$ \alpha(iT') (\sigma + \sqrt{t} v)  = (\sigma + \sqrt{t} v)  \log a + \frac{\pi i \sigma}{4} + \frac{\sqrt{t} v \pi i}{4} + O_{\leq}\left( \frac{6 |\sigma+\sqrt{t} v|}{4(T'-0.33)} \right).$$ 
+We conclude that
+\begin{align*}
+\exp\left( - \frac{\sqrt{t} v \pi i}{4}\right) R_{0,N}( \sigma+iT' + \sqrt{t} v) &= 
+M_0(iT') \exp\left( O_{\leq}\left(\frac{(\sigma + \sqrt{t} v)^2+6|\sigma+\sqrt{t} v|+\frac{1}{3}}{4(T'-0.33)} \right)\right) \times \\
+&\quad \times (-1)^{N-1} U  e^{\pi i \sigma/4} \left(\sum_{k=0}^{K_v} \frac{C_k(p, \sigma+\sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right).
+\end{align*}
 Bounding $6|\sigma+\sqrt{t} v| \leq 3 (\sigma + \sqrt{t} v)^2 + 3$, we have
-$$ \frac{1}{4(T'-0.33)} ((\sigma + \sqrt{t} v)^2+6|\sigma+\sqrt{t} v|+\frac{1}{3}) \leq \frac{1}{T'-0.33} ((\sigma + \sqrt{t} v)^2 + \frac{5}{6});$$
-putting all this together, we obtain
-$$ R_{t,N}(\sigma+iT) = (-1)^{N-1} U e^{\pi i \sigma/4} \exp( \frac{t \pi^2}{64}) M_0(iT') \int_\R \exp( O_{\leq}(\frac{1}{T'-0.33} ((\sigma + \sqrt{t} v)^2 + \frac{5}{6}) ) ) (\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.$$
+$$ \frac{(\sigma + \sqrt{t} v)^2+6|\sigma+\sqrt{t} v|+\frac{1}{3}}{4(T'-0.33)}  \leq \frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6}}{T'-0.33}.$$
+Putting all this together, we obtain
+\begin{align*}
+ R_{t,N}(\sigma+iT) &= (-1)^{N-1} U e^{\pi i \sigma/4} \exp\left( \frac{t \pi^2}{64}\right) M_0(iT') \times \\
+&\quad \times \int_\R \exp\left( O_{\leq}\left(\frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6}}{T'-0.33} \right) \right) \left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
+\end{align*}
 We separate the $k=0$ term from the rest.
 By Lemma \ref{elem-lem}(iv) and the fact that $\frac{1}{\sqrt{\pi}} e^{-v^2}$ integrates to one, we can write the above expression as
 \begin{equation}\label{rtnst}
- R_{t,N}(\sigma+iT) = (-1)^{N-1} U e^{\pi i \sigma/4} \exp( \frac{t \pi^2}{64}) M_0(iT') ( C_0(p) (1 + O_{\leq}(\epsilon)) + O_{\leq}(\delta) )
+ R_{t,N}(\sigma+iT) = (-1)^{N-1} U e^{\pi i \sigma/4} \exp\left( \frac{t \pi^2}{64}\right) M_0(iT') \left( C_0(p) (1 + O_{\leq}(\epsilon)) + O_{\leq}(\delta) \right)
 \end{equation}
 where
-$$ \epsilon := \int_\R ( \exp( \frac{1}{T'-0.33} ((\sigma + \sqrt{t} v)^2 + \frac{5}{6}) )  - 1) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv$$
+$$ \epsilon := \int_\R \left( \exp\left( \frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6} }{T'-0.33} \right)  - 1\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv$$
 and
-$$ \delta := \int_\R \exp( \frac{1}{T'-0.33} ((\sigma + \sqrt{t} v)^2 + \frac{5}{6}) ) (\sum_{k=1}^{K_v} \frac{|C_k(p,\sigma+\sqrt{t}v)|}{a^k} + |RS_{K_v}(s_v)|) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.$$
+$$ \delta := \int_\R \exp\left( \frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6}}{T'-0.33} \right) \left(\sum_{k=1}^{K_v} \frac{|C_k(p,\sigma+\sqrt{t}v)|}{a^k} + |RS_{K_v}(s_v)|\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.$$
 Bounding $(\sigma + \sqrt{t} v)^2 \leq 2 \sigma^2 + 2 t v^2$ and using \eqref{gaussian} we obtain
-$$ \epsilon \leq \exp( \frac{1}{T'-0.33} (2\sigma^2 + \frac{5}{6}) ) (1 - \frac{2t}{T'-0.33})^{-1/2} - 1.$$
+$$ \epsilon \leq \exp\left( \frac{2\sigma^2 + \frac{5}{6}}{T'-0.33} \right) \left(1 - \frac{2t}{T'-0.33}\right)^{-1/2} - 1.$$
 Applying Lemma \ref{elem-lem}(ii) and using the hypotheses $t \leq 1/2$, $T \geq 100$, one has
-$$ 1 - \frac{2t}{T'-0.33)} = \exp( O_{\leq}( \frac{2t}{T'-3.33} ))$$
+$$ 1 - \frac{2t}{T'-0.33)} = \exp\left( O_{\leq}\left( \frac{2t}{T'-3.33} \right)\right)$$
 and hence
 $$
- \epsilon \leq \exp( \frac{1}{T'-3.33} (2\sigma^2 + t + \frac{5}{6}) ) - 1.
+ \epsilon \leq \exp\left( \frac{2\sigma^2 + t + \frac{5}{6}}{T'-3.33} \right) - 1.
 $$
 With $t \leq 1/2$ and $0 \leq \sigma \leq 1$, one has $2\sigma^2 + t + \frac{5}{6} \leq \frac{10}{3}$.  By the mean value theorem we then have
 \begin{equation}\label{eep}
- \epsilon \leq \frac{10}{3(T'-3.33)} \exp( \frac{10}{3(T'-3.33)}).
+ \epsilon \leq \frac{10}{3(T'-3.33)} \exp\left( \frac{10}{3(T'-3.33)}\right).
 \end{equation}
 
 Now we work on $\delta$.  Making the change of variables $u \coloneqq \sigma + \sqrt{t} v$, we have
-$$ \delta = \int_\R \exp( \frac{1}{T'-0.33} (u^2 + \frac{5}{6}) ) (\sum_{k=1}^{\tilde K_u} \frac{|C_k(p,u)|}{a^k} + |RS_{\tilde K_u}(u + iT')|) \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du,$$
+$$ \delta = \int_\R \exp\left( \frac{u^2 + \frac{5}{6}}{T'-0.33} \right) \left(\sum_{k=1}^{\tilde K_u} \frac{|C_k(p,u)|}{a^k} + |RS_{\tilde K_u}(u + iT')|\right) \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du,$$
 where $\tilde K_u$ is a positive integer parameter that can depend arbitrarily on $u$ (as long as it is measurable, of course).  
 
 We choose $\tilde K_u$ to equal $1$ when $u \geq 0$ and $\lfloor -\sigma \rfloor + 3$ when $u < 0$, so that Proposition \ref{arias-prop} applies.  The expression
@@ -182,13 +203,14 @@ is then bounded by
 \end{equation}
 for $u \geq 0$ and
 \begin{equation}\label{laf}
- \sum_{1 \leq k \leq \lfloor -u \rfloor+3} \frac{2^{\frac{1}{2}-\sigma}}{2\pi} \frac{\Gamma(k/2)}{2\pi ((3-2\log 2)\pi)^{k/2} a^k} + \frac{1}{2} (9/10)^{\lceil -u \rceil} \frac{\Gamma((\lfloor -u \rfloor+4)/2)}{(a/1.1)^{\lfloor -u \rfloor+4}}
+ \sum_{1 \leq k \leq \lfloor -u \rfloor+3} \frac{2^{\frac{1}{2}-u}}{2\pi} \frac{\Gamma(k/2)}{2\pi ((3-2\log 2)\pi)^{k/2} a^k} + \frac{1}{2} (9/10)^{\lceil -u \rceil} \frac{\Gamma((\lfloor -u \rfloor+4)/2)}{(a/1.1)^{\lfloor -u \rfloor+4}}
 \end{equation}
-for $u < 0$.  One easily verifies that
-$$ \frac{2^{\frac{1}{2}-\sigma}}{2\pi} \frac{\Gamma(k/2)}{2\pi ((3-2\log 2)\pi)^{k/2} a^k}
-\leq \frac{1}{2} (9/10)^{\lceil -\sigma \rceil} \frac{\Gamma(k/2)}{(a/1.1)^k} $$
-and so we can bound \eqref{laf} by
-$$ \frac{1}{2} (9/10)^{\lceil -u \rceil} \sum_{1 \leq k \leq -u+4} \frac{\Gamma(k/2)}{(a/1.1)^k}.$$
+for $u < 0$.  One can calculate that
+$$ \frac{2^{\frac{1}{2}}}{2\pi} \frac{1}{2\pi} \leq \frac{1}{2}$$
+and
+$$ \frac{1}{((3-2\log 2)\pi)^{1/2}} \leq 1.1$$
+and hence we can bound \eqref{laf} somewhat crudely by
+$$ \frac{1}{2} 2^{-u} \sum_{1 \leq k \leq -u+4} \frac{\Gamma(k/2)}{(a/1.1)^k}.$$
 
 For $u \geq 0$, we can estimate \eqref{u0} by
 $$ 0.2 \times 9^u (\frac{1}{a} + \frac{0.865}{a^2}) \leq \frac{0.2 \times 9^u}{a - 0.865}$$
@@ -199,39 +221,38 @@ $$ \sum_{2 \leq k \leq \frac{T'}{2.42 \pi}, k\ \mathrm{even}} \frac{\Gamma(k/2)}
 and similarly
 $$ \sum_{3 \leq k \leq \frac{T'}{2.42 \pi}, k\ \mathrm{odd}} \frac{\Gamma(k/2)}{(a/1.1)^k}  \leq 2 \frac{\Gamma(3/2)}{(a/1.1)^3} = \frac{1.331 \sqrt{\pi}}{a^3}$$
 and hence we can bound \eqref{laf} by
-$$ \frac{1}{2} (9/10)^{\lceil -u \rceil} (\frac{1.1 \sqrt{\pi}}{a} + \frac{2.42}{a^2} + \frac{1.331 \sqrt{\pi}}{a^3} + \sum_{\frac{T'}{2.42 \pi} \leq k \leq -u+4} \frac{\Gamma(k/2)}{(a/1.1)^k} ).$$
+$$ \frac{1}{2} 2^{-u} \left(\frac{1.1 \sqrt{\pi}}{a} + \frac{2.42}{a^2} + \frac{1.331 \sqrt{\pi}}{a^3} + \sum_{\frac{T'}{2.42 \pi} \leq k \leq -u+4} \frac{\Gamma(k/2)}{(a/1.1)^k} \right).$$
 By Lemma \ref{elem-lem}(i) we have
 $$ \frac{1.1 \sqrt{\pi}}{a} + \frac{2.42}{a^2} + \frac{1.331 \sqrt{\pi}}{a^3} \leq \frac{1.1 \sqrt{\pi}}{a - 1.25}$$
-and thus (bounding $(9/10)^{\lceil -u \rceil}$ by $1/(1.1)$) we can bound \eqref{laf} by
-$$ \frac{1}{2} (\frac{\sqrt{\pi}}{a-1.25} + \sum_{\frac{T'}{2.2 \pi} \leq k \leq -u+4} (1.1)^{k-1} \frac{\Gamma(k/2)}{a^k} ).$$
+and thus we can bound \eqref{laf} by
+$$ \frac{1}{2} 2^{-u} \left(\frac{1.1 \sqrt{\pi}}{a-1.25} + \sum_{\frac{T'}{2.42 \pi} \leq k \leq -u+4} (1.1)^{k} \frac{\Gamma(k/2)}{a^k} \right).$$
 
 Putting this together, we conclude that
 $$
 \sum_{k=1}^{\tilde K_u} \frac{|C_k(p,u)|}{a^k} + |RS_{\tilde K_u}(u + iT')| \leq 
-\frac{0.2 \times 9^u}{a-0.865} + \frac{\sqrt{\pi}}{2(a - 1.25)} + \frac{1}{2} \sum_{\frac{T'}{2.2 \pi} \leq k \leq -u+4} (1.1)^{k-1} \frac{\Gamma(k/2)}{a^k}$$
+\frac{0.2 \times 9^u}{a-0.865} + \frac{1.1 \sqrt{\pi} \times 2^{-u}}{2(a - 1.25)} + \frac{2^{-u}}{2} \sum_{\frac{T'}{2.2 \pi} \leq k \leq -u+4} (1.1)^{k} \frac{\Gamma(k/2)}{a^k}$$
 for all $u$ (positive or negative).  We conclude that $\delta \leq \delta_1 + \delta_2 + \delta_3$, where
 \begin{align*}
-\delta_1 &\coloneqq \int_\R \exp( \frac{1}{T'-0.33} (u^2 + \frac{5}{6}) ) \frac{\sqrt{\pi}}{2(a - 1.25)} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du\\
-\delta_2 &\coloneqq \int_\R \exp( \frac{1}{T'-0.33} (u^2 + \frac{5}{6}) ) \frac{0.2 \times 9^u}{a-0.865} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du\\
-\delta_3 &\coloneqq \int_\R \exp( \frac{1}{T'-0.33} (u^2 + \frac{5}{6}) ) \frac{1}{2} \sum_{\frac{T'}{2.2 \pi} \leq k \leq -u+4} (1.1)^{k-1} \frac{\Gamma(k/2)}{a^k} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du.
+\delta_1 &\coloneqq \int_\R \exp( \frac{u^2 + \frac{5}{6}}{T'-0.33} ) \frac{0.2 \times 9^u}{a-0.865} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du\\
+\delta_2 &\coloneqq \int_\R \exp( \frac{u^2 + \frac{5}{6}}{T'-0.33} ) \frac{1.1 \sqrt{\pi} \times 2^{-u}}{2(a - 1.25)} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du\\
+\delta_3 &\coloneqq \int_\R \exp( \frac{u^2 + \frac{5}{6}}{T'-0.33} ) \frac{2^{-u}}{2} \sum_{\frac{T'}{2.2 \pi} \leq k \leq -u+4} (1.1)^{k} \frac{\Gamma(k/2)}{a^k} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du.
 \end{align*}
-Using \eqref{gaussian}, we may evaluate $\delta_1$ exactly as
-$$ \delta_1 = \frac{\sqrt{\pi}}{2(a - 1.25)} \exp( \frac{5}{6(T'-0.33)} ) (1 - \frac{t}{T'-0.33})^{-1/2}.$$
-From Lemma \ref{elem-lem}(ii) and the hypothesis $t \leq 1/2$ we have
-\begin{equation}\label{el}
- (1 - \frac{t}{T'-0.33})^{-1/2} \leq \exp( \frac{t}{2(T'-0.83)} )
-\end{equation}
-and hence
-$$ \delta_1 \leq \frac{\sqrt{\pi}}{2(a - 1.25)} \exp( \frac{5+3t}{6(T'-0.83)} ).$$
-
-For $\delta_2$, we translate $u$ by $\sigma$ to obtain
-$$ \delta_2 = \frac{0.2 \times 9^\sigma}{a-0.865} \int_\R \exp( \frac{1}{T'-0.33} (u^2 + 2 \sigma u + \sigma^2 + \frac{5}{6}) + 2 u \log 3 ) \frac{1}{\sqrt{\pi t}} e^{-u^2/t}\ du$$
+For $\delta_1$, we translate $u$ by $\sigma$ to obtain
+$$ \delta_1 = \frac{0.2 \times 9^\sigma}{a-0.865} \int_\R \exp( \frac{1}{T'-0.33} (u^2 + 2 \sigma u + \sigma^2 + \frac{5}{6}) + 2 u \log 3 ) \frac{1}{\sqrt{\pi t}} e^{-u^2/t}\ du$$
 and hence by \eqref{gaussian}
-$$ \delta_2 = \frac{0.2 \times 9^\sigma}{a-0.865} \exp( \frac{\sigma^2 + \frac{5}{6}}{T'-0.33} + \frac{t(\log 3 + \frac{\sigma}{T'-0.33})^2}{1 - \frac{t}{T'-0.33}} ) (1 - \frac{t}{T'-0.33})^{-1/2}.$$
+\begin{equation}\label{delta1}
+ \delta_1 = \frac{0.2 \times 9^\sigma}{a-0.865} \exp( \frac{\sigma^2 + \frac{5}{6}}{T'-0.33} + \frac{t(\log 3 + \frac{\sigma}{T'-0.33})^2}{1 - \frac{t}{T'-0.33}} ) (1 - \frac{t}{T'-0.33})^{-1/2}.
+\end{equation}
 One can write
-$$ \frac{1}{1 - \frac{t}{T'-0.33}} = 1 + \frac{t}{T'-0.33-t} \leq 1 + \frac{t}{T'-0.83}$$
-and hence by \eqref{el}
-$$ \delta_2 \leq \frac{0.2 \times 9^\sigma}{a-0.865} \exp( \frac{5+3t+6\sigma^2}{6(T'-0.83)} + t(\log 3 + \frac{\sigma}{T'-0.33})^2 (1 + \frac{t}{T'-0.83}) ).$$
+\begin{equation}\label{hit}
+ \frac{1}{1 - \frac{t}{T'-0.33}} = 1 + \frac{t}{T'-0.33-t} \leq 1 + \frac{t}{T'-0.83}
+\end{equation}
+while by Lemma \ref{elem-lem}(ii) we have
+\begin{equation}\label{hit2}
+ 1 - \frac{t}{T'-0.33} = \exp\left( O_{\leq}\left( \frac{t}{T'-0.33-t} \right) \right) = \exp\left( O_{\leq}\left( \frac{t}{T'-0.83} \right) \right).
+\end{equation}
+We conclude that
+$$ \delta_1 \leq \frac{0.2 \times 9^\sigma}{a-0.865} \exp( \frac{5+3t+6\sigma^2}{6(T'-0.83)} + t(\log 3 + \frac{\sigma}{T'-0.33})^2 (1 + \frac{t}{T'-0.83}) ).$$
 From Lemma \ref{elem-lem}(i) and the hypothesis $0 \leq \sigma \leq 1$, we have
 \begin{align*}
 (\log 3 + \frac{\sigma}{T'-0.33})^2 &\leq \log^2 3 (1 + \frac{2 \sigma / \log 3}{T' - 0.33 - \frac{\sigma}{2\log 3}}) \\
@@ -245,31 +266,44 @@ and then
 &\leq \log^2 3 (1 + \frac{\frac{2 \sigma}{\log 3} + t}{T' - 1.33}) 
 \end{align*}
 and thus
-$$ \delta_2 \leq \frac{0.2 \times 9^\sigma \exp( t \log^2 3 )}{a-0.865} \exp( \frac{5+3t+6\sigma^2 + 12 \sigma \log 3 + 6t \log^2 3}{6(T'-1.33)} ).$$
-Now we turn to $\delta_3$. By the Fubini-Tonelli theorem, we have
-$$ \delta_3 = \frac{1}{2 \sqrt{\pi t}} \sum_{k \geq \frac{T'}{2.2 \pi}} (1.1)^{k-1} \frac{\Gamma(k/2)}{a^k} \int_{-\infty}^{4-k} \exp( \frac{1}{T'-0.33} (u^2 + \frac{5}{6}) - \frac{(u-\sigma)^2}{t} )\ du.$$
-Since $u \leq 4-k$, $k \geq \frac{T'}{2.2\pi}$, and $T' \geq T \geq 100$, we have $k \geq 14$ and $u \leq -10$; since $\sigma \geq 0$, we may thus lower bound $(u-\sigma)^2/t$ by $u^2/t$.  Since $t \leq 1/2$, we can upper bound $\frac{1}{T'-0.33} (u^2 + \frac{5}{6}) - \frac{u^2}{t}$ by $-\frac{u^2}{2t}$, thus
-$$ \delta_3 \leq \frac{1}{2 \sqrt{\pi t}} \sum_{k \geq \frac{T'}{2.2 \pi}} (1.1)^{k-1} \frac{\Gamma(k/2)}{a^k} \int_{-\infty}^{4-k} e^{-u^2/2t}\ du.$$
-We can bound $e^{-u^2} \leq e^{(k-4)u/2t}$, and thus
-$$ \int_{-\infty}^{4-k} e^{-u^2/2t}\ du \leq \frac{2t}{k-4} e^{-(k-4)^2/2t} \leq \frac{2t}{k-4} e^{-(k-4)^2}$$
-and thus
-$$ \delta_3 \leq \frac{\sqrt{t}}{\sqrt{\pi}} \sum_{k \geq \frac{T'}{2.2 \pi}} (1.1)^{k-1} \frac{\Gamma(k/2)}{(k-4) a^k} e^{-(k-4)^2}.$$
-For $k \geq 14$ one can easily verify that $(1.1)^{k-1} \Gamma(k/2) e^{-(k-4)^2} \leq 10^{-30}$; discarding the $\frac{\sqrt{t}}{\sqrt{\pi}}$ and $\frac{1}{k-4}$ factors we thus have
-$$ \delta_3 \leq \sum_{k \geq 14} \frac{10^{-30}}{a^k} \leq \frac{2 \times 10^{-30}}{a^{14}}$$
-(say).   Since
-$$ \frac{0.2}{a-0.865} + \frac{2 \times 10^{-30}}{a^{14}} \leq \frac{0.2}{a-1.25}$$
-we have
-$$ \delta_2+\delta_3 \leq \frac{0.2 \times 9^\sigma \exp( t \log^2 3 )}{a-0.125} \exp( \frac{5+3t+6\sigma^2 + 12 \sigma \log 3 + 6t \log^2 3}{6(T'-1.33)} )$$
-and therefore
-$$ \delta \leq \frac{0.2 \times 9^\sigma \exp( t \log^2 3 ) + \frac{\sqrt{\pi}}{2}}{a-0.125} \exp( \frac{5+3t+6\sigma^2 + 12 \sigma \log 3 + 6t \log^2 3}{6(T'-1.33)} ).$$
+$$ \delta_1 \leq \frac{0.2 \times 9^\sigma \exp( t \log^2 3 )}{a-0.865} \exp( \frac{5+3t+6\sigma^2 + 12 t \sigma \log 3 + 6t^2 \log^2 3}{6(T'-1.33)} ).$$
+
+By repeating the proof of \eqref{delta1}, we have
+$$
+ \delta_2 = \frac{1.1 \sqrt{\pi} \times 2^{-\sigma}}{2(a - 1.25)} \exp( \frac{\sigma^2 + \frac{5}{6}}{T'-0.33} + \frac{t(-\log \sqrt{2} + \frac{\sigma}{T'-0.33})^2}{1 - \frac{t}{T'-0.33}} ) (1 - \frac{t}{T'-0.33})^{-1/2}.$$
+We can bound $(-\log \sqrt{2} + \frac{\sigma}{T'-0.33})^2$ by $\log^2 \sqrt{2}$.  Using \eqref{hit}, \eqref{hit2} we thus have
+$$
+ \delta_2 \leq \frac{1.1 \sqrt{\pi} \times 2^{-\sigma} \exp( t \log^2 \sqrt{2})}{2(a - 1.25)} \exp( \frac{5 + 3t + 6\sigma^2}{6(T'-1.33)} ).
+$$
+
 With $t \leq 1/2$ and $0 \leq \sigma \leq 1$ one has
 \begin{align*}
  0.2 \exp(t \log^2 3) &\leq 0.366 \\
-\frac{\sqrt{\pi}}{2} &\leq 0.887 \\
-\frac{5 + 3t + 6\sigma^2 + 12 \sigma \log 3 + 6t \log^2 3}{6} &\leq 4.89
+\frac{1.1 \sqrt{\pi} \exp( t \log^2 \sqrt{2})}{2} &\leq 1.023 \\
+\frac{5 + 3t + 6\sigma^2}{6} \leq \frac{5 + 3t + 6\sigma^2 + 12 t \sigma \log 3 + 6t^2 \log^2 3}{6} &\leq 3.49
 \end{align*}
 and hence
-$$ \delta \leq \frac{0.366 \times 9^\sigma + 0.887}{a-0.125} \exp( \frac{4.89}{T'-1.33} ).$$
+$$ \delta_1 \leq \frac{0.366 \times 9^\sigma}{a-0.865} \exp( \frac{3.49}{T'-1.33} )$$
+and
+$$ \delta_2 \leq \frac{1.023 \times 2^{-\sigma}}{a-1.25} \exp( \frac{3.49}{T'-1.33} ).$$
+
+
+Now we turn to $\delta_3$. By the Fubini-Tonelli theorem, we have
+$$ \delta_3 = \frac{1}{2 \sqrt{\pi t}} \sum_{k \geq \frac{T'}{2.2 \pi}} (1.1)^{k} \frac{\Gamma(k/2)}{a^k} \int_{-\infty}^{4-k} \exp( \frac{1}{T'-0.33} (u^2 + \frac{5}{6}) - \frac{(u-\sigma)^2}{t} - u \log 2)\ du.$$
+Since $u \leq 4-k$, $k \geq \frac{T'}{2.2\pi}$, and $T' \geq T \geq 100$, we have $k \geq 14$ and $u \leq -10$; since $\sigma \geq 0$, we may thus lower bound $(u-\sigma)^2/t$ by $u^2/t$.  Since $t \leq 1/2$, we can upper bound $\frac{1}{T'-0.33} (u^2 + \frac{5}{6}) - \frac{u^2}{t}$ by $-\frac{u^2}{2t}$, thus
+$$ \delta_3 \leq \frac{1}{2 \sqrt{\pi t}} \sum_{k \geq \frac{T'}{2.2 \pi}} (1.1)^{k} \frac{\Gamma(k/2)}{a^k} \int_{-\infty}^{4-k} e^{-u^2/2t - u \log 2}\ du.$$
+We can bound $e^{-u^2} \leq e^{(k-4)u/2t}$, and thus
+$$ \int_{-\infty}^{4-k} e^{-u^2/2t - u \log 2}\ du \leq \frac{1}{\frac{k-4}{2t} - \log 2} e^{-\frac{(k-4)^2}{2t} + (k-4) \log 2} \leq \frac{1}{\frac{k-4}{2t} - \log 2} e^{-(k-4)^2 + (k-4) \log 2};$$
+bounding
+$$ \frac{k-4}{2t} - \log 2 = \frac{k-4-2t \log 2}{2t} \geq \frac{k-6}{2t}$$
+we conclude that
+$$ \delta_3 \leq \frac{\sqrt{t}}{\sqrt{\pi}} \sum_{k \geq \frac{T'}{2.2 \pi}} (1.1)^{k} \frac{\Gamma(k/2)}{(k-6) a^k} e^{-(k-4)^2 + (k-4) \log 2}.$$
+For $k \geq 14$ one can easily verify that $(1.1)^{k} \Gamma(k/2) e^{-(k-4)^2 + (k-4) \log 2} \leq 10^{-30}$; discarding the $\frac{\sqrt{t}}{\sqrt{\pi}}$ and $\frac{1}{k-6}$ factors we thus have
+$$ \delta_3 \leq \sum_{k \geq 14} \frac{10^{-30}}{a^k} \leq \frac{2 \times 10^{-30}}{a^{14}}$$
+(say).   Since
+$$ \frac{0.366}{a-0.865} + \frac{2 \times 10^{-30}}{a^{14}} \leq \frac{0.366}{a-1.25}$$
+we thus have
+$$ \delta \leq \delta_1+\delta_2+\delta_3 \leq \frac{0.366 \times 9^\sigma + 1.023 \times 2^{-\sigma}}{a-1.25} \exp( \frac{3.49}{T'-1.33} ).$$
 Inserting this and \eqref{eep}, \eqref{cop} into \eqref{rtnst} we obtain the claim.
 \end{proof}
 
