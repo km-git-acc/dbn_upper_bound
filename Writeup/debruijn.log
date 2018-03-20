@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  11 MAR 2018 21:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  19 MAR 2018 21:33
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -593,54 +593,22 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1.
 
 [6]
-Overfull \hbox (91.54964pt too wide) detected at line 47
-\OML/txmi/m/it/10.95 r[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT\OT1/txr/
-m/n/10.95 ) = [](\OMS/txsy/m/n/10.95  []\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ) [][] [](\OMS/txsy/m/n/10.95  []\OML
-/txmi/m/it/10.95 v[]\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 M\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/1
-0.95 + \OML/txmi/m/it/10.95 iT \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95 v \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95
- []\OT1/txr/m/n/10.95 ) [](\OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 ([]))[]\OML/txmi/m/it/10.95 e[] dv:
- []
-
-
-Overfull \hbox (105.7487pt too wide) detected at line 54
-\OML/txmi/m/it/10.95 r[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s\OT1/txr/m/n/10.95 ) = [](\OMS/txsy/m/n/10.95  []\OML/
-txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ) [][] [](\OMS/txsy/m/n/10.95  []\OML/txmi/m/it/10.95 v[]\OT1/txr/m/n/10.95 )\OML
-/txmi/m/it/10.95 M\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT \OT1/txr/m/n/1
-0.95 + []\OML/txmi/m/it/10.95 v \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ) [](\OMS/txsy/m/n/10.
-95  \OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT \OT1/txr/m/n/10.95 + []\OML/
-txmi/m/it/10.95 v \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ) [] \OML/txmi/m/it/10.95 n \OT1/txr
-/m/n/10.95 + \OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 ([]))[]\OML/txmi/m/it/10.95 e[] dv:
+Overfull \hbox (36.00772pt too wide) detected at line 55
+[]
  []
 
 [7] [8]
-Overfull \hbox (78.8203pt too wide) detected at line 128
-\OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT\OT1/txr/
-m/n/10.95 ) = (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ue[] []\OT1/txr/m/n/10.95 ([])\OML/txmi/
-m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 iT[]\OT1/txr/m/n/10.95 )(\OML/txmi/m/it/10.95 C[]\OT1/txr/m/n/10.
-95 (\OML/txmi/m/it/10.95 p\OT1/txr/m/n/10.95 ) + \OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 (([] + []) []([])))\OML/txmi
-/m/it/10.95 :
+Overfull \hbox (6.45036pt too wide) detected at line 148
+\OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
+xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
+txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] []
  []
 
 
-Overfull \hbox (203.89087pt too wide) detected at line 145
-[]\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  []\OML/txmi/m/it/10.95 vi=\OT1/txr/m/n/10.95 4)\OML/txmi/m/it/10.95 R[]\OT1/
-txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/txr/m/n/10.95 + []\OML/txmi/m/
-it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 iT[]\OT1/txr/m/n/10.95
- ) []([] + \OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 ([]((\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/
-10.95 v\OT1/txr/m/n/10.95 )[] + 6\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95
- v\OMS/txsy/m/n/10.95 j \OT1/txr/m/n/10.95 + [])))(\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 U\OT
-1/txr/m/n/10.95 ([] [] + \OML/txmi/m/it/10.95 RS[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s[]\OT1/txr/m/n/10.95 ))\OML/
-txmi/m/it/10.95 :
- []
-
-
-Overfull \hbox (148.5102pt too wide) detected at line 149
-\OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT\OT1/txr/
-m/n/10.95 ) = (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ue[] []\OT1/txr/m/n/10.95 ([])\OML/txmi/
-m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 iT[]\OT1/txr/m/n/10.95 ) [][] [](\OML/txmi/m/it/10.95 O[]\OT1/txr
-/m/n/10.95 ([]((\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 )[] + [])))([] []
- + \OML/txmi/m/it/10.95 RS[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s[]\OT1/txr/m/n/10.95 ))[]\OML/txmi/m/it/10.95 e[] 
-dv:
+Overfull \hbox (46.8749pt too wide) detected at line 151
+\OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
+xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it
+/10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
 [9] [10] [11] [12] [13])
@@ -663,13 +631,13 @@ Package rerunfilecheck Info: File `debruijn.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 213.
  ) 
 Here is how much of TeX's memory you used:
- 9297 strings out of 493303
- 136441 string characters out of 3138857
- 236444 words of memory out of 3000000
- 12447 multiletter control sequences out of 15000+200000
+ 9301 strings out of 493303
+ 136480 string characters out of 3138857
+ 237552 words of memory out of 3000000
+ 12449 multiletter control sequences out of 15000+200000
  39836 words of font info for 101 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,17n,38p,972b,502s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,18n,38p,972b,500s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
 fonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
@@ -677,9 +645,9 @@ fonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb
 /fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/txfonts/txttsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (15 pages, 166528 bytes).
+Output written on debruijn.pdf (15 pages, 170597 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 84 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
