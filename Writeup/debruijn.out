@@ -2,5 +2,11 @@
 \BOOKMARK [1][-]{section.2}{2. Notation}{}% 2
 \BOOKMARK [1][-]{section.3}{3. Applying the fundamental solution for the heat equation}{}% 3
 \BOOKMARK [1][-]{section.4}{4. Elementary estimates}{}% 4
-\BOOKMARK [1][-]{section.5}{5. Initial estimation of rt,n, Rt,N}{}% 5
-\BOOKMARK [1][-]{section*.1}{References}{}% 6
+\BOOKMARK [1][-]{section.5}{5. Initial approximations}{}% 5
+\BOOKMARK [1][-]{section.6}{6. Bounding Dirichlet series}{}% 6
+\BOOKMARK [1][-]{section.7}{7. Estimation for small x}{}% 7
+\BOOKMARK [1][-]{section.8}{8. A new upper bound for the de Bruijn-Newman constant}{}% 8
+\BOOKMARK [2][-]{subsection.8.1}{8.1. The case of large N: N 2000}{section.8}% 9
+\BOOKMARK [2][-]{subsection.8.2}{8.2. The case of medium N: 11 N < 2000}{section.8}% 10
+\BOOKMARK [2][-]{subsection.8.3}{8.3. The case of small N: N 10}{section.8}% 11
+\BOOKMARK [1][-]{section*.1}{References}{}% 12

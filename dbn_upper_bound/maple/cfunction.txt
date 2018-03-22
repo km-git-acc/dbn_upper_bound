@@ -44,6 +44,10 @@ C0 := (exp( Pi*I*(p^2/2 + 3/8) ) - I*sqrt(2)*cos(Pi*p/2)) / (2 * cos(Pi*p));
 
 Ceff := (1/8) * exp( t * Pi^2/64) * (sp*(sp-1)/2) * (-1)^N * (Pi^(-sp/2) * GAMMA(sp/2) * a^(-sigma) * C0 * U + Pi^(-(1-sp)/2) * GAMMA((1-sp)/2) * a^(-(1-sigma)) * conjugate( C0 * U) );
 
+it := I * Tp;
+Ceffalt := 2 * exp(-Pi*I*y/8) * (1/8) * exp( t * Pi^2/64) * (-1)^N * Re( (it*(it-1)/2) *  Pi^(-it/2) * subs(Z = it/2, Stirling) * C0 * U * exp(Pi*I/8));
+
+
 alpha := s/(2 * Pi * I * N) - N;
 
 Psif := 2 * Pi * cos(Pi * (alpha^2 / 2 - alpha - 1/8)) * exp( I * Pi * alpha^2/2 - 5*Pi*I/8) / cos(Pi*alpha);
