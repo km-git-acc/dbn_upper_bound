@@ -1,8 +1,18 @@
-\section{Initial approximations}\label{initial-sec}
+\section{Estimates for large $x$}\label{initial-sec}
 
-In this section we give some initial estimates on the functions $r_{t,n}, R_{t,N}$ appearing in Section \ref{heatflow-sec}, and use this to approximate $H_t$.  
+The objective of this section is to obtain effective approximations for the expression $H_t(x+iy)$ in the region
+\begin{equation}\label{region}
+0 < t \leq \frac{1}{2}; \quad 0 \leq y \leq 1; \quad x \geq 200.
+\end{equation}
+The bounds in this region are somewhat arbitrary; one could easily modify the arguments below to extend to wider regions, at the expense of making the numerical bounds in the effective estimates worse (or more complicated).
 
-We begin with the estimation of $r_{t,n}$.  We will need the function
+The strategy is to use the expansion \eqref{htz-expand}, which turns out to be an effective approximation as long as $x$ stays away from zero, so that quantities such as $s + \sqrt{t} v + \frac{t}{2} \alpha_n$ or $s + \sqrt{t} v + \frac{t}{2} \beta_N$, with $s = \frac{1+i(x+iy)}{2}$, stay away from the real axis where the poles of $\Gamma$ are located (and also where the error terms in the Riemann-Siegel approximation deteriorate).  
+
+Accordingly, we will need effective estimates on the functions $r_{t,n}, R_{t,N}$ appearing in Section \ref{heatflow-sec}.  We will treat these two functions separately.
+
+\subsection{Estimation of $r_{t,n}$}
+
+We will need the function
 \begin{equation}\label{M-def}
  M_0(s) \coloneqq \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \sqrt{2\pi} \exp\left( \left(\frac{s}{2}-\frac{1}{2}\right)\log \frac{s}{2} - \frac{s}{2} \right)
 \end{equation}
@@ -92,7 +102,9 @@ $$ 1 - \frac{t}{2(T-3.08)} = \exp\left( O_{\leq}\left( \frac{t}{2(T-3.33)} \righ
 and the claim follows.
 \end{proof}
 
-Now we begin the estimation of $R_{t,N}$.  We begin with the following estimates of Arias de Reyna \cite{arias} on the term $\int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}}$ appearing in \eqref{RON-def}:
+\subsection{Estimation of $R_{t,N}$}
+
+We begin with the following estimates of Arias de Reyna \cite{arias} on the term $\int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}}$ appearing in \eqref{RON-def}:
 
 \begin{proposition}\label{arias-prop}  Let $\sigma$ be real and $T'>0$, and define the quantities
 \begin{align}
@@ -315,9 +327,12 @@ $$ \delta \leq \delta_1+\delta_2+\delta_3 \leq \frac{0.366 \times 9^\sigma + 0.0
 Inserting this and \eqref{eep}, \eqref{cop} into \eqref{rtnst}, and crudely bounding $2^{-\sigma}$ by $9^\sigma$, we obtain the claim.
 \end{proof}
 
+\subsection{Combining the estimates}
+
+
 Combining Propositions \ref{rtn-prop}, \ref{RTN-prop} with \eqref{htz-expand} and the triangle inequality (and noting that $M_0 = M_0^*$, $M_t = M_t^*$ and $\alpha = \alpha^*$, and that $U$ has magnitude $1$), we conclude the following ``$A+B-C$ approximation to $H_t$'':
 
-\begin{corollary}[$A+B-C$ approximation]\label{abc-cor}  Let $0 \leq y \leq 1$, $x \geq 200$, and $0 < t \leq 1/2$.  Set
+\begin{corollary}[$A+B-C$ approximation]\label{abc-cor}  Let $t,x,y$ obey \eqref{region}.  Set
 $$ T' \coloneqq \frac{x}{2} + \frac{\pi t}{8} $$
 and then define $a,N,p,U,C_0(p)$ using \eqref{a-def}, \eqref{N-def}, \eqref{U-def}, \eqref{C0-def}.  Define the quantities
 \begin{align*}
@@ -339,7 +354,7 @@ and $\eps_{t,n}, \tilde \eps$ were defined in \eqref{eps-def}, \eqref{epsp-def}.
 
 In our application we will just need the cruder ``$A+B$'' approximation that is immediate from the above corollary and \eqref{cop}:
 
-\begin{corollary}[$A+B$ approximation]\label{ab-cor}  With the notation and hypotheses as in Corollary \ref{abc-cor}, we have
+\begin{corollary}[$A+B$ approximation]\label{ab-cor} With the notation and hypotheses as in Corollary \ref{abc-cor}, we have
 $$ H_t(x+iy) = A(x+iy) + B(x+iy) + O_{\leq}(E_A(x+iy) + E_B(x+iy) + E_{C,0}(x+iy))$$
 where
 \begin{align*}
@@ -353,14 +368,14 @@ B_0(x+iy) \coloneqq M_t(\frac{1+y-ix}{2})
 \end{equation} 
 of $B(x+iy)$.  This expression is non-zero, and we conclude (under the hypotheses of Corollary \ref{ab-cor}) that
 \begin{equation}\label{ratio-form}
-\frac{H_t(x+iy)}{B_0(x+iy)} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \lambda \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
+\frac{H_t(x+iy)}{B_0(x+iy)} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
 \end{equation}
 where
 \begin{align}
-\lambda \coloneqq \lambda(x+iy) &\coloneqq \frac{M_t(\frac{1-y+ix}{2})}{M_t(\frac{1+y-ix}{2})} \label{lambda-def} \\
+\gamma \coloneqq \lambda(x+iy) &\coloneqq \frac{M_t(\frac{1-y+ix}{2})}{M_t(\frac{1+y-ix}{2})} \label{lambda-def} \\
 s_* = s_*(x+iy) &\coloneqq \frac{1+y-ix}{2} +\frac{t}{2} \alpha(\frac{1+y-ix}{2}) \label{sn-def}\\
 \kappa \coloneqq \kappa(x+iy) &\coloneqq \frac{t}{2} (\alpha(\frac{1-y+ix}{2}) - \alpha(\frac{1+y+ix}{2})) \label{kappa-def}\\
-e_A \coloneqq e_A(x+iy) &\coloneqq |\lambda| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\mathrm{Re}(s) + \mathrm{Re}(\kappa)}} \eps_{t,n}(\frac{1-y+ix}{2}) \label{ea-def}\\
+e_A \coloneqq e_A(x+iy) &\coloneqq |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\mathrm{Re}(s) + \mathrm{Re}(\kappa)}} \eps_{t,n}(\frac{1-y+ix}{2}) \label{ea-def}\\
 e_B \coloneqq e_B(x+iy) &\coloneqq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s)}} \eps_{t,n}(\frac{1+y+ix}{2}) \label{eb-def} \\
 e_{C,0} \coloneqq e_{C,0}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} (1 + \tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})).\label{ec-def}
 \end{align}
@@ -378,10 +393,10 @@ x_N \coloneqq 4\pi N^2 - \frac{\pi t}{4}.
 Similarly one has
 $$ 2\pi N^2 \leq T' < 2\pi (N+1)^2.$$
 
-\begin{proposition}  Let the notation and hypotheses be as in Corollary \ref{abc-cor}, and let $\lambda, \kappa, e_A, e_B, e_{C,0}$ be defined by \eqref{lambda-def}-\eqref{ec-def}.
+\begin{proposition}[Estimates]\label{estimates}  Let the notation and hypotheses be as in Corollary \ref{abc-cor}, and let $\gamma, \kappa, e_A, e_B, e_{C,0}$ be defined by \eqref{lambda-def}-\eqref{ec-def}.
 \begin{itemize}
 \item[(i)]  One has
-$$ |\lambda| \leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2} $$
+$$ |\gamma| \leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2} $$
 \item[(ii)] One has
 $$ \mathrm{Re} s_* \geq \frac{1+y}{2} +\frac{t}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+ t}{2x^2}.$$
 \item[(iii)]  One has
@@ -400,7 +415,7 @@ $$
 \begin{proof}
 
 From the mean value theorem we have
-$$ \log \lambda = -y \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| $$
+$$ \log \gamma = -y \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| $$
 for some $\frac{1-y}{2} \leq \sigma \leq \frac{1+y}{2}$.  From \eqref{alpha-def}, \eqref{Mt-def} we have
 $$ \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| = \mathrm{Re}\left( \frac{t}{2} \alpha\left(\sigma+\frac{ix}{2}\right) \alpha'\left(\sigma+\frac{ix}{2}\right) + \alpha\left(\sigma+\frac{ix}{2}\right) \right).$$
 From \eqref{alpha-deriv-bound} one has
@@ -417,13 +432,13 @@ and hence
  \alpha(\sigma+\frac{ix}{2}) = \frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right).
 \end{equation}
 Inserting these bounds, we conclude that
-$$ \log \lambda = -y \mathrm{Re} \left( \left(\frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right)\right) \left(1 + O_{\leq}\left(\frac{t}{2(x-6)}\right)\right) \right).$$
+$$ \log \gamma = -y \mathrm{Re} \left( \left(\frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right)\right) \left(1 + O_{\leq}\left(\frac{t}{2(x-6)}\right)\right) \right).$$
 Expanding this out, we have
-$$ \log \lambda = -y (\frac{1}{2} \log \frac{x}{4\pi} + O_{\leq}\left( \frac{2+\sigma + \frac{t}{4} \log \frac{x}{4\pi} + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)}}{x-6} \right)).$$
-With $\sigma \leq 1$, $0 < t \leq 1/2$, and $x \geq 200$ one has
+$$ \log \gamma = -y (\frac{1}{2} \log \frac{x}{4\pi} + O_{\leq}\left( \frac{2+\sigma + \frac{t}{4} \log \frac{x}{4\pi} + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)}}{x-6} \right)).$$
+In the region \eqref{region}, which implies that $0 \leq \sigma \leq 1$, we have
 $$ 2 + \sigma + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)} \leq 3.21$$
 and thus
-$$ \log \lambda \leq -\frac{y}{2} \log \frac{x}{4\pi} + y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6}.$$
+$$ \log \gamma \leq -\frac{y}{2} \log \frac{x}{4\pi} + y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6}.$$
 The function $x \mapsto \frac{\log \frac{x}{4\pi}}{x-6}$ is decreasing for $x \geq 200$, hence
 $$ y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6} \leq y \frac{\frac{t}{4} \log \frac{200}{4\pi} + 3.21}{200-6} \leq 0.02.$$
 Claim (i) follows.  We remark that one can improve the $e^{0.02 y}$ factor here by Taylor expanding $\alpha$ to second order rather than first order, but we will not need to do so here.
@@ -445,17 +460,17 @@ O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac
 \end{equation}
 For any $1 \leq n \leq N$, we have
 $$ 1 \leq n^2 \leq N^2 \leq a^2 = \frac{x+\frac{\pi t}{16}}{4\pi};$$
-since $x \geq 200$ and $0 < t \leq 1/2$, the right-hand side is certainly bounded by $(\frac{x}{4\pi})^2$, so that
+in the region \eqref{region}, the right-hand side is certainly bounded by $(\frac{x}{4\pi})^2$, so that
 $$ \frac{4\pi}{x} \leq \frac{x}{4\pi n^2} \leq \frac{x}{4\pi}$$
 and hence
-$$ |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}| \leq |\log \frac{x}{4\pi} + i \frac{\pi}{2}|$$
-and for $x \geq 200$ one can check that $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-6}$ is decreasing in $x$.  Thus
+$$ |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}| \leq |\log \frac{x}{4\pi} + i \frac{\pi}{2}|.$$
+In the region \eqref{region} we have  $x \geq 200$, one can check that $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-6}$ is decreasing in $x$.  Thus
 \begin{align*}
 \frac{\pi^2}{16} + \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}
 &\leq \frac{\pi^2}{16} +  \frac{3 |\log \frac{200}{4\pi} + i \frac{\pi}{2}|}{200-6} + \frac{9}{(200-6)^2} \\
 &\leq 0.667.
 \end{align*}
-For $0 < t \leq \frac{1}{2}$ we also have
+Similarly, in \eqref{region} we also have
 $$ \frac{t^2}{8} \times 0.667 + \frac{t}{4} + \frac{1}{6} \leq 0.313.$$ 
 We conclude from \eqref{eps-def} that
 $$
@@ -487,7 +502,7 @@ $$
 \mathrm{Re} \alpha(\frac{1 \pm y + ix}{2})^2 = \frac{1}{4} \log^2 \frac{x}{4\pi} - \frac{\pi^2}{16} + 
 O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}\right).
 $$
-As before we have
+As before, in the region \eqref{region} we have
 \begin{align*}
 \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2} &\leq \frac{3 |\log \frac{200}{4\pi n^2} + i \frac{\pi}{2}|}{200-6} + \frac{9}{(200-6)^2} \\
 &\leq 0.05
@@ -498,7 +513,7 @@ and thus
 &= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + O_{\leq}\left( 0.05 + \frac{3.58}{x-6} \right) \right)\\
 &\leq \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + 0.069 \right).
 \end{align*}
-Finally, since $T' \geq \frac{x}{2} \geq 100$, one has 
+Finally, since $T' \geq \frac{x}{2} \geq 100$ in \eqref{region}, one has 
 $$\exp\left(\frac{3.49}{T'-3.33}\right) \leq 1.037$$
 and
 $$ \frac{5}{3(T'-3.33)} \leq 0.173$$
@@ -509,8 +524,6 @@ and hence
 $$
 \exp(0.069) (1 + \tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})) \leq 1.46 + \frac{1.33 \times (3^y+3^{-y})}{a-0.125}$$
 giving the claim.
-
-...
 \end{proof}
 
 
