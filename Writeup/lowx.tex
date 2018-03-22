@@ -1,2 +1,175 @@
 \section{Estimation for small $x$}
-...
+
+We now turn to the problem of estimating $H_t(x+iy)$ (and its derivative) accurately when $x$ is small (e.g., $x \leq 200$).  Here, the approximations based on the Riemann-Siegel formula \eqref{xio} do not seem to be particularly efficient.  Instead, we return to the original definition \eqref{htdef}.  From the functional equation $\Phi(-u)=-\Phi(u)$ we have
+$$H_t(z) = \frac{1}{2} \int_\R e^{tu^2} \Phi(u) e^{izu}\ du$$
+and hence on differentiation under the integral sign (which can be justified using for instance the Cauchy integral formula and Fubini's theorem) we have
+$$H'_t(z) = \frac{i}{2} \int_\R e^{tu^2} u \Phi(u) e^{izu}\ du.$$
+For any parameter $0 \leq \theta < \pi/8$, we may shift the contour to $i\theta + \R$ and then use the even nature of $\Phi$ to reflect the left half of that contour around the origin to obtain the identities
+\begin{equation}\label{ident-1}
+\begin{split}
+H_t(z) &= \frac{1}{2} \int_{i\theta}^{i\theta+\infty} e^{tu^2} \Phi(u) e^{izu}\ du + \frac{1}{2} \int_{i\theta-\infty}^{i\theta} e^{tu^2} \Phi(u) e^{izu}\ du \\
+&= \frac{1}{2} \int_{i\theta}^{i\theta+\infty} e^{tu^2} \Phi(u) e^{izu}\ du + \frac{1}{2} \int_{-i\theta}^{-i\theta+\infty} e^{tu^2} \Phi(u) e^{-izu}\ du\\
+&= \frac{1}{2} \int_{i\theta}^{i\theta+\infty} e^{tu^2} \Phi(u) e^{izu}\ du + \frac{1}{2} \overline{\int_{i\theta}^{i\theta+\infty} e^{tu^2} \Phi(u) e^{i\overline{z}u}\ du}
+\end{split}\end{equation}
+and similarly
+\begin{equation}\label{ident-2}
+H'_t(z) = \frac{i}{2} \int_{i\theta}^{i\theta+\infty} e^{tu^2} \Phi(u) u e^{izu}\ du - \frac{i}{2} \overline{\int_{i\theta}^{i\theta+\infty} e^{tu^2} \Phi(u) u e^{i\overline{z}u}\ du}.
+\end{equation}
+
+Since
+$$\Phi(u) = \sum_{n=1}^\infty (2\pi^2 n^4 e^{9u} - 3 \pi n^2 e^{5u}) \exp(-\pi n^2 e^{4u}),$$
+we thus have for $z=x+iy$ that
+\begin{equation}\label{htz-expand-orig}
+\begin{split}
+H_t(z) &= \frac{1}{2} \sum_{n=1}^\infty 2\pi^2 n^4 I_{t,\theta}(z-9i, \pi n^2) - 3\pi n^2 I_{t,\theta}(z-5i, \pi n^2) +
+2\pi^2 n^4 \overline{I_{t,\theta}(\overline{z}-9i, \pi n^2)} - 3\pi n^2 \overline{I_{t,\theta}(\overline{z}-5i, \pi n^2)} \\
+&= \frac{1}{2} \sum_{n=1}^\infty 2\pi^2 n^4 I_{t,\theta}(x-(9-y)i, \pi n^2) - 3\pi n^2 I_{t,\theta}(x-(5-y)i, \pi n^2) +
+2\pi^2 n^4 \overline{I_{t,\theta}(x-(9+y)i, \pi n^2)} - 3\pi n^2 \overline{I_{t,\theta}(x-(5+y)i, \pi n^2)}
+\end{split}
+\end{equation}
+and
+\begin{equation}\label{htzp-expand-orig}
+\begin{split}
+H'_t(z) &= \frac{i}{2} \sum_{n=1}^\infty 2\pi^2 n^4 J_{t,\theta}(z-9i, \pi n^2) - 3\pi n^2 J_{t,\theta}(z-5i, \pi n^2) -
+2\pi^2 n^4 \overline{J_{t,\theta}(\overline{z}-9i, \pi n^2)} + 3\pi n^2 \overline{J_{t,\theta}(\overline{z}-5i, \pi n^2)} \\
+&= \frac{i}{2} \sum_{n=1}^\infty 2\pi^2 n^4 J_{t,\theta}(x-(9-y)i, \pi n^2) - 3\pi n^2 J_{t,\theta}(x-(5-y)i, \pi n^2) -
+2\pi^2 n^4 \overline{J_{t,\theta}(x-(9+y)i, \pi n^2)} + 3\pi n^2 \overline{J_{t,\theta}(x - (5+y)i, \pi n^2)} 
+\end{split}
+\end{equation}
+where $I_{t,\theta}(b,\beta), J_{t,\theta}(b,\beta)$ denote the integrals
+\begin{align}
+I_{t,\theta}(b,\beta) &\coloneqq  \int_{i\theta}^{i\theta+\infty} \exp( tu^2 - \beta e^{4u} + ibu)\ du \label{it-def}\\
+J_{t,\theta}(b,\beta) &\coloneqq  \int_{i\theta}^{i\theta+\infty} \exp( tu^2 - \beta e^{4u} + ibu) u\ du.\label{jt-def}
+\end{align}
+
+It is thus of interest to find good estimates for $I_{t,\theta}(b,\beta), J_{t,\theta}(b,\beta)$ when $\beta = \pi n^2$ for some $n$, and $b = x-ia$ for $a = 9+y, 9-y, 5+y, 5-y$.  It will be convenient to split
+$$I_{t,\theta}(b,\beta) = I_{t,\theta,\leq X}(b,\beta) + I_{t,\theta, \geq X}(b,\beta)$$
+for any cutoff $X \geq 0$, where
+$$I_{t,\theta,\leq X}(b,\beta) \coloneqq  \int_{i\theta}^{i\theta+X} \exp( tu^2 - \beta e^{4u} + ibu)\ du$$
+and 
+$$I_{t,\theta,\geq X}(b,\beta) \coloneqq  \int_{i\theta+X}^{i\theta+\infty} \exp( tu^2 - \beta e^{4u} + ibu)\ du.$$
+One can similarly split
+$$J_{t,\theta}(b,\beta) = J_{t,\theta,\leq X}(b,\beta) + J_{t,\theta, \geq X}(b,\beta)$$
+
+\begin{proposition}\label{tail estimates}  Let $b = x-ia$ for some $x,a>0$, let $0 \leq \theta < \frac{\pi}{8}$, and let $\beta>0$ and $X, t \geq 0$.
+\begin{itemize}
+\item[(i)]  One has the upper bounds
+and
+\begin{equation}\label{ihead}
+|I_{t,\theta,\leq X}(b,\beta)| \leq \exp( -t \theta^2 - \theta x ) \int_0^X \exp( tv^2 - \beta e^{4v} \cos(4\theta) + av ) \ du
+\end{equation}
+and
+\begin{equation}\label{jhead}
+|J_{t,\theta,\leq X}(b,\beta)| \leq \exp( -t \theta^2 - \theta x ) \int_0^X \exp( tv^2 - \beta e^{4v} \cos(4\theta) + av ) (\theta^2 + u^2)^{1/2}\ du.
+\end{equation}
+\item[(ii)]  If one has the hypothesis
+\begin{equation}\label{beta-bound}
+ \beta e^{4X} \cos(4\theta) > \max( \frac{t}{2}, \frac{a+2tX}{4}) 
+\end{equation}
+then one has
+\begin{equation}\label{I-tail}
+|I_{t,\theta,\geq X}(b,\beta)| \leq \frac{\exp( -t \theta^2 + tX^2 - \beta e^{4X} \cos(4\theta) - \theta x + aX )}{4 \beta e^{4X} \cos(4\theta) - a - 2tX}
+\end{equation}
+and similarly
+\begin{equation}\label{J-tail}
+|J_{t,\theta,\geq X}(b,\beta)| \leq \exp( -t \theta^2 + tX^2 - \beta e^{4X} \cos(4\theta) - \theta x + aX ) \left(\frac{|X+i\theta|}{4 \beta e^{4X} \cos(4\theta) - a- 2tX} + \frac{1}{(4 \beta e^{4X} \cos(4\theta) - a- 2tX)^2}\right).
+\end{equation}
+In particular, setting $X=0$, we see that if
+\begin{equation}\label{beta-bound-0}
+ \beta \cos(4\theta) > \max( \frac{t}{2}, \frac{a}{4}) 
+\end{equation}
+then
+\begin{equation}\label{I-all}
+|I_{t,\theta}(b,\beta)| \leq \frac{\exp( -t \theta^2 - \beta \cos(4\theta) - \theta x )}{4 \beta \cos(4\theta) - a}
+\end{equation}
+and similarly
+\begin{equation}\label{J-all}
+|J_{t,\theta}(b,\beta)| \leq \exp( -t \theta^2 - \beta \cos(4\theta) - \theta x ) \left(\frac{\theta}{4 \beta \cos(4\theta) - a} + \frac{1}{(4 \beta \cos(4\theta) - a)^2}\right).
+\end{equation}
+\end{itemize}
+\end{proposition}
+
+In practice, the tail estimates \eqref{I-tail}, \eqref{J-tail} become useful when $\theta$ is close to $\pi/8$ (to get the most gain out of the $\exp(-\theta x)$ factor), and $X$ is large.  Similarly, \eqref{I-all}, \eqref{J-all} become useful when $\theta$ is close to $\pi/8$ and $\beta$ is large.
+
+\begin{proof}  We first prove (i).  Writing $u = i \theta + v$ and $b = x - ia$ we have
+$$I_{t,\theta,\leq X}(b,\beta) = \int_0^X \exp( t (-\theta^2 + v^2 + 2i\theta v) - \beta e^{4v} \cos(4\theta) - i \beta e^{4v} \sin (4\theta) - \theta x + iv x + av + ia\theta)\ dv$$
+and the claim \eqref{ihead} then follows from the triangle inequality.  The claim \eqref{jhead} is proven similarly, with an additional factor of $i\theta+v = O_{\leq}\left( (\theta^2+v^2)^{1/2} \right)$ in the integrand.
+
+Now we prove (ii).  Writing $u = i\theta + X + v$ and $b = x - i a$, we have
+$$I_{t,\theta,\geq X}(b,\beta) = \int_0^\infty \exp( t (-\theta^2 + X^2 + 2Xv + v^2 + 2i\theta X + 2i\theta v) - \beta e^{4X} e^{4v} \cos(4\theta) - i \beta e^{4X} e^{4v} \sin (4\theta) - \theta x + iX x + iv x+ aX + av + ia\theta)\ dv$$
+and hence by the triangle inequality
+$$|I_{t,\theta,\geq X}(b,\beta)| \leq \exp( -t \theta^2 + tX^2 - \beta e^{4X} \cos(4\theta) - \theta x + aX ) \int_0^\infty \exp( tv^2 + 2tXv - \beta e^{4X} (e^{4v}-1) \cos (4\theta) + av )\ dv.$$
+Similarly one has
+$$|J_{t,\theta,\geq X}(b,\beta)| \leq \exp( -t \theta^2 + tX^2 - \beta e^{4X} \cos(4\theta) - \theta x + aX ) \int_0^\infty \exp( tv^2 + 2tXv - \beta e^{4X} (e^{4v}-1) \cos(4\theta) + av ) (|X+i\theta| + v)\ dv.$$
+
+The exponent $tv^2 + 2tXv - \beta e^{4X} (e^{4v}-1) \cos(4\theta) + av$ equals $0$ when $v=0$ and has derivative
+$$2tv + 2tX - 4 \beta e^{4X} \cos(4\theta) e^{4v} + a.$$
+Note that $e^{4v} \geq 1+4v$.  Hence by \eqref{beta-bound-0}, this derivative will be bounded from below by the negative quantity $-(4 \beta e^{4X} \cos(4\theta) - a - 2tX)$.  This implies that
+$$\exp( tv^2 - \beta e^{4X} (e^{4v}-1) \cos(4\theta) + av ) \leq \exp( - v (4 \beta e^{4X} \cos(4\theta) - a- 2tX) )$$
+and the bounds \eqref{I-tail}, \eqref{J-tail} follow from the standard integral identities
+\begin{align*}
+\int_0^\infty \exp( a - bv )\ dv &= \frac{\exp(a)}{b}\\
+\int_0^\infty \exp( a - bv )v \ dv&= \frac{\exp(a)}{b^2},
+\end{align*}
+valid for any $b>0$.  Setting $X=0$ we then obtain \eqref{I-all}, \eqref{J-all}.
+\end{proof}
+
+
+\begin{corollary}  Let $x,a,t>0$ and $0 \leq \theta < \frac{\pi}{4}$, and let $n_0$ be a natural number such that
+$$\pi n_0^2 \cos(4\theta) > \max(\frac{t}{2}, \frac{a}{4} ).$$
+Then we have
+\begin{equation}\label{itail1}
+\begin{split}
+\left|\sum_{n \geq n_0} 2\pi^2 n^4 I_{t,\theta}(x-ia, \pi n^2)\right| &\leq
+\frac{2\pi^2 \exp(-t \theta^2 - \theta x - \pi n_0^2 \cos(4\theta))}{4\pi n_0^2 \cos(4\theta) - a} \\
+&\quad \times \left( \frac{n_0^4}{1 - \alpha} + 
+\frac{4 n_0^3 \alpha}{(1 - \alpha)^2}  + \frac{6 n_0^2 (\alpha^2+\alpha)}{(1-\alpha)^3} + \frac{4n_0 (\alpha^3+4\alpha^2+\alpha)}{(1-\alpha)^4} + \frac{\alpha^4 + 11 \alpha^3 + 11 \alpha^2 + \alpha}{(1-\alpha)^5} \right)
+\end{split}
+\end{equation}
+and
+\begin{equation}\label{itail2}
+\begin{split}
+\left|\sum_{n \geq n_0} 3\pi n^2 I_{t,\theta}(x-ia, \pi n^2)\right| &\leq
+\frac{3\pi \exp(-t \theta^2 - \theta x - \pi n_0^2 \cos(4\theta))}{4\pi n_0^2 \cos(4\theta) - a} \\
+&\quad \times ( \frac{n_0^2}{1-\alpha} + \frac{2n_0 \alpha}{(1-\alpha)^2} + \frac{\alpha^2+\alpha}{(1-\alpha)^3} )
+\end{split}
+\end{equation}
+where $\alpha \coloneqq  e^{-\pi n_0 \cos(4\theta)}$.  Similarly one has
+\begin{equation}\label{jtail1}
+\begin{split}
+ |\sum_{n \geq n_0} 2\pi^2 n^4 J_{t,\theta}(x-ia, \pi n^2)| &\leq 2\pi^2 \exp( -t \theta^2 - \pi n_0^2 \cos(4\theta) - \theta x )
+( \frac{\theta}{4 \pi n_0^2 \cos(4\theta) - a} + \frac{1}{(4 \pi n_0^2 \cos(4 \theta) - a)^2} )\\
+&\quad \times ( \frac{n_0^4}{1 - \alpha} + 
+\frac{4 n_0^3 \alpha}{(1 - \alpha)^2}  + \frac{6 n_0^2 (\alpha^2+\alpha)}{(1-\alpha)^3} + \frac{4n_0 (\alpha^3+4\alpha^2+\alpha)}{(1-\alpha)^4} + \frac{\alpha^4 + 11 \alpha^3 + 11 \alpha^2 + \alpha}{(1-\alpha)^5} )
+\end{split}
+\end{equation}
+and
+\begin{equation}\label{jtail2}
+\begin{split}
+ |\sum_{n \geq n_0} 3\pi n^2 J_{t,\theta}(x-ia, \pi n^2)| &\leq 3\pi \exp( -t \theta^2 - \pi n_0^2 \cos(4\theta) - \theta x )
+( \frac{\theta}{4 \pi n_0^2 \cos(4\theta) - a} + \frac{1}{(4 \pi n_0^2 \cos(4\theta) - a)^2} )\\
+&\quad \times ( \frac{n_0^2}{1-\alpha} + \frac{2n_0 \alpha}{(1-\alpha)^2} + \frac{\alpha^2+\alpha}{(1-\alpha)^3} ).
+\end{split}
+\end{equation}
+\end{corollary}
+
+\begin{proof}  From \eqref{I-all} one has
+\begin{align*}
+ |\sum_{n \geq n_0} 2\pi^2 n^4 I_{t,\theta}(x-ia, \pi n^2)|
+&\leq \sum_{n \geq n_0} 2\pi^2 n^4 \frac{\exp( -t \theta^2 - \pi n^2 \cos(4\theta) - \theta x )}{4 \pi n^2 \cos(4\theta) - a} \\
+&\leq \frac{2\pi^2 \exp(-t \theta^2 - \theta x)}{4\pi n_0^2 \cos(4\theta) - a- 2tX} \sum_{n \geq n_0} n^4 \exp( - \pi n n_0 \cos(4\theta)) \\ 
+&= \frac{2\pi^2 \exp(-t \theta^2 - \theta x - \pi n_0^2 \cos(4\theta))}{4\pi n_0^2 \cos(4\theta) - a} \sum_{m=0}^\infty (n_0^4 + 4 n_0^3 m + 6 n_0^2 m^2 + 4 n_0 m^3 + m^4) \alpha^m \\
+&= \frac{2\pi^2 \exp(-t \theta^2 - \theta x - \pi n_0^2 \cos(4\theta))}{4\pi n_0^2 \cos(4\theta) - a} \\
+&\quad  \times ( \frac{n_0^4}{1 - \alpha} + 
+\frac{4 n_0^3 \alpha}{(1 - \alpha)^2}  + \frac{6 n_0^2 (\alpha^2+\alpha)}{(1-\alpha)^3} + \frac{4n_0 (\alpha^3+4\alpha^2+\alpha)}{(1-\alpha)^4} + \frac{\alpha^4 + 11 \alpha^3 + 11 \alpha^2 + \alpha}{(1-\alpha)^5} ) 
+\end{align*}
+giving \eqref{itail1} as desired, where we use the Euler number identities
+\begin{align*}
+\sum_{m=0}^\infty \alpha^m &= \frac{1}{1-\alpha} \\
+\sum_{m=0}^\infty m \alpha^m &= \frac{\alpha}{(1-\alpha)^2} \\
+\sum_{m=0}^\infty m^2 \alpha^m &= \frac{\alpha^2+\alpha}{(1-\alpha)^3} \\
+\sum_{m=0}^\infty m^3 \alpha^m &= \frac{\alpha^3+4\alpha^2+\alpha}{(1-\alpha)^4} \\
+\sum_{m=0}^\infty m^4 \alpha^m &= \frac{\alpha^4+11\alpha^3+11\alpha^2+\alpha}{(1-\alpha)^5}.
+\end{align*}
+The estimates \eqref{itail2}, \eqref{jtail1}, \eqref{jtail2} are proven similarly.
+\end{proof}
