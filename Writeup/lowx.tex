@@ -23,16 +23,18 @@ we thus have for $z=x+iy$ that
 \begin{split}
 H_t(z) &= \frac{1}{2} \sum_{n=1}^\infty 2\pi^2 n^4 I_{t,\theta}(z-9i, \pi n^2) - 3\pi n^2 I_{t,\theta}(z-5i, \pi n^2) +
 2\pi^2 n^4 \overline{I_{t,\theta}(\overline{z}-9i, \pi n^2)} - 3\pi n^2 \overline{I_{t,\theta}(\overline{z}-5i, \pi n^2)} \\
-&= \frac{1}{2} \sum_{n=1}^\infty 2\pi^2 n^4 I_{t,\theta}(x-(9-y)i, \pi n^2) - 3\pi n^2 I_{t,\theta}(x-(5-y)i, \pi n^2) +
+&= \frac{1}{2} \sum_{n=1}^\infty 2\pi^2 n^4 I_{t,\theta}(x-(9-y)i, \pi n^2) - 3\pi n^2 I_{t,\theta}(x-(5-y)i, \pi n^2) \\
+&\quad +
 2\pi^2 n^4 \overline{I_{t,\theta}(x-(9+y)i, \pi n^2)} - 3\pi n^2 \overline{I_{t,\theta}(x-(5+y)i, \pi n^2)}
 \end{split}
 \end{equation}
-and
+and similarly
 \begin{equation}\label{htzp-expand-orig}
 \begin{split}
 H'_t(z) &= \frac{i}{2} \sum_{n=1}^\infty 2\pi^2 n^4 J_{t,\theta}(z-9i, \pi n^2) - 3\pi n^2 J_{t,\theta}(z-5i, \pi n^2) -
 2\pi^2 n^4 \overline{J_{t,\theta}(\overline{z}-9i, \pi n^2)} + 3\pi n^2 \overline{J_{t,\theta}(\overline{z}-5i, \pi n^2)} \\
-&= \frac{i}{2} \sum_{n=1}^\infty 2\pi^2 n^4 J_{t,\theta}(x-(9-y)i, \pi n^2) - 3\pi n^2 J_{t,\theta}(x-(5-y)i, \pi n^2) -
+&= \frac{i}{2} \sum_{n=1}^\infty 2\pi^2 n^4 J_{t,\theta}(x-(9-y)i, \pi n^2) - 3\pi n^2 J_{t,\theta}(x-(5-y)i, \pi n^2) \\
+&\quad -
 2\pi^2 n^4 \overline{J_{t,\theta}(x-(9+y)i, \pi n^2)} + 3\pi n^2 \overline{J_{t,\theta}(x - (5+y)i, \pi n^2)} 
 \end{split}
 \end{equation}
@@ -96,7 +98,7 @@ $$I_{t,\theta,\leq X}(b,\beta) = \int_0^X \exp( t (-\theta^2 + v^2 + 2i\theta v)
 and the claim \eqref{ihead} then follows from the triangle inequality.  The claim \eqref{jhead} is proven similarly, with an additional factor of $i\theta+v = O_{\leq}\left( (\theta^2+v^2)^{1/2} \right)$ in the integrand.
 
 Now we prove (ii).  Writing $u = i\theta + X + v$ and $b = x - i a$, we have
-$$I_{t,\theta,\geq X}(b,\beta) = \int_0^\infty \exp( t (-\theta^2 + X^2 + 2Xv + v^2 + 2i\theta X + 2i\theta v) - \beta e^{4X} e^{4v} \cos(4\theta) - i \beta e^{4X} e^{4v} \sin (4\theta) - \theta x + iX x + iv x+ aX + av + ia\theta)\ dv$$
+$$I_{t,\theta,\geq X}(b,\beta) = \int_0^\infty \exp( t (-\theta^2 + X^2 + 2Xv + v^2 + 2i\theta (X+v)) - \beta e^{4X} e^{4v} \cos(4\theta) - i \beta e^{4X} e^{4v} \sin (4\theta) - \theta x + ix(X+v)+ aX + av + ia\theta)\ dv$$
 and hence by the triangle inequality
 $$|I_{t,\theta,\geq X}(b,\beta)| \leq \exp( -t \theta^2 + tX^2 - \beta e^{4X} \cos(4\theta) - \theta x + aX ) \int_0^\infty \exp( tv^2 + 2tXv - \beta e^{4X} (e^{4v}-1) \cos (4\theta) + av )\ dv.$$
 Similarly one has
@@ -122,8 +124,7 @@ Then we have
 \begin{split}
 \left|\sum_{n \geq n_0} 2\pi^2 n^4 I_{t,\theta}(x-ia, \pi n^2)\right| &\leq
 \frac{2\pi^2 \exp(-t \theta^2 - \theta x - \pi n_0^2 \cos(4\theta))}{4\pi n_0^2 \cos(4\theta) - a} \\
-&\quad \times \left( \frac{n_0^4}{1 - \alpha} + 
-\frac{4 n_0^3 \alpha}{(1 - \alpha)^2}  + \frac{6 n_0^2 (\alpha^2+\alpha)}{(1-\alpha)^3} + \frac{4n_0 (\alpha^3+4\alpha^2+\alpha)}{(1-\alpha)^4} + \frac{\alpha^4 + 11 \alpha^3 + 11 \alpha^2 + \alpha}{(1-\alpha)^5} \right)
+&\quad \times \left( n_0^4 G_0(\alpha) + 4 n_0^3 G_1(\alpha) + 6 n_0^2 G_2(\alpha) + 4 n_0 G_3(\alpha) + G_4(\alpha) \right)
 \end{split}
 \end{equation}
 and
@@ -131,27 +132,41 @@ and
 \begin{split}
 \left|\sum_{n \geq n_0} 3\pi n^2 I_{t,\theta}(x-ia, \pi n^2)\right| &\leq
 \frac{3\pi \exp(-t \theta^2 - \theta x - \pi n_0^2 \cos(4\theta))}{4\pi n_0^2 \cos(4\theta) - a} \\
-&\quad \times ( \frac{n_0^2}{1-\alpha} + \frac{2n_0 \alpha}{(1-\alpha)^2} + \frac{\alpha^2+\alpha}{(1-\alpha)^3} )
+&\quad \times ( n_0^2 G_0(\alpha) + 2n_0 G_1(\alpha) + G_2(\alpha) )
 \end{split}
 \end{equation}
-where $\alpha \coloneqq  e^{-\pi n_0 \cos(4\theta)}$.  Similarly one has
+where $\alpha \coloneqq  e^{-\pi n_0 \cos(4\theta)}$, and $G_k(\alpha)$ are the generalised geometric series
+$$ G_k(\alpha) \coloneqq \sum_{m=0}^\infty m^k \alpha^m.$$  
+Similarly one has
 \begin{equation}\label{jtail1}
 \begin{split}
- |\sum_{n \geq n_0} 2\pi^2 n^4 J_{t,\theta}(x-ia, \pi n^2)| &\leq 2\pi^2 \exp( -t \theta^2 - \pi n_0^2 \cos(4\theta) - \theta x )
-( \frac{\theta}{4 \pi n_0^2 \cos(4\theta) - a} + \frac{1}{(4 \pi n_0^2 \cos(4 \theta) - a)^2} )\\
-&\quad \times ( \frac{n_0^4}{1 - \alpha} + 
-\frac{4 n_0^3 \alpha}{(1 - \alpha)^2}  + \frac{6 n_0^2 (\alpha^2+\alpha)}{(1-\alpha)^3} + \frac{4n_0 (\alpha^3+4\alpha^2+\alpha)}{(1-\alpha)^4} + \frac{\alpha^4 + 11 \alpha^3 + 11 \alpha^2 + \alpha}{(1-\alpha)^5} )
+ \left|\sum_{n \geq n_0} 2\pi^2 n^4 J_{t,\theta}(x-ia, \pi n^2)\right| &\leq 2\pi^2 \exp( -t \theta^2 - \pi n_0^2 \cos(4\theta) - \theta x )
+\left( \frac{\theta}{4 \pi n_0^2 \cos(4\theta) - a} + \frac{1}{(4 \pi n_0^2 \cos(4 \theta) - a)^2}\right )\\
+&\quad \times \left( n_0^4 G_0(\alpha) + 
+4 n_0^3 \alpha G_1(\alpha) + 6 n_0^2 G_2(\alpha) + 4n_0 G_3(\alpha) + G_4(\alpha) \right )
 \end{split}
 \end{equation}
 and
 \begin{equation}\label{jtail2}
 \begin{split}
- |\sum_{n \geq n_0} 3\pi n^2 J_{t,\theta}(x-ia, \pi n^2)| &\leq 3\pi \exp( -t \theta^2 - \pi n_0^2 \cos(4\theta) - \theta x )
-( \frac{\theta}{4 \pi n_0^2 \cos(4\theta) - a} + \frac{1}{(4 \pi n_0^2 \cos(4\theta) - a)^2} )\\
-&\quad \times ( \frac{n_0^2}{1-\alpha} + \frac{2n_0 \alpha}{(1-\alpha)^2} + \frac{\alpha^2+\alpha}{(1-\alpha)^3} ).
+ \left|\sum_{n \geq n_0} 3\pi n^2 J_{t,\theta}(x-ia, \pi n^2)\right| &\leq 3\pi \exp( -t \theta^2 - \pi n_0^2 \cos(4\theta) - \theta x )
+\left( \frac{\theta}{4 \pi n_0^2 \cos(4\theta) - a} + \frac{1}{(4 \pi n_0^2 \cos(4\theta) - a)^2} \right)\\
+&\quad \times \left( n_0^2 G_0(\alpha) + 2n_0 G_1(\alpha) + G_2(\alpha) \right).
 \end{split}
 \end{equation}
 \end{corollary}
+
+We remark that $G_k(\alpha)$ can be computed explicitly for small $k$ and $|\alpha|<1$ as
+\begin{align*}
+G_0(\alpha) &= \frac{1}{1-\alpha} \\
+G_1(\alpha) &= \frac{\alpha}{(1-\alpha)^2} \\
+G_2(\alpha) &= \frac{\alpha^2+\alpha}{(1-\alpha)^3} \\
+G_3(\alpha) &= \frac{\alpha^3+4\alpha^2+\alpha}{(1-\alpha)^4} \\
+G_4(\alpha) &= \frac{\alpha^4+11\alpha^3+11\alpha^2+\alpha}{(1-\alpha)^5}.
+\end{align*}
+In general one has
+$$ G_k(\alpha) = \frac{\sum_{j=0}^{k-1} A(k,j) \alpha^{j+1}}{(1-\alpha)^{k+1}}$$
+for any $k \geq 1$ and $|\alpha|<1$< where $A(k,j)$ are the Eulerian numbers \cite{euler}.
 
 \begin{proof}  From \eqref{I-all} one has
 \begin{align*}
@@ -160,16 +175,8 @@ and
 &\leq \frac{2\pi^2 \exp(-t \theta^2 - \theta x)}{4\pi n_0^2 \cos(4\theta) - a- 2tX} \sum_{n \geq n_0} n^4 \exp( - \pi n n_0 \cos(4\theta)) \\ 
 &= \frac{2\pi^2 \exp(-t \theta^2 - \theta x - \pi n_0^2 \cos(4\theta))}{4\pi n_0^2 \cos(4\theta) - a} \sum_{m=0}^\infty (n_0^4 + 4 n_0^3 m + 6 n_0^2 m^2 + 4 n_0 m^3 + m^4) \alpha^m \\
 &= \frac{2\pi^2 \exp(-t \theta^2 - \theta x - \pi n_0^2 \cos(4\theta))}{4\pi n_0^2 \cos(4\theta) - a} \\
-&\quad  \times ( \frac{n_0^4}{1 - \alpha} + 
-\frac{4 n_0^3 \alpha}{(1 - \alpha)^2}  + \frac{6 n_0^2 (\alpha^2+\alpha)}{(1-\alpha)^3} + \frac{4n_0 (\alpha^3+4\alpha^2+\alpha)}{(1-\alpha)^4} + \frac{\alpha^4 + 11 \alpha^3 + 11 \alpha^2 + \alpha}{(1-\alpha)^5} ) 
+&\quad  \times \left( n_0^4 G_0(\alpha) + 
+4 n_0^3 \alpha G_1(\alpha) + 6 n_0^2 G_2(\alpha) + 4n_0 G_3(\alpha) + G_4(\alpha) \right) 
 \end{align*}
-giving \eqref{itail1} as desired, where we use the Euler number identities
-\begin{align*}
-\sum_{m=0}^\infty \alpha^m &= \frac{1}{1-\alpha} \\
-\sum_{m=0}^\infty m \alpha^m &= \frac{\alpha}{(1-\alpha)^2} \\
-\sum_{m=0}^\infty m^2 \alpha^m &= \frac{\alpha^2+\alpha}{(1-\alpha)^3} \\
-\sum_{m=0}^\infty m^3 \alpha^m &= \frac{\alpha^3+4\alpha^2+\alpha}{(1-\alpha)^4} \\
-\sum_{m=0}^\infty m^4 \alpha^m &= \frac{\alpha^4+11\alpha^3+11\alpha^2+\alpha}{(1-\alpha)^5}.
-\end{align*}
-The estimates \eqref{itail2}, \eqref{jtail1}, \eqref{jtail2} are proven similarly.
+giving \eqref{itail1} as desired.  The estimates \eqref{itail2}, \eqref{jtail1}, \eqref{jtail2} are proven similarly.
 \end{proof}
