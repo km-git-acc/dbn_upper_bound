@@ -1,0 +1,151 @@
+\section{Asymptotic results}
+
+In this section we use the effective estimates from Section \ref{initial-sec} to obtain asymptotic information about the function $H_t$, which improves (and makes more effective) the results of Ki, Kim, and Lee \cite{kkl}. We use the usual asymptotic notation $X = O(Y)$ to denote the bound $X = O_{\leq}(CY)$ for an absolute constant $C$.
+
+\begin{proposition}\label{asymp}  Let $0 < t \leq 1/2$, $x \geq 200$, and $0 \leq y \leq 10$.
+\begin{itemize}
+\item[(i)]  If $x \geq \exp(\frac{C}{t})$ for a sufficiently large absolute constant $C$, then
+$$ \frac{H_t(x+iy)}{B_0(x+iy)} = 1 + \gamma + O( x^{-ct} )$$
+for an absolute constant $c>0$, where $\gamma$ is defined in \eqref{lambda-def}.  
+\item[(ii)]  If instead we have $5 \leq y \leq 10$ and $x \geq C$ for a sufficiently large absolute constant $C$, then
+$$ \frac{H_t(x+iy)}{B_0(x+iy)} = 1 + O_{\leq}( 0.7 ).$$
+\end{itemize}
+\end{proposition}
+
+\begin{proof}  We begin with (i).  We apply the decomposition \eqref{ratio-form} followed by Proposition \ref{estimates}.  (Strictly speaking, the estimates there required $y \leq 1$ rather than $y \leq 10$; however, as remarked at the beginning of Section \ref{initial-sec}, all the estimates in that section would continue to hold under this weaker hypothesis if one adjusted all the numerical constants appropriately.)  This gives
+\begin{equation}\label{exp}
+\frac{H_t(x+iy)}{B_0(x+iy)} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
+\end{equation}
+where
+\begin{align*}
+\gamma &= O( x^{-y/2} ) \\
+\kappa &= O(x^{-1}) \\
+\mathrm{Re}(s_*) &\geq \frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi}  - O(x^{-2}) \\
+e_A &= O( x^{-y/2} \sum_{n=1}^N b_n^t n^{-\frac{1-y}{2} - \frac{t}{2} \log \frac{x}{4\pi} - O(x^{-1})} \frac{\log^2 x}{x} ) \\ 
+e_B &= O( \sum_{n=1}^N b_n^t n^{-\frac{1+y}{2} - \frac{t}{2} \log \frac{x}{4\pi} + O(x^{-1})} \frac{\log^2 x}{x} ) \\ 
+e_{C,0} &= O( x^{-\frac{1+y}{4}} )
+\end{align*}
+Since $N = O(x^{1/2})$, we have $x^{-y/2} n^{y} = O(1)$ and $n^{O(x^{-1})} = O(1)$ for all $1 \leq n \leq N$.  We conclude that
+$$\frac{H_t(x+iy)}{B_0(x+iy)} = 1 + \gamma + O( \frac{\log^2 x}{x} + \sum_{n=2}^N \frac{b_n^t}{n^{\frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi}}} + x^{-\frac{1+y}{4}} ) $$
+so it will suffice to show that
+$$ \sum_{n=2}^N \frac{b_n^t}{n^{\frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi}}} = O( x^{-ct} ).$$
+By \eqref{bn-def} we can write the left-hand side as
+$$ \sum_{n=2}^N \frac{1}{n^{\frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi \sqrt{n}}}} = O( x^{-ct} ).$$
+For $2 \leq n \leq N$, we have
+$$ \frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi \sqrt{n}} \geq c t \log x $$
+for some absolute constant $c>0$.  By the integral test, the left-hand side is then bounded by
+$$ \frac{1}{2^{c t \log x}} + \int_2^\infty \frac{1}{2^{c t \log x}}\ du$$
+which, for $x \geq \exp(C/t)$ and $C$ large, is bounded by $O(2^{-ct\log x})$.  The claim then follows after adjusting $c$ appropriately.
+
+
+Now we prove (ii).  As before we have the expansion \eqref{exp}.  We have
+\begin{align*}
+\gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} &= O( x^{-y/2} \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y}{2} + \frac{t}{2} \log \frac{x}{4\pi}}} ) \\
+&= O( x^{-y/2} \sum_{n=1}^N \frac{1}{n^{\frac{1-y}{2}}} ) \\
+&= O(x^{-y/2})
+\end{align*}
+since $y \geq 5$; similar arguments give $e_A, e_B = O( \frac{\log^2 x}{x} )$.  We conclude that
+\begin{align*}
+\frac{H_t(x+iy)}{B_0(x+iy)} &= \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + O( \frac{\log^2 x}{x} ) \\
+&= 1 + O_{\leq}( \sum_{n=2}^N n^{-\frac{1-y}{2} - \frac{t}{2} \log \frac{x}{4\pi} - O(x^{-1})} ) + O( \frac{\log^2 x}{x} ) \\
+&= 1 + O_{\leq}( \sum_{n=2}^N n^{-\frac{1-y}{2}} ) + O( \frac{\log^2 x}{x} ) \\
+&= 1 + O_{\leq}( \sum_{n=2}^N n^{-2} ) + O( \frac{\log^2 x}{x} ) \\
+&= 1 + O_{\leq}( \frac{\pi^2}{6} - 1 ) + O( \frac{\log^2 x}{x} ) \\
+&= 1 + O_{\leq}( 0.7 )
+\end{align*}
+as claimed, if $x \geq C$ for $C$ large enough.
+\end{proof}
+
+This lets us control the zeroes of $H_t(x+iy)$ for $x$ large enough:
+
+\begin{corollary}  Let $0 < t \leq 1/2$, let $C>0$ be a sufficiently large absolute constant, and let $c>0$ be a sufficiently small absolute constant.  For all $n \geq C$, let $x_n$ be the unique real number greater than $4\pi$ such that
+$$ \frac{x_n}{4\pi} \log \frac{x_n}{4\pi} - \frac{x_n}{4\pi} + \frac{5}{8} + \frac{t}{16} \log \frac{x_n}{4\pi} = n.$$
+(This is well-defined since the left-hand side is an increasing function of $x_n$ for $x_n \geq 4\pi$.)
+\begin{itemize}
+\item[(i)]  If $x \geq \exp(\frac{C}{t})$ and $H_t(x+iy)=0$, then $y=0$, and
+$$ x = x_n + O(x^{-ct}).$$  
+\item[(ii)]  Conversely, for each $n \geq \exp( \frac{C}{t} )$ there is exactly one zero $H_t$ in the disk $\{ x+iy: |x+iy - x_n| \leq \frac{c}{\log x_n} \}$ (and by part (i), this zero will be real and lie within $O(x^{-ct})$ of $x_n$).
+\item[(iii)]  If $X \geq \exp(\frac{C}{t})$, the number $N_t(X)$ of zeroes with real part between $0$ and $X$ is
+$$ N_t(X) = \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{t}{16} \log \frac{X}{4\pi} + O(1).$$
+\end{itemize}
+\end{corollary}
+
+These results refine Theorems 1.3 and 1.4 of \cite{kkl}, which gave similar results but with constants that depended on $t$ in a non-uniform (and ineffective) fashion, and error terms that were of shape $o(1)$ rather than $O(x^{-ct})$ in the limit $x \to \infty$ (holding $t$ fixed).
+
+\begin{proof}  We begin with (ii).  Let $n \geq \exp( \frac{C}{t})$, and suppose that $x+iy = x_n + O_{\leq}(\frac{c}{\log x_n})$.  
+By Proposition \ref{asymp}(i), \eqref{lambda-def}, \eqref{bo-def} one has
+$$ H_t(x+iy) = \overline{M_t(\frac{1+y+ix}{2})} + M_t(\frac{1-y+ix}{2}) + O( x_n^{-ct} |M_t(\frac{1+y+ix}{2})| ).$$
+By \eqref{Mt-def}, \eqref{alpha-def}, the log-derivative of $M_t$ is given by
+\begin{equation}\label{mt-deriv}
+ \frac{M'_t}{M_t} = \alpha + \frac{t}{2} \alpha \alpha'.
+\end{equation}
+Using \eqref{alpha-deriv-bound} and Taylor expansion, and also bounding 
+\begin{equation}\label{alpha-ex}
+\alpha(s) = \frac{1}{2} \log \frac{x_n}{4\pi} + \frac{\pi i}{4} + O( \frac{1}{x_n}) = \frac{1}{2} \log x_n + O(1)
+\end{equation}
+when $s = \frac{ix_n}{2} + O(1)$, we conclude that
+$$ M_t(\frac{1+y+ix}{2}) = M_t(\frac{1+ix_n}{2}) \exp( \frac{i(x-x_n) + y}{4} \log x_n + O( \frac{1}{\log x_n} ) )$$
+and similarly
+$$ M_t(\frac{1-y+ix}{2}) = M_t(\frac{1+ix_n}{2}) \exp( \frac{i(x-x_n) - y}{4} \log x_n + O( \frac{1}{\log x_n} ) )$$
+and hence
+$$ H_t(x+iy) = \overline{M_t(\frac{1+ix_n}{2})} \exp( \frac{-i(x-x_n) + y}{4} \log x_n)  
++ M_t(\frac{1-y+ix}{2}) \exp( \frac{i(x-x_n) - y}{4} \log x_n) + O( \frac{1}{\log x_n} |M_t(\frac{1+ix_n}{2})| ).$$
+Now we investigate the argument of $M_t(\frac{1+ix_n}{2})$ modulo $\pi$.
+From \eqref{Mt-def}, \eqref{alpha-form}, \eqref{M-def}, \eqref{alpha-ex} we have
+\begin{align*}
+\mathrm{arg} M_t(\frac{1+ix_n}{2}) &= \frac{t}{4} \mathrm{Im} \alpha(\frac{1+ix_n}{2})^2 - \frac{x_n}{4} \log \pi + \mathrm{Im}( \frac{-1+ix_n}{4} \log \frac{1+ix_n}{4} - \frac{1+ix_n}{4}) \hbox{ mod } \pi \\
+&= \frac{t}{4} (\frac{\pi}{4} \log \frac{x_n}{4\pi} + O(\frac{\log x_n}{x_n})) - \frac{x_n}{4} \log \pi 
++ \mathrm{Im}( \frac{-1+ix_n}{4} (\log \frac{x_n}{4} + \frac{i\pi}{2} - \frac{i}{x_n} + O(\frac{1}{x_n^2}) ) ) - \frac{x_n}{4} \hbox{ mod } \pi \\
+&= \frac{t \pi}{16} \log \frac{x_n}{4\pi} - \frac{x_n}{4} \log \pi 
++ \frac{x_n}{4} \log \frac{x_n}{4} - \frac{\pi}{8} + O( \frac{\log x_n}{x_n} ) \hbox{ mod } \pi \\
+&= \frac{t \pi}{16} \log \frac{x_n}{4\pi} - \frac{\pi}{8} 
++ \frac{x_n}{4} \log \frac{x_n}{4\pi} - \frac{x_n}{4} + O( \frac{\log x_n}{x_n} ) \hbox{ mod } \pi\\
+&= \pi n + \frac{5\pi}{8} - \frac{\pi}{8} +  O( \frac{\log x_n}{x_n} ) \hbox{ mod } \pi\\
+&= \frac{\pi}{2} + O( \frac{\log x_n}{x_n} ) \hbox{ mod } \pi
+\end{align*}
+and thus
+$$ \overline{M_t(\frac{1+ix_n}{2})} = (-1 + O(\frac{\log x_n}{x_n})) M_t(\frac{1+ix_n}{2}).$$
+We conclude that
+\begin{align*}
+ H_t(x+iy) &= M_t(\frac{1+ix_n}{2}) ( \exp( \frac{i(x-x_n) - y}{4} \log x_n) - \exp( \frac{-i(x-x_n) + y}{4} \log x_n) + O(\frac{1}{\log x_n}) )\\
+&= 2i M_t(\frac{1+ix_n}{2}) ( \sin( \frac{(x+iy - x_n) \log x_n}{4} ) + O(\frac{1}{\log x_n}) ).
+\end{align*}
+In particular, if $x+iy$ traverses the circle $\{ x_n + \frac{c}{\log n} e^{i\theta}: 0 \leq \theta \leq 2\pi\}$ once anti-clockwise, the quantity $H_t(x+iy)$ will wind exactly once around the origin, and hence by the argument principle there is precisely one zero of $H_t$ inside this circle.  As the zeroes of $H_t$ are symmetric around the real axis, this zero must be real.  This proves (ii).
+
+Now we prove (i).
+Suppose that $H_t(x+iy)=0$ and $x \geq \exp(\frac{C}{t})$.  By symmetry we may assume $y \geq 0$.  We can assume $y \leq 1$ since it is known (e.g., from \cite[Theorem 13]{debr}) that there are no zeroes with $y>1$.  
+
+By Proposition \ref{asymp}(i) we then have
+$$ 1 + \gamma + O( x^{-ct} ) = 0$$
+for some small absolute constant $c>0$.
+On the other hand, from Proposition \ref{estimates} we have $\gamma = O(x^{-y/2})$.  This forces $y = O( \frac{1}{\log x} )$ (if $C$ is large enough).  Next, we apply \eqref{lambda-def} to conclude that
+$$ \overline{M_t(\frac{1+y+ix}{2})} + M_t(\frac{1-y+ix}{2}) = O( x^{-ct} |M_t(\frac{1+y+ix}{2})| ).$$
+By \eqref{mt-deriv}, \eqref{alpha-deriv-bound}, \eqref{alpha-ex} as before, we have
+$$ M_t(\frac{1+y+ix}{2}) = M_t(\frac{1+ix}{2}) \exp( \frac{y}{4} \log \frac{x}{4\pi} + \frac{\pi i y}{8} + O( \frac{1}{x} ) )$$
+and similarly
+$$ M_t(\frac{1-y+ix}{2}) = M_t(\frac{1+ix}{2}) \exp( -\frac{y}{4} \log \frac{x}{4\pi} - \frac{\pi i y}{8} + O( \frac{1}{x} ) )$$
+and hence 
+$$ \frac{\overline{M_t(\frac{1+ix}{2})}}{M_t(\frac{1+ix}{2})} + \exp( -\frac{y}{2} \log \frac{x}{4\pi} ) = O( x^{-ct} ).$$
+This implies in particular that
+$$ \mathrm{arg} M_t(\frac{1+ix}{2})  = \frac{\pi}{2} + O(x^{-ct}) \hbox{ mod } \pi$$
+and that $\frac{y}{2} \log \frac{x}{4\pi} = O( x^{-ct})$, and hence $y = O( \frac{x^{-ct}}{\log x} )$.  Repeating the calculations used to prove (ii), we also have
+$$
+\mathrm{arg} M_t(\frac{1+ix}{2}) = \frac{t \pi}{16} \log \frac{x}{4\pi} - \frac{\pi}{8} 
++ \frac{x}{4} \log \frac{x}{4\pi} - \frac{x}{4} + O( \frac{\log x}{x} ) \hbox{ mod } \pi 
+$$
+and hence
+$$ \frac{x}{4\pi} \log \frac{x}{4\pi} - \frac{x}{4\pi} + \frac{3}{8} + \frac{t}{16} \log \frac{x}{4\pi} = n + O( x^{-ct})$$
+for some natural number $n$.  As the left-hand side has derivative positive comparable to $\log x$, we conclude in particular that
+$$ x = x_n + O(x^{-ct}).$$
+Applying part (ii) we now know that the zero is real, so $y=0$ as claimed.
+
+Finally, we prove (iii).  In view of parts (i) and (ii), and adjusting $C$ if necessary, we may assume that $X$ takes the form $X = x_n+\eps$ for some $n \geq \exp( \frac{C}{t})$ and some arbitrarily small $\eps$.  By the argument principle, $N_t(X)$ is equal to $\frac{1}{2\pi}$ times the variation in the argument of $H_t$ on the boundary of the rectangle $\{ x+iy: 0 \leq x \leq X; -5 \leq y \leq 5 \}$, since there are no zeroes with imaginary part of magnitude greater than one.  By compactness, the variation on the left edge $\{ iy: -5 \leq y \leq 5 \}$ is $O(1)$.  From Proposition \ref{asymp} (and the previously obtained asymptotics for $H_t$ near $x_n$), we see that the variation of $H_t / B_0$ on the upper edge $\{ x+5i: 0 \leq x \leq X \}$ and on the top half $\{ X+iy: 0 \leq y \leq 5 \}$ of the right edge are both equal to $O(1)$.  We thus conclude that
+$$ N_t(X) = \frac{1}{\pi} \mathrm{arg} B_0(X) + O(1)$$
+where we use a continuous branch of the argument of $B_0$ that is bounded at $5i$.  By \eqref{bo-def}, \eqref{Mt-def}, \eqref{M-def}, we thus have
+$$ N_t(X) = \frac{1}{\pi} \mathrm{Im} (\frac{t}{4} \alpha(\frac{1+iX}{2})^2 
+- \frac{X}{4} \log \pi + \frac{-1+iX}{4} \log \frac{1+iX}{4} - \frac{1+iX}{4} ) + O(1)$$
+and by repeating the calculations used in (i) we obtain the claim.
+\end{proof}
+
+
+
