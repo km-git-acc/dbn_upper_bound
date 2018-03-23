@@ -4,7 +4,7 @@ The objective of this section is to obtain effective approximations for the expr
 \begin{equation}\label{region}
 0 < t \leq \frac{1}{2}; \quad 0 \leq y \leq 1; \quad x \geq 200.
 \end{equation}
-The bounds in this region are somewhat arbitrary; one could easily modify the arguments below to extend to wider regions, at the expense of making the numerical bounds in the effective estimates worse (or more complicated).
+The bounds in this region are somewhat arbitrary; one could easily replace the constants $\frac{1}{2}, 1, 200$ here by other positive numbers, at the expense of altering many of the numerical constants in the effective estimates.
 
 The strategy is to use the expansion \eqref{htz-expand}, which turns out to be an effective approximation as long as $x$ stays away from zero, so that quantities such as $s + \sqrt{t} v + \frac{t}{2} \alpha_n$ or $s + \sqrt{t} v + \frac{t}{2} \beta_N$, with $s = \frac{1+i(x+iy)}{2}$, stay away from the real axis where the poles of $\Gamma$ are located (and also where the error terms in the Riemann-Siegel approximation deteriorate).  
 
@@ -372,7 +372,7 @@ of $B(x+iy)$.  This expression is non-zero, and we conclude (under the hypothese
 \end{equation}
 where
 \begin{align}
-\gamma \coloneqq \lambda(x+iy) &\coloneqq \frac{M_t(\frac{1-y+ix}{2})}{M_t(\frac{1+y-ix}{2})} \label{lambda-def} \\
+\gamma \coloneqq \gamma(x+iy) &\coloneqq \frac{M_t(\frac{1-y+ix}{2})}{M_t(\frac{1+y-ix}{2})} \label{lambda-def} \\
 s_* = s_*(x+iy) &\coloneqq \frac{1+y-ix}{2} +\frac{t}{2} \alpha(\frac{1+y-ix}{2}) \label{sn-def}\\
 \kappa \coloneqq \kappa(x+iy) &\coloneqq \frac{t}{2} (\alpha(\frac{1-y+ix}{2}) - \alpha(\frac{1+y+ix}{2})) \label{kappa-def}\\
 e_A \coloneqq e_A(x+iy) &\coloneqq |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\mathrm{Re}(s) + \mathrm{Re}(\kappa)}} \eps_{t,n}(\frac{1-y+ix}{2}) \label{ea-def}\\
@@ -402,11 +402,11 @@ $$ \mathrm{Re} s_* \geq \frac{1+y}{2} +\frac{t}{2} \log \frac{x}{4\pi} - \frac{(
 \item[(iii)]  One has
 $$ \kappa = O_{\leq} \left( \frac{ty}{2(x-6)} \right).$$
 \item[(iv)]  One has
-$$ e_A \leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2} \sum_{n=1}^N n^{y + \frac{ty}{2(x-6)}} \frac{b_n^t}{n^{\mathrm{Re}(s)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{T-3.33} \right)-1 \right).$$
+$$ e_A \leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2} \sum_{n=1}^N n^{y + \frac{ty}{2(x-6)}} \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{T-3.33} \right)-1 \right).$$
 \item[(v)]  One has
-$$ e_B \leq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{T-3.33} \right)-1 \right).$$
+$$ e_B \leq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{T-3.33} \right)-1 \right).$$
 \item[(vi)] One has
-$$ e_C \leq \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} \right)
+$$ e_{C,0} \leq \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} \right)
 (1.46 + \frac{1.33 \times (3^y+3^{-y})}{a-0.125}).
 $$
 \end{itemize}
@@ -525,5 +525,4 @@ $$
 \exp(0.069) (1 + \tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})) \leq 1.46 + \frac{1.33 \times (3^y+3^{-y})}{a-0.125}$$
 giving the claim.
 \end{proof}
-
 
