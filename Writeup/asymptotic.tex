@@ -135,8 +135,8 @@ and hence
 If we now make the further assumption $y = O\left( \frac{1}{\log x_n}\right)$, we can thus simplify the above approximation as
 \begin{equation}\label{ht-eff}
 \begin{split}
- H_t(x+iy) &= M_t\left(\frac{1+ix_n}{2}\right) e^{-\pi (x-x_n)/8} \left(- \exp\left( (-i(x-x_n)+y) \frac{1}{4} \log \frac{x_n}{4\pi} + O( |y| \log x_n + x_n^{-ct} ) \right)
-+ \exp\left( (i(x-x_n)-y) \frac{1}{4} \log \frac{x_n}{4\pi} + O( |y| \log x_n + x_n^{-ct} ) \right)\right)\\
+ H_t(x+iy) &= - M_t\left(\frac{1+ix_n}{2}\right) e^{-\pi (x-x_n)/8} \exp\left( (-i(x-x_n)+y) \frac{1}{4} \log \frac{x_n}{4\pi} + O( |y| \log x_n + x_n^{-ct} ) \right)\\
+&\quad + M_t\left(\frac{1+ix_n}{2}\right) e^{-\pi (x-x_n)/8} \exp\left( (i(x-x_n)-y) \frac{1}{4} \log \frac{x_n}{4\pi} + O( |y| \log x_n + x_n^{-ct} ) \right)\\
 &= 2 i M_t\left(\frac{1+ix_n}{2}\right) e^{-\pi (x-x_n)/8} \left( \sin\left(\frac{x+iy-x_n}{4} \log \frac{x_n}{4\pi}\right) + O( |y| \log x_n + x_n^{-ct} )\right ).
 \end{split}
 \end{equation}
@@ -146,13 +146,14 @@ Now we prove (i).
 Suppose that $H_t(x+iy)=0$ and $x \geq \exp(\frac{C}{t})$.  We can assume $|y| \leq 1$ since it is known (e.g., from \cite[Theorem 13]{debr}) that there are no zeroes with $|y|>1$.  
 
 Let $n$ be a natural number that minimises $|x-x_n|$, then $x = x_n+O\left(\frac{1}{\log x_n}\right)$ since the derivative of the left-hand side of \eqref{lip} in $x_n$ is comparable to $\log x_n$.  From \eqref{htap} we have
-$$
-0 = \overline{M_t\left(\frac{1+ix_n}{2}\right)} \exp\left( (-i(x-x_n)+y) \left(\frac{1}{4} \log \frac{x_n}{4\pi} - \frac{\pi i}{8}\right) + O( x_n^{-ct} )\right) + M_t(\frac{1+ix_n}{2}) \exp\left( (i(x-x_n)-y) \left(\frac{1}{4} \log \frac{x_n}{4\pi} + \frac{\pi i}{8}\right) + O( x_n^{-ct} )\right).
-$$
+\begin{align*}
+0 &= \overline{M_t\left(\frac{1+ix_n}{2}\right)} \exp\left( (-i(x-x_n)+y) \left(\frac{1}{4} \log \frac{x_n}{4\pi} - \frac{\pi i}{8}\right) + O( x_n^{-ct} )\right) \\
+&\quad + M_t(\frac{1+ix_n}{2}) \exp\left( (i(x-x_n)-y) \left(\frac{1}{4} \log \frac{x_n}{4\pi} + \frac{\pi i}{8}\right) + O( x_n^{-ct} )\right).
+\end{align*}
 Thus both summands on the right-hand side have the same magnitude, which on taking logarithms and canceling like terms implies that
 $$ y \frac{1}{4} \log \frac{x_n}{4\pi} + O( x_n^{-ct} ) = -y \frac{1}{4} \log \frac{x_n}{4\pi} + O( x_n^{-ct} )$$
 and hence $y = O\left( \frac{x_n^{-ct}}{\log x_n} \right)$.  We can now apply \eqref{ht-eff} to conclude that
-$$ \sin(\frac{x+iy-x_n}{4} \log \frac{x_n}{4\pi}) + O( x_n^{-ct} ) = 0$$
+$$ \sin\left(\frac{x+iy-x_n}{4} \log \frac{x_n}{4\pi}\right) + O( x_n^{-ct} ) = 0$$
 which (when combined with the hypothesis that $|x-x_n|$ is minimal) forces $x - x_n = O\left( \frac{x_n^{-ct}}{\log x_n} \right)$.  This gives the claim.
 
 Finally, we prove (iii).  In view of parts (i) and (ii), and adjusting $C$ if necessary, we may assume that $X$ takes the form $X = x_n+\frac{c}{\log x_n}$ for some $n \geq \exp( \frac{C}{t})$.  By the argument principle, $N_t(X)$ is equal to $\frac{-1}{2\pi}$ times the variation in the argument of $H_t$ on the boundary of the rectangle $\{ x+iy: 0 \leq x \leq X; -3 \leq y \leq 3 \}$ traversed clockwise, since there are no zeroes with imaginary part of magnitude greater than one.  By compactness, the variation on the left edge $\{ iy: -3 \leq y \leq 3 \}$ is $O(1)$, and similarly for any fixed portion $\{ x+3i: 0 \leq y \leq C \}$ of the upper edge.  From Proposition \ref{asymp} (and \eqref{htap}), we see that the variation of $H_t(x+iy) / M_t(\frac{1+y-ix}{2})$ on the remaining upper edge $\{ x+3i: C \leq x \leq X \}$ and on the top half $\{ X+iy: 0 \leq y \leq 3 \}$ of the right edge are both equal to $O(1)$.  Since $H_t = H_t^*$, the variation on the lower half of the rectangle is equal to that of the upper half. We thus conclude that
