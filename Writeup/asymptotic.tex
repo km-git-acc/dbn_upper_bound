@@ -2,20 +2,22 @@
 
 In this section we use the effective estimates from Section \ref{initial-sec} to obtain asymptotic information about the function $H_t$, which improves (and makes more effective) the results of Ki, Kim, and Lee \cite{kkl}. We use the usual asymptotic notation $X = O(Y)$ to denote the bound $X = O_{\leq}(CY)$ for an absolute constant $C$.
 
-\begin{proposition}\label{asymp}  Let $0 < t \leq 1/2$, $x \geq 200$, and $-3 \leq y \leq 3$.
+\begin{proposition}\label{asymp}  Let $0 < t \leq 1/2$, $x \geq 200$, and $-10 \leq y \leq 10$.
 \begin{itemize}
 \item[(i)]  If $x \geq \exp(\frac{C}{t})$ for a sufficiently large absolute constant $C$, then
 $$ H_t(x+iy) = (1 + O(x^{-ct})) M_t\left(\frac{1+y-ix}{2}\right) + (1 + O(x^{-ct})) M_t\left(\frac{1-y+ix}{2} \right) $$
 for an absolute constant $c>0$, where $M_t$ is defined in \eqref{Mt-def}.  
-\item[(ii)]  If instead we have $x \geq C$ for a sufficiently large absolute constant $C$, then
-$$ H_t(x+3i) = (1 + O_{\leq}(0.7)) M_t\left(2-\frac{ix}{2}\right).$$
+\item[(ii)]  If instead we have $3 \leq y \leq 4$ and $x \geq C$ for a sufficiently large absolute constant $C$, then
+$$ H_t(x+iy) = (1 + O_{\leq}(0.7)) M_t\left(\frac{1+y-ix}{2}\right).$$
+\item[(iii)]  If $x = x_0 + O(1)$ for some $x_0 \geq 200$, then
+$$ H_t(x+iy) = O( x_0^{O(1)} |M_t(\frac{1+y-ix}{2})| ) = O( x_0^{O(1)} |M_t(\frac{ix_0}{2})| ).$$
 \end{itemize}
 \end{proposition}
 
 \begin{proof}  We begin with (i).  Since $H_t = H_t^*$ and $M_t = M_t^*$, we may assume without loss of generality that $y \geq 0$.
 Using \eqref{lambda-def}, \eqref{bo-def} we may write the desired estimate as
 $$ \frac{H_t(x+iy)}{B_0(x+iy)} = 1 + O(x^{-ct}) + \gamma.$$
-We apply the decomposition \eqref{ratio-form} followed by Proposition \ref{estimates}.  (Strictly speaking, the estimates there required $y \leq 1$ rather than $y \leq 3$; however, as remarked at the beginning of Section \ref{initial-sec}, all the estimates in that section would continue to hold under this weaker hypothesis if one adjusted all the numerical constants appropriately.)  This gives
+We apply the decomposition \eqref{ratio-form} followed by Proposition \ref{estimates}.  (Strictly speaking, the estimates there required $y \leq 1$ rather than $y \leq 10$; however, as remarked at the beginning of Section \ref{initial-sec}, all the estimates in that section would continue to hold under this weaker hypothesis if one adjusted all the numerical constants appropriately.)  This gives
 \begin{equation}\label{exp}
 \frac{H_t(x+iy)}{B_0(x+iy)} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
 \end{equation}
@@ -40,28 +42,33 @@ for some absolute constant $c>0$.  By the integral test, the left-hand side is t
 $$ \frac{1}{2^{c t \log x}} + \int_2^\infty \frac{1}{u^{c t \log x}}\ du$$
 which, for $x \geq \exp(C/t)$ and $C$ large, is bounded by $O(2^{-ct\log x})$.  The claim then follows after adjusting $c$ appropriately.
 
-
-Now we prove (ii).  As before we have the expansion \eqref{exp}, now with $y=3$.  We have
+Now we prove (ii).  As before we have the expansion \eqref{exp}.  We have
 \begin{align*}
-\gamma \sum_{n=1}^N n^3 \frac{b_n^t}{n^{\overline{s_*} + \kappa}} &= O\left( x^{-3/2} \sum_{n=1}^N \frac{b_n^t}{n^{-1 + \frac{t}{2} \log \frac{x}{4\pi}}} \right) \\
-&= O\left( x^{-3/2} \sum_{n=1}^N n \right) \\
-&= O(x^{-1/2})
+\gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} &= O\left( x^{-y/2} \sum_{n=1}^N \frac{b_n^t}{n^{-\frac{1-y}{2} + \frac{t}{2} \log \frac{x}{4\pi}}} \right) \\
+&= O\left( x^{-y/2} \sum_{n=1}^N n^{\frac{y-1}{2}} \right) \\
+&= O(x^{-\frac{y-1}{4}});
 \end{align*}
-since $y \geq 5$; similar arguments give $e_A = O( \frac{\log^2 x}{x^{3/2}} )$, while
+similar arguments give $e_A = O( \frac{\log^2 x}{x^{\frac{y-1}{4}}} )$, while
 \begin{align*}
-e_B &= O\left( \frac{\log^2 x}{x} \sum_{n=1}^N b_n^t n^{-2-\frac{t}{2} \log \frac{x}{4\pi}} \right) \\
+e_B &= O\left( \frac{\log^2 x}{x} \sum_{n=1}^N b_n^t n^{-\frac{1+y}{2}-\frac{t}{2} \log \frac{x}{4\pi}} \right) \\
 &= O\left( \frac{\log^2 x}{x} \sum_{n=1}^N n^{-2} \right) \\
 &= O\left( \frac{\log^2 x}{x} \right).
 \end{align*}
 We conclude that
 \begin{align*}
-\frac{H_t(x+3i)}{B_0(x+3i)} &= \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + O( x^{-1/2} ) \\
-&= 1 + O_{\leq}\left( \sum_{n=2}^N n^{-2 - \frac{t}{2} \log \frac{x}{4\pi} - O(x^{-1})} \right) + O( x^{-1/2} ) \\
+\frac{H_t(x+yi)}{B_0(x+yi)} &= \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + O( x^{-\frac{y-1}{4}} ) \\
+&= 1 + O_{\leq}\left( \sum_{n=2}^N n^{-\frac{1+y}{2} - \frac{t}{2} \log \frac{x}{4\pi} - O(x^{-1})} \right) + O( x^{\frac{y-1}{4}} ) \\
 &= 1 + O_{\leq}\left( \sum_{n=2}^N n^{-2} \right) + O( x^{-1/2}) \\
 &= 1 + O_{\leq}\left( \frac{\pi^2}{6} - 1 \right) + O( x^{-1/2} ) \\
 &= 1 + O_{\leq}( 0.7 )
 \end{align*}
 as claimed, if $x \geq C$ for $C$ large enough.
+
+Finally we prove (iii).  Again our starting point is \eqref{exp}.  The right-hand side can be bounded crudely by $O( x^{O(1)}) = O(x_0^{O(1)})$, hence
+$$ H_t(x+iy) = O( x_0^{O(1)} |M_t( \frac{1+y+ix}{2} )| ).$$
+However, from \eqref{Mt-def}, \eqref{M-def}, \eqref{alpha-form} it is not hard to see that the log-derivative of $M_t(s)$ is of size $O( \log x_0 )$ in the region $s = \frac{ix_0}{2} + O(1)$.  Thus
+$$ |M_t( \frac{1+y+ix}{2} )| = O( x_0^{O(1)} |M_t( \frac{ix_0}{2} )| ),$$
+giving the claim.
 \end{proof}
 
 To understand the behavior of $M_t(x+iy)$ we make the following simple observations:
@@ -100,7 +107,7 @@ For the second claim, we calculate
 as desired.
 \end{proof}
 
-This lets us control the zeroes of $H_t(x+iy)$ for $x$ large enough:
+Roughly speaking, these estimates tell us that the zeroes of $H_t$ behaves (on macroscopic scales) like those of $H_0$ in the region $x = O(\exp(O(1/t)))$, and are very evenly spaced outside of this range.  More precisely, we have
 
 \begin{corollary}[Distribution of zeroes of $H_t$]\label{Zero}  Let $0 < t \leq 1/2$, let $C>0$ be a sufficiently large absolute constant, and let $c>0$ be a sufficiently small absolute constant.  For all $n \geq C$, let $x_n$ be the unique real number greater than $4\pi$ such that
 \begin{equation}\label{lip}
@@ -111,12 +118,19 @@ This lets us control the zeroes of $H_t(x+iy)$ for $x$ large enough:
 \item[(i)]  If $x \geq \exp(\frac{C}{t})$ and $H_t(x+iy)=0$, then $y=0$, and
 $$ x = x_n + O(x^{-ct}).$$  
 \item[(ii)]  Conversely, for each $n \geq \exp( \frac{C}{t} )$ there is exactly one zero $H_t$ in the disk $\{ x+iy: |x+iy - x_n| \leq \frac{c}{\log x_n} \}$ (and by part (i), this zero will be real and lie within $O(x^{-ct})$ of $x_n$).
-\item[(iii)]  If $X \geq \exp(\frac{C}{t})$, the number $N_t(X)$ of zeroes with real part between $0$ and $X$ is
+\item[(iii)]  If $X \geq \exp(\frac{C}{t})$, the number $N_t(X)$ of zeroes with real part between $0$ and $X$ (counting multiplicity) is
 $$ N_t(X) = \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{t}{16} \log \frac{X}{4\pi} + O(1).$$
+\item[(iv)]  For any $X \geq 0$, one has
+$$ N_t(X+1) - N_t(X) \leq O( \log(2+X) )$$
+and
+$$ N_t(X) = \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + O( \log(2+X) ).$$
 \end{itemize}
+The implied constants in the $O()$ notation are absolute (in particular, they are independent of $t$ and $C$).
 \end{corollary}
 
-These results refine Theorems 1.3 and 1.4 of \cite{kkl}, which gave similar results but with constants that depended on $t$ in a non-uniform (and ineffective) fashion, and error terms that were of shape $o(1)$ rather than $O(x^{-ct})$ in the limit $x \to \infty$ (holding $t$ fixed).
+These results refine Theorems 1.3 and 1.4 of \cite{kkl}, which gave similar results but with constants that depended on $t$ in a non-uniform (and ineffective) fashion, and error terms that were of shape $o(1)$ rather than $O(x^{-ct})$ in the limit $x \to \infty$ (holding $t$ fixed).  The results may be compared with those in \cite{arias-lune}, who (in our notation) show that assuming RH, the zeroes of $H_0$ are precisely the solutions $x_n$ to the equation
+$$ \frac{1}{2\pi} \mathrm{arg}( - e^{2 i \vartheta(x_n/2)} \frac{\zeta'(\frac{1-ix_n}{2})}{\zeta'(\frac{1+ix_n}{2})} = n $$
+for integer $n$, where $-\vartheta(t)$ is the phase of $\zeta(\frac{1}{2}+it)$ and one chooses a branch of the argument so that the left-hand side is $-\frac{1}{2}$ when $x_n=0$.
 
 \begin{proof}  We begin with (ii).  Let $n \geq \exp( \frac{C}{t})$, and suppose that $x+iy = x_n + O(1)$.  
 By Proposition \ref{asymp}(i) and Lemma \ref{mtform} we have
@@ -156,9 +170,23 @@ and hence $y = O\left( \frac{x_n^{-ct}}{\log x_n} \right)$.  We can now apply \e
 $$ \sin\left(\frac{x+iy-x_n}{4} \log \frac{x_n}{4\pi}\right) + O( x_n^{-ct} ) = 0$$
 which (when combined with the hypothesis that $|x-x_n|$ is minimal) forces $x - x_n = O\left( \frac{x_n^{-ct}}{\log x_n} \right)$.  This gives the claim.
 
-Finally, we prove (iii).  In view of parts (i) and (ii), and adjusting $C$ if necessary, we may assume that $X$ takes the form $X = x_n+\frac{c}{\log x_n}$ for some $n \geq \exp( \frac{C}{t})$.  By the argument principle, $N_t(X)$ is equal to $\frac{-1}{2\pi}$ times the variation in the argument of $H_t$ on the boundary of the rectangle $\{ x+iy: 0 \leq x \leq X; -3 \leq y \leq 3 \}$ traversed clockwise, since there are no zeroes with imaginary part of magnitude greater than one.  By compactness, the variation on the left edge $\{ iy: -3 \leq y \leq 3 \}$ is $O(1)$, and similarly for any fixed portion $\{ x+3i: 0 \leq y \leq C \}$ of the upper edge.  From Proposition \ref{asymp} (and \eqref{htap}), we see that the variation of $H_t(x+iy) / M_t(\frac{1+y-ix}{2})$ on the remaining upper edge $\{ x+3i: C \leq x \leq X \}$ and on the top half $\{ X+iy: 0 \leq y \leq 3 \}$ of the right edge are both equal to $O(1)$.  Since $H_t = H_t^*$, the variation on the lower half of the rectangle is equal to that of the upper half. We thus conclude that
+Next, we prove (iii).  In view of parts (i) and (ii), and adjusting $C$ if necessary, we may assume that $X$ takes the form $X = x_n+\frac{c}{\log x_n}$ for some $n \geq \exp( \frac{C}{t})$.  By the argument principle, $N_t(X)$ is equal to $\frac{-1}{2\pi}$ times the variation in the argument of $H_t$ on the boundary of the rectangle $\{ x+iy: 0 \leq x \leq X; -3 \leq y \leq 3 \}$ traversed clockwise, since there are no zeroes with imaginary part of magnitude greater than one.  By compactness, the variation on the left edge $\{ iy: -3 \leq y \leq 3 \}$ is $O(1)$, and similarly for any fixed portion $\{ x+3i: 0 \leq y \leq C \}$ of the upper edge.  From Proposition \ref{asymp} (and \eqref{htap}), we see that the variation of $H_t(x+iy) / M_t(\frac{1+y-ix}{2})$ on the remaining upper edge $\{ x+3i: C \leq x \leq X \}$ and on the top half $\{ X+iy: 0 \leq y \leq 3 \}$ of the right edge are both equal to $O(1)$.  Since $H_t = H_t^*$, the variation on the lower half of the rectangle is equal to that of the upper half. We thus conclude that
 $$ N_t(X) = -\frac{1}{\pi} \mathrm{arg} M_t\left(\frac{1-iX}{2}\right)+ O(1)$$
 where we use a continuous branch of the argument of $M_t\left(\frac{1-iX}{2}\right)$ that is bounded at $3i$.  The claim now follows from Lemma \ref{mtform}.
+
+Finally, we prove (iv).  From \eqref{htdef} and the rapid decrease of $\Phi$ it is easy to verify that the entire function $H_t$ has order $1$, thus by the Hadamard factorization theorem we have
+$$ H_t(z) = \exp(a+bz) z^m \prod_n \left( 1 - \frac{z}{z_n} \right) \exp( \frac{z}{z_n} )$$
+for some complex numbers $a,b$, where $z_n$ are the zeroes of $H_t$ in $\C \backslash \{0\}$ and $m$ is the order of vanishing\footnote{In fact one has $m=0$, but we will not need to use this fact here.} of $H_t$ at zero; using the functional equation $H_t(z) = H_t(-z)$ we can index the zeros in $\C \backslash \{0\}$ as $z_n = (z_n)_{n \in \Z \backslash \{0\}}$ with $z_{-n} = -z_n$, and conclude that $b=0$, $m$ is even, and
+$$ H_t(z) = \exp(a) z^m \prod_{n>0} \left( 1 - \frac{z^2}{z_n^2} \right).$$
+Taking logarithmic derivatives, we conclude that
+\begin{equation}\label{hata}
+ \frac{H'_t(z)}{H_t(z)} = \frac{m}{z} + \sum_{n>0} \left(\frac{1}{z-z_n} + \frac{1}{z+z_n}\right).
+\end{equation}
+Setting $z = X+4i$, we see from Proposition \ref{asymp} and the generalized Cauchy integral formula that the logarithmic derivative of $H_t(x+iy)/M_t\left(\frac{1+y-ix}{2}\right)$ is equal to $O(1)$ at $X+4i$ for all sufficiently large $X$, and hence for all $X$ by symmetry and compactness.  On the other hand, from Stirling's formula (or the logarithmic growth of the digamma function) one easily verifies that the logarithmic derivative of $M_t\left(\frac{1+y-ix}{2}\right)$  is equal to $O( \log(2+X) )$ at $X+4i$.  Hence $\frac{H'_t(X+4i)}{H_t(X+4i)} = O(\log(2+X))$.  Taking imaginary parts, we conclude that
+$$ \frac{4m}{X^2+4^2} + \sum_{n>0} \frac{(4-y_n)}{(X-x_n)^2 + (4-y_n)^2} + \frac{(4-y_n)}{(X+x_n)^2 + (4+y_n)^2} = O(\log(2+X))$$
+where we write $z_n = x_n + iy_n$; equivalently one has
+$$ \sum_n \frac{(4-y_n)}{(X-x_n)^2 + (4-y_n)^2} = O(\log(2+X))$$
+where the sum now ranges over all zeroes, including any at the origin. Since $|y_n| \leq 1$, every zero in $[X,X+1]$ makes a contribution of at least $\frac{1}{100}$ (say).  As the summands are all positive, the first part of claim (iv) follows.  To prove the second part, we may assume by compactness that $x \geq C$.  Repeating the proof of (iii), and reduce to showing that the variation of $\mathrm{arg} H_t$ on the short vertical interval $\{ X+iy: 0 \leq y \leq 3 \}$ is $O( \log X )$.  If we let $\theta$ be a phase such that $e^{i\theta} H_t(X+3i)$ is real and positive, we see that this variation is at most $\pi(m+1)$, where $m$ is the number of zeroes of $\mathrm{Re} e^{i\theta} H_t(X+yi)$ for $0 \leq y \leq 3$, since every increment of $\pi$ in $\mathrm{arg} e^{i\theta} H_t$ must be accompanied by at least one such zero.  As $H_t = H_t^*$, this is also the number of zeroes of $e^{i\theta} H_t(X+yi) + e^{-i\theta} H_t(2X - (X+yi))$.  On the other hand, from Proposition \ref{asymp}(ii), (iii) and Jensen's formula we see that the number of such zeroes is $O( \log X )$, and the claim follows.
 \end{proof}
 
 \begin{remark}\label{time-complexity}  The above proposition gives good control on $H_t(x+iy)$ whenever $x \geq \exp( C/t )$.  As a consequence (and assuming for sake of argument that the Riemann hypothesis holds), then for any $\Lambda_0 > 0$, the bound $\Lambda \leq \Lambda_0$ should be numerically verifiable in time $O( \exp( O(1/\Lambda_0) ))$, by applying the arguments of previous sections with $t$ and $y$ set equal to small multiples of $\Lambda_0$.  We leave the details to the interested reader.
