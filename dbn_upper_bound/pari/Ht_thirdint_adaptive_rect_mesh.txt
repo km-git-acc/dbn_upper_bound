@@ -80,7 +80,7 @@ row_output_full(x,y,t)={
 prec=precision(1.,10);
 z=x+I*y;
 s=(1-imag(z)+I*real(z))/2;
-X = log(x)+2;
+X = log(x+1)+2;
 H = Htt(z,X,t); ABC=abceff(x,y,t); B0=B0_eff(x,y,t); HB0 = H/B0; H_match = abs(H/ABC);
 dH = Htd(z,X,t); NQ_ABC = newton_quot_abc(x,y,t); dHbound1 = Htdbv1(z,X,t); dHbound2 = Htdbv2(z,X,t); 
 dH_match = abs(dH/NQ_ABC); dratio1=abs(dH/dHbound1); dratio2=abs(dH/dHbound2);
@@ -93,7 +93,7 @@ row_output(x,y,t)={
 prec=precision(1.,10);
 z=x+I*y;
 s=(1-imag(z)+I*real(z))/2;
-X = log(x)+2;
+X = log(x+1)+2;
 H = Htt(z,X,t); 
 dHbound2 = Htdbv2(z,X,t); 
 data=List([t*prec,z*prec,H*prec,dHbound2*prec]);
@@ -102,26 +102,16 @@ return(data);
 
 
 filename="test.csv";
-t=0.4; x1=27; x2=43; y1=-0.1; y2=0.1;
+t=0.4; x1=26; x2=52; y1=-0.1; y2=0.4;
 wind_num = 0;
-Hstart=Htt(x1+I*y1,log(x1)+2,t);
+Hstart=Htt(x1+I*y1,log(x1+1)+2,t);
 Hprev=Hstart;
 
 \\clockwise contour
 
 \\left side of rectangle
+print("Left");
 x=x1; y=y1;
-while(x<=x2,{
-row_out = row_output(x,y,t);
-print(row_out);
-\\write(filename,row_out);
-wind_num = wind_num + arg(H/Hprev);
-x=x+abs(H/dHbound2);
-Hprev=H;
-})
-
-\\top side of rectangle
-x=x2; y=y1;
 while(y<=y2,{
 row_out = row_output(x,y,t);
 print(row_out);
@@ -131,25 +121,39 @@ y=y+abs(H/dHbound2);
 Hprev=H;
 })
 
-\\right side of rectangle
-x=x2; y=y2;
-while(x>=x1,{
+\\top side of rectangle
+print("Top");
+x=x1; y=y2;
+while(x<=x2,{
 row_out = row_output(x,y,t);
 print(row_out);
 \\write(filename,row_out);
 wind_num = wind_num + arg(H/Hprev);
-x=x-abs(H/dHbound2);
+x=x+abs(H/dHbound2);
 Hprev=H;
 })
 
 \\right side of rectangle
-x=x1; y=y2;
+print("Right");
+x=x2; y=y2;
 while(y>=y1,{
 row_out = row_output(x,y,t);
 print(row_out);
 \\write(filename,row_out);
 wind_num = wind_num + arg(H/Hprev);
 y=y-abs(H/dHbound2);
+Hprev=H;
+})
+
+\\bottom side of rectangle
+print("Bottom");
+x=x2; y=y1;
+while(x>=x1,{
+row_out = row_output(x,y,t);
+print(row_out);
+\\write(filename,row_out);
+wind_num = wind_num + arg(H/Hprev);
+x=x-abs(H/dHbound2);
 Hprev=H;
 })
 
