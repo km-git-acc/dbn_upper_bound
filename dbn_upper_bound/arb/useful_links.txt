@@ -1,0 +1,19 @@
+Anonymous@Arb has written quite computationally efficient codes using the Arb library, for different aspects of the dbn upper bound project.
+To make them easier to find, links to them are documented below.
+
+Updated C code (needs the arb library from arblib.org) to compute H or its derivative, implementing the third approach for derivative bounds:
+--------------------------------------------------
+https://pastebin.com/1uk3V6CP
+(Referred to in the comment at https://terrytao.wordpress.com/2018/03/18/polymath15-sixth-thread-the-test-problem-and-beyond/#comment-494776)
+
+
+Script that counts roots of H_t(x + iy) inside the region where x_a < x < x_b  and y_a < y < y_b  using the argument principle and Rouché's theorem
+--------------------------------------------------
+https://pastebin.com/TiFk6CfF
+(Referred to in the comment at https://terrytao.wordpress.com/2018/03/18/polymath15-sixth-thread-the-test-problem-and-beyond/#comment-494867)
+
+
+Self-contained program to compute Ht (updated version)
+--------------------------------------------------
+https://pastebin.com/QDPvWa3g
+(Referred to in the comment https://terrytao.wordpress.com/2018/03/02/polymath15-fifth-thread-finishing-off-the-test-problem/#comment-494013)
