@@ -1,0 +1,177 @@
+default(realprecision, 30)
+
+alpha1(s) = 1/(2*s) + 1/(s-1) + (1/2)*log(s/(2*Pi));
+alpha1prime(s) = -1/(2*s^2) - 1/(s-1)^2 + 1/(2*s);
+H01(s) = (1/2)*s*(s-1)*Pi^(-s/2)*sqrt(2*Pi)*exp((s/2-1/2)*log(s/2)-s/2);
+C0(p) = (exp(Pi*I*(p^2/2 + 3/8)) - I*sqrt(2)*cos(Pi*p/2))/(2*cos(Pi*p));
+B0_eff(x,y,t=0.4) = (1/8)*exp((t/4)*alpha1((1+y-I*x)/2)^2)*H01((1+y-I*x)/2);
+
+abceff(x,y,t=0.4) = {
+    Tval = x/2;       
+    Tdash = Tval + Pi*t/8;
+    a=sqrt(Tdash/(2*Pi));
+    N=floor(a);
+    p = 1 - 2*(a-N);
+    U = exp(-I*((Tdash/2)*log(Tdash/(2*Pi)) - Tdash/2 - Pi/8));
+    sig1 = (1-y)/2;
+    s1 = sig1 + I*Tval;
+    sdash = sig1 + I*Tdash;
+    alph1 = alpha1(s1);
+    alph2 = alpha1(1-s1);
+    A = (1/8)*exp((t/4)*alph1^2)*H01(s1)*sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph1 - s1));
+    B = (1/8)*exp((t/4)*alph2^2)*H01(1-s1)*sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph2 - (1-s1)));
+    termC1 = Pi^(-sdash/2)*gamma(sdash/2)*(a^(-sig1))*C0(p)*U;
+    termC2 = Pi^(-(1-sdash)/2)*gamma((1-sdash)/2)*(a^(-(1-sig1)))*conj(C0(p))*conj(U);
+    C = (1/8)*exp(t*Pi^2/64)*(sdash*(sdash-1)/2)*((-1)^N)*(termC1 + termC2);
+    return(A+B-C);
+}
+
+newton_quot_abc(x,y=0.4,t=0.4,h=0.000001) = (abceff(x+h,y,t)-abceff(x,y,t))/h;
+
+abbeff(x,y=0.4,t=0.4) = {       
+    s = (1 - y + I*x)/2; 
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    alph1 = alpha1(s);
+    alph2 = alpha1(1-s);
+    A0 = (1/8)*exp((t/4)*alph1^2)*H01(s);
+    B0 = (1/8)*exp((t/4)*alph2^2)*H01(1-s);
+    A_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph1 - s));
+    B_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph2 - (1-s)));
+    A = A0 * A_sum;
+    B = B0 * B_sum;
+    return ((A+B)/B0);
+}
+
+ddx_abbeff(x,y=0.4,t=0.4) = {
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    s = (1+y-I*x)/2;
+    lambda = exp((t/4.0)*(alpha1(1-s)^2 - alpha1(s)^2))*H01(1-s)/H01(s); 
+    expo_b_main = s + 0.5*t*alpha1(s);
+    expo_a_main = 1-s + 0.5*t*alpha1(1-s);
+    b_numer_common = -I/2 - (I/4)*t*alpha1prime(s);
+    a_numer_common = I/2 + (I/4)*t*alpha1prime(1-s);
+    ddxloglambda = (I*t/4)*(alpha1(s)*alpha1prime(s) + alpha1(1-s)*alpha1prime(1-s)) + (I/4)*log(s/(2*Pi)) + (I/4)*log((1-s)/(2*Pi)) - (I/4)*(1/s + 1/(1-s));
+    ddxsum_b = sum(n=1,N,-log(n)*b_numer_common*n^((t/4)*log(n) - expo_b_main));
+    ddxsum_a = sum(n=1,N,(-log(n)*a_numer_common + ddxloglambda)*n^((t/4.0)*log(n) - expo_a_main));
+    ddxsum = ddxsum_b + lambda*ddxsum_a;
+    return(ddxsum);
+}
+
+ddx_abbeff_bound(N,y=0.4,t=0.4) = {
+    xN = 4*Pi*N^2 - Pi*t/4;
+    xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+    delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
+    ddx_b_pre = 1 + 0.5*t/(xN-6);
+    ddx_a_pre = exp(delta)*(N^-y);
+    expo_b_main = (1+y)/2 + (t/2)*((3*y-1)/(xNp1^2+1) + log(N));
+    expo_a_main = (1-y)/2 + (t/2)*((2-3*y)/xN^2 + log(N));
+    a_numer_common = (1/4)*log(abs(1-y+I*xNp1)*abs(1+y-I*xNp1)/(16*Pi^2)) + (1/4)*(3*t+1)/(xN*(xN-6));
+    ddxsum_b = sum(n=1,N,(log(n)/2)*n^((t/4)*log(n) - expo_b_main));
+    ddxsum_a = sum(n=1,N,(log(n)*(t/(4*(xN-6)) - 1/2) + a_numer_common)*n^((t/4)*log(n) - expo_a_main));
+    ddxsum = ddx_b_pre*ddxsum_b + ddx_a_pre*ddxsum_a;
+    return(ddxsum);
+}
+
+ddt_abbeff(x,y=0.4,t=0.4) = {
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    s = (1+y-I*x)/2;
+    alph_b = alpha1(s);
+    alph_a = alpha1(1-s);
+    lambda = exp((t/4.0)*(alph_a^2 - alph_b^2))*H01(1-s)/H01(s); 
+    expo_b_main = s + (t/2)*alph_b;
+    expo_a_main = 1-s + (t/2)*alph_a;
+    ddtsum_b = (1/4)*sum(n=1,N,(log(n)^2 - 2*log(n)*alph_b)*n^((t/4)*log(n) - expo_b_main));
+    ddtsum_a = (1/4)*sum(n=1,N,(log(n)^2 - 2*log(n)*alph_a + alph_a^2 - alph_b^2)*n^((t/4.0)*log(n) - expo_a_main));
+    ddtsum = ddtsum_b + lambda*ddtsum_a;
+    return(ddtsum);
+}
+
+ddt_abbeff_bound(x,y=0.4,t=0.4) = {
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    s = (1+y-I*x)/2;
+    alph_b = alpha1(s);
+    alph_a = alpha1(1-s);
+    lambda = exp((t/4.0)*(alph_a^2 - alph_b^2))*H01(1-s)/H01(s); 
+    expo_b_main = s + (t/2)*alph_b;
+    expo_a_main = 1-s + (t/2)*alph_a;
+    ddtsum_b_bound = (1/4)*sum(n=1,N,abs(log(n)^2 - 2*log(n)*alph_b)*n^real((t/4)*log(n) - expo_b_main));
+    ddtsum_a_bound = (1/4)*sum(n=1,N,abs(log(n)^2 - 2*log(n)*alph_a + alph_a^2 - alph_b^2)*n^real((t/4.0)*log(n) - expo_a_main));
+    ddtsum_bound = ddtsum_b_bound + abs(lambda)*ddtsum_a_bound;
+    return(ddtsum_bound);
+}
+
+newton_quot_abbeff_x(x,y=0.4,t=0.4,h=0.00001) = return(abs((abbeff(x+h,y,t) - abbeff(x,y,t))/h));
+newton_quot_abbeff_t(x,y=0.4,t=0.4,h=0.00001) = return(abs((abbeff(x,y,t+h) - abbeff(x,y,t))/h));
+
+
+row_output(x,y,t)={
+prec=precision(1.,10);
+abb = abbeff(x,y,t);   
+data=List([t*prec,y*prec,x*prec,abb*prec,abs(abb*prec)]);
+return(data);
+}
+
+
+filename="test.csv";
+tstart=0.4; tend=0; x1=10^6; x2=x1+1; y1=0.4; y2=1;c=0.05;
+t=tstart;
+while(t>=tend,{
+N = floor(sqrt((x1+Pi*t/4)/(4*Pi)));\
+Dtabb = ddt_abbeff_bound(x1,y1,t);\
+Dxabb = ddx_abbeff_bound(N,y1,t);\
+wind_num = 0;\
+abbstart = abbeff(x1,y1,t);\
+abbprev = abbstart;
+
+\\print("Left");\
+x=x1; y=y1;\
+while(y<=y2,\
+row_out = row_output(x,y,t);\
+\\print(row_out);\
+\\write(filename,row_out);\
+wind_num = wind_num + arg(abb/abbprev);\
+y=y+(abs(abb)-c)/Dxabb;\
+abbprev=abb;\
+);
+
+\\print("Top");\
+x=x1; y=y2;\
+while(x<=x2,\
+row_out = row_output(x,y,t);\
+\\print(row_out);\
+\\write(filename,row_out);\
+wind_num = wind_num + arg(abb/abbprev);\
+x=x+(abs(abb)-c)/Dxabb;\
+abbprev=abb;\
+);
+
+\\print("Right");\
+x=x2; y=y2;\
+while(y>=y1,\
+row_out = row_output(x,y,t);\
+\\print(row_out);\
+\\write(filename,row_out);\
+wind_num = wind_num + arg(abb/abbprev);\
+y=y-(abs(abb)-c)/Dxabb;\
+abbprev=abb;\
+);
+
+\\print("Bottom");\
+x=x2; y=y1;\
+while(x>=x1,\
+row_out = row_output(x,y,t);\
+\\print(row_out);\
+\\write(filename,row_out);\
+wind_num = wind_num + arg(abb/abbprev);\
+x=x-(abs(abb)-c)/Dxabb;\
+abbprev=abb;\
+);
+
+wind_num = wind_num + arg(abbstart/abbprev);\
+wind_num = round(wind_num/(2*Pi));\
+\\print("t = ",t,", Bound ddt = ",Dtabb*prec,", Winding Number = ",wind_num);
+print(t,",",Dtabb*prec,",",Dxabb*prec,",",wind_num);
+
+t=t-c/Dtabb;
+\\print(t);
+});
