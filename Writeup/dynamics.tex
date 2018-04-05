@@ -82,15 +82,15 @@ Then there are no zeroes $H_{t_0}(x+iy)=0$ with $x \in \R$ and $y \geq y_0$.  In
 we have $\Lambda \leq t_0 + \frac{1}{2} y_0^2$.
 \end{theorem}
 
-\begin{proof}  By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $-X \leq x \leq X$ and $y \geq y_0$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred.  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: -X < x < X, y \geq y_0 \}$.  The left and right sides of this boundary are ruled out by hypothesis (ii), so by the symmetry properties of $H_{t_1}$ we must have
+\begin{proof}  By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $0 \leq x \leq X$ and $y \geq y_0$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred.  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: 0 \leq	 x \leq X, y \geq y_0 \}$.  The right side $x=X$ of this boundary is ruled out by hypothesis (ii), and the left side $x=0$ is ruled out by \eqref{htdef} and the positivity of $\Phi$.  Thus by the symmetry properties of $H_{t_1}$ we must have
 $$ H_{t_1}(x+iy_0) = 0$$
-for some $0 \leq x < X$.
+for some $0 < x < X$.
 
-Suppose first that $H_{t_1}$ has a repeated zero at $x+iy_0$.  Using Proposition \ref{dynam}(ii) and observing (from the symmetry of $\operatorname{He}_m$) that at least one of the roots $x_1,\dots,x_m$ is positive, we then see that for $t<t_1$ sufficiently close to $t_1$, $H_t$ has a zero in the region $\{ x+iy: -X \leq x \leq X, y \geq y_0 \}$ contradicting the minimality of $t_1$.  Thus the zero $x+iy_0$ of $H_{t_1}$ must be simple.  In particular, by Proposition \ref{dynam}(i) we can write $x+iy_0 = z_j(t_1)$ for some smooth function $z_j$ in a neighbourhood of $t_1$ obeying \eqref{zjk}, such that $z_j(t)$ is a zero of $H_t$ for all $t$ close to $t_1$.  We will prove that
+Suppose first that $H_{t_1}$ has a repeated zero at $x+iy_0$.  Using Proposition \ref{dynam}(ii) and observing (from the symmetry of $\operatorname{He}_m$) that at least one of the roots $x_1,\dots,x_m$ is positive, we then see that for $t<t_1$ sufficiently close to $t_1$, $H_t$ has a zero in the region $\{ x+iy: 0 \leq x \leq X, y \geq y_0 \}$, contradicting the minimality of $t_1$.  Thus the zero $x+iy_0$ of $H_{t_1}$ must be simple.  In particular, by Proposition \ref{dynam}(i) we can write $x+iy_0 = z_j(t_1)$ for some smooth function $z_j$ in a neighbourhood of $t_1$ obeying \eqref{zjk}, such that $z_j(t)$ is a zero of $H_t$ for all $t$ close to $t_1$.  We will prove that
 \begin{equation}\label{im}
 \mathrm{Im} \frac{\partial}{\partial_t} z_j( t_1 ) < 0,
 \end{equation}
-which implies that there is a zero of $H_t$ in the region $\{ x+iy: -X \leq x \leq X, y \geq y_0 \}$  for $t<t_1$ sufficiently close to $t_1$, giving the required contradiction.  
+which implies that there is a zero of $H_t$ in the region $\{ x+iy: 0 \leq x \leq X, y \geq y_0 \}$  for $t<t_1$ sufficiently close to $t_1$, giving the required contradiction.  
 
 By Proposition \ref{dynam}(i), the left-hand side of \eqref{im} is
 $$ 2 \sum_{k \neq j}^{\prime} \frac{y_0 - y_k}{(x-x_k)^2 + (y_0-y_k)^2}$$

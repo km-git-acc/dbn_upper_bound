@@ -174,16 +174,16 @@ Next, we prove (iii).  In view of parts (i) and (ii), and adjusting $C$ if neces
 $$ N_t(X) = -\frac{1}{\pi} \mathrm{arg} M_t\left(\frac{1-iX}{2}\right)+ O(1)$$
 where we use a continuous branch of the argument of $M_t\left(\frac{1-iX}{2}\right)$ that is bounded at $3i$.  The claim now follows from Lemma \ref{mtform}.
 
-Finally, we prove (iv).  From \eqref{htdef} and the rapid decrease of $\Phi$ it is easy to verify that the entire function $H_t$ has order $1$, thus by the Hadamard factorization theorem we have
-$$ H_t(z) = \exp(a+bz) z^m \prod_n \left( 1 - \frac{z}{z_n} \right) \exp( \frac{z}{z_n} )$$
-for some complex numbers $a,b$, where $z_n$ are the zeroes of $H_t$ in $\C \backslash \{0\}$ and $m$ is the order of vanishing\footnote{In fact one has $m=0$, but we will not need to use this fact here.} of $H_t$ at zero; using the functional equation $H_t(z) = H_t(-z)$ we can index the zeros in $\C \backslash \{0\}$ as $z_n = (z_n)_{n \in \Z \backslash \{0\}}$ with $z_{-n} = -z_n$, and conclude that $b=0$, $m$ is even, and
-$$ H_t(z) = \exp(a) z^m \prod_{n>0} \left( 1 - \frac{z^2}{z_n^2} \right).$$
+Finally, we prove (iv).  From \eqref{htdef} and the rapid decrease of $\Phi$ it is easy to verify that the entire function $H_t$ has order $1$, while from the positivity of $\Phi$ we see that $H_t$ has no zero at the origin.  Thus by the Hadamard factorization theorem we have
+$$ H_t(z) = \exp(a+bz) \prod_n \left( 1 - \frac{z}{z_n} \right) \exp( \frac{z}{z_n} )$$
+for some complex numbers $a,b$, where $z_n$ are the zeroes of $H_t$ counting multiplicity; using the functional equation $H_t(z) = H_t(-z)$ we can index the zeros as $z_n = (z_n)_{n \in \Z \backslash \{0\}}$ with $z_{-n} = -z_n$, and conclude that $b=0$, and
+$$ H_t(z) = \exp(a) \prod_{n>0} \left( 1 - \frac{z^2}{z_n^2} \right).$$
 Taking logarithmic derivatives, we conclude that
 \begin{equation}\label{hata}
- \frac{H'_t(z)}{H_t(z)} = \frac{m}{z} + \sum_{n>0} \left(\frac{1}{z-z_n} + \frac{1}{z+z_n}\right).
+ \frac{H'_t(z)}{H_t(z)} = \sum_{n>0} \left(\frac{1}{z-z_n} + \frac{1}{z+z_n}\right).
 \end{equation}
 Setting $z = X+4i$, we see from Proposition \ref{asymp} and the generalized Cauchy integral formula that the logarithmic derivative of $H_t(x+iy)/M_t\left(\frac{1+y-ix}{2}\right)$ is equal to $O(1)$ at $X+4i$ for all sufficiently large $X$, and hence for all $X$ by symmetry and compactness.  On the other hand, from Stirling's formula (or the logarithmic growth of the digamma function) one easily verifies that the logarithmic derivative of $M_t\left(\frac{1+y-ix}{2}\right)$  is equal to $O( \log(2+X) )$ at $X+4i$.  Hence $\frac{H'_t(X+4i)}{H_t(X+4i)} = O(\log(2+X))$.  Taking imaginary parts, we conclude that
-$$ \frac{4m}{X^2+4^2} + \sum_{n>0} \frac{(4-y_n)}{(X-x_n)^2 + (4-y_n)^2} + \frac{(4-y_n)}{(X+x_n)^2 + (4+y_n)^2} = O(\log(2+X))$$
+$$ \sum_{n>0} \frac{(4-y_n)}{(X-x_n)^2 + (4-y_n)^2} + \frac{(4-y_n)}{(X+x_n)^2 + (4+y_n)^2} = O(\log(2+X))$$
 where we write $z_n = x_n + iy_n$; equivalently one has
 $$ \sum_n \frac{(4-y_n)}{(X-x_n)^2 + (4-y_n)^2} = O(\log(2+X))$$
 where the sum now ranges over all zeroes, including any at the origin. Since $|y_n| \leq 1$, every zero in $[X,X+1]$ makes a contribution of at least $\frac{1}{100}$ (say).  As the summands are all positive, the first part of claim (iv) follows.  To prove the second part, we may assume by compactness that $x \geq C$.  Repeating the proof of (iii), and reduce to showing that the variation of $\mathrm{arg} H_t$ on the short vertical interval $\{ X+iy: 0 \leq y \leq 3 \}$ is $O( \log X )$.  If we let $\theta$ be a phase such that $e^{i\theta} H_t(X+3i)$ is real and positive, we see that this variation is at most $\pi(m+1)$, where $m$ is the number of zeroes of $\mathrm{Re} e^{i\theta} H_t(X+yi)$ for $0 \leq y \leq 3$, since every increment of $\pi$ in $\mathrm{arg} e^{i\theta} H_t$ must be accompanied by at least one such zero.  As $H_t = H_t^*$, this is also the number of zeroes of $e^{i\theta} H_t(X+yi) + e^{-i\theta} H_t(2X - (X+yi))$.  On the other hand, from Proposition \ref{asymp}(ii), (iii) and Jensen's formula we see that the number of such zeroes is $O( \log X )$, and the claim follows.
