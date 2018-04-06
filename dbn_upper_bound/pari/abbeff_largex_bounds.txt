@@ -1,0 +1,70 @@
+
+divdelta(n,d)=return(if(n%d==0,1,0));
+regdelta(n,dN)=return(if(n<=dN,1,0));
+bt(n,t)=return(n^((t/4)*log(n)));
+
+abbeff_largex_e1bound(N,y,t)={
+xN = 4*Pi*N^2 - Pi*t/4;
+delta = 0.2*Pi/(4*Pi*N^2 - 6.315 - 14.8/Pi) + 5.6*log(abs(1.4/(4*Pi) + I*(N+1)^2))/(4*Pi*N^2 - 0.315)^2; 
+afac = (N^-0.4)*exp(delta + t*y*log(N)/(2*(xN-6)));
+sb = (1+y)/2 + (t/2)*log(N);
+sa = (1-y)/2 + (t/2)*log(N);
+lamb1 = 1;
+lamb2 = 0;
+lbound = 2 - sum(n=1,2*N,abs(divdelta(n,1)*regdelta(n,N)*bt(n,t))*(n^(-sb) + afac*n^(-sa)));
+return(lbound);
+}
+
+abbeff_largex_e2bound(N,y,t)={
+xN = 4*Pi*N^2 - Pi*t/4;
+delta = 0.2*Pi/(4*Pi*N^2 - 6.315 - 14.8/Pi) + 5.6*log(abs(1.4/(4*Pi) + I*(N+1)^2))/(4*Pi*N^2 - 0.315)^2; 
+afac = (N^-0.4)*exp(delta + t*y*log(N)/(2*(xN-6)));
+sb = (1+y)/2 + (t/2)*log(N);
+sa = (1-y)/2 + (t/2)*log(N);
+lamb1 = 1;
+lamb2 = -2^((t/4)*log(2));
+lbound = 2 - sum(n=1,2*N,abs(divdelta(n,1)*regdelta(n,N)*bt(n,t) + divdelta(n,2)*regdelta(n,2*N)*lamb2*bt(n/2,t))*(n^(-sb) + afac*n^(-sa)));
+return(lbound);
+}
+
+abbeff_largex_e3bound(N,y,t)={
+xN = 4*Pi*N^2 - Pi*t/4;
+delta = 0.2*Pi/(4*Pi*N^2 - 6.315 - 14.8/Pi) + 5.6*log(abs(1.4/(4*Pi) + I*(N+1)^2))/(4*Pi*N^2 - 0.315)^2; 
+afac = (N^-0.4)*exp(delta + t*y*log(N)/(2*(xN-6)));
+sb = (1+y)/2 + (t/2)*log(N);
+sa = (1-y)/2 + (t/2)*log(N);
+
+D = 6;
+ndivs = 4;
+d=vector(ndivs);
+d[1] = 1; d[2] = 2; d[3] = 3; d[4] = 6;
+
+moll=vector(ndivs);
+moll[1] = 1; moll[2] = -bt(2); moll[3] = -bt(3); moll[4] = bt(6);
+
+lbound = 2 - sum(n=1,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t)))*(n^(-sb) + afac*n^(-sa)));
+return(lbound);
+}
+
+abbeff_largex_e5bound(N,y,t)={
+xN = 4*Pi*N^2 - Pi*t/4;
+delta = 0.2*Pi/(4*Pi*N^2 - 6.315 - 14.8/Pi) + 5.6*log(abs(1.4/(4*Pi) + I*(N+1)^2))/(4*Pi*N^2 - 0.315)^2; 
+afac = (N^-0.4)*exp(delta + t*y*log(N)/(2*(xN-6)));
+sb = (1+y)/2 + (t/2)*log(N);
+sa = (1-y)/2 + (t/2)*log(N);
+
+D = 30;
+ndivs = 8;
+d=vector(ndivs);
+d[1] = 1; d[2] = 2; d[3] = 3; d[4] = 5; d[5] = 6; d[6] = 10; d[7] = 15; d[8] = 30; 
+
+moll=vector(ndivs);
+moll[1] = 1; moll[2] = -bt(2); moll[3] = -bt(3); moll[4] = -bt(5); moll[5] = bt(6); moll[6] = bt(10); moll[7] = bt(15); moll[8] = -bt(30);
+
+lbound = 2 - sum(n=1,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t)))*(n^(-sb) + afac*n^(-sa)));
+return(lbound);
+}
+
+pr=precision(1.,10);
+N=21000;y=0.3;t=0.2;
+print(List([t,y,N,abbeff_largex_e1bound(N,y,t)*pr,abbeff_largex_e2bound(N,y,t)*pr,abbeff_largex_e3bound(N,y,t)*pr,abbeff_largex_e5bound(N,y,t)*pr]));
