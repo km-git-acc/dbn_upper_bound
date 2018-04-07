@@ -41,7 +41,7 @@ d=vector(ndivs);
 d[1] = 1; d[2] = 2;
 
 moll=vector(ndivs);
-moll[1] = 1; moll[2] = -bt(2);
+moll[1] = 1; moll[2] = -bt(2,t);
 
 mollifier = sum(nd=1,ndivs,moll[nd]/d[nd]^sb);
 
@@ -66,7 +66,7 @@ d=vector(ndivs);
 d[1] = 1; d[2] = 2; d[3] = 3; d[4] = 6;
 
 moll=vector(ndivs);
-moll[1] = 1; moll[2] = -bt(2); moll[3] = -bt(3); moll[4] = bt(6);
+moll[1] = 1; moll[2] = -bt(2,t); moll[3] = -bt(3,t); moll[4] = bt(2,t)*bt(3,t);
 
 mollifier = sum(nd=1,ndivs,moll[nd]/d[nd]^sb);
 
@@ -91,7 +91,7 @@ d=vector(ndivs);
 d[1] = 1; d[2] = 2; d[3] = 3; d[4] = 5; d[5] = 6; d[6] = 10; d[7] = 15; d[8] = 30; 
 
 moll=vector(ndivs);
-moll[1] = 1; moll[2] = -bt(2); moll[3] = -bt(3); moll[4] = -bt(5); moll[5] = bt(6); moll[6] = bt(10); moll[7] = bt(15); moll[8] = -bt(30);
+moll[1] = 1; moll[2] = -bt(2,t); moll[3] = -bt(3,t); moll[4] = -bt(5,t); moll[5] = bt(2,t)*bt(3,t); moll[6] = bt(2,t)*bt(5,t); moll[7] = bt(3,t)*bt(5,t); moll[8] = -bt(2,t)*bt(3,t)*bt(5,t);
 
 mollifier = sum(nd=1,ndivs,moll[nd]/d[nd]^sb);
 
