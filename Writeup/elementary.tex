@@ -18,8 +18,8 @@ $$\exp\left( O_{\leq}\left(\frac{1}{x}\right) \right) = 1 + O_{\leq}\left( \frac
 $$ \exp\left(O_{\leq}(x)\right) = 1 + O_{\leq}(e^x-1).$$
 \item[(v)] If $z$ is a complex number with $|\mathrm{Im}(z)| \geq 1$ or $\mathrm{Re} z \geq 1$, then
 $$ \Gamma(z) = \sqrt{2\pi} \exp\left( \left(z-\frac{1}{2}\right) \log z - z + O_{\leq}\left( \frac{1}{12(|z| - 0.33)} \right)\right).$$
-\item[(vi)] If $a,b > 0$ and $x \geq x_0 \geq \exp(b/a)$, then
-$$\log^a x \leq \frac{\log^a x_0}{x_0^b} x^b.$$
+\item[(vi)] If $a,b > 0$ and $x \geq x_0 \geq \exp(a/b)$ and $x_0 > c \geq 0$, then
+$$\log^a x \leq \frac{\log^a x_0}{(x_0-c)^b} (x-c)^b.$$
 \end{itemize}
 \end{lemma}
 
@@ -52,5 +52,5 @@ and hence by Claim (i)
 $$ \Gamma(z) = \sqrt{2\pi} \exp\left( \left(z-\frac{1}{2}\right) \log z - z \right) \left(1 + O_{\leq}\left( \frac{1}{12(|z| - 0.246)} \right)\right) $$
 and the claim then follows by Claim (ii).  
 
-For Claim (vi), it suffices to show that the function $x \mapsto \frac{\log^a x}{x^b}$ is nonincreasing for $x \geq \exp(b/a)$.  Taking logarithms and writing $y = \log x$, it suffices to show that $a \log y - by$ is non-increasing for $y \geq b/a$, but this is clear from taking a derivative.
+For Claim (vi), it suffices to show that the function $x \mapsto \frac{\log^a x}{(x-c)^b}$ is non-increasing for $x \geq \exp(a/b)$.  Taking logarithms and differentiating, we wish to show that $\frac{a}{x \log x} - \frac{b}{x-c} \leq 0$.  But this is clear since $\frac{b}{x-c} \geq \frac{b}{x}$ and $\log x \geq a/b$.
 \end{proof}

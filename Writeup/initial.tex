@@ -367,7 +367,6 @@ It will be convenient to normalize by the first term
 B_0(x+iy) \coloneqq M_t(\frac{1+y-ix}{2}) 
 \end{equation} 
 of $B(x+iy)$.  This expression is non-zero, and we conclude (under the hypotheses of Corollary \ref{ab-cor}) that
-of $B(x+iy)$.  This expression is non-zero, and we conclude (under the hypotheses of Corollary \ref{ab-cor}) that
 \begin{equation}\label{ratio-form-refined}
 \frac{H_t(x+iy)}{B_0(x+iy)} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} + \frac{C(x+iy)}{B_0(x+iy)} + O_{\leq}\left( e_A + e_B + e_{C} \right)
 \end{equation}
@@ -387,7 +386,7 @@ e_{C,0} \coloneqq e_{C,0}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\r
 \end{align}
 
 It will be convenient to bound these quantities by expressions that depend on $N$ rather than $x$.  Observe that 
-$$ N = \lfloor \sqrt{\frac{T'}{2\pi}} \rfloor = \lfloor \frac{x}{4\pi} + \frac{t}{16} \rfloor$$
+$$ N = \lfloor \sqrt{\frac{T'}{2\pi}} \rfloor = \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor$$
 and hence
 \begin{equation}\label{xn}
 x_N \leq x < x_{N+1}
@@ -404,18 +403,18 @@ $$ 2\pi N^2 \leq T' < 2\pi (N+1)^2.$$
 \item[(i)]  One has
 $$ |\gamma| \leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2} $$
 \item[(ii)] One has
-$$ \mathrm{Re} s_* \geq \frac{1+y}{2} +\frac{t}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+ t}{2x^2}.$$
+$$ \mathrm{Re} s_* \geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{(1-3y)_+ t}{2x^2}.$$
 \item[(iii)]  One has
 $$ \kappa = O_{\leq} \left( \frac{ty}{2(x-6)} \right).$$
 \item[(iv)]  One has
-$$ e_A \leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2} \sum_{n=1}^N n^{y + \frac{ty}{2(x-6)}} \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{T-3.33} \right)-1 \right).$$
+$$ e_A \leq |\gamma| N^{|\kappa|} \sum_{n=1}^N n^{y} \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{\frac{x}{2}-3.33} \right)-1 \right).$$
 \item[(v)]  One has
-$$ e_B \leq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{T-3.33} \right)-1 \right).$$
+$$ e_B \leq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{\frac{x}{2}-3.33} \right)-1 \right).$$
 \item[(vi)] One has
-$$ e_{C} \leq \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(\frac{1.24 \times (3^y+3^{-y})}{a-0.125} + \frac{3.46}{T'-3.33}\right).
+$$ e_{C} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(\frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.72}{x-6.66}\right).
 $$
 and
-$$ e_{C,0} \leq \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(1 + \frac{1.24 \times (3^y+3^{-y})}{a-0.125} + \frac{3.46}{T'-3.33}\right).
+$$ e_{C,0} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(1 + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.72}{x-6.66}\right).
 $$
 \end{itemize}
 \end{proposition}
@@ -483,7 +482,7 @@ $$ \frac{t^2}{8} \times 0.667 + \frac{t}{4} + \frac{1}{6} \leq 0.313.$$
 We conclude from \eqref{eps-def} that
 $$
 \eps_{t,n}\left(\frac{1 \pm y + ix}{2} \right) \leq \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{T-3.33} \right)-1.$$
-Inserting this bound into \eqref{ea-def}, \eqref{eb-def} and using claims (i), (ii), we obtain claims (iv), (v).
+Inserting this bound into \eqref{ea-def}, \eqref{eb-def}, we obtain claims (iv), (v).
 
 Now we establish (vi).  From \eqref{Mt-def} we have
 $$\frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|}
@@ -508,16 +507,16 @@ $$\frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|
 By repeating the proof of \eqref{alphn} we have
 $$
 \mathrm{Re} \alpha(\frac{1 \pm y + ix}{2})^2 = \frac{1}{4} \log^2 \frac{x}{4\pi} - \frac{\pi^2}{16} + 
-O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}\right).
+O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}\right).
 $$
 As before, in the region \eqref{region} we have
-$$\frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2} \leq \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}
+$$\frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2} \leq \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}
 $$
 and thus
 \begin{align*}
 \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{\left|M_t\left(\frac{1+y+ix}{2}\right)\right|}
-&= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|+3.58}{x-6} + \frac{9}{(x-6)^2} \right) \right)\\
-&= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \right)
+&= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-6} + \frac{9}{(x-6)^2} \right) \right)\\
+&= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \right)
 \end{align*}
 thanks to Lemma \ref{elem-lem}(i).  Finally, since $T' \geq \frac{x}{2} \geq 100$ in \eqref{region}, one has 
 $$\exp\left(\frac{3.49}{T'-3.33}\right) \leq 1.037$$
@@ -527,6 +526,7 @@ $$
 Hence
 $$
 \tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2}) \leq \frac{1.24 \times (3^y+3^{-y})}{a-0.125} + \frac{3.46}{T'-3.33}$$
-giving the claim.
+giving the claim (substituting $T' = x/2$ and $a \geq N$).
 \end{proof}
 
+{\bf give table illustrating accuracy of approximation}
