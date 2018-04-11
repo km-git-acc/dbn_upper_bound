@@ -115,7 +115,7 @@ lbound = 1 - at(1,t,y,afac) - lbbound - labound;
 return(lbound);
 }
 
-filename = "~/first_steps/semi/moll_out2.txt";
+filename = "output.txt";
 t=0.2;y=0.4;
 
 for(K=400,1000,\
