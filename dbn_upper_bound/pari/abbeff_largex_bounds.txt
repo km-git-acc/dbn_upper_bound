@@ -1,12 +1,21 @@
+\\memoize.gp is available from https://download.tuxfamily.org/user42/pari/memoize.gp
+read("memoize.gp");
+
 divdelta(n,d)=return(if(n%d==0,1,0));
 regdelta(n,dN)=return(if(n<=dN,1,0));
 bt(n,t)=return(n^((t/4)*log(n)));
 at(n,t,y,commonterm=1)=return(commonterm*n^(y+(t/4)*log(n)));
 
+divdelta = memoize(divdelta);
+regdelta = memoize(regdelta);
+bt = memoize(bt);
+at = memoize(at);
+
 abbeff_largex_bound(N,y,t,N0=2000)={
 N0 = if(N<N0,N,N0); 
 xN = 4*Pi*N^2 - Pi*t/4;
-delta = 0.2*Pi/(4*Pi*N^2 - 6.315 - 14.8/Pi) + 5.6*log(abs(1.4/(4*Pi) + I*(N+1)^2))/(4*Pi*N^2 - 0.315)^2; 
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
 afac = exp(delta + t*y*log(N)/(2*(xN-6)))/N^y;
 sigb = (1+y)/2;
 siga = (1-y)/2;
@@ -20,7 +29,8 @@ return(lbound);
 
 abbeff_largex_e1_tbound(N,y,t)={
 xN = 4*Pi*N^2 - Pi*t/4;
-delta = 0.2*Pi/(4*Pi*N^2 - 6.315 - 14.8/Pi) + 5.6*log(abs(1.4/(4*Pi) + I*(N+1)^2))/(4*Pi*N^2 - 0.315)^2; 
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
 afac = exp(delta + t*y*log(N)/(2*(xN-6)))/N^y;
 sb = (1+y)/2 + (t/2)*log(N);
 sa = (1-y)/2 + (t/2)*log(N);
@@ -30,7 +40,8 @@ return(lbound);
 
 abbeff_largex_e2_tbound(N,y,t)={
 xN = 4*Pi*N^2 - Pi*t/4;
-delta = 0.2*Pi/(4*Pi*N^2 - 6.315 - 14.8/Pi) + 5.6*log(abs(1.4/(4*Pi) + I*(N+1)^2))/(4*Pi*N^2 - 0.315)^2; 
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
 afac = exp(delta + t*y*log(N)/(2*(xN-6)))/N^y;
 sb = (1+y)/2 + (t/2)*log(N);
 sa = (1-y)/2 + (t/2)*log(N);
@@ -55,7 +66,8 @@ return(lbound);
 
 abbeff_largex_e3_tbound(N,y,t)={
 xN = 4*Pi*N^2 - Pi*t/4;
-delta = 0.2*Pi/(4*Pi*N^2 - 6.315 - 14.8/Pi) + 5.6*log(abs(1.4/(4*Pi) + I*(N+1)^2))/(4*Pi*N^2 - 0.315)^2; 
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
 afac = exp(delta + t*y*log(N)/(2*(xN-6)))/N^y;
 sb = (1+y)/2 + (t/2)*log(N);
 sa = (1-y)/2 + (t/2)*log(N);
@@ -80,7 +92,8 @@ return(lbound);
 
 abbeff_largex_e5_tbound(N,y,t)={
 xN = 4*Pi*N^2 - Pi*t/4;
-delta = 0.2*Pi/(4*Pi*N^2 - 6.315 - 14.8/Pi) + 5.6*log(abs(1.4/(4*Pi) + I*(N+1)^2))/(4*Pi*N^2 - 0.315)^2; 
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
 afac = exp(delta + t*y*log(N)/(2*(xN-6)))/N^y;
 sb = (1+y)/2 + (t/2)*log(N);
 sa = (1-y)/2 + (t/2)*log(N);
@@ -102,12 +115,12 @@ lbound = 1 - at(1,t,y,afac) - lbbound - labound;
 return(lbound);
 }
 
-abbeff_largex_bound(10^6,0.3,0.2,N0=10000)
+filename = "~/first_steps/semi/moll_out2.txt";
+t=0.2;y=0.4;
 
-abbeff_largex_bound(10^11,0.3,0.1,N0=10000)
-
-abbeff_largex_bound(10^21,0.3,0.05,N0=10000)
-
-pr=precision(1.,10);
-N=20000;y=0.4;t=0.2;
-print(List([t,y,N,abbeff_largex_e1_tbound(N,y,t)*pr,abbeff_largex_e2_tbound(N,y,t)*pr,abbeff_largex_e3_tbound(N,y,t)*pr,abbeff_largex_e5_tbound(N,y,t)*pr]));
+for(K=400,1000,\
+N=K*100;\
+row = List([t,y,N,abbeff_largex_e2_tbound(N,y,t)]);\
+print(row);\
+write(filename,row);\
+)
