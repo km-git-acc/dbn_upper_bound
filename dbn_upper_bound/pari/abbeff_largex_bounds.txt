@@ -57,9 +57,9 @@ moll[1] = 1; moll[2] = -bt(2,t);
 mollifier = sum(nd=1,ndivs,moll[nd]/d[nd]^sb);
 
 lbbound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t)))/n^sb);
-labound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y,afac)))/n^sb);
+labound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y,1)))/n^sb);
 
-lbound = 1 - at(1,t,y,afac) - lbbound - labound;
+lbound = 1 - at(1,t,y,afac) - lbbound - afac*labound;
 return(lbound);
 }
 
@@ -83,9 +83,9 @@ moll[1] = 1; moll[2] = -bt(2,t); moll[3] = -bt(3,t); moll[4] = bt(2,t)*bt(3,t);
 mollifier = sum(nd=1,ndivs,moll[nd]/d[nd]^sb);
 
 lbbound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t)))/n^sb);
-labound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y,afac)))/n^sb);
+labound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y,1)))/n^sb);
 
-lbound = 1 - at(1,t,y,afac) - lbbound - labound;
+lbound = 1 - at(1,t,y,afac) - lbbound - afac*labound;
 return(lbound);
 }
 
@@ -109,9 +109,9 @@ moll[1] = 1; moll[2] = -bt(2,t); moll[3] = -bt(3,t); moll[4] = -bt(5,t); moll[5]
 mollifier = sum(nd=1,ndivs,moll[nd]/d[nd]^sb);
 
 lbbound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t)))/n^sb);
-labound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y,afac)))/n^sb);
+labound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y,1)))/n^sb);
 
-lbound = 1 - at(1,t,y,afac) - lbbound - labound;
+lbound = 1 - at(1,t,y,afac) - lbbound - afac*labound;
 return(lbound);
 }
 
