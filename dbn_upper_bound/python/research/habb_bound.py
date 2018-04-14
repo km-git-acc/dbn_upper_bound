@@ -110,22 +110,20 @@ def habbbound(N,y=0.4,t=0.4):
 
 def habc_sharperbound(N,y=0.4,t=0.4):
     xN = 4*Pi*N*N - t*Pi/4.0
-    T = xN/2.0
-    Tdash = T + t*Pi/8.0
-    Tdash_small = Tdash/(2*Pi)
-    a = sqrt(Tdash_small)
-        
-    Res = (1+y)/2.0 + (t/2.0)*log(xN/(4*Pi)) - t*max(0,1-3*y)/(2*xN**2)
+    Nsqadj = xN/(4*Pi)
+    modlambda = exp(0.02*y)*(Nsqadj**(-y/2.0))    
+    Res = (1+y)/2.0 + (t/4.0)*log(Nsqadj) - t*max(0,1-3*y)/(2*xN**2)
+    K = t*y/(2*(xN-6))
     bt = lambda n: exp((t/4.0)*log(n)**2)
-    cmn_summand = lambda n: (bt(n)/n**Res)*(exp(((t*t/32)*log(xN/(4*Pi*n*n))**2 + 0.313)/(T-3.33))-1) 
-    e1 = exp(0.02*y)*((xN/(4*Pi))**(-y/2.0))*sum(1,N,lambda n: (n**(y+t*y/(2*(xN-6))))*cmn_summand(n))
+    cmn_summand = lambda n: (bt(n)/n**Res)*(exp(((t*t/32)*log(Nsqadj/n**2)**2 + 0.313)/(xN/2.0 - 3.33))-1) 
+    e1 = modlambda*(N**K)*sum(1,N,lambda n: (n**y)*cmn_summand(n))
     e2 = sum(1,N,lambda n: cmn_summand(n))
     
-    e3_term1 = Tdash_small**(-1*(1+y)/4.0)
-    e3_term2_expo1 = (-t/16.0)*log(xN/(4*Pi))**2
-    e3_term2_expo2 = (3*abs(log(xN/(4*Pi) + I*Pi/2.0)) + 3.58)/(xN - 8.52)
-    e3_term3_abc = 1.24*(3**y + 1/3**y)/(a - 0.125) + 3.46/(Tdash - 3.33)
-    e3_term3_ab  = 1 + e3_term3_abc  
+    e3_term1 = Nsqadj**(-1*(1+y)/4.0)
+    e3_term2_expo1 = (-t/16.0)*log(Nsqadj)**2
+    e3_term2_expo2 = (3*abs(log(Nsqadj + I*Pi/2.0)) + 3.58)/(xN - 8.52)
+    e3_term3_abc = 1.24*(3**y + 1/3**y)/(N - 0.125) + 6.92/(xN - 6.66)
+    e3_term3_ab  = 1 + e3_term3_abc
     e3_abc = e3_term1*exp(e3_term2_expo1 + e3_term2_expo2)*e3_term3_abc
     e3_ab  = e3_term1*exp(e3_term2_expo1 + e3_term2_expo2)*e3_term3_ab
     
