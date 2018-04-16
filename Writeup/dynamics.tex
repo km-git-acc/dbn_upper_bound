@@ -5,14 +5,14 @@
 \begin{itemize}
 \item[(i)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a simple zero of $H_{t_0}$, then there exists a neighbourhood $U$ of $z_j(t_0)$, a neighbourhood $I$ of $t_0$ in $\R$, and a smooth map $z_j: I \to U$ such that for every $t \in I$, $z_j(t)$ is the unique zero of $H_t$ in $U$.  Furthermore one has the equation
 \begin{equation}\label{zjk}
- (\frac{\partial}{\partial t} z_j)(t_0) = 2 \sum^{\prime}_{k \neq j} \frac{1}{z_j(t_0) - z_k(t_0)} 
+ \left(\frac{\partial}{\partial t} z_j\right)(t_0) = 2 \sum^{\prime}_{k \neq j} \frac{1}{z_j(t_0) - z_k(t_0)} 
 \end{equation}
 where the sum is over those $k \in \Z \backslash \{0\}$ with $k \neq j$, and the prime means that the $k$ and $-k$ terms are summed together (assuming $k \neq \pm j$) in order to make the sum convergent.
 \item[(ii)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a repeated zero of $H_{t_0}$ of order $m \geq 2$, then there is a neighbourhood $U$ of $z_j(t_0)$ such that for $t$ sufficiently close to $t_0$, there are precisely $m$ zeroes of $H_t$ in $U$, and they take the form
 $$ z_j(t_0) + \sqrt{2} (t-t_0)^{1/2} x_j + O( |t-t_0|)$$
 for $j=1,\dots,m$ as $t \to t_0$, where $x_1 < \dots < x_m$ are the roots of the $m^{\operatorname{th}}$ Hermite polynomial
 \begin{align}
-\operatorname{He}_m(z) &= (-1)^m \exp(\frac{z^2}{2}) \frac{d^m}{dz^m} \exp(-\frac{z^2}{2})\label{heform}\\
+\operatorname{He}_m(z) &\coloneqq (-1)^m \exp\left(\frac{z^2}{2}\right) \frac{d^m}{dz^m} \exp\left(-\frac{z^2}{2}\right)\label{heform}\\
 &= \sum_{0 \leq l \leq m/2} \frac{m!}{l! (m-2l)!} (-1)^l \frac{z^{m-2l}}{2^l}\label{heform2}
 \end{align}
 and the implied constant in the $O()$ notation can depend on $t_0$, $j$, and $m$.
@@ -26,12 +26,12 @@ when $m=2$,
 $$ x_1 = -\sqrt{3}; \quad x_2 = 0; \quad x_3 = +\sqrt{3}$$
 when $m=3$, and
 $$ x_1 = -\sqrt{3+\sqrt{6}}; \quad x_2 = -\sqrt{3-\sqrt{6}}; \quad x_3 = \sqrt{3 - \sqrt{6}}; \quad \sqrt{3 + \sqrt{6}}$$
-when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all the zeroes $x_1,\dots,x_m$ of $\operatorname{He}_m$ are real; from the Hermite equation $\left(\frac{d^2}{dz^2} - z \frac{d}{dz} + m\right) \operatorname{He}_m(z) = 0$ we see that the zeroes are all simple.
+when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all the zeroes $x_1,\dots,x_m$ of $\operatorname{He}_m$ are real; from the Hermite equation $\left(\frac{d^2}{dz^2} - z \frac{d}{dz} + m\right) \operatorname{He}_m(z) = 0$ and the Picard uniqueness theorem for ODE we see that the zeroes are all simple.
 
 \begin{proof}  First suppose we are in the situation of (i).  As $z_j(t_0)$ is simple, $\frac{\partial}{\partial z} H_t$ is non-zero at $z_0$; since $H_t(z)$ is a smooth function of both $t$ and $z$, we conclude from the implicit function theorem that there is a unique solution $z_j(t) \in U$ to the equation
 $$ H_t( z_j(t) ) = 0$$
 with $z_j(t)$ in a sufficiently small neighbourhood $U$ of $z_j(t_0)$, if $t$ is a sufficiently small neighbourhood of $I$; furthermore, $z_j(t)$ depends smoothly on $t$.  Differentiating the above equation at $t_0$, we obtain
-$$ (\frac{\partial}{\partial t} H_t)( z_j(t_0) ) + (\frac{\partial}{\partial t} z_j)(t_0) H'_t(z_j(t_0)) = 0,$$
+$$ \left(\frac{\partial}{\partial t} H_t\right)( z_j(t_0) ) + \left(\frac{\partial}{\partial t} z_j\right)(t_0) H'_t(z_j(t_0)) = 0,$$
 where the primes denote differentiation in the $z$ variable.
 On the other hand, from \eqref{htdef} and differentiation under the integral sign (which can be justified using the rapid decrease of $\Phi$) we have the backwards heat equation
 \begin{equation}\label{back}
@@ -39,14 +39,14 @@ On the other hand, from \eqref{htdef} and differentiation under the integral sig
 \end{equation}
 and hence
 \begin{equation}\label{tzj}
-(\frac{\partial}{\partial t} z_j)(t_0)  = \frac{H''_t}{H'_t}( z_j(t_0) ).
+\left(\frac{\partial}{\partial t} z_j\right)(t_0)  = \frac{H''_t}{H'_t}( z_j(t_0) ).
 \end{equation}
 Henceforth we omit the dependence on $t_0$ for brevity.  From Taylor expansion of $H_t$, $H'_t$, and $H''_t$ around the simple zero $z_j$ we see that
 \begin{equation}\label{htz-eq}
  \frac{H''_t}{H'_t}( z_j) = 2 \lim_{z \to z_j}\left(  \frac{H'_t}{H_t}( z_j) - \frac{1}{z-z_j} \right).
 \end{equation}
 On the other hand, as $H_t$ is even, zero, and entire of order $1$ (as can be easily verified from \eqref{htdef}) we see from the Hadamard factorization theorem that
-$$ H_t(z) = C_t \prod_k^{\prime} (1 - \frac{z}{z_k})$$
+$$ H_t(z) = C_t \prod_k^{\prime} \left(1 - \frac{z}{z_k}\right)$$
 for some nonzero complex number $C_t$, where the prime indicates that the $k$ and $-k$ factors are multiplied together.  Taking logarithmic derivatives, we conclude that
 $$ \frac{H'_t}{H_t}(z) = \sum_k^{\prime} \frac{1}{z-z_k}.$$
 Inserting this into \eqref{tzj}, \eqref{htz-eq} and using the dominated convergence theorem (noting from the order one property of $H_t$ that the number of zeroes $z_k$ in a large disk $D(0,R)$ will grow by at most $O(R^{1+o(1)})$), we obtain the claim (i).
