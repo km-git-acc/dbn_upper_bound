@@ -5,40 +5,41 @@ In this section we prove
 \begin{theorem}  We have $\Lambda \leq 0.28$.
 \end{theorem}
 
-To prove this theorem, we apply Theorem \ref{ubc} with $t_0 := 0.2$, $X := 5 \times 10^9$, and $y_0 = 0.4$.  It will thus suffices to verify the three conditions of the theorem.
+To prove this theorem, we apply Theorem \ref{ubc} with $t_0 := 0.2$, $X := 5 \times 10^9$, and $y_0 = 0.4$.  It will thus suffices to verify the three conditions of the theorem.  For the first claim - namely, that $H_0(x+iy) \neq 0$ when $0 \leq x \leq 5 \times 10^9$ and $y \geq 0.4$ - this is immediate from this follows from \eqref{hoz}, \eqref{sas}, and the result of Platt that all the non-trivial zeroes of $\zeta$ with imaginary part between $0$ and $3.06 \times 10^{10}$ lie on the critical line $\{ \mathrm{Re}(s) = 1/2\}$.
 
-\subsection{Verifying $H_0(x+iy) \neq 0$ when $0 \leq x \leq 5 \times 10^9$ and $y \geq 0.4$}
-
-This follows from \eqref{hoz}, \eqref{sas}, and the result of Platt that all the non-trivial zeroes of $\zeta$ with imaginary part between $0$ and
- $3.06 \times 10^{10}$ lie on the critical line $\{ \mathrm{Re}(s) = 1/2\}$.
-
-\subsection{Verifying $H_t(x+iy) \neq 0$ when $5 \times 10^9 \leq x \leq 5 \times 10^9+1$, $0 \leq t \leq 0.2$, and $y \geq 0.4$}
-
-...
-
-\subsection{Verifying $H_{0.2}(x+iy) \neq 0$ when $x \geq 5 \times 10^9$ and $y \geq 0.4$}
-
-We first do some general calculations.  Suppose that $x,y,t$ lie in \eqref{region}.  To show that $H_t(x+iy) \neq 0$, it suffices by \eqref{ratio-form} and the triangle inequality to show that
+For the remaining claims, one has to verify $H_t(x+iy) \neq 0$ for various $(x,y,t)$ in the region \eqref{region}.
+To show that $H_t(x+iy) \neq 0$, it suffices by \eqref{ratio-form}, \eqref{xco} and the triangle inequality to show that
 \begin{equation}\label{bbb}
-\left|\sum_{n=1}^N \frac{b_n^t}{n^{s_*}}\right| - |\gamma| \left|\sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}\right| > e_A + e_B + e_{C,0} 
+|X| > e_A + e_B + e_{C,0} 
 \end{equation}
-where $b_n^t \coloneqq \exp( \frac{t}{4} \log^2 n)$,
-$$ N \coloneqq \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor \leq [\frac{x}{4\pi} (1 + \frac{\pi t}{4x})]^{1/2},$$
+where
+\begin{align*}
+X &\coloneqq \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}\\
+b_n^t &\coloneqq \exp( \frac{t}{4} \log^2 n),\\
+N &\coloneqq \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor \leq [\frac{x}{4\pi} (1 + \frac{\pi t}{4x})]^{1/2}
+\end{align*}
 so in particular
 \begin{equation}\label{logx}
  \log \frac{x}{4\pi} \geq 2 \log N - \log(1 + \frac{\pi t}{4x}).
 \end{equation}
-and $s_*, \kappa, \gamma, e_A, e_B, e_{C_0}$ are given by \eqref{lambda-def}-\eqref{ec-def}.  It thus suffices to obtain sufficiently good lower bounds for the left-hand side of \eqref{bbb} and sufficiently good upper bounds for the right-hand side.
+and $s_*, \kappa, \gamma, e_A, e_B, e_{C_0}$ are given by \eqref{lambda-def}-\eqref{ec-def}.  
 
-We begin with the latter task.  From Proposition \ref{estimates}(iv), (v) one has
+Note that if $x \geq 5 \times 10^9$ then $N \geq 19947$.  We calculate a somewhat crude upper bound for the right-hand side of \eqref{bbb}:
+
+\begin{lemma}\label{lac}  If $x \geq 5 \times 10^5$, $0 \leq t \leq 0.2$, and $0.4 \leq y \leq 1$, then
+$$ e_A + e_B + e_{C,0} \leq 4.37 \times 10^{-4} + 3.23 \times 10^{-10} (F_{N,0.2}(0.7 + \frac{1}{20} \log \frac{x}{4\pi}) + |\gamma| F_{N,0.2}( 0.3 + \frac{1}{20} \log \frac{x}{4\pi} ) ).$$
+where
+\begin{equation}\label{fnt-def}
+ F_{N,t}( \sigma ) := \sum_{n=1}^N \frac{b_n^t}{n^\sigma}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+From Proposition \ref{estimates}(iv), (v) one has
 \begin{equation}\label{eab-bound}
  e_A + e_B \leq (e^{\delta_1}-1) (F_{N,t}(\mathrm{Re}(s_*)) + |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) )
 \end{equation}
 where
-\begin{equation}\label{fnt-def}
- F_{N,t}( \sigma ) := \sum_{n=1}^N \frac{b_n^t}{n^\sigma}
-\end{equation}
-and
 $$ \delta_1 := \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi} + 0.313}{\frac{x}{2}-3.33}.$$
 From Lemma \ref{elem-lem}(vi), the quantity $\delta_1$ is monotone decreasing in $x$ in the region \eqref{region}.  Thus we have
 \begin{equation}\label{delta1-bound}
@@ -48,64 +49,106 @@ whenever $x \geq x_0 \geq 200$.
 
 From Proposition \ref{estimates}(vi) one has
 $$ e_{C,0} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(1 + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.72}{x-6.66}\right).$$
-From Lemma \ref{elem-lem}(vi), the quantities $\frac{\log^2 \frac{x}{4\pi} + \frac{\pi^2}{4}}{(x-8.52)^2}$ is monotone decreasing in $x$ in \eqref{region}, hence $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-8.52}$ is also monotone decreasing.  Also the expression is monotone decreasingin $y$. We conclude that
+From Lemma \ref{elem-lem}(vi), the quantities $\frac{\log^2 \frac{x}{4\pi} + \frac{\pi^2}{4}}{(x-8.52)^2}$ is monotone decreasing in $x$ in \eqref{region}, hence $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-8.52}$ is also monotone decreasing.  Also the expression is monotone decreasing in $y$. We conclude that
 \begin{equation}\label{ec-bound}
  e_{C,0} \leq \left(\frac{x_0}{4\pi}\right)^{-\frac{1+y_0}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x_0}{4\pi} + \frac{3 |\log \frac{x_0}{4\pi} + i \frac{\pi}{2}|+3.58}{x_0-8.52} \right) \left(1 + \frac{1.24 \times (3^{y_0}+3^{-y_0})}{N_0-0.125} + \frac{6.72}{x_0-6.66}\right)
 \end{equation}
-whenever $x \geq x_0 \geq 200$, $y \geq y_0 > 0$, and $N \geq N_0$.
-
-Now we turn to the left-hand side.   We first extract the $\kappa$ correction by noting that
-$$ \left| \frac{1}{n^\kappa} - 1\right| \leq N^{|\kappa|} - 1$$
-and hence
-$$ \left|\sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}\right| \leq \left|\sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*}}}\right| + (N^{|\kappa|}-1) F_{N,t}( \mathrm{Re}(s_*) - y )$$
-and so (using $F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) \leq N^{|\kappa|} F_{N,t}( \mathrm{Re}(s_*) - y)$, $|z| = |\overline{z}|$) it will suffice to show that
-$$
-\Delta >
-(e^{\delta_1}-1) F_{N,t}(\mathrm{Re}(s_*)) 
-+ (e^{\delta_1} N^{|\kappa|} - 1) |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y )
-+ e_{C,0}$$
-where
-$$ \Delta \coloneqq \left( \left|\sum_{n=1}^N \frac{b_n^t}{n^{s_*}}\right| - |\gamma| \left|\sum_{n=1}^N n^y \frac{b_n^t}{n^{s_*}}\right|\right)_+$$
-
-Now we specialise to the case $t = 0.2$,  $x \geq 5 \times 10^9$ and $y \geq 0.4$.  This implies $N \geq 19947$. 
-
-From Proposition \ref{estimates}(iii) and \eqref{logx}, followed by Lemma \ref{elem-lem}(vi), we have
+whenever $x \geq x_0 \geq 200$, $y \geq y_0 > 0$, and $N \geq N_0$.  Setting $x_0 = 5 \times 10^9$, $y_0 = 0.4$, and $N_0 = 19947$ and using $t \geq 0$ we conclude that
+From \eqref{ec-bound} one has
 \begin{align*}
-N^{|\kappa|} &\leq \exp( \frac{ty}{2(x-6)} \log N ) \\
-&\leq \exp( \frac{0.08}{4(x-6)} (\log \frac{x}{4\pi} + \log(1+{0.2 \pi}{4x})) ) \\
-&\leq  \exp( \frac{0.08}{4(5 \times 10^9-6)} (\log \frac{5 \times 10^9}{4\pi} + \log(1+{0.2 \pi}{4 \times 5 \times 10^9})) ) 
-&\leq \exp( 7.93 \times 10^{-11} )
+e_{C,0} &\leq \left(\frac{5 \times 10^9}{4\pi}\right)^{-\frac{1+0.4}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{5 \times 10^9}{4\pi} + \frac{3 |\log \frac{5 \times 10^9}{4\pi} + i \frac{\pi}{2}|+3.58}{5 \times 10^9-8.52} \right) \left(1 + \frac{1.24 \times (3^{0.4}+3^{-0.4})}{19947-0.125} + \frac{6.92}{5 \times 10^9-6.66}\right)
+&\leq 4.37 \times 10^{-4}.
 \end{align*}
-while from \eqref{delta1-bound} one has
+
+From \eqref{delta1-bound} one has
 \begin{align*}
  \delta_1 &\leq \frac{\frac{0.2^2}{32} \log^2 \frac{5 \times 10^9}{4\pi} + 0.313}{\frac{5 \times 10^9}{2}-3.33} \\
 &\leq 3.22 \times 10^{-10}
 \end{align*}
 and hence
-$$ e^{\delta_1} - 1 \leq e^{\delta_1} N^{|\kappa|} - 1 \leq 4.01 \times 10^{-10}.$$
-From \eqref{ec-bound} one has
-\begin{align*}
-e_{C,0} &\leq \left(\frac{5 \times 10^9}{4\pi}\right)^{-\frac{1+0.4}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{5 \times 10^9}{4\pi} + \frac{3 |\log \frac{5 \times 10^9}{4\pi} + i \frac{\pi}{2}|+3.58}{5 \times 10^9-8.52} \right) \left(1 + \frac{1.24 \times (3^{0.4}+3^{-0.4})}{19947-0.125} + \frac{6.92}{5 \times 10^9-6.66}\right)
-&\leq 7.27 \times 10^{-6}.
-\end{align*}
-From Proposition \ref{estimates}(ii) we have
+$$ e^{\delta_1} - 1 \leq 3.23 \times 10^{-10}.$$
+From Proposition \ref{estimates}(ii) (and the observation that $1-3y+\frac{4y(1+y)}{x^2}$ is negative when $y \geq 0.4$ and $x \geq 5 \times 10^9$) we have
 $$ \mathrm{Re}(s_*) \geq 0.7 + \frac{1}{20} \log \frac{x}{4\pi}.$$
-Thus it suffices to establish the lower bound
-$$ \Delta > 7.27 \times 10^{-6} + 4.01 \times 10^{-10} (F_{N,0.2}(0.7 + \frac{1}{20} \log \frac{x}{4\pi}) + |\gamma| F_{N,0.2}( 0.3 + \frac{1}{20} \log \frac{x}{4\pi} ) ).$$
-We divide into three regimes, based on the value of $N$: $19947 \leq N < 40000$, $40000 \leq N < 3 \times 10^5$, and $N \geq 3 \times 10^5$.
+Since $F_{N,t}(\sigma)$ is non-decreasing in $t$ and non-increasing in $\sigma$, the claim follows.
+\end{proof}
 
-\subsection{The case $N \geq 3 \times 10^5$}
 
-Set $N_0 \coloneqq 3 \times 10^5$.  In this regime we have
+It now suffices to establish the following claims:
+
+\begin{itemize}
+\item[(i)]  \eqref{bbb} holds when $5 \times 10^9 \leq x \leq 5 \times 10^9+1$, $0 \leq t \leq 0.2$, and $y \geq 0.4$.
+\item[(ii)]  \eqref{bbb} holds when $x \geq 5 \times 10^9$, $19947 \leq N \leq 40000$, $t = 0.2$, and $y \geq 0.4$.
+\item[(iii)]  \eqref{bbb} holds when $40000 \leq N \leq 3 \times 10^5$, $t = 0.2$, and $y \geq 0.4$.
+\item[(iv)]  \eqref{bbb} holds when $N \geq 3 \times 10^5$, $t = 0.2$, and $y \geq 0.4$.
+\end{itemize}
+
+
+We begin with claim (i).  We need some derivative estimates on the quantity $X = X( t, x+iy )$.
+
+\begin{lemma} In the region \eqref{region}, we have
+$$ |\frac{\partial X}{\partial x}| = |\frac{\partial X}{\partial y}| \leq  \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} (\frac{\log n}{2} + \frac{t \log n}{4(x-6)}) + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^{y} }{n^{\mathrm{Re}(s_{*})}}
+( \frac{t \log n}{4(x-6)} + (\log \frac{|1+y+ix|}{4\pi} + \pi + \frac{3}{x}) (\frac{1}{2} + \frac{t}{4(x-6)})) $$
+\end{lemma}
+
+\begin{proof}
+Write 
+$$ s_{**} \coloneqq \overline{s_*} - y + \kappa = \frac{1-y+ix}{2} + \frac{t}{2} \alpha(\frac{1-y+ix}{2})$$
+then
+$$ 
+X = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N \frac{b_n^t}{n^{s_{**}}}.$$
+One can check that $s_*, s_{**}, \gamma$ are holomorphic functions of $x+iy$, hence by the Cauchy-Riemann equations
+$$ |\frac{\partial X}{\partial x}| = |\frac{\partial X}{\partial y}|.$$
+By the product and chain rules, we may calculate
+$$ 
+\frac{\partial X}{\partial x} = - \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} \frac{\partial s_*}{\partial x} \log n + \gamma \sum_{n=1}^N \frac{b_n^t}{n^{s_{**}}}
+( \frac{\partial}{\partial x} \log \gamma - \frac{\partial s_{**}}{\partial x} \log n).$$
+From \eqref{sn-def}, \eqref{alpha-deriv-bound} we have
+\begin{align*}
+ \frac{\partial s_*}{\partial x} &= -\frac{i}{2} - \frac{it}{4} \alpha'(\frac{1-y+ix}{2}) \\
+&= -\frac{i}{2} + O_{\leq}( \frac{t}{4(x-6)} ).
+\end{align*}
+Similarly we have
+$$ \frac{\partial s_{**}}{\partial x} = \frac{i}{2} + O_{\leq}( \frac{t}{4(x-6)} ).$$
+Writing $s = \frac{1-y+ix}{2}$, we have from \eqref{lambda-def}, \eqref{Mt-def} that
+$$ \log \lambda = \frac{t}{4} (\alpha(s)^2 - \alpha(1-s)^2) + \log M_0(s) - \log M_0(1-s) $$
+and hence by \eqref{alpha-def}
+$$ \frac{\partial \lambda}{\partial x} = \frac{it}{4} (\alpha(s) \alpha'(s) + \alpha(1-s) \alpha'(1-s))
++ \frac{i}{2} \alpha(s) + \frac{i}{2} \alpha(1-s).$$
+From the triangle inequality and \eqref{alpha-deriv-bound}, we thus have
+$$ 
+|\frac{\partial X}{\partial x}| \leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} (\frac{\log n}{2} + \frac{t \log n}{4(x-6)}) + |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
+( \frac{t \log n}{4(x-6)} + \frac{|\alpha(s) + \alpha(1-s) - \log n|}{2} + \frac{t (|\alpha(s)| + |\alpha(1-s)|)}{4(x-6)}).$$
+We have from \eqref{alpha-form} that
+$$ |\alpha(s)|, |\alpha(s) - \frac{1}{2} \log n| \leq \frac{1}{2} \log \frac{|1-y+ix|}{4\pi} + \frac{\pi}{2} + \frac{3}{2x} $$
+since $n \leq N \leq \frac{x}{4\pi} \leq \frac{|1-y+ix|}{4\pi}$.  Similarly
+$$ |\alpha(1-s)|, |\alpha(1-s) - \frac{1}{2} \log n| \leq \frac{1}{2} \log \frac{|1+y+ix|}{4\pi} + \frac{\pi}{2} + \frac{3}{2x} $$
+and thus
+$$ |\alpha(s)+\alpha(1-s)|, |\alpha(s)+\alpha(1-s)-\log n| \leq \log \frac{|1+y+ix|}{4\pi} + \pi + \frac{3}{x}.$$
+Writing $\mathrm{Re}(s_{**}) = \mathrm{Re}(s_*) - y + \mathrm{Re}(\kappa)$, we then have the claim.
+\end{proof}
+
+...
+
+
+
+Now we prove claim (ii).
+
+...
+
+Now we prove claim (iii).
+
+...
+
+Finally, we prove claim (iv).  In this regime we have
 $$ x \geq 4\pi N_0^2 - \frac{\pi t}{4} \geq 1.13 \times 10^{12}.$$
 We use the triangle inequality bound
 \begin{align*}
-\Delta &\geq \left( 2 - F_{N,t}(\mathrm{Re}(s_*)) - |\gamma| F_{N,t}(\mathrm{Re}(s_*) - y) \right)_+ \\
+|X| &\geq \left( 2 - F_{N,t}(\mathrm{Re}(s_*)) - |\gamma| F_{N,t}(\mathrm{Re}(s_*) - y) \right)_+ \\
 &\geq \left( 2 - F_{N,0.2}(0.7 + \frac{1}{20} \log \frac{x}{4\pi}) - |\gamma| F_{N,0.2}(0.3 + \frac{1}{20} \log \frac{x}{4\pi}) \right)_+ 
 \end{align*}
-so it will suffice to show that
+so to prove \eqref{bbb} here, it suffices by Lemma \ref{lac} to show that
 \begin{equation}\label{fna}
- F_{N,0.2}(0.7 + \frac{1}{20} \log \frac{x}{4\pi}) + |\gamma| F_{N,0.2}( 0.3 + \frac{1}{20} \log \frac{x}{4\pi} )  \leq 2 - 7.28 \times 10^{-6}.
+ F_{N,0.2}(0.7 + \frac{1}{20} \log \frac{x}{4\pi}) + |\gamma| F_{N,0.2}( 0.3 + \frac{1}{20} \log \frac{x}{4\pi} )  \leq 2 - 4.38 \times 10^{-4}.
 \end{equation}
 From Proposition \ref{estimates}(i) we have
 $$ |\gamma| \leq e^{0.0016} \left( \frac{x}{4\pi} \right)^{-0.2}.$$
@@ -154,12 +197,3 @@ $$ Q_3 \leq 0.0113.$$
 Combining these bounds we obtain \eqref{fna}.
 
 
-
-
-
-\subsection{The case $40000 \leq N < 2 \times 10^5$}
-
-
-
-
-\subsection{The case $19947 \leq N \leq 40000$}

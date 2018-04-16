@@ -2,10 +2,10 @@
 
 In view of the approximation \eqref{ratio-form}, it is of interest to obtain lower bounds for the quantity
 \begin{equation}\label{xco}
-X \coloneqq \left| \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} \right|
+X \coloneqq \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}
 \end{equation}
 for $x,y,t$ in the region \eqref{region}.  By the triangle inequality (and the trivial identity $|z| = |\overline{z}|$), we obtain the lower bound
-$$ X \geq \left( \left| \sum_{n=1}^N \frac{b_n^t}{n^{s_*}}\right| - |\gamma| \left| \sum_{n=1}^N n^y \frac{b_n^t}{n^{s_* + \overline{\kappa}}} \right|\right)_+.$$
+$$ |X| \geq \left( \left| \sum_{n=1}^N \frac{b_n^t}{n^{s_*}}\right| - |\gamma| \left| \sum_{n=1}^N n^y \frac{b_n^t}{n^{s_* + \overline{\kappa}}} \right|\right)_+.$$
 
 It is thus of interest to obtain lower bounds for differences
 \begin{equation}\label{Delta-def}
@@ -59,16 +59,16 @@ the claim follows.
 
 Returning to the estimation of \eqref{xco}, we conclude from Lemma \ref{dirb}(i) with $s$ replaced by $s_*$, $\beta_n$ replaced by $b_n^t$, and $\alpha_n$ replaced by $|\gamma| n^{y-\overline{\kappa}} b_n^t$ that
 \begin{equation}\label{x-init}
-X \geq 1 - |\gamma| - \sum_{n=2}^N \frac{b_n^t}{n^\sigma} (1 + |\gamma| n^{y - \mathrm{Re}(\kappa)}),
+|X| \geq 1 - |\gamma| - \sum_{n=2}^N \frac{b_n^t}{n^\sigma} (1 + |\gamma| n^{y - \mathrm{Re}(\kappa)}),
 \end{equation}
 where $\sigma \coloneqq \Re s_*$.  This rather crude bound will suffice when $x$ is very large, particularly when combined with the estimates in Proposition \ref{estimates}.   For smaller values of $x$, we would like to use parts (ii) and (iii) of Lemma \ref{dirb}.  A technical difficulty arises because the quantity $|\lambda| n^{y-\overline{\kappa}} b_n^t$ quantity need not be real, so that Lemma \ref{dirb}(ii) is not directly available.  However, by writing
 $$ n^{-\overline{\kappa}} = 1 + O_{\leq}( n^{|\kappa|} - 1 )$$
 we see from the triangle inequality that
-$$ X \geq \left( \left| \sum_{n=1}^N \frac{b_n^t}{n^{s_*}}\right| - \left| \sum_{n=1}^N \frac{|\gamma| b_n^t n^y}{n^{s_*}}\right| \right)_+
+$$ |X| \geq \left( \left| \sum_{n=1}^N \frac{b_n^t}{n^{s_*}}\right| - \left| \sum_{n=1}^N \frac{|\gamma| b_n^t n^y}{n^{s_*}}\right| \right)_+
 - |\gamma| \sum_{n=1}^N \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma-y}}.$$
 Assuming for now that $|\gamma| < 1$ (which in practice will follow from Proposition \ref{estimates}(i)), we can then apply Lemma \ref{dirb}(iii) follows by Lemma \ref{dirb}(ii) to conclude that
 \begin{equation}\label{x-adv}
-X \geq \frac{1 - \tilde \alpha_1 - \sum_{n=2}^N \frac{\max( |\tilde \beta_n-\tilde \alpha_n|, \frac{1-\tilde \alpha_1}{1+\tilde \alpha_1} |\tilde \beta_n+\tilde \alpha_n|)}{n^\sigma}}{\sum_{d=1}^D \frac{|\lambda_d|}{d^\sigma}} - |\gamma| \sum_{n=1}^N \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma-y}}
+|X| \geq \frac{1 - \tilde \alpha_1 - \sum_{n=2}^N \frac{\max( |\tilde \beta_n-\tilde \alpha_n|, \frac{1-\tilde \alpha_1}{1+\tilde \alpha_1} |\tilde \beta_n+\tilde \alpha_n|)}{n^\sigma}}{\sum_{d=1}^D \frac{|\lambda_d|}{d^\sigma}} - |\gamma| \sum_{n=1}^N \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma-y}}
 \end{equation}
 for any real numbers $\lambda_1,\dots,\lambda_D$ with $\lambda_1 = 1$, where
 \begin{align*}

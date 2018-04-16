@@ -403,7 +403,7 @@ $$ 2\pi N^2 \leq T' < 2\pi (N+1)^2.$$
 \item[(i)]  One has
 $$ |\gamma| \leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2} $$
 \item[(ii)] One has
-$$ \mathrm{Re} s_* \geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{(1-3y)_+ t}{2x^2}.$$
+$$ \mathrm{Re} s_* \geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{(1-3y+\frac{4y(1+y)}{x^2})_+ t}{2x^2}.$$
 \item[(iii)]  One has
 $$ \kappa = O_{\leq} \left( \frac{ty}{2(x-6)} \right).$$
 \item[(iv)]  One has
@@ -446,17 +446,20 @@ In the region \eqref{region}, which implies that $0 \leq \sigma \leq 1$, we have
 $$ 2 + \sigma + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)} \leq 3.21$$
 and thus
 $$ \log \gamma \leq -\frac{y}{2} \log \frac{x}{4\pi} + y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6}.$$
-The function $x \mapsto \frac{\log \frac{x}{4\pi}}{x-6}$ is decreasing for $x \geq 200$, hence
-$$ y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6} \leq y \frac{\frac{t}{4} \log \frac{200}{4\pi} + 3.21}{200-6} \leq 0.02.$$
+The function $x \mapsto \frac{\log \frac{x}{4\pi}}{x-6}$ is decreasing for $x \geq 200$ thanks to Lemma \ref{elem-lem}(vi), hence
+$$ y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6} \leq y \frac{\frac{t}{4} \log \frac{200}{4\pi} + 3.21}{200-6} \leq 0.02 y.$$
 Claim (i) follows.  We remark that one can improve the $e^{0.02 y}$ factor here by Taylor expanding $\alpha$ to second order rather than first order, but we will not need to do so here.
 
 To prove claim (ii), it suffices by \eqref{s-def} to show that
-$$ \mathrm{Re} \alpha(\frac{1+y-ix}{2}) \geq \frac{1}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+}{x^2}.$$
+$$ \mathrm{Re} \alpha(\frac{1+y-ix}{2}) \geq \frac{1}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+}{x^2} - \frac{4y(1+y)}{x^4}.$$
 By \eqref{alpha-form} one has
-$$ \mathrm{Re} \alpha(\frac{1+y-ix}{2}) = \frac{1+y}{(1+y)^2+x^2} + \frac{2(1-y)}{(1-y)^2+x^2} + \frac{1}{2} \log \frac{\sqrt{(1+y)^2+x^2}}{4\pi}.$$
-Bounding $\frac{1}{(1-y)^2+x^2} \geq \frac{1}{(1+y)^2+x^2}$ and $\sqrt{(1+y)^2+x^2} \geq x$, we conclude that
-$$ \mathrm{Re} \alpha(\frac{1+y-ix}{2}) \geq \frac{1}{2} \log \frac{x}{4\pi} -  \frac{1-3y}{(1-y)^2+x^2}.$$
-For $1-3y \geq 0$ we simply discard the second term on the right-hand side; otherwise we bound $\frac{1}{(1-y)^2+x^2} \leq \frac{1}{x^2}$, and the claim follows.
+$$ \mathrm{Re} \alpha(\frac{1+y-ix}{2}) = \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} + \frac{1}{2} \log \frac{\sqrt{(1+y)^2+x^2}}{4\pi}.$$
+We bound $\sqrt{(1+y)^2+x^2} \geq x$ and calculate
+\begin{align*}
+ \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} &= - \frac{1-3y}{(1+y)^2+x^2} -\frac{4y(1+y)}{((1+y)^2+x^2)((1+y)^2+x^2)} \\
+&\geq - \frac{1-3y+\frac{4y(1+y)}{x^2}}{(1+y)^2+x^2}.
+\end{align*}
+Lower bounding the numerator by its nonnegative part and then lower bounding $(1+y)^2+x^2$ by $x^2$, we obtain the claim.
 
 Claim (iii) is immediate from \eqref{alphap-b} and the fundamental theorem of calculus.  Now we turn to (iv), (v).  From \eqref{asig} one has
 $$ \alpha(\frac{1 \pm y + ix}{2}) - \log n = \frac{1}{2} \log \frac{x}{4\pi n^2} + i \frac{\pi}{4} + O_{\leq}\left( \frac{3}{x-6}\right)$$
@@ -471,7 +474,7 @@ in the region \eqref{region}, the right-hand side is certainly bounded by $(\fra
 $$ \frac{4\pi}{x} \leq \frac{x}{4\pi n^2} \leq \frac{x}{4\pi}$$
 and hence
 $$ |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}| \leq |\log \frac{x}{4\pi} + i \frac{\pi}{2}|.$$
-In the region \eqref{region} we have  $x \geq 200$, one can check that $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-6}$ is decreasing in $x$.  Thus
+In the region \eqref{region} we have  $x \geq 200$, we see from Lemma \ref{elem-lem}(vi) (after squaring) that $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-6}$ is decreasing in $x$.  Thus
 \begin{align*}
 \frac{\pi^2}{16} + \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}
 &\leq \frac{\pi^2}{16} +  \frac{3 |\log \frac{200}{4\pi} + i \frac{\pi}{2}|}{200-6} + \frac{9}{(200-6)^2} \\
