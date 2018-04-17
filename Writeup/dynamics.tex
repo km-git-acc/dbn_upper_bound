@@ -1,5 +1,6 @@
-\section{Dynamics of zeroes}
+\section{Dynamics of zeroes}\label{dynamics-sec}
 
+In this section we control the dynamics of the zeroes of $H_t$ in order to establish Theorem \ref{ubc-0}.  We begin with the analysis of the dynamics of a single zero of $H_t$:
 
 \begin{proposition}[Dynamics of a single zero]\label{dynam}  Let $t_0 \in \R$, and let $(z_k(t_0))_{k \in \Z \backslash \{0\}}$ be an enumeration of the zeroes of $H_{t_0}$ (counting multiplicity), with the symmetry condition $z_{-k}(t_0) = -z_k(t_0)$.
 \begin{itemize}
@@ -62,7 +63,7 @@ $$ z_j + (t-t_0)^{1/2} x_j + O( |t-t_0| ).$$
 By Rouche's theorem, if $U$ is a sufficiently small neighborhood of $z_j$ then these are the only zeroes of $H_t$ in $U$ for $t$ sufficiently close to $t_0$.  The claim follows.
 \end{proof}
 
-We recall the following bound of de Bruijn:
+Next, we recall the following bound of de Bruijn:
 
 \begin{theorem}\label{debr-bound}  Suppose that $t_0 \in \R$ and $y_0 > 0$ is such that there are no zeroes $H_{t_0}(x+iy)=0$ with $x \in \R$ and $y > y_0$.  Then for any $t>t_0$, there are no zeroes $H_{t}(x+iy)=0$ with $x \in \R$ and $y > \max( y_0^2 - 2(t-t_0), 0)^{1/2}$.  In particular one has $\Lambda \leq t_0 + \frac{1}{2} y_0^2$.
 \end{theorem}
@@ -70,19 +71,20 @@ We recall the following bound of de Bruijn:
 \begin{proof} See \cite[Theorem 13]{debr}.
 \end{proof}
 
-We can combine this with the preceding proposition to obtain the following criterion for upper bounding the de Bruijn-Newman constant.
+We are now ready to prove Theorem \ref{ubc-0}.  The main step is to establish
 
-\begin{theorem}[Upper bound criterion]\label{ubc}  Suppose that $t_0 > 0, X, y_0 > 0$ obey the following hypotheses:
+\begin{proposition}[Zero-free region criterion]\label{ubc}  Suppose that $t_0, X > 0$ and $0 < y_0 \leq 1$ obey the following hypotheses:
 \begin{itemize}
-\item[(i)]  There are no zeroes $H_0(x+iy)=0$ with $0 \leq x \leq X$ and $y \geq y_0$.
-\item[(ii)]  There are no zeroes $H_{t_0}(x+iy)=0$ with $x \geq X+\sqrt{1-y_0^2}$ and $y \geq y_0$.
-\item[(iii)]  There are no zeroes $H_{t}(x+iy)=0$ with $X \leq x \geq X+\sqrt{1-y_0^2}$, $y \geq y_0$, and $0 \leq t \leq t_0$.
+\item[(i)]  There are no zeroes $H_0(x+iy)=0$ with $0 \leq x \leq X$ and $y_0 \leq y \leq 1$.
+\item[(ii)]  There are no zeroes $H_{t_0}(x+iy)=0$ with $x \geq X+\sqrt{1-y_0^2}$ and $y_0 \leq y \leq \sqrt{1-2t_0}$.
+\item[(iii)]  There are no zeroes $H_{t}(x+iy)=0$ with $X \leq x \geq X+\sqrt{1-y_0^2}$, $y_0 \leq y \leq \sqrt{1-2t}$, and $0 \leq t \leq t_0$.
 \end{itemize}
-Then there are no zeroes $H_{t_0}(x+iy)=0$ with $x \in \R$ and $y \geq y_0$.  In particular, from Theorem \ref{debr-bound}
-we have $\Lambda \leq t_0 + \frac{1}{2} y_0^2$.
-\end{theorem}
+Then there are no zeroes $H_{t_0}(x+iy) = 0$ with $x \in \R$ and $y \geq y_0$.
+\end{proposition}
 
-\begin{proof}  By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $0 \leq x \leq X$ and $y \geq y_0$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred.  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: 0 \leq	 x \leq X, y \geq y_0 \}$.  The right side $x=X$ of this boundary is ruled out by hypothesis (ii), and the left side $x=0$ is ruled out by \eqref{htdef} and the positivity of $\Phi$.  Thus by the symmetry properties of $H_{t_1}$ we must have
+\begin{proof}  It is well known that the Riemann $\xi$ function has no zeroes outside of the strip $\{ 0 \leq \mathrm{Re}(s) \leq 1 \}$, hence there are no zeroes $H_0(x+iy)=0$ with $y > 1$.  By Theorem \ref{debr-bound}, we may thus remove the upper bound constraints $y \leq 1$, $y \leq \sqrt{1-2t_0}$, and $y \leq \sqrt{1-2t}$ from (i), (ii), and (iii) respectively.
+
+By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $0 \leq x \leq X$ and $y \geq y_0$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred.  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: 0 \leq	 x \leq X, y \geq y_0 \}$.  The right side $x=X$ of this boundary is ruled out by hypothesis (ii), and the left side $x=0$ is ruled out by \eqref{htdef} and the positivity of $\Phi$.  Thus by the symmetry properties of $H_{t_1}$ we must have
 $$ H_{t_1}(x+iy_0) = 0$$
 for some $0 < x < X$.
 
@@ -100,3 +102,5 @@ whenever $y_k > y_0$.  Cross-multiplying and canceling like terms, this inequali
 $$ y_k^2 \leq (x-x_k)^2 + y_0^2.$$
 But from the hypothesis (iii) and the assumption $y_k > y_0$, we have $|x_k| \geq X+\sqrt{1-y_0^2}$, so $(x-x_k)^2 \geq 1-y_0^2$.  On the other hand from Theorem \ref{debr-bound} one has $y_k < 1$, giving the required contradiction.
 \end{proof}
+
+By combining Proposition \ref{ubc} with Theorem \ref{debr-bound}, we obtain Theorem \ref{ubc-0}, noting from \eqref{hoz}, \eqref{sas} that condition (i) of Proposition \ref{ubc} is equivalent to condition (i) of Theorem \ref{debr-bound}.

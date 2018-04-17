@@ -1,55 +1,29 @@
 \section{Estimates for large $x$}\label{initial-sec}
 
-The objective of this section is to obtain effective approximations for the expression $H_t(x+iy)$ in the region
-\begin{equation}\label{region}
-0 < t \leq \frac{1}{2}; \quad 0 \leq y \leq 1; \quad x \geq 200.
-\end{equation}
-The bounds in this region are somewhat arbitrary; one could easily replace the constants $\frac{1}{2}, 1, 200$ here by other positive numbers, at the expense of altering many of the numerical constants in the effective estimates.
-
-The strategy is to use the expansion \eqref{htz-expand}, which turns out to be an effective approximation as long as $x$ stays away from zero, so that quantities such as $s + \sqrt{t} v + \frac{t}{2} \alpha_n$ or $s + \sqrt{t} v + \frac{t}{2} \beta_N$, with $s = \frac{1+i(x+iy)}{2}$, stay away from the real axis where the poles of $\Gamma$ are located (and also where the error terms in the Riemann-Siegel approximation deteriorate).  
+We can now begin the proof of Theorem \ref{eff}.  
+The strategy is to use the expansion \eqref{htz-expand}, which turns out to be an effective approximation in the region \eqref{region}, since we will be able to ensure that quantities such as $s + \sqrt{t} v + \frac{t}{2} \alpha_n$ or $s + \sqrt{t} v + \frac{t}{2} \beta_N$, with $s = \frac{1+i(x+iy)}{2}$, stay away from the real axis where the poles of $\Gamma$ are located (and also where the error terms in the Riemann-Siegel approximation deteriorate).  
 
 Accordingly, we will need effective estimates on the functions $r_{t,n}, R_{t,N}$ appearing in Section \ref{heatflow-sec}.  We will treat these two functions separately.
 
 \subsection{Estimation of $r_{t,n}$}
 
-We will need the function
-\begin{equation}\label{M-def}
- M_0(s) \coloneqq \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \sqrt{2\pi} \exp\left( \left(\frac{s}{2}-\frac{1}{2}\right)\log \frac{s}{2} - \frac{s}{2} \right)
-\end{equation}
-defined for all $s$ away from the negative axis.  Clearly this function is non-vanishing for all such $s$.  We may compute the logarithmic derivative 
-\begin{equation}\label{alpha-def}
-\alpha \coloneqq \frac{M'_0}{M_0}
-\end{equation}
-of this function as
-\begin{equation}\label{alpha-form}
-\begin{split}
- \alpha(s) &= \frac{1}{s} + \frac{1}{s-1} - \frac{1}{2} \log \pi + \frac{1}{2} \log \frac{s}{2} - \frac{1}{2s} \\
-&= \frac{1}{2s} + \frac{1}{s-1} + \frac{1}{2} \log \frac{s}{2\pi}.
-\end{split}
-\end{equation}
-We can also compute one further derivative:
+We recall the function $\alpha(s)$ defined in \eqref{alpha-def}.  From differentiating \eqref{alpha-form} we see that
 \begin{equation}\label{alpha-deriv}
- \alpha'(s) = -\frac{1}{2s^2} - \frac{1}{(s-1)^2} + \frac{1}{2 s}.
+ \alpha'(s) = -\frac{1}{2s^2} - \frac{1}{(s-1)^2} + \frac{1}{2 s}
 \end{equation}
-If $\mathrm{Im}(s) > 3$, we conclude in particular that
+whenever $s \in \C \backslash (-\infty,1]$.  If $\mathrm{Im}(s) > 3$, we conclude in particular the useful bound
 \begin{equation}\label{alpha-deriv-bound}
 \begin{split}
  \alpha'(s) &= O_{\leq}\left( \frac{1}{2\Im(s)^2} \right) + O_{\leq}\left( \frac{1}{\Im(s)^2} \right) + O_{\leq}\left( \frac{1}{2\Im(s)} \right) \\
- &= O_{\leq}\left( \frac{1}{2(\Im(s)-3)} \right)
+ &= O_{\leq}\left( \frac{1}{2 \Im(s)-6} \right)
 \end{split}
 \end{equation}
-thanks to Lemma \ref{elem-lem}(i).  Finally, we introduce the more general functions
-\begin{equation}\label{Mt-def}
-M_t(s) \coloneqq \exp( \frac{t}{4} \alpha(s)^2 ) M_0(s)
-\end{equation}
-for any $t \geq 0$, as well as the sequence
-\begin{equation}\label{bn-def}
-b_n^t \coloneqq \exp( \frac{t}{4} \log^2 n ).
-\end{equation}
+thanks to Lemma \ref{elem-lem}(i).  
+
 
 \begin{proposition}[Estimate for $r_{t,n}$]\label{rtn-prop}  Let $\sigma$ be real, let $T>10$, let $n$ be a positive integer, and let $0 < t \leq 1/2$.  Then 
 $$ r_{t,n}(\sigma+iT) = M_t(\sigma+iT) \frac{b_n^t}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} \left(1 + O_{\leq}(\eps_{t,n}(\sigma+iT))\right)$$
-where
+where $M_t, b_n^t$ were defined in \eqref{Mt-def}, \eqref{bn-def} and
 \begin{equation}\label{eps-def}
  \eps_{t,n}(\sigma+iT) \coloneqq \exp\left( \frac{\frac{t^2}{8} |\alpha(\sigma+iT) - \log n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right)-1,
 \end{equation}
@@ -80,7 +54,7 @@ since $t \leq 1/2$, we conclude that $\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_
 \end{align*}
 From \eqref{alpha-deriv-bound} we have
 $$ \alpha'(s) = O_{\leq}\left( \frac{1}{2(T-3.08)} \right)$$
-for all $s$ on the line segment between $\sigma+iT$ and $\sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n$.  Applying Taylor's theorem with remainder to a branch of the complex logarithm of $M_0$, we conclude that
+for all $s$ on the line segment between $\sigma+iT$ and $\sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n$.  Applying Taylor's theorem with remainder to the branch of the logarithm $\log M_0$ defined in \eqref{logM}, we conclude that
 $$ M_0( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) = M_0(\sigma+iT) \exp\left( \alpha(\sigma+iT) (\sqrt{t} v + \frac{t}{2} \alpha_n) + O_{\leq}\left( \frac{|\sqrt{t} v + \frac{t}{2} \alpha_n|^2}{4(T-3.08)}  \right)\right).$$
 Inserting this estimate, writing $\alpha(\sigma+iT) = \alpha_n + \log n$, estimating $\frac{1}{6(T-0.74)}$ by $\frac{1}{6(T-3.08)}$ and $|\sqrt{t} v + \frac{t}{2} \alpha_n|^2$ by $2tv^2 + \frac{t^2}{2} |\alpha_n|^2$, and simplifying, we conclude that
 \begin{align*}
@@ -172,7 +146,7 @@ $$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = M_0(s_v) \exp\left( O_{\leq}\left(\frac{1
 From \eqref{alpha-deriv-bound} and Taylor expansion of a logarithm of $M$, we have
 $$ M_0(s_v) = M_0(iT') \exp\left( \alpha(iT') (\sigma + \sqrt{t} v) + O_{\leq}\left( \frac{(\sigma + \sqrt{t} v)^2}{4(T'-0.33)} \right) \right).$$
 From \eqref{alpha-form}, \eqref{a-def} one has
-$$ \alpha(iT') = O_{\leq}\left( \frac{1}{2T'}\right) + O_{\leq}\left( \frac{1}{T'}\right) + \frac{1}{2} \log \frac{iT'}{2\pi} = \log a + \frac{i\pi}{4} + O_{\leq}\left( \frac{3}{2T'}\right)$$
+$$ \alpha(iT') = O_{\leq}\left( \frac{1}{2T'}\right) + O_{\leq}\left( \frac{1}{T'}\right) + \frac{1}{2} \Log \frac{iT'}{2\pi} = \log a + \frac{i\pi}{4} + O_{\leq}\left( \frac{3}{2T'}\right)$$
 and hence (bounding $\frac{3}{2T'}$ by $\frac{6}{4(T'-0.33)}$)
 $$ \alpha(iT') (\sigma + \sqrt{t} v)  = (\sigma + \sqrt{t} v)  \log a + \frac{\pi i \sigma}{4} + \frac{\sqrt{t} v \pi i}{4} + O_{\leq}\left( \frac{6 |\sigma+\sqrt{t} v|}{4(T'-0.33)} \right).$$ 
 We conclude that
@@ -333,7 +307,9 @@ Inserting this and \eqref{eep}, \eqref{cop} into \eqref{rtnst}, and crudely boun
 Combining Propositions \ref{rtn-prop}, \ref{RTN-prop} with \eqref{htz-expand} and the triangle inequality (and noting that $M_0 = M_0^*$, $M_t = M_t^*$ and $\alpha = \alpha^*$, and that $U$ has magnitude $1$), we conclude the following ``$A+B-C$ approximation to $H_t$'':
 
 \begin{corollary}[$A+B-C$ approximation]\label{abc-cor}  Let $t,x,y$ obey \eqref{region}.  Set
-$$ T' \coloneqq \frac{x}{2} + \frac{\pi t}{8} $$
+\begin{equation}\label{tp-def}
+ T' \coloneqq \frac{x}{2} + \frac{\pi t}{8} 
+\end{equation}
 and then define $a,N,p,U,C_0(p)$ using \eqref{a-def}, \eqref{N-def}, \eqref{U-def}, \eqref{C0-def}.  Define the quantities
 \begin{align*}
 A(x+iy) &\coloneqq M_t(\frac{1-y+ix}{2}) \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y+ix}{2}  +\frac{t}{2} \alpha(\frac{1-y+ix}{2})}}  \\
@@ -362,43 +338,26 @@ E_{C,0}(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| (1 + \t
 \end{align*}
 \end{corollary}
 
-It will be convenient to normalize by the first term
-\begin{equation}\label{bo-def} 
-B_0(x+iy) \coloneqq M_t(\frac{1+y-ix}{2}) 
-\end{equation} 
-of $B(x+iy)$.  This expression is non-zero, and we conclude (under the hypotheses of Corollary \ref{ab-cor}) that
+We can now prove Theorem \ref{eff}.  Dividing by the expression $B_0$ from \eqref{bo-def}, and using \eqref{ft-def}, we conclude that
 \begin{equation}\label{ratio-form-refined}
-\frac{H_t(x+iy)}{B_0(x+iy)} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} + \frac{C(x+iy)}{B_0(x+iy)} + O_{\leq}\left( e_A + e_B + e_{C} \right)
+\frac{H_t(x+iy)}{B_0(x+iy)} = f_t(x+iy) + \frac{C(x+iy)}{B_0(x+iy)} + O_{\leq}\left( e_A + e_B + e_{C} \right)
 \end{equation}
 and
 \begin{equation}\label{ratio-form}
-\frac{H_t(x+iy)}{B_0(x+iy)} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
+\frac{H_t(x+iy)}{B_0(x+iy)} = f_t(x+iy) + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
 \end{equation}
 where
 \begin{align}
-\gamma \coloneqq \gamma(x+iy) &\coloneqq \frac{M_t(\frac{1-y+ix}{2})}{M_t(\frac{1+y-ix}{2})} \label{lambda-def} \\
-s_* = s_*(x+iy) &\coloneqq \frac{1+y-ix}{2} +\frac{t}{2} \alpha(\frac{1+y-ix}{2}) \label{sn-def}\\
-\kappa \coloneqq \kappa(x+iy) &\coloneqq \frac{t}{2} (\alpha(\frac{1-y+ix}{2}) - \alpha(\frac{1+y+ix}{2})) \label{kappa-def}\\
 e_A \coloneqq e_A(x+iy) &\coloneqq |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\mathrm{Re}(s) + \mathrm{Re}(\kappa)}} \eps_{t,n}(\frac{1-y+ix}{2}) \label{ea-def}\\
 e_B \coloneqq e_B(x+iy) &\coloneqq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s)}} \eps_{t,n}(\frac{1+y+ix}{2}) \label{eb-def} \\
 e_{C} \coloneqq e_{C}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} (\tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})).\label{ecc-def}\\
-e_{C,0} \coloneqq e_{C,0}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} (1 + \tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})).\label{ec-def}
+e_{C,0} \coloneqq e_{C,0}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} (1 + \tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})),\label{ec-def}
 \end{align}
+where $\gamma,s_*,\kappa$ were defined in \eqref{lambda-def}, \eqref{sn-def}, \eqref{kappa-def}.  Note also from \eqref{tp-def}, \eqref{a-def}, \eqref{N-def} that $N$ is given by \eqref{N-def-main}.
 
-It will be convenient to bound these quantities by expressions that depend on $N$ rather than $x$.  Observe that 
-$$ N = \lfloor \sqrt{\frac{T'}{2\pi}} \rfloor = \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor$$
-and hence
-\begin{equation}\label{xn}
-x_N \leq x < x_{N+1}
-\end{equation}
-where 
-\begin{equation}\label{xn-def}
-x_N \coloneqq 4\pi N^2 - \frac{\pi t}{4}.
-\end{equation}
-Similarly one has
-$$ 2\pi N^2 \leq T' < 2\pi (N+1)^2.$$
+To conclude the proof of Theorem \ref{eff} it thus suffices to obtain the following estimates.
 
-\begin{proposition}[Estimates]\label{estimates}  Let the notation and hypotheses be as in Corollary \ref{abc-cor}, and let $\gamma, \kappa, e_A, e_B, e_{C,0}, e_C$ be defined by \eqref{lambda-def}-\eqref{ec-def}.
+\begin{proposition}[Estimates]\label{estimates}  Let the notation and hypotheses be as above. 
 \begin{itemize}
 \item[(i)]  One has
 $$ |\gamma| \leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2} $$
@@ -407,9 +366,9 @@ $$ \mathrm{Re} s_* \geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{(
 \item[(iii)]  One has
 $$ \kappa = O_{\leq} \left( \frac{ty}{2(x-6)} \right).$$
 \item[(iv)]  One has
-$$ e_A \leq |\gamma| N^{|\kappa|} \sum_{n=1}^N n^{y} \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{\frac{x}{2}-3.33} \right)-1 \right).$$
+$$ e_A \leq |\gamma| N^{|\kappa|} \sum_{n=1}^N n^{y} \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi n^2} + 0.626}{\frac{x}{2}-6.66} \right)-1 \right).$$
 \item[(v)]  One has
-$$ e_B \leq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{32} \log^2 \frac{x}{4\pi n^2} + 0.313}{\frac{x}{2}-3.33} \right)-1 \right).$$
+$$ e_B \leq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi n^2} + 0.626}{x-6.66} \right)-1 \right).$$
 \item[(vi)] One has
 $$ e_{C} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(\frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.92}{x-6.66}\right).
 $$
@@ -419,10 +378,11 @@ $$
 \end{itemize}
 \end{proposition}
 
-\begin{proof}
+Note that to obtain the bound \eqref{ec-bound} from Proposition \ref{estimates}(vi) we may simply use the inequality $1+u \leq \exp(u)$ for any $u \in \R$, and then bound $\frac{1}{x-6.66} \leq \frac{1}{x-8.52}$.
 
+\begin{proof}
 From the mean value theorem we have
-$$ \log \gamma = -y \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| $$
+$$ \log|\gamma| = -y \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| $$
 for some $\frac{1-y}{2} \leq \sigma \leq \frac{1+y}{2}$.  From \eqref{alpha-def}, \eqref{Mt-def} we have
 $$ \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| = \mathrm{Re}\left( \frac{t}{2} \alpha\left(\sigma+\frac{ix}{2}\right) \alpha'\left(\sigma+\frac{ix}{2}\right) + \alpha\left(\sigma+\frac{ix}{2}\right) \right).$$
 From \eqref{alpha-deriv-bound} one has
@@ -432,20 +392,20 @@ From \eqref{alpha-deriv-bound} one has
 and from Taylor expansion we also have
 $$ \alpha(\sigma+\frac{ix}{2}) = \alpha\left(\frac{ix}{2}\right) + O_{\leq}\left( \frac{\sigma}{x-6} \right);$$
 from \eqref{alpha-form} one has
-$$ \alpha\left(\frac{ix}{2}\right) = O_{\leq}\left(\frac{1}{x}\right) + O_{\leq}\left(\frac{1}{x}\right) + \frac{1}{2} \log \frac{ix}{4\pi} 
+$$ \alpha\left(\frac{ix}{2}\right) = O_{\leq}\left(\frac{1}{x}\right) + O_{\leq}\left(\frac{1}{x}\right) + \frac{1}{2} \Log \frac{ix}{4\pi} 
 = \frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2}{x} \right) $$
 and hence
 \begin{equation}\label{asig}
  \alpha(\sigma+\frac{ix}{2}) = \frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right).
 \end{equation}
 Inserting these bounds, we conclude that
-$$ \log \gamma = -y \mathrm{Re} \left( \left(\frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right)\right) \left(1 + O_{\leq}\left(\frac{t}{2(x-6)}\right)\right) \right).$$
+$$ \log|\gamma| = -y \mathrm{Re} \left( \left(\frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right)\right) \left(1 + O_{\leq}\left(\frac{t}{2(x-6)}\right)\right) \right).$$
 Expanding this out, we have
-$$ \log \gamma = -y (\frac{1}{2} \log \frac{x}{4\pi} + O_{\leq}\left( \frac{2+\sigma + \frac{t}{4} \log \frac{x}{4\pi} + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)}}{x-6} \right)).$$
+$$ \log|\gamma| = -y (\frac{1}{2} \log \frac{x}{4\pi} + O_{\leq}\left( \frac{2+\sigma + \frac{t}{4} \log \frac{x}{4\pi} + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)}}{x-6} \right)).$$
 In the region \eqref{region}, which implies that $0 \leq \sigma \leq 1$, we have
 $$ 2 + \sigma + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)} \leq 3.21$$
 and thus
-$$ \log \gamma \leq -\frac{y}{2} \log \frac{x}{4\pi} + y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6}.$$
+$$ \log|\gamma| \leq -\frac{y}{2} \log \frac{x}{4\pi} + y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6}.$$
 The function $x \mapsto \frac{\log \frac{x}{4\pi}}{x-6}$ is decreasing for $x \geq 200$ thanks to Lemma \ref{elem-lem}(vi), hence
 $$ y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6} \leq y \frac{\frac{t}{4} \log \frac{200}{4\pi} + 3.21}{200-6} \leq 0.02 y.$$
 Claim (i) follows.  We remark that one can improve the $e^{0.02 y}$ factor here by Taylor expanding $\alpha$ to second order rather than first order, but we will not need to do so here.
@@ -495,7 +455,7 @@ $$ \frac{|M_0(iT')|}{|M_0(\frac{1+y+ix}{2})|} = \exp\left( \mathrm{Re}\left( \le
 For $0 \leq y \leq 1$ and $0 < t \leq \frac{1}{2}$ we have
 $$\frac{|-\frac{1+y}{2}+\frac{\pi i t}{8}|^2}{2} \leq 0.52$$
 and from \eqref{alpha-form} one has
-$$ \alpha(iT') = O_{\leq}\left(\frac{1}{2T'}\right) +  O_{\leq}\left(\frac{1}{T'}\right) + \frac{1}{2} \log \frac{iT'}{2\pi} = \frac{1}{2} \log \frac{T'}{2\pi} + \frac{i\pi}{4} + O_{\leq}( \frac{3}{2T'} ) $$
+$$ \alpha(iT') = O_{\leq}\left(\frac{1}{2T'}\right) +  O_{\leq}\left(\frac{1}{T'}\right) + \frac{1}{2} \Log \frac{iT'}{2\pi} = \frac{1}{2} \log \frac{T'}{2\pi} + \frac{i\pi}{4} + O_{\leq}( \frac{3}{2T'} ) $$
 and hence
 $$
 \frac{|M_0(iT')|}{|M_0\left(\frac{1+y+ix}{2}\right)|}
