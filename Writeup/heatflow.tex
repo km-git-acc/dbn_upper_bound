@@ -1,6 +1,6 @@
 \section{Applying the fundamental solution for the heat equation}\label{heatflow-sec}
 
-We can write $H_t$ in terms of $H_0$ using the fundamental solution to the heat equation.  Namely, for any $t>0$, we have from \eqref{gaussian} that
+As discussed in the introduction, we will establish Theorem \ref{eff} by writing $H_t$ in terms of $H_0$ using the fundamental solution to the heat equation.  Namely, for any $t>0$, we have from \eqref{gaussian} that
 $$
 e^{tu^2} = \int_\R e^{\pm 2 \sqrt{t} vu} \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv$$
 for any complex $u$ and either choice of sign $\pm$. Multiplying by $e^{\pm i zu}$ and averaging, we conclude that
@@ -13,7 +13,7 @@ for any complex $z$.  Using \eqref{hoz}, we thus have
  H_t(z) = \int_\R \frac{1}{8} \xi\left( \frac{1+iz}{2} + \sqrt{t} v \right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
 \end{equation}
 
-\begin{remark}  We have found numerically that the formula \eqref{htz} gives a fast and accurate means to compute $H_t(z)$ when $z$ is of moderate size, e.g. if $z = x+iy$ with $|x| \leq 10^6$ and $|y| \leq 1$.  However, we will not need to directly compute the right-hand side of \eqref{htz} for our application to bounding $\Lambda$, as we will only need to control $H_t(x+iy)$ for large values of $x$, and we will shortly develop tractable approximations of Riemann-Siegel type that are suitable for this regime.
+\begin{remark}  We have found numerically that the formula \eqref{htz} gives a fast and accurate means to compute $H_t(z)$ when $z$ is of moderate size, e.g., if $z = x+iy$ with $|x| \leq 10^6$ and $|y| \leq 1$.  However, we will not need to directly compute the right-hand side of \eqref{htz} for our application to bounding $\Lambda$, as we will only need to control $H_t(x+iy)$ for large values of $x$, and we will shortly develop tractable approximations of Riemann-Siegel type that are suitable for this regime.
 \end{remark}
 
 We now combine this formula with expansions of the Riemann $\xi$-function.  From \cite[(2.10.6)]{titch} we have the Riemann-Siegel formula

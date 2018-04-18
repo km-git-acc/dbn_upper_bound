@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  15 APR 2018 19:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  17 APR 2018 16:38
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -316,56 +316,56 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 (debruijn.aux)
 \openout1 = `debruijn.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 88.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 88.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 89.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omltxmi.fd"
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 88.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 88.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 89.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 89.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omstxsy.fd"
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 88.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 88.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 89.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omxtxex.fd"
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 88.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 88.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 89.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxexa.fd"
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 88.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txr.fd"
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 88.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxsya.fd"
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 88.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxsyb.fd"
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 88.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 88.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxmia.fd"
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 88.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 89.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxsyc.fd"
 File: utxsyc.fd 2000/12/15 v3.1
@@ -482,169 +482,92 @@ Package grfext Info: Graphics extension search list:
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (intro.tex [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]) (dynamics.tex [2] [3] [4] [5]) (heatf
-low.tex [6]) (elementary.tex [7] [8]) (initial.tex
-[9] [10]
-Overfull \hbox (38.62108pt too wide) detected at line 71
+ (intro.tex [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
+Overfull \hbox (51.60272pt too wide) in paragraph at lines 116--117
+[]\OT1/txr/m/n/10.95 In the as-ymp-totic limit $\OML/txmi/m/it/10.95 x \OMS/txsy/m/n/10.95 ! 1$\OT1/txr/m/n/10.95 , one 
+eas-ily sees that $\OML/txmi/m/it/10.95 e[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 e[] \OT1/txr/m/n/10.95 = \OML/txmi
+/m/it/10.95 O\OT1/txr/m/n/10.95 ([])$ and $\OML/txmi/m/it/10.95 e[] \OT1/txr/m/n/10.95 = \OML/txmi/m/it/10.95 O\OT1/txr/
+m/n/10.95 (\OML/txmi/m/it/10.95 x[] []\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  [] [][] \OML/txmi/m/it/10.95 x\OT1/txr/m/
+n/10.95 ))$,
+ []
+
+[4] [5]) (dynamics.tex [6] [7] [8]) (heatflow.tex [9] [10]) (elementary.tex [11] [12]) (initial.tex [13]
+Overfull \hbox (38.62108pt too wide) detected at line 45
 []
  []
 
-[11] [12]
-Overfull \hbox (6.45036pt too wide) detected at line 168
+[14] [15]
+Overfull \hbox (6.45036pt too wide) detected at line 142
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
 txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] []
  []
 
 
-Overfull \hbox (46.8749pt too wide) detected at line 171
+Overfull \hbox (46.8749pt too wide) detected at line 145
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it
 /10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
-[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23]) (dirichlet.tex [24] [25] [26]) (lowx.tex [27]
-Overfull \hbox (31.00629pt too wide) detected at line 32
+[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]) (dirichlet.tex [27] [28] [29]) (zerofree.tex [30]
+Overfull \hbox (12.20158pt too wide) detected at line 52
 []
  []
 
 
-Overfull \hbox (31.00629pt too wide) in alignment at lines 31--32
-[] [] 
- []
-
-
-Overfull \hbox (37.86388pt too wide) detected at line 42
-[]
- []
-
-
-Overfull \hbox (37.86388pt too wide) in alignment at lines 41--42
-[] [] 
- []
-
-[28]
-Overfull \hbox (65.73398pt too wide) detected at line 80
-\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 J[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 b; \OT1/txr/m/n/10.95 )\OMS/txsy/
-m/n/10.95 j  []\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  \OML/txmi/m/it/10.95 t[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/1
-0.95 tX[] \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 e[] []\OT1/txr/m/n/10.95 (4\OML/txmi/m/it/10.95 \OT1/txr/m/n/10.9
-5 ) \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 aX\OT1/txr/m/n/10.95 ) [] \O
-ML/txmi/m/it/10.95 :
- []
-
-
-Overfull \hbox (100.30223pt too wide) detected at line 103
-\OML/txmi/m/it/10.95 I[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 b; \OT1/txr/m/n/10.95 ) = [][] [](\OML/txmi/m/it/10.95
- t\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  \OML/txmi/m/it/10.95 [] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 X[] \OT1/t
-xr/m/n/10.95 + 2\OML/txmi/m/it/10.95 Xv \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 v[] \OT1/txr/m/n/10.95 + 2\OML/txmi/m/
-it/10.95 i\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 X \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 )) \
-OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 e[]e[] []\OT1/txr/m/n/10.95 (4\OML/txmi/m/it/10.95 \OT1/txr/m/n/10.95 ) \OMS
-/txsy/m/n/10.95   \OML/txmi/m/it/10.95 ie[]e[] []\OT1/txr/m/n/10.95 (4\OML/txmi/m/it/10.95 \OT1/txr/m/n/10.95 ) \OMS/t
-xsy/m/n/10.95   \OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 ix\OT1/txr/m/n/10.95 (\OML/txmi/m/it/1
-0.95 X \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) + \OML/txmi/m/it/10.95 aX \OT1/txr/m/n/10.95 + \O
-ML/txmi/m/it/10.95 av \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 ia\OT1/txr/m/n/10.95 ) \OML/txmi/m/it/10.95 dv
- []
-
-
-Overfull \hbox (23.77626pt too wide) detected at line 105
-\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 I[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 b; \OT1/txr/m/n/10.95 )\OMS/txsy/
-m/n/10.95 j  []\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  \OML/txmi/m/it/10.95 t[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/1
-0.95 tX[] \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 e[] []\OT1/txr/m/n/10.95 (4\OML/txmi/m/it/10.95 \OT1/txr/m/n/10.9
-5 ) \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 aX\OT1/txr/m/n/10.95 ) [][] 
-[](\OML/txmi/m/it/10.95 tv[] \OT1/txr/m/n/10.95 + 2\OML/txmi/m/it/10.95 tXv \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 
-e[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 e[] \OMS/txsy/m/n/10.95   \OT1/txr/m/n/10.95 1) [](4\OML/txmi/m/it/10.95 \O
-T1/txr/m/n/10.95 ) + \OML/txmi/m/it/10.95 av\OT1/txr/m/n/10.95 ) \OML/txmi/m/it/10.95 dv:
- []
-
-[29]
-Overfull \hbox (71.17871pt too wide) detected at line 107
-\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 J[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 b; \OT1/txr/m/n/10.95 )\OMS/txsy/
-m/n/10.95 j  []\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  \OML/txmi/m/it/10.95 t[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/1
-0.95 tX[] \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 e[] []\OT1/txr/m/n/10.95 (4\OML/txmi/m/it/10.95 \OT1/txr/m/n/10.9
-5 ) \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 aX\OT1/txr/m/n/10.95 ) [][] 
-[](\OML/txmi/m/it/10.95 tv[] \OT1/txr/m/n/10.95 + 2\OML/txmi/m/it/10.95 tXv \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 
-e[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 e[] \OMS/txsy/m/n/10.95   \OT1/txr/m/n/10.95 1) [](4\OML/txmi/m/it/10.95 \O
-T1/txr/m/n/10.95 ) + \OML/txmi/m/it/10.95 av\OT1/txr/m/n/10.95 )(\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 X \OT1/txr/m/
-n/10.95 + \OML/txmi/m/it/10.95 i\OMS/txsy/m/n/10.95 j \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) \
-OML/txmi/m/it/10.95 dv:
- []
-
-
-Overfull \hbox (39.60028pt too wide) detected at line 150
-[]
- []
-
-
-Overfull \hbox (39.60028pt too wide) in alignment at lines 149--150
-[] [] 
- []
-
-
-Overfull \hbox (30.60028pt too wide) detected at line 158
-[]
- []
-
-
-Overfull \hbox (30.60028pt too wide) in alignment at lines 157--158
-[] [] 
- []
-
-[30]
-Overfull \hbox (42.86375pt too wide) detected at line 182
-[]
- []
-
-) (zerofree.tex [31] [32]
-Overfull \hbox (3.46432pt too wide) in paragraph at lines 51--53
-\OT1/txr/m/n/10.95 From Lemma 5.1[](vi), the quan-ti-ties $[]$ is mono-tone de-creas-ing in $\OML/txmi/m/it/10.95 x$ \OT
-1/txr/m/n/10.95 in [], hence $[]$
- []
-
-
-Overfull \hbox (8.69379pt too wide) detected at line 55
+Overfull \hbox (8.69379pt too wide) detected at line 73
 \OML/txmi/m/it/10.95 e[] \OMS/txsy/m/n/10.95  [][] [] [] []
  []
 
-
-Overfull \hbox (169.2075pt too wide) detected at line 61
+[31]
+Overfull \hbox (169.2075pt too wide) detected at line 79
 []
  []
 
 
-Overfull \hbox (61.48508pt too wide) detected at line 90
+Overfull \hbox (61.7023pt too wide) detected at line 98
 \OMS/txsy/m/n/10.95 j[]j \OT1/txr/m/n/10.95 = \OMS/txsy/m/n/10.95 j[]j  [] []\OT1/txr/m/n/10.95 ([] + []) + \OMS/txsy/m
 /n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 N[] [] []\OT1/txr/m/n/10.95 ([] + ([] [] + \OM
 L/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + [])([] + []))
  []
 
-[33]
-Overfull \hbox (59.90169pt too wide) detected at line 120
+[32]
+Overfull \hbox (60.0103pt too wide) detected at line 134
 \OMS/txsy/m/n/10.95 j[]j  [] []\OT1/txr/m/n/10.95 ([] + []) + \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/
 10.95 j [] []\OT1/txr/m/n/10.95 ([] + [] + [])\OML/txmi/m/it/10.95 :
  []
 
-[34] [35]) (asymptotic.tex [36] [37] [38] [39]
-Overfull \hbox (65.74248pt too wide) detected at line 106
+
+Overfull \hbox (65.17635pt too wide) detected at line 153
+[] \OT1/txr/m/n/10.95 = [] []([] \OMS/txsy/m/n/10.95   [] [] \OML/txmi/m/it/10.95 n\OT1/txr/m/n/10.95 ) + \OML/txmi/m/it
+/10.95  [] []\OT1/txr/m/n/10.95 ([] \OMS/txsy/m/n/10.95   [] [] \OML/txmi/m/it/10.95 n \OT1/txr/m/n/10.95 + [](\OML/txm
+i/m/it/10.95 \OT1/txr/m/n/10.95 ([])[] \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ([])))\OML/txmi
+/m/it/10.95 :
+ []
+
+[33] [34] [35]) (asymptotic.tex [36] [37] [38]
+Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
 
-[40] [41] [42] [43])
+[39] [40] [41])
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no “ in font txr!
- [44]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 228.
+ [42]
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 229.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
-) [45] (debruijn.aux) ) 
+) [43] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
- 5843 strings out of 493303
- 83951 string characters out of 3138857
- 159784 words of memory out of 3000000
- 9078 multiletter control sequences out of 15000+200000
+ 5837 strings out of 493303
+ 83841 string characters out of 3138857
+ 159731 words of memory out of 3000000
+ 9075 multiletter control sequences out of 15000+200000
  39837 words of font info for 101 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,18n,38p,1490b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,18n,38p,1490b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/
@@ -653,9 +576,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKT
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
 fonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (45 pages, 287517 bytes).
+Output written on debruijn.pdf (43 pages, 284878 bytes).
 PDF statistics:
- 201 PDF objects out of 1000 (max. 8388607)
+ 195 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
