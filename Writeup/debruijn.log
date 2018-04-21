@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  18 APR 2018 16:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  21 APR 2018 16:24
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -510,17 +510,23 @@ xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.
 /10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
-[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]) (dirichlet.tex [27] [28] [29]) (zerofree.tex [30]
+[16] [17] [18] [19] [20] [21] [22] [23]
+Overfull \hbox (16.23422pt too wide) in paragraph at lines 384--385
+[]\OT1/txr/m/n/10.95 From the mean value the-o-rem (and not-ing that $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML
+/txmi/m/it/10.95 M[]$\OT1/txr/m/n/10.95 , so that $[] = []$),
+ []
+
+[24] [25] [26]) (dirichlet.tex [27] [28] [29]) (zerofree.tex [30]
 Overfull \hbox (12.20158pt too wide) detected at line 52
 []
  []
 
-
+[31]
 Overfull \hbox (8.69379pt too wide) detected at line 73
 \OML/txmi/m/it/10.95 e[] \OMS/txsy/m/n/10.95  [][] [] [] []
  []
 
-[31]
+
 Overfull \hbox (169.2075pt too wide) detected at line 79
 []
  []
@@ -538,7 +544,7 @@ Overfull \hbox (60.0103pt too wide) detected at line 134
 10.95 j [] []\OT1/txr/m/n/10.95 ([] + [] + [])\OML/txmi/m/it/10.95 :
  []
 
-
+[33]
 Overfull \hbox (65.17635pt too wide) detected at line 153
 [] \OT1/txr/m/n/10.95 = [] []([] \OMS/txsy/m/n/10.95   [] [] \OML/txmi/m/it/10.95 n\OT1/txr/m/n/10.95 ) + \OML/txmi/m/it
 /10.95  [] []\OT1/txr/m/n/10.95 ([] \OMS/txsy/m/n/10.95   [] [] \OML/txmi/m/it/10.95 n \OT1/txr/m/n/10.95 + [](\OML/txm
@@ -546,20 +552,20 @@ i/m/it/10.95 \OT1/txr/m/n/10.95 ([])[] \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.
 /m/it/10.95 :
  []
 
-[33] [34] [35]) (asymptotic.tex [36] [37] [38]
+[34] [35]) (asymptotic.tex [36] [37] [38]
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
 
-[39] [40] [41])
+[39] [40] [41] [42])
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no “ in font txr!
- [42]
+ [43]
 LaTeX Font Info:    Try loading font information for OT1+txtt on input line 229.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
-) [43] (debruijn.aux) ) 
+) [44] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
  5837 strings out of 493303
  83841 string characters out of 3138857
@@ -567,7 +573,7 @@ Here is how much of TeX's memory you used:
  9075 multiletter control sequences out of 15000+200000
  39837 words of font info for 101 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,18n,38p,1490b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,18n,38p,1490b,340s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/
@@ -576,9 +582,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKT
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
 fonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (43 pages, 284986 bytes).
+Output written on debruijn.pdf (44 pages, 286990 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
+ 198 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

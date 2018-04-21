@@ -381,7 +381,7 @@ $$
 Note that to obtain the bound \eqref{ec-bound} from Proposition \ref{estimates}(vi) we may simply use the inequality $1+u \leq \exp(u)$ for any $u \in \R$, and then bound $\frac{1}{x-6.66} \leq \frac{1}{x-8.52}$.
 
 \begin{proof}
-From the mean value theorem we have
+From the mean value theorem (and noting that $M_t = M_t^*$, so that $\left|M_t\left(\frac{1+y-ix}{2}\right)\right| = \left|M_t\left(\frac{1+y+ix}{2}\right)\right|$), we have
 $$ \log|\gamma| = -y \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| $$
 for some $\frac{1-y}{2} \leq \sigma \leq \frac{1+y}{2}$.  From \eqref{alpha-def}, \eqref{Mt-def} we have
 $$ \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| = \mathrm{Re}\left( \frac{t}{2} \alpha\left(\sigma+\frac{ix}{2}\right) \alpha'\left(\sigma+\frac{ix}{2}\right) + \alpha\left(\sigma+\frac{ix}{2}\right) \right).$$
