@@ -93,13 +93,13 @@ It now suffices to establish the following claims:
 
 We begin with claim (i).  We need some derivative estimates on the quantity $f_t(x+iy )$.
 
-\begin{lemma} In the region \eqref{region}, we have
+\begin{lemma} In the region \eqref{region}, and away from the jump discontinuities of $N$, we have
 $$ |\frac{\partial f_t}{\partial x}| = |\frac{\partial f_t}{\partial y}| \leq  \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} (\frac{\log n}{2} + \frac{t \log n}{4(x-6)}) + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^{y} }{n^{\mathrm{Re}(s_{*})}}
 ( \frac{t \log n}{4(x-6)} + (\log \frac{|1+y+ix|}{4\pi} + \pi + \frac{3}{x}) (\frac{1}{2} + \frac{t}{4(x-6)})) $$
 and
 \begin{align*} |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{2 \log n}{x-6}) \\
 &\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^y}{n^{\mathrm{Re}(s_{*})}}
-(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6})).
+(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6})).
 \end{align*}
 \end{lemma}
 
@@ -156,6 +156,8 @@ From \eqref{alpha-deriv-bound}, \eqref{alpha-form} we have
  \alpha(\frac{1 \pm y+ix}{2}) &= \alpha(\frac{ix}{2}) + O_{\leq}( \frac{1}{x-6} ) \\
 &= \frac{1}{2} \log \frac{x}{4\pi} + \frac{\pi i}{4} + O_{\leq}( \frac{4}{x-6} ) 
 \end{align*}
+and hence (since $\alpha = \alpha^*$)
+$$ \alpha(\frac{1 \pm y-ix}{2}) = \frac{1}{2} \log \frac{x}{4\pi} - \frac{\pi i}{4} + O_{\leq}( \frac{4}{x-6} ) $$
 so in particular
 $$ \alpha(\frac{1-y+ix}{2}) - \alpha(\frac{1+y-ix}{2}) = \frac{\pi i}{2} + O_{\leq}( \frac{8}{x-6} )$$
 and
@@ -166,7 +168,7 @@ We conclude from the triangle inequality that
 \begin{align*}
  |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{2 \log n}{x-6}) \\
 &+ |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
-(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6}))
+(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6}))
 \end{align*}
 giving the second claim.
 \end{proof}
