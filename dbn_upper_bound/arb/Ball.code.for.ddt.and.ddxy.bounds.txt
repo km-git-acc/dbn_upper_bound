@@ -1,3 +1,5 @@
+#Created by Rudolph - https://github.com/rudolph-git-acc
+
 from mpmath import *\
 mp.dps=80\
 bpi  = R(mp.pi());\
