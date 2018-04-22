@@ -99,7 +99,7 @@ $$ |\frac{\partial f_t}{\partial x}| = |\frac{\partial f_t}{\partial y}| \leq  \
 and
 \begin{align*} |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{2 \log n}{x-6}) \\
 &\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^y}{n^{\mathrm{Re}(s_{*})}}
-(\frac{t}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi t}{4} \log n + \frac{t}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6})).
+(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6})).
 \end{align*}
 \end{lemma}
 
@@ -142,15 +142,15 @@ Writing $\mathrm{Re}(s_{**}) = \mathrm{Re}(s_*) - y + \mathrm{Re}(\kappa)$, we t
 
 Now we estimate the time derivative.  Since
 \begin{align*}
- \frac{\partial}{\partial t} \log b_n^t & \frac{1}{4} \log^2 n \\
+ \frac{\partial}{\partial t} \log b_n^t &= \frac{1}{4} \log^2 n \\
  \frac{\partial}{\partial t} s_* &= \frac{1}{2} \alpha(\frac{1+y-ix}{2}) \\
  \frac{\partial}{\partial t} s_{**} &= \frac{1}{2} \alpha(\frac{1-y+ix}{2}) \\
- \frac{\partial}{\partial t} \log \gamma &= \frac{t}{4} (\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))
+ \frac{\partial}{\partial t} \log \gamma &= \frac{1}{4} (\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))
 \end{align*}
 we see from differentiating \eqref{ftne} that, we obtain
 $$ \frac{\partial f_t}{\partial t} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} (\frac{\log^2 n}{4} - \frac{\alpha(\frac{1+y-ix}{2})}{2} \log n) 
 + \gamma \sum_{n=1}^N \frac{b_n^t}{n^{s_{**}}}
-(\frac{\log^2 n}{4} - \frac{\alpha(\frac{1-y+ix}{2})}{2} \log n + \frac{t}{4} (\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))).$$
+(\frac{\log^2 n}{4} - \frac{\alpha(\frac{1-y+ix}{2})}{2} \log n + \frac{1}{4} (\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))).$$
 From \eqref{alpha-deriv-bound}, \eqref{alpha-form} we have
 \begin{align*}
  \alpha(\frac{1 \pm y+ix}{2}) &= \alpha(\frac{ix}{2}) + O_{\leq}( \frac{1}{x-6} ) \\
@@ -166,7 +166,7 @@ We conclude from the triangle inequality that
 \begin{align*}
  |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{2 \log n}{x-6}) \\
 &+ |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
-(\frac{t}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi t}{4} \log n + \frac{t}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6}))
+(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6}))
 \end{align*}
 giving the second claim.
 \end{proof}
