@@ -1,0 +1,264 @@
+default(parisizemax,2*10^9);
+bt(n,t)=return(n^((t/4)*log(n)));
+alpha1(s) = 1/(2*s) + 1/(s-1) + (1/2)*log(s/(2*Pi));
+H01(s) = (1/2)*s*(s-1)*Pi^(-s/2)*sqrt(2*Pi)*exp((s/2-1/2)*log(s/2)-s/2);
+
+abbeff(x,y,t) = {       
+    s = (1 - y + I*x)/2; 
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    alph1 = alpha1(s);
+    alph2 = alpha1(1-s);
+    A0 = (1/8)*exp((t/4)*alph1^2)*H01(s);
+    B0 = (1/8)*exp((t/4)*alph2^2)*H01(1-s);
+    A_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph1 - s));
+    B_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph2 - (1-s)));
+    return (B_sum + (A0/B0)*A_sum);
+}
+
+abbeff_xconst(X,y,t,num=5) = {    
+    N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+    thtarr = vector(num,v,(1-y)*(v-1)/(num-1));
+    sarr = vector(num,v,(1-y+I*X-thtarr[v])/2);
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));
+    bexpoarr = vector(num,v,(1+y)/2 + (t/2)*alpha1(1-sarr[v]) - I*X/2 + thtarr[v]/2);
+    aexpoarr = vector(num,v,(1-y)/2 + (t/2)*alpha1(sarr[v]) + I*X/2 - thtarr[v]/2);
+    bsums = vector(num,v,sum(n=1,N,n^((t/4)*log(n) - bexpoarr[v])));
+    asums = vector(num,v,sum(n=1,N,n^((t/4)*log(n) - aexpoarr[v])));
+    ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+    return(ests);
+}
+
+abbeff_yconst(X,y,t,num=5) = {    
+    N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+    thtarr = vector(num,v,(v-1)/(num-1));
+    sarr = vector(num,v,(1-y+I*(X+thtarr[v]))/2);
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));
+    bexpoarr = vector(num,v,(1+y)/2 + (t/2)*alpha1(1-sarr[v]) - I*(X+thtarr[v])/2);
+	aexpoarr = vector(num,v,(1-y)/2 + (t/2)*alpha1(sarr[v]) + I*(X+thtarr[v])/2);
+    bsums = vector(num,v,sum(n=1,N,n^((t/4)*log(n) - bexpoarr[v])));
+    asums = vector(num,v,sum(n=1,N,n^((t/4)*log(n) - aexpoarr[v])));
+    ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+    return(ests);
+}
+
+abbeff_multieval_general_xconst(X,y,t,num=5,H=10,npre=1000,expterms=4)={
+    N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+    if(N<=npre, print("N smaller than npre. Please use abbeff_xconst directly");return(0););
+    thtarr = vector(num,v,(1-y)*(v-1)/(num-1));
+    sarr = vector(num,v,(1-y+I*X-thtarr[v])/2);
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));
+    
+    if(N>npre,
+        numn0 = (N - npre)\H;
+        n0 = vector(numn0,v,npre+(v-1)*H);
+        n0hmat = matrix(numn0,H,v,h,(n0[v]+h)^(I*X/2));
+        n0htmat = matrix(numn0,H,v,h,exp((t/4)*log(1+h/n0[v])^2));
+        n0hlogmat = matrix(numn0,H,v,h,log(1+h/n0[v]));
+        n0sumsbmat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)*n0hmat[v,h]));
+        n0sumsamat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)/n0hmat[v,h]));
+        
+        y_bexpo = vector(num,v,-(1+y)/2 - (t/2)*alpha1(1-sarr[v]) - thtarr[v]/2);
+        y_aexpo = vector(num,v,-(1-y)/2 - (t/2)*alpha1(sarr[v]) + thtarr[v]/2);
+        y_bexpolarge = vector(num,v,y_bexpo[v] + I*X/2);
+        y_aexpolarge = vector(num,v,y_aexpo[v] - I*X/2);
+        
+        n0thtbmat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + y_bexpo[v]);
+        n0thtamat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + y_aexpo[v]);
+        
+        bsumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + y_bexpolarge[v])));
+        bsumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtbmat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsbmat[w,idx]*n0thtbmat[w,v]^(idx-1)/factorial(idx-1))));
+        bsumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + y_bexpolarge[v])));
+        bsums    = vector(num,v,bsumarr1[v]+bsumarr2[v]+bsumarr3[v]);
+        
+        asumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + y_aexpolarge[v])));
+        asumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtamat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsamat[w,idx]*n0thtamat[w,v]^(idx-1)/factorial(idx-1))));
+        asumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + y_aexpolarge[v])));
+        asums    = vector(num,v,asumarr1[v]+asumarr2[v]+asumarr3[v]);
+        
+        ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+        output = List();
+        for(idx=1,num,listput(output,List([t,y+thtarr[idx]*1.0,X,ests[idx]])));
+        return(output);
+        );
+    }
+
+abbeff_multieval_general_yconst(X,y,t,num=5,H=10,npre=1000,expterms=4)={
+    N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+    if(N<=npre, print("N smaller than npre. Please use abbeff_yconst directly");return(0););
+    thtarr = vector(num,v,(v-1)/(num-1));
+    sarr = vector(num,v,(1-y+I*(X+thtarr[v]))/2);
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));
+    
+    if(N>npre,
+        numn0 = (N - npre)\H;
+        n0 = vector(numn0,v,npre+(v-1)*H);
+        n0hmat = matrix(numn0,H,v,h,(n0[v]+h)^(I*X/2));
+        n0htmat = matrix(numn0,H,v,h,exp((t/4)*log(1+h/n0[v])^2));
+        n0hlogmat = matrix(numn0,H,v,h,log(1+h/n0[v]));
+        n0sumsbmat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)*n0hmat[v,h]));
+        n0sumsamat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)/n0hmat[v,h]));
+        
+        x_bexpo = vector(num,v,-(1+y)/2 - (t/2)*alpha1(1-sarr[v]) + I*thtarr[v]/2);
+        x_aexpo = vector(num,v,-(1-y)/2 - (t/2)*alpha1(sarr[v]) - I*thtarr[v]/2);
+        x_bexpolarge = vector(num,v,x_bexpo[v] + I*X/2);
+        x_aexpolarge = vector(num,v,x_aexpo[v] - I*X/2);
+        
+        n0thtbmat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + x_bexpo[v]);
+        n0thtamat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + x_aexpo[v]);
+        
+        bsumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + x_bexpolarge[v])));
+        bsumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtbmat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsbmat[w,idx]*n0thtbmat[w,v]^(idx-1)/factorial(idx-1))));
+        bsumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + x_bexpolarge[v])));
+        bsums    = vector(num,v,bsumarr1[v]+bsumarr2[v]+bsumarr3[v]);
+        
+        asumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + x_aexpolarge[v])));
+        asumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtamat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsamat[w,idx]*n0thtamat[w,v]^(idx-1)/factorial(idx-1))));
+        asumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + x_aexpolarge[v])));
+        asums    = vector(num,v,asumarr1[v]+asumarr2[v]+asumarr3[v]);
+        
+        ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+        output = List();
+        for(idx=1,num,listput(output,List([t,y,X+thtarr[idx]*1.0,ests[idx]])));
+        return(output);
+        );
+    }
+
+abbeff_multieval_general_rectangle(X,y,t,num=5,H=10,npre=1000,expterms=4)={
+    N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+    if(N<=npre, print("N smaller than npre. Please use abbeff_xconst and/or abbeff_yconst directly");return(0););
+    output = List();
+    
+    numn0 = (N - npre)\H;
+    n0 = vector(numn0,v,npre+(v-1)*H);
+    n0hmat = matrix(numn0,H,v,h,(n0[v]+h)^(I*X/2));
+    n0htmat = matrix(numn0,H,v,h,exp((t/4)*log(1+h/n0[v])^2));
+    n0hlogmat = matrix(numn0,H,v,h,log(1+h/n0[v]));
+    n0sumsbmat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)*n0hmat[v,h]));
+    n0sumsamat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)/n0hmat[v,h]));
+    
+    \\x lower constant
+    thtarr = vector(num,v,(1-y)*(v-1)/(num-1));
+    sarr = vector(num,v,(1-y+I*X-thtarr[v])/2);
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));
+    
+    y_bexpo = vector(num,v,-(1+y)/2 - (t/2)*alpha1(1-sarr[v]) - thtarr[v]/2);
+    y_aexpo = vector(num,v,-(1-y)/2 - (t/2)*alpha1(sarr[v]) + thtarr[v]/2);
+    y_bexpolarge = vector(num,v,y_bexpo[v] + I*X/2);
+    y_aexpolarge = vector(num,v,y_aexpo[v] - I*X/2);
+    
+    n0thtbmat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + y_bexpo[v]);
+    n0thtamat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + y_aexpo[v]);
+    
+    bsumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + y_bexpolarge[v])));
+    bsumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtbmat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsbmat[w,idx]*n0thtbmat[w,v]^(idx-1)/factorial(idx-1))));
+    bsumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + y_bexpolarge[v])));
+    bsums    = vector(num,v,bsumarr1[v]+bsumarr2[v]+bsumarr3[v]);
+    
+    asumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + y_aexpolarge[v])));
+    asumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtamat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsamat[w,idx]*n0thtamat[w,v]^(idx-1)/factorial(idx-1))));
+    asumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + y_aexpolarge[v])));
+    asums    = vector(num,v,asumarr1[v]+asumarr2[v]+asumarr3[v]);
+        
+    ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+    for(idx=1,num-1,listput(output,List([t,y+thtarr[idx]*1.0,X,ests[idx]])));
+    \\print(output);
+    
+    \\y upper constant
+    yorig=y;
+    y=1;
+    thtarr = vector(num,v,(v-1)/(num-1));
+    sarr = vector(num,v,(1-y+I*(X+thtarr[v]))/2);
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));
+    
+    x_bexpo = vector(num,v,-(1+y)/2 - (t/2)*alpha1(1-sarr[v]) + I*thtarr[v]/2);
+    x_aexpo = vector(num,v,-(1-y)/2 - (t/2)*alpha1(sarr[v]) - I*thtarr[v]/2);
+    x_bexpolarge = vector(num,v,x_bexpo[v] + I*X/2);
+    x_aexpolarge = vector(num,v,x_aexpo[v] - I*X/2);
+    
+    n0thtbmat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + x_bexpo[v]);
+    n0thtamat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + x_aexpo[v]);
+    
+    bsumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + x_bexpolarge[v])));
+    bsumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtbmat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsbmat[w,idx]*n0thtbmat[w,v]^(idx-1)/factorial(idx-1))));
+    bsumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + x_bexpolarge[v])));
+    bsums    = vector(num,v,bsumarr1[v]+bsumarr2[v]+bsumarr3[v]);
+    
+    asumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + x_aexpolarge[v])));
+    asumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtamat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsamat[w,idx]*n0thtamat[w,v]^(idx-1)/factorial(idx-1))));
+    asumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + x_aexpolarge[v])));
+    asums    = vector(num,v,asumarr1[v]+asumarr2[v]+asumarr3[v]);
+    
+    ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+    for(idx=1,num-1,listput(output,List([t,y,X+thtarr[idx]*1.0,ests[idx]])));
+    \\print(output);
+    
+    \\x upper constant and output to be attached in reverse order
+    y=yorig;
+    X=X+1;
+    thtarr = vector(num,v,(1-y)*(v-1)/(num-1));
+    sarr = vector(num,v,(1-y+I*X-thtarr[v])/2);
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));
+            
+    y_bexpo = vector(num,v,-(1+y)/2 - (t/2)*alpha1(1-sarr[v]) - thtarr[v]/2);
+    y_aexpo = vector(num,v,-(1-y)/2 - (t/2)*alpha1(sarr[v]) + thtarr[v]/2);
+    y_bexpolarge = vector(num,v,y_bexpo[v] + I*X/2);
+    y_aexpolarge = vector(num,v,y_aexpo[v] - I*X/2);
+        
+    n0thtbmat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + y_bexpo[v]);
+    n0thtamat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + y_aexpo[v]);
+        
+    bsumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + y_bexpolarge[v])));
+    bsumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtbmat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsbmat[w,idx]*n0thtbmat[w,v]^(idx-1)/factorial(idx-1))));
+    bsumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + y_bexpolarge[v])));
+    bsums    = vector(num,v,bsumarr1[v]+bsumarr2[v]+bsumarr3[v]);
+        
+    asumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + y_aexpolarge[v])));
+    asumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtamat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsamat[w,idx]*n0thtamat[w,v]^(idx-1)/factorial(idx-1))));
+    asumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + y_aexpolarge[v])));
+    asums    = vector(num,v,asumarr1[v]+asumarr2[v]+asumarr3[v]);
+        
+    ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+    for(idx=1,num-1,listput(output,List([t,y+thtarr[num-idx+1]*1.0,X,ests[num-idx+1]])));
+    \\print(output);
+    
+    \\y lower constant and output to be attached in reverse order
+	  X=X-1;
+    thtarr = vector(num,v,(v-1)/(num-1));
+    sarr = vector(num,v,(1-y+I*(X+thtarr[v]))/2);
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));
+    
+    x_bexpo = vector(num,v,-(1+y)/2 - (t/2)*alpha1(1-sarr[v]) + I*thtarr[v]/2);
+    x_aexpo = vector(num,v,-(1-y)/2 - (t/2)*alpha1(sarr[v]) - I*thtarr[v]/2);
+    x_bexpolarge = vector(num,v,x_bexpo[v] + I*X/2);
+    x_aexpolarge = vector(num,v,x_aexpo[v] - I*X/2);
+    
+    n0thtbmat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + x_bexpo[v]);
+    n0thtamat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + x_aexpo[v]);
+    
+    bsumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + x_bexpolarge[v])));
+    bsumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtbmat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsbmat[w,idx]*n0thtbmat[w,v]^(idx-1)/factorial(idx-1))));
+    bsumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + x_bexpolarge[v])));
+    bsums    = vector(num,v,bsumarr1[v]+bsumarr2[v]+bsumarr3[v]);
+    
+    asumarr1 = vector(num,v,sum(n=1,npre,n^((t/4)*log(n) + x_aexpolarge[v])));
+    asumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtamat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsamat[w,idx]*n0thtamat[w,v]^(idx-1)/factorial(idx-1))));
+    asumarr3 = vector(num,v,sum(n=n0[numn0]+H+1,N,n^((t/4)*log(n) + x_aexpolarge[v])));
+    asums    = vector(num,v,asumarr1[v]+asumarr2[v]+asumarr3[v]);
+    
+    ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+    for(idx=1,num-1,listput(output,List([t,y,X+thtarr[num-idx+1]*1.0,ests[num-idx+1]])));
+    \\print(output);
+    
+    return(output);
+    }
+
+	
+X=6*10^10+2099;y=0.3;t=0.0;
+
+s=getwalltime();abb = abbeff_xconst(X,y,t,num=5);for(i=1,num,print(abb[i]));e=getwalltime();print(e-s);
+s=getwalltime();abb = abbeff_multieval_general_xconst(X,y,t,num=5,H=10,npre=1000,expterms=4);for(i=1,num,print(abb[i]));e=getwalltime();print(e-s);
+
+s=getwalltime();abb = abbeff_yconst(X,y,t,num=5);for(i=1,num,print(abb[i]));e=getwalltime();print(e-s);
+s=getwalltime();abb = abbeff_multieval_general_yconst(X,y,t,num=5,H=10,npre=1000,expterms=4);for(i=1,num,print(abb[i]));e=getwalltime();print(e-s);
+
+s=getwalltime();abb = abbeff_multieval_general_rectangle(X,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
