@@ -123,6 +123,48 @@ abbeff_multieval_general_yconst(X,y,t,num=5,H=10,npre=1000,expterms=4)={
         );
     }
 
+abbeff_multieval_symmetric_yconst(X,y,t,num=5,H=10,npre=1000,expterms=4)={
+    N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+    if(N<=npre, return("N smaller than npre. Please use abbeff_yconst directly"));
+    thtarr = vector(num,v,-1/2 + (v-1)/(num-1));
+    sarr = vector(num,v,(1-y+I*(X+thtarr[v]))/2);
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));
+    
+    if(N>npre,
+        numn0 = (N - npre)\H;
+        n0 = vector(numn0,v,npre+(v-1)*H);
+        n0hbmat = matrix(numn0,H,v,h,(n0[v]+h-H/2)^((-1-y+I*X)/2));
+        n0hamat = matrix(numn0,H,v,h,(n0[v]+h-H/2)^((-1+y-I*X)/2));
+        n0htmat = matrix(numn0,H,v,h,exp((t/4)*log(1+(h-H/2)/n0[v])^2));
+        n0hlogmat = matrix(numn0,H,v,h,log(1+(h-H/2)/n0[v]));
+        n0sumsbmat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)*n0hbmat[v,h]));
+        n0sumsamat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)*n0hamat[v,h]));
+        
+        x_bexpo = vector(num,v,-(t/2)*alpha1(1-sarr[v]) + I*thtarr[v]/2);
+        x_aexpo = vector(num,v,-(t/2)*alpha1(sarr[v]) - I*thtarr[v]/2);
+        x_bexpolarge = vector(num,v,x_bexpo[v] + I*X/2 - (1+y)/2);
+        x_aexpolarge = vector(num,v,x_aexpo[v] - I*X/2 - (1-y)/2);
+        
+        n0thtbmat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + x_bexpo[v]);
+        n0thtamat = matrix(numn0,num,w,v,(t/2)*log(n0[w]) + x_aexpo[v]);
+        
+        bsumarr1 = vector(num,v,sum(n=1,npre-H/2,n^((t/4)*log(n) + x_bexpolarge[v])));
+        bsumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtbmat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsbmat[w,idx]*n0thtbmat[w,v]^(idx-1)/factorial(idx-1))));
+        bsumarr3 = vector(num,v,sum(n=n0[numn0]+H/2+1,N,n^((t/4)*log(n) + x_bexpolarge[v])));
+        bsums    = vector(num,v,bsumarr1[v]+bsumarr2[v]+bsumarr3[v]);
+        
+        asumarr1 = vector(num,v,sum(n=1,npre-H/2,n^((t/4)*log(n) + x_aexpolarge[v])));
+        asumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(n0thtamat[w,v] - (t/4)*log(n0[w]))*sum(idx=1,expterms,n0sumsamat[w,idx]*n0thtamat[w,v]^(idx-1)/factorial(idx-1))));
+        asumarr3 = vector(num,v,sum(n=n0[numn0]+H/2+1,N,n^((t/4)*log(n) + x_aexpolarge[v])));
+        asums    = vector(num,v,asumarr1[v]+asumarr2[v]+asumarr3[v]);
+        
+        ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+        output = List();
+        for(idx=1,num,listput(output,List([t,y,X+thtarr[idx]*1.0,ests[idx]])));
+        return(output);
+        );
+    }
+
 abbeff_multieval_general_rectangle(X,y,t,num=5,H=10,npre=1000,expterms=4)={
     N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
     if(N<=npre, print("N smaller than npre. Please use abbeff_xconst and/or abbeff_yconst directly");return(0););
@@ -262,3 +304,5 @@ s=getwalltime();abb = abbeff_yconst(X,y,t,num=5);for(i=1,num,print(abb[i]));e=ge
 s=getwalltime();abb = abbeff_multieval_general_yconst(X,y,t,num=5,H=10,npre=1000,expterms=4);for(i=1,num,print(abb[i]));e=getwalltime();print(e-s);
 
 s=getwalltime();abb = abbeff_multieval_general_rectangle(X,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
+
+s=getwalltime();abb = abbeff_multieval_symmetric_yconst(X,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
