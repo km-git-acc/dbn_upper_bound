@@ -305,4 +305,4 @@ s=getwalltime();abb = abbeff_multieval_general_yconst(X,y,t,num=5,H=10,npre=1000
 
 s=getwalltime();abb = abbeff_multieval_general_rectangle(X,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
 
-s=getwalltime();abb = abbeff_multieval_symmetric_yconst(X,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
+s=getwalltime();abb = abbeff_multieval_symmetric_yconst(X+1/2,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
