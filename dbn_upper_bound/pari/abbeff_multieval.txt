@@ -165,7 +165,7 @@ abbeff_multieval_symmetric_yconst(X,y,t,num=5,H=10,npre=1000,expterms=4)={
         );
     }
 
-abbeff_multieval_general_rectangle(X,y,t,num=5,H=10,npre=1000,expterms=4)={
+abbeff_multieval_asymmetric_rectangle(X,y,t,num=5,H=10,npre=1000,expterms=4)={
     N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
     if(N<=npre, print("N smaller than npre. Please use abbeff_xconst and/or abbeff_yconst directly");return(0););
     output = List();
@@ -294,7 +294,7 @@ abbeff_multieval_general_rectangle(X,y,t,num=5,H=10,npre=1000,expterms=4)={
     return(output);
     }
 
-abbeff_multieval_symmetric_rectangle(X,y,t,num=5,H=10,npre=1000,expterms=4)={
+abbeff_multieval_xsymmetric_rectangle(X,y,t,num=5,H=10,npre=1000,expterms=4)={
     N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
     if(N<=npre, print("N smaller than npre. Please use abbeff_xconst and/or abbeff_yconst directly");return(0));
     output = List();
@@ -418,6 +418,79 @@ abbeff_multieval_symmetric_rectangle(X,y,t,num=5,H=10,npre=1000,expterms=4)={
     return(output);
     }
 
+abbapproxarr(X,y,t,num,H,npre,expterms,bexpo,aexpo,sarr,n0,logtn0)={
+    numn0 = length(n0);
+    
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));    
+    x_bexpolarge = vector(num,v,bexpo[v] + I*X/2 - (1+y)/2);
+    x_aexpolarge = vector(num,v,aexpo[v] - I*X/2 - (1-y)/2);
+        
+    bsumarr1 = vector(num,v,sum(n=1,npre-H/2,n^((t/4)*log(n) + x_bexpolarge[v])));
+    bsumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(bexpo[v] + logtn0[w]/2)*sum(idx=0,expterms-1,n0sumsbmat[w,idx+1]*(bexpo[v] + logtn0[w])^idx/factorial(idx))));
+    bsumarr3 = vector(num,v,sum(n=n0[numn0]+H/2+1,N,n^((t/4)*log(n) + x_bexpolarge[v])));
+    bsums    = vector(num,v,bsumarr1[v]+bsumarr2[v]+bsumarr3[v]);
+    
+    asumarr1 = vector(num,v,sum(n=1,npre-H/2,n^((t/4)*log(n) + x_aexpolarge[v])));
+    asumarr2 = vector(num,v,sum(w=1,numn0,n0[w]^(aexpo[v] + logtn0[w]/2)*sum(idx=0,expterms-1,n0sumsamat[w,idx+1]*(aexpo[v] + logtn0[w])^idx/factorial(idx))));
+    asumarr3 = vector(num,v,sum(n=n0[numn0]+H/2+1,N,n^((t/4)*log(n) + x_aexpolarge[v])));
+    asums    = vector(num,v,asumarr1[v]+asumarr2[v]+asumarr3[v]);
+    
+    ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+    return(ests);
+}
+
+
+abbeff_multieval_symmetric_rectangle(X,y,t,num=5,H=10,npre=1000,expterms=4)={
+    X=X+1/2;y=(1+y)/2;
+    N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+    if(N<=npre, print("N smaller than npre. Please use abbeff_xconst and/or abbeff_yconst directly");return(0));
+    output = List();
+    
+    numn0 = (N - npre)\H;
+    n0 = vector(numn0,v,npre+(v-1)*H);
+    logtn0 = vector(numn0,w,(t/2)*log(n0[w]));
+    n0hbmat = matrix(numn0,H,v,h,(n0[v]+h-H/2)^((-1-y+I*X)/2));
+    n0hamat = matrix(numn0,H,v,h,(n0[v]+h-H/2)^((-1+y-I*X)/2));
+    n0htmat = matrix(numn0,H,v,h,exp((t/4)*log(1+(h-H/2)/n0[v])^2));
+    n0hlogmat = matrix(numn0,H,v,h,log(1+(h-H/2)/n0[v]));
+    n0sumsbmat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)*n0hbmat[v,h]));
+    n0sumsamat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)*n0hamat[v,h]));
+
+    thtarr = vector(num,v,-1/2 + (v-1)/(num-1));
+    zarr = vector(num,v,-(1-y) + 2*(1-y)*(v-1)/(num-1));
+    
+    \\x lower constant
+    sarr = vector(num,v,(1-y+I*X-zarr[v]-I/2)/2);
+    bexpo = vector(num,v,-(t/2)*alpha1(1-sarr[v]) - zarr[v]/2 - I/4);
+    aexpo = vector(num,v,-(t/2)*alpha1(sarr[v]) + zarr[v]/2 + I/4);
+    ests = abbapproxarr(X,y,t,num,H,npre,expterms,bexpo,aexpo,sarr,n0,logtn0);
+    for(idx=1,num-1,listput(output,List([t,y+zarr[idx]*1.0,X,ests[idx]])));
+    
+    \\y upper constant
+    sarr = vector(num,v,(1-y+I*(X+thtarr[v])-(1-y))/2); 
+    bexpo = vector(num,v,-(t/2)*alpha1(1-sarr[v]) + I*thtarr[v]/2 - (1-y)/2);
+    aexpo = vector(num,v,-(t/2)*alpha1(sarr[v]) - I*thtarr[v]/2 + (1-y)/2);
+    ests = abbapproxarr(X,y,t,num,H,npre,expterms,bexpo,aexpo,sarr,n0,logtn0);
+    for(idx=1,num-1,listput(output,List([t,y+(1-y),X+thtarr[idx]*1.0,ests[idx]])));
+    
+    \\x upper constant and output to be attached in reverse order
+    sarr = vector(num,v,(1-y+I*X-zarr[v]+I/2)/2);            
+    bexpo = vector(num,v,-(t/2)*alpha1(1-sarr[v]) - zarr[v]/2 + I/4);
+    aexpo = vector(num,v,-(t/2)*alpha1(sarr[v]) + zarr[v]/2 - I/4);
+    ests = abbapproxarr(X,y,t,num,H,npre,expterms,bexpo,aexpo,sarr,n0,logtn0);
+    for(idx=1,num-1,listput(output,List([t,y+zarr[num-idx+1]*1.0,X,ests[num-idx+1]])));
+    
+    \\y lower constant and output to be attached in reverse order
+    sarr = vector(num,v,(1-y+I*(X+thtarr[v])+(1-y))/2);
+    bexpo = vector(num,v,-(t/2)*alpha1(1-sarr[v]) + I*thtarr[v]/2 + (1-y)/2);
+    aexpo = vector(num,v,-(t/2)*alpha1(sarr[v]) - I*thtarr[v]/2 - (1-y)/2);
+    ests = abbapproxarr(X,y,t,num,H,npre,expterms,bexpo,aexpo,sarr,n0,logtn0);
+    for(idx=1,num-1,listput(output,List([t,y-(1-y),X+thtarr[num-idx+1]*1.0,ests[num-idx+1]])));
+    
+    X=X-1/2;y=2*y-1;
+    return(output);
+    }
+
 	
 X=6*10^10+2099;y=0.3;t=0.0;
 
@@ -428,7 +501,7 @@ s=getwalltime();abb = abbeff_yconst(X,y,t,num=5);for(i=1,num,print(abb[i]));e=ge
 s=getwalltime();abb = abbeff_multieval_general_yconst(X,y,t,num=5,H=10,npre=1000,expterms=4);for(i=1,num,print(abb[i]));e=getwalltime();print(e-s);
 s=getwalltime();abb = abbeff_multieval_symmetric_yconst(X+1/2,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
 
-s=getwalltime();abb = abbeff_multieval_general_rectangle(X,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
-s=getwalltime();abb = abbeff_multieval_symmetric_rectangle(X+1/2,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
+s=getwalltime();abb = abbeff_multieval_asymmetric_rectangle(X,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
+s=getwalltime();abb = abbeff_multieval_symmetric_rectangle(X,y,t,num=1000,H=50,npre=1000,expterms=4);for(i=1,4*num-4,print(abb[i]));e=getwalltime();print(e-s);
 
 
