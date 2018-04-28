@@ -177,11 +177,10 @@ N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
 if(Mod(counter,100)==1,Dtabb = ddt_abbeff_Nbound(N,y0,t); Dxabb = ddx_abbeff_Nbound(N,y0,t););
 sidemesh = ceil(Dxabb);
 rectmesh = 4*sidemesh - 4;
-wind_num = 0;
 minmodabb = 1000;
 abbdata = abbeff_multieval_symmetric_rectangle(X,y0,t,sidemesh,H=N,50);
 
-windnum = sum(idx=1,rectmesh-1,arg(abbdata[idx][4]/abbdata[idx+1][4])) + arg(abbdata[rectmesh][4]/abbdata[1][4]);
+wind_num = sum(idx=1,rectmesh-1,arg(abbdata[idx][4]/abbdata[idx+1][4])) + arg(abbdata[rectmesh][4]/abbdata[1][4]);
 for(i=1,rectmesh,write(detailsfile,abbdata[i]); modabb = abs(abbdata[i][4]); if(modabb<minmodabb,minmodabb=modabb));
 \\wind_num = round(wind_num/(2*Pi));
 \\timeend = getwalltime();
