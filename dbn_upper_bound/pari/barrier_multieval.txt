@@ -182,7 +182,7 @@ abbdata = abbeff_multieval_symmetric_rectangle(X,y0,t,sidemesh,H=N,50);
 
 wind_num = sum(idx=1,rectmesh-1,arg(abbdata[idx][4]/abbdata[idx+1][4])) + arg(abbdata[rectmesh][4]/abbdata[1][4]);
 for(i=1,rectmesh,write(detailsfile,abbdata[i]); modabb = abs(abbdata[i][4]); if(modabb<minmodabb,minmodabb=modabb));
-\\wind_num = round(wind_num/(2*Pi));
+wind_num = wind_num/(2*Pi);
 \\timeend = getwalltime();
 t_summary = List([t,Dtabb,Dxabb,wind_num,minmodabb,rectmesh]);
 print(t_summary);
