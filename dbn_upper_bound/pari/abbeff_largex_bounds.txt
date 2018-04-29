@@ -5,13 +5,113 @@ divdelta(n,d)=return(if(n%d==0,1,0));
 regdelta(n,dN)=return(if(n<=dN,1,0));
 bt(n,t)=return(n^((t/4)*log(n)));
 at(n,t,y,commonterm=1)=return(commonterm*n^(y+(t/4)*log(n)));
+alpha1(s) = 1/(2*s) + 1/(s-1) + (1/2)*log(s/(2*Pi));
+
+mollifier(mtype)={
+if(mtype==1,\
+D = 1; ndivs = 1;\
+d=vector(ndivs);\
+d[1] = 1;\
+moll=vector(ndivs);\
+moll[1] = 1;\
+modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);\
+return(List([D,ndivs,d,moll,modmoll]));\
+);
+
+if(mtype==2,\
+D = 2; ndivs = 2;\
+d=vector(ndivs);\
+d[1] = 1; d[2] = 2;\
+moll=vector(ndivs);\
+moll[1] = 1; moll[2] = -bt(2,t);\
+modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);\
+return(List([D,ndivs,d,moll,modmoll]));\
+);
+
+if(mtype==3,\
+D = 6; ndivs = 4;\
+d=vector(ndivs);\
+d[1] = 1; d[2] = 2; d[3] = 3; d[4] = 6;\
+moll=vector(ndivs);\
+moll[1] = 1; moll[2] = -bt(2,t); moll[3] = -bt(3,t); moll[4] = bt(2,t)*bt(3,t);\
+modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);\
+return(List([D,ndivs,d,moll,modmoll]));\
+);
+
+if(mtype==5,\
+D = 30; ndivs = 8;\
+d=vector(ndivs);\
+d[1] = 1; d[2] = 2; d[3] = 3; d[4] = 5; d[5] = 6; d[6] = 10; d[7] = 15; d[8] = 30;\
+moll=vector(ndivs);\
+moll[1] = 1; moll[2] = -bt(2,t); moll[3] = -bt(3,t); moll[4] = -bt(5,t); moll[5] = bt(2,t)*bt(3,t); moll[6] = bt(2,t)*bt(5,t); moll[7] = bt(3,t)*bt(5,t); moll[8] = -bt(2,t)*bt(3,t)*bt(5,t);\
+modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);\
+return(List([D,ndivs,d,moll,modmoll]));\
+);
+}
+
+bound_constants(N,y,t) = {
+xN = 4*Pi*N^2 - Pi*t/4;
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+sig = (1+y)/2 + (t/4)*log(xN/(4*Pi)) - (t/(2*xN^2))*max(0,1 - 3*y + 4*y*(1+y)/xN^2);
+K = t/2*(alpha1((1-y+I*xN)/2) - alpha1((1+y+I*xN)/2));
+ReK = real(K);
+modK = t*y/(2*(xN-6));
+yK = y - conj(K);
+modgamma = exp(0.02*y)*(xN/(4*Pi))^(-y/2);
+return(List([xN,xNp1,sig,K,ReK,modK,yK,modgamma]));
+}
+
+b_tbound(N,t,carr,mollarr) = {
+D = mollarr[1]; ndivs = mollarr[2]; d = mollarr[3]; moll = mollarr[4];  modmoll = mollarr[5];
+sig = carr[3];
+return(sum(n=1,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t)))/n^sig));
+}
+
+a_tbound(N,t,carr,mollarr) = {
+D = mollarr[1]; ndivs = mollarr[2]; d = mollarr[3]; moll = mollarr[4];  modmoll = mollarr[5];
+sig = carr[3]; yK = carr[7];
+return(sum(n=1,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,yK,1)))/n^sig););
+}
+
+lembound(N,y,t,carr,mollarr) = {
+D = mollarr[1]; ndivs = mollarr[2]; d = mollarr[3]; moll = mollarr[4];  modmoll = mollarr[5];
+sig = carr[3]; modgamma = carr[8]; modK=carr[6];
+a1 = at(1,t,y);
+common = (1-modgamma*a1)/(1+modgamma*a1);
+lbound = 1 - modgamma*a1;
+for(n=2,D*N,\
+bn = sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t));\
+an = modgamma*sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y));\
+summand = max(abs(bn-an),common*abs(bn+an));\
+lbound = lbound - summand/n^sig;\
+);
+lbound = lbound - modmoll*modgamma*sum(n=1,N,bt(n)*(n^modK-1)/n^(sig-y));
+return(lbound);
+}
 
 divdelta = memoize(divdelta);
 regdelta = memoize(regdelta);
 bt = memoize(bt);
 at = memoize(at);
+mollifier = memoize(mollifier);
+
+abbeff_largex_ep_tbound(N,y,t,mtype=1)={
+carr = bound_constants(N,y,t);
+mollarr = mollifier(mtype);
+modgamma = carr[8];
+lbound = 2 - b_tbound(N,t,carr,mollarr) - modgamma*a_tbound(N,t,carr,mollarr);
+return(lbound);
+}
+
+abbeff_largex_ep_lbound(N,y,t,mtype=1)={
+carr = bound_constants(N,y,t);
+mollarr = mollifier(mtype);
+lbound = lembound(N,y,t,carr,mollarr);
+return(lbound);
+}
 
 abbeff_largex_bound(N,y,t,N0=2000)={
+\\based on older bound but can provide a bound estimate for arbitrarily large N
 N0 = if(N<N0,N,N0); 
 xN = 4*Pi*N^2 - Pi*t/4;
 xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
@@ -26,101 +126,3 @@ abound = sum(n=1,N0,bt(n,t)/n^sa) + max(N0^(1-siga-(t/4)*log(N^2/N0)),N^(1-siga-
 lbound = 2 - (bbound + afac*abound);
 return(lbound);
 }
-
-abbeff_largex_e1_tbound(N,y,t)={
-xN = 4*Pi*N^2 - Pi*t/4;
-xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
-delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
-afac = exp(delta + t*y*log(N)/(2*(xN-6)))/N^y;
-sb = (1+y)/2 + (t/2)*log(N);
-sa = (1-y)/2 + (t/2)*log(N);
-lbound = 2 - sum(n=1,2*N,abs(divdelta(n,1)*regdelta(n,N)*bt(n,t))*(n^(-sb) + afac*n^(-sa)));
-return(lbound);
-}
-
-abbeff_largex_e2_tbound(N,y,t)={
-xN = 4*Pi*N^2 - Pi*t/4;
-xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
-delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
-afac = exp(delta + t*y*log(N)/(2*(xN-6)))/N^y;
-sb = (1+y)/2 + (t/2)*log(N);
-sa = (1-y)/2 + (t/2)*log(N);
-
-D = 2;
-ndivs = 2;
-d=vector(ndivs);
-d[1] = 1; d[2] = 2;
-
-moll=vector(ndivs);
-moll[1] = 1; moll[2] = -bt(2,t);
-
-mollifier = sum(nd=1,ndivs,moll[nd]/d[nd]^sb);
-
-lbbound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t)))/n^sb);
-labound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y,1)))/n^sb);
-
-lbound = 1 - at(1,t,y,afac) - lbbound - afac*labound;
-return(lbound);
-}
-
-
-abbeff_largex_e3_tbound(N,y,t)={
-xN = 4*Pi*N^2 - Pi*t/4;
-xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
-delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
-afac = exp(delta + t*y*log(N)/(2*(xN-6)))/N^y;
-sb = (1+y)/2 + (t/2)*log(N);
-sa = (1-y)/2 + (t/2)*log(N);
-
-D = 6;
-ndivs = 4;
-d=vector(ndivs);
-d[1] = 1; d[2] = 2; d[3] = 3; d[4] = 6;
-
-moll=vector(ndivs);
-moll[1] = 1; moll[2] = -bt(2,t); moll[3] = -bt(3,t); moll[4] = bt(2,t)*bt(3,t);
-
-mollifier = sum(nd=1,ndivs,moll[nd]/d[nd]^sb);
-
-lbbound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t)))/n^sb);
-labound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y,1)))/n^sb);
-
-lbound = 1 - at(1,t,y,afac) - lbbound - afac*labound;
-return(lbound);
-}
-
-
-abbeff_largex_e5_tbound(N,y,t)={
-xN = 4*Pi*N^2 - Pi*t/4;
-xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
-delta = Pi*y/(2*(xN - 6 - (14 + 2*y)/Pi)) + 2*y*(7+y)*log(abs(1+y+I*xNp1)/(4*Pi))/xN^2;
-afac = exp(delta + t*y*log(N)/(2*(xN-6)))/N^y;
-sb = (1+y)/2 + (t/2)*log(N);
-sa = (1-y)/2 + (t/2)*log(N);
-
-D = 30;
-ndivs = 8;
-d=vector(ndivs);
-d[1] = 1; d[2] = 2; d[3] = 3; d[4] = 5; d[5] = 6; d[6] = 10; d[7] = 15; d[8] = 30; 
-
-moll=vector(ndivs);
-moll[1] = 1; moll[2] = -bt(2,t); moll[3] = -bt(3,t); moll[4] = -bt(5,t); moll[5] = bt(2,t)*bt(3,t); moll[6] = bt(2,t)*bt(5,t); moll[7] = bt(3,t)*bt(5,t); moll[8] = -bt(2,t)*bt(3,t)*bt(5,t);
-
-mollifier = sum(nd=1,ndivs,moll[nd]/d[nd]^sb);
-
-lbbound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*bt(n/d[nd],t)))/n^sb);
-labound = sum(n=2,D*N,abs(sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n/d[nd],t,y,1)))/n^sb);
-
-lbound = 1 - at(1,t,y,afac) - lbbound - afac*labound;
-return(lbound);
-}
-
-filename = "output.txt";
-t=0.2;y=0.4;
-
-for(K=400,1000,\
-N=K*100;\
-row = List([t,y,N,abbeff_largex_e2_tbound(N,y,t)]);\
-print(row);\
-write(filename,row);\
-)
