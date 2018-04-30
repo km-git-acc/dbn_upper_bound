@@ -85,7 +85,7 @@ an = modgamma*sum(nd=1,ndivs,divdelta(n,d[nd])*regdelta(n,d[nd]*N)*moll[nd]*at(n
 summand = max(abs(bn-an),common*abs(bn+an));\
 lbound = lbound - summand/n^sig;\
 );
-lbound = lbound - modmoll*modgamma*sum(n=1,N,bt(n)*(n^modK-1)/n^(sig-y));
+lbound = lbound - modmoll*modgamma*sum(n=1,N,bt(n,t)*(n^modK-1)/n^(sig-y));
 return(lbound);
 }
 
