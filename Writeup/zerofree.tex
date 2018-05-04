@@ -1,6 +1,6 @@
 \section{A new upper bound for the de Bruijn-Newman constant}
 
-In this section we prove Theorem \ref{new-upper}.  As stated in the introduction, it suffices to verify the conditions (i), (ii), (iii) of Theorem \ref{ubc-0} $t_0 := 0.2$, $X := 5 \times 10^9$, and $y_0 = 0.4$.  
+In this section we prove Theorem \ref{new-upper}.  As stated in the introduction, it suffices to verify the conditions (i), (ii), (iii) of Theorem \ref{ubc-0} $t_0 := 0.2$, $X := 6 \times 10^{10} + 83952$, and $y_0 = 0.2$.  
 
 Claim (i) is immediate from the result of Platt \cite{platt} that all the non-trivial zeroes of $\zeta$ with imaginary part between $0$ and $3.06 \times 10^{10}$ lie on the critical line $\{ \mathrm{Re}(s) = 1/2\}$.  For the remaining claims (ii), (iii), one has to verify $H_t(x+iy) \neq 0$ for various $(x,y,t)$ in the region \eqref{region}.
 To show that $H_t(x+iy) \neq 0$, it suffices from Theorem \ref{eff} to show that
@@ -19,7 +19,9 @@ so in particular
 \end{equation}
 $\kappa, s_*, \gamma$ are as in Theorem \ref{eff}, and $e_A, e_B, e_{C_0}$ are bounded by the bounds in that theorem.
 
-Note that if $x \geq 5 \times 10^9$ then $N \geq 19947$.  We calculate a somewhat crude upper bound for the right-hand side of \eqref{bbb}:
+Note that if $x \geq 6 \times 10^{10} + 83952$ then $N \geq 69098$.  We calculate a somewhat crude upper bound for the right-hand side of \eqref{bbb}:
+
+{\bf the estimate below needs to be redone for the new range of parameters}
 
 \begin{lemma}\label{lac}  If $x \geq 5 \times 10^9$, $0 \leq t \leq 0.2$, and $0.4 \leq y \leq 1$, then
 $$ e_A + e_B + e_{C,0} \leq 4.37 \times 10^{-4} + 6.53 \times 10^{-10} F_{N,t}(0.7 + \frac{t}{4} \log \frac{x}{4\pi}).$$
@@ -84,10 +86,10 @@ The claim follows.
 It now suffices to establish the following claims:
 
 \begin{itemize}
-\item[(i)]  \eqref{bbb} holds when $5 \times 10^9 \leq x \leq 5 \times 10^9+1$, $0 \leq t \leq 0.2$, and $y \geq 0.4$.
-\item[(ii)]  \eqref{bbb} holds when $x \geq 5 \times 10^9$, $19947 \leq N \leq 40000$, $t = 0.2$, and $y \geq 0.4$.
-\item[(iii)]  \eqref{bbb} holds when $40000 \leq N \leq 3 \times 10^5$, $t = 0.2$, and $y \geq 0.4$.
-\item[(iv)]  \eqref{bbb} holds when $N \geq 3 \times 10^5$, $t = 0.2$, and $y \geq 0.4$.
+\item[(i)]  \eqref{bbb} holds when $6 \times 10^{10} + 83952 \leq x \leq 6 \times 10^{10} + 83953$, $0 \leq t \leq 0.2$, and $y \geq 0.2$.
+\item[(ii)]  \eqref{bbb} holds when $x \geq 6 \times 10^{10} + 83952$, $69098 \leq N \leq ???$, $t = 0.2$, and $y \geq 0.2$.
+\item[(iii)]  \eqref{bbb} holds when $??? \leq N \leq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
+\item[(iv)]  \eqref{bbb} holds when $N \geq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
 \end{itemize}
 
 
@@ -97,9 +99,9 @@ We begin with claim (i).  We need some derivative estimates on the quantity $f_t
 $$ |\frac{\partial f_t}{\partial x}| = |\frac{\partial f_t}{\partial y}| \leq  \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} (\frac{\log n}{2} + \frac{t \log n}{4(x-6)}) + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^{y} }{n^{\mathrm{Re}(s_{*})}}
 ( \frac{t \log n}{4(x-6)} + (\log \frac{|1+y+ix|}{4\pi} + \pi + \frac{3}{x}) (\frac{1}{2} + \frac{t}{4(x-6)})) $$
 and
-\begin{align*} |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{2 \log n}{x-6}) \\
+\begin{align*} |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}) \\
 &\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^y}{n^{\mathrm{Re}(s_{*})}}
-(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6})).
+(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6})).
 \end{align*}
 \end{lemma}
 
@@ -166,9 +168,9 @@ so that
 $$ |\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))| \leq (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6}).$$
 We conclude from the triangle inequality that
 \begin{align*}
- |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{2 \log n}{x-6}) \\
+ |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}) \\
 &+ |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
-(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{4} \log n + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6}))
+(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6}))
 \end{align*}
 giving the second claim.
 \end{proof}
@@ -185,6 +187,8 @@ Now we prove claim (ii).
 Now we prove claim (iii).
 
 ...
+
+{\bf all numbers need to be recalculated here}
 
 Finally, we prove claim (iv).  In this regime we have
 $$ x \geq 4\pi N_0^2 - \frac{\pi t}{4} \geq 1.13 \times 10^{12}.$$
