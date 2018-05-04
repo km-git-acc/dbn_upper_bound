@@ -46,7 +46,7 @@ Henceforth we omit the dependence on $t_0$ for brevity.  From Taylor expansion o
 \begin{equation}\label{htz-eq}
  \frac{H''_t}{H'_t}( z_j) = 2 \lim_{z \to z_j}\left(  \frac{H'_t}{H_t}( z_j) - \frac{1}{z-z_j} \right).
 \end{equation}
-On the other hand, as $H_t$ is even, zero, and entire of order $1$ (as can be easily verified from \eqref{htdef}) we see from the Hadamard factorization theorem that
+On the other hand, as $H_t$ is even, non-zero at the origin, and entire of order $1$ (as can be easily verified from \eqref{htdef}) we see from the Hadamard factorization theorem that
 $$ H_t(z) = C_t \prod_k^{\prime} \left(1 - \frac{z}{z_k}\right)$$
 for some nonzero complex number $C_t$, where the prime indicates that the $k$ and $-k$ factors are multiplied together.  Taking logarithmic derivatives, we conclude that
 $$ \frac{H'_t}{H_t}(z) = \sum_k^{\prime} \frac{1}{z-z_k}.$$
@@ -75,32 +75,34 @@ We are now ready to prove Theorem \ref{ubc-0}.  The main step is to establish
 
 \begin{proposition}[Zero-free region criterion]\label{ubc}  Suppose that $t_0, X > 0$ and $0 < y_0 \leq 1$ obey the following hypotheses:
 \begin{itemize}
-\item[(i)]  There are no zeroes $H_0(x+iy)=0$ with $0 \leq x \leq X$ and $y_0 \leq y \leq 1$.
+\item[(i)]  There are no zeroes $H_0(x+iy)=0$ with $0 \leq x \leq X$ and $\sqrt{y_0^2+2 t_0} \leq y \leq 1$.
 \item[(ii)]  There are no zeroes $H_{t_0}(x+iy)=0$ with $x \geq X+\sqrt{1-y_0^2}$ and $y_0 \leq y \leq \sqrt{1-2t_0}$.
-\item[(iii)]  There are no zeroes $H_{t}(x+iy)=0$ with $X \leq x \geq X+\sqrt{1-y_0^2}$, $y_0 \leq y \leq \sqrt{1-2t}$, and $0 \leq t \leq t_0$.
+\item[(iii)]  There are no zeroes $H_{t}(x+iy)=0$ with $X \leq x \geq X+\sqrt{1-y_0^2}$, $\sqrt{y_0^2 + 2(t_0-t)} \leq y \leq \sqrt{1-2t}$, and $0 \leq t \leq t_0$.
 \end{itemize}
 Then there are no zeroes $H_{t_0}(x+iy) = 0$ with $x \in \R$ and $y \geq y_0$.
 \end{proposition}
 
 \begin{proof}  It is well known that the Riemann $\xi$ function has no zeroes outside of the strip $\{ 0 \leq \mathrm{Re}(s) \leq 1 \}$, hence there are no zeroes $H_0(x+iy)=0$ with $y > 1$.  By Theorem \ref{debr-bound}, we may thus remove the upper bound constraints $y \leq 1$, $y \leq \sqrt{1-2t_0}$, and $y \leq \sqrt{1-2t}$ from (i), (ii), and (iii) respectively.
 
-By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $0 \leq x \leq X$ and $y \geq y_0$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred.  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: 0 \leq	 x \leq X, y \geq y_0 \}$.  The right side $x=X$ of this boundary is ruled out by hypothesis (ii), and the left side $x=0$ is ruled out by \eqref{htdef} and the positivity of $\Phi$.  Thus by the symmetry properties of $H_{t_1}$ we must have
-$$ H_{t_1}(x+iy_0) = 0$$
+By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $0 \leq x \leq X$ and $y \geq Y(t)$, where $Y(t) := \sqrt{y_0^2 + 2(t_0-t)}$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred.  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: 0 \leq	 x \leq X, y \geq Y(t_1) \}$.  The right side $x=X$ of this boundary is ruled out by hypothesis (ii), and the left side $x=0$ is ruled out by \eqref{htdef} and the positivity of $\Phi$.  Thus by the symmetry properties of $H_{t_1}$ we must have
+$$ H_{t_1}(x+iY(t_1)) = 0$$
 for some $0 < x < X$.
 
-Suppose first that $H_{t_1}$ has a repeated zero at $x+iy_0$.  Using Proposition \ref{dynam}(ii) and observing (from the symmetry of $\operatorname{He}_m$) that at least one of the roots $x_1,\dots,x_m$ is positive, we then see that for $t<t_1$ sufficiently close to $t_1$, $H_t$ has a zero in the region $\{ x+iy: 0 \leq x \leq X, y \geq y_0 \}$, contradicting the minimality of $t_1$.  Thus the zero $x+iy_0$ of $H_{t_1}$ must be simple.  In particular, by Proposition \ref{dynam}(i) we can write $x+iy_0 = z_j(t_1)$ for some smooth function $z_j$ in a neighbourhood of $t_1$ obeying \eqref{zjk}, such that $z_j(t)$ is a zero of $H_t$ for all $t$ close to $t_1$.  We will prove that
+Suppose first that $H_{t_1}$ has a repeated zero at $x+iy_0$.  Using Proposition \ref{dynam}(ii) and observing (from the symmetry of $\operatorname{He}_m$) that at least one of the roots $x_1,\dots,x_m$ is positive, we then see that for $t<t_1$ sufficiently close to $t_1$, $H_t$ has a zero in the region $\{ x+iy: 0 \leq x \leq X, y \geq Y(t) \}$, contradicting the minimality of $t_1$.  Thus the zero $x+i Y(t_1)$ of $H_{t_1}$ must be simple.  In particular, by Proposition \ref{dynam}(i) we can write $x+i Y(t_1) = z_j(t_1)$ for some smooth function $z_j$ in a neighbourhood of $t_1$ obeying \eqref{zjk}, such that $z_j(t)$ is a zero of $H_t$ for all $t$ close to $t_1$.  We will prove that
 \begin{equation}\label{im}
-\mathrm{Im} \frac{\partial}{\partial_t} z_j( t_1 ) < 0,
+\mathrm{Im} \frac{\partial}{\partial t} z_j( t_1 ) < \frac{\partial}{\partial t} Y(t_1),
 \end{equation}
-which implies that there is a zero of $H_t$ in the region $\{ x+iy: 0 \leq x \leq X, y \geq y_0 \}$  for $t<t_1$ sufficiently close to $t_1$, giving the required contradiction.  
+which implies that there is a zero of $H_t$ in the region $\{ x+iy: 0 \leq x \leq X, y \geq Y(t) \}$  for $t<t_1$ sufficiently close to $t_1$, giving the required contradiction.  
 
+The right-hand side of \eqref{im} is
+$$ \frac{\partial}{\partial t} Y(t_1) = -\frac{1}{Y(t_1)}.$$
 By Proposition \ref{dynam}(i), the left-hand side of \eqref{im} is
-$$ 2 \sum_{k \neq j}^{\prime} \frac{y_0 - y_k}{(x-x_k)^2 + (y_0-y_k)^2}$$
-where we write $z_k = x_k + i y_k$.  Clearly any zero $x_k+iy_k$ with imaginary part $y_k$ in $[-y_0,y_0]$ gives a non-positive contribution to this sum, and at least one of the contributions is negative (e.g., the contribution of $x - iy_0$).  Grouping the remaining zeroes with their complex conjugates, it then suffices to show that
-$$ \frac{y_0 - y_k}{(x-x_k)^2 + (y_j-y_k)^2} + \frac{y_0 + y_k}{(x-x_k)^2 + (y_0+y_k)^2} \leq 0$$
-whenever $y_k > y_0$.  Cross-multiplying and canceling like terms, this inequality eventually simplifies to
-$$ y_k^2 \leq (x-x_k)^2 + y_0^2.$$
-But from the hypothesis (iii) and the assumption $y_k > y_0$, we have $|x_k| \geq X+\sqrt{1-y_0^2}$, so $(x-x_k)^2 \geq 1-y_0^2$.  On the other hand from Theorem \ref{debr-bound} one has $y_k < 1$, giving the required contradiction.
+$$ 2 \sum_{k \neq j}^{\prime} \frac{Y(t_1) - y_k}{(x-x_k)^2 + (Y(t_1)-y_k)^2}$$
+where we write $z_k = x_k + i y_k$.  Clearly any zero $x_k+iy_k$ with imaginary part $y_k$ in $[-Y(t_1),Y(t_1)]$ gives a non-positive contribution to this sum, the contribution of the zero $x- iY(t_1)$ is $-\frac{1}{Y(t_1)}$, the contribution of the zero $-x+iY(t_1)$ vanishes, and the contribution of $-x-iY(t_1)$ is negative.  Grouping the remaining zeroes with their complex conjugates, it then suffices to show that
+$$ \frac{Y(t_1) - y_k}{(x-x_k)^2 + (y_j-y_k)^2} + \frac{Y(t_1) + y_k}{(x-x_k)^2 + (Y(t_1)+y_k)^2} \leq 0$$
+whenever $y_k > Y(t_1)$.  Cross-multiplying and canceling like terms, this inequality eventually simplifies to
+$$ y_k^2 \leq (x-x_k)^2 + Y(t_1)^2.$$
+But from the hypothesis (iii) and the assumption $y_k > Y(t_1)$, we have $|x_k| \geq X+\sqrt{1-Y(t_1)^2}$, so $(x-x_k)^2 \geq 1-Y(t_1)^2$.  On the other hand from Theorem \ref{debr-bound} one has $y_k < 1$, giving the required contradiction.
 \end{proof}
 
 By combining Proposition \ref{ubc} with Theorem \ref{debr-bound}, we obtain Theorem \ref{ubc-0}, noting from \eqref{hoz}, \eqref{sas} that condition (i) of Proposition \ref{ubc} is equivalent to condition (i) of Theorem \ref{debr-bound}.
