@@ -41,6 +41,19 @@ abbeff(x,y,t) = {
     return ((A+B)/B0);
 }
 
+abbeff_approx(x,y,t,N0) = {       
+    s = (1 - y + I*x)/2;
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    if(N<N0,N0=N);
+    alph1 = alpha1(s);
+    alph2 = alpha1(1-s);
+    gam = exp((t/4)*(alph1^2-alph2^2) + (1/2-s)*(log(Pi)+1) + (s/2)*log(s*(1-s)/4) - (1/2)*log(s/2));
+    A_sum = sum(n=1,N0,n^((t/4)*log(n) - (t/2)*alph1 - s));
+    B_sum = sum(n=1,N0,n^((t/4)*log(n) - (t/2)*alph2 - (1-s)));
+    print(concat("Smallest B exponent: ",real(1-s + (t/2)*alph2 - (t/4)*log(N))));
+    return (B_sum+gam*A_sum);
+}
+
 ddx_abbeff(x,y,t) = {
     N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
     s = (1+y-I*x)/2;
