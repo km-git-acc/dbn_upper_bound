@@ -1,0 +1,212 @@
+#Created by Rudolph - https://github.com/rudolph-git-acc
+
+#sawtooth mollified euler 3 and 5 bounds\
+from mpmath import *\
+mp.dps=40\
+\
+R = RealBallField(100); Z = ComplexBallField(100);\
+\
+n0=R(0);n1=R(1);n2=R(2);n3=R(3);n4=R(4);n5=R(5);n6=R(6);n7=R(7);n10=R(10);n14=R(14);n15=R(15);n30=R(30)\
+bpi  = R(mp.pi());n0d02=R(2/100);\
+\
+def divdelta(n,d):\
+    res=n0;\
+    if n/d==(n/d).floor():\
+        res=n1;\
+    return (res)\
+\
+def regdelta(n,dN):\
+    res=n0;\
+    if n <= dN:\
+        res=n1;\
+    return (res)\
+\
+def bt(n,t):\
+    res=n^((t/n4)*n.log());\
+    return (res)\
+\
+def at(n,t,y,c):\
+    res=c*n^(y+(t/n4)*n.log());\
+    return (res)\
+\
+def alpha1(s):\
+    res = n1/(n2*s)+n1/(s-n1)+n1/n2*(s/(n2*bpi)).log();\
+    return (res)\
+\
+def abbeffe3l(N,y,t):\
+    xN    = n4*bpi*N^n2-bpi*t/n4;\
+    sig   = (n1+y)/n2+(t/n4)*(xN/(n4*bpi)).log()-(t/(n2*xN^2))*max(n0,n1-n3*y+n4*y*(n1+y)/(xN^n2));\
+    K     = t/n2*(alpha1(Z(n1-y,xN)/n2)-alpha1(Z(n1+y,xN)/n2));\
+    ReK   = K.real();\
+    modK  = t*y/(n2*(xN-n6));\
+    yK    = y - K.conjugate(); \
+    modgam= (n0d02*y).exp()*(xN/(n4*bpi))^(-y/n2);\
+\
+    mterm1  = n1;\
+    mterm2  = abs((-bt(n2,t))/n2^sig);\
+    mterm3  = abs((-bt(n3,t))/n3^sig);\
+    mterm4  = abs(bt(n2,t)*bt(n3,t)/n6^sig);\
+    modmol  = mterm1+mterm2+mterm3+mterm4;\
+    \
+    a1    = at(n1,t,y,modgam);\
+    common= (n1-a1)/(n1+a1);\
+    lbound= n1-a1; n=n2;\
+    while n <= n6*N:\
+        cterm1  = divdelta(n,n1)*regdelta(n,n1*N)\
+        cterm2  = divdelta(n,n2)*regdelta(n,n2*N)*(-bt(n2,t))\
+        cterm3  = divdelta(n,n3)*regdelta(n,n3*N)*(-bt(n3,t))\
+        cterm4  = divdelta(n,n6)*regdelta(n,n6*N)*bt(n2,t)*bt(n3,t)\
+        bn  = cterm1*bt(n,t)+cterm2*bt(n/n2,t)+cterm3*bt(n/n3,t)+cterm4*bt(n/n6,t)\
+        an  = cterm1*at(n,t,y,modgam)+cterm2*at(n/n2,t,y,modgam)+cterm3*at(n/n3,t,y,modgam)+cterm4*at(n/n6,t,y,modgam)\
+        sum1 = max(abs(bn-an),common*abs(bn+an));\
+        lbound = lbound - sum1/(n^sig);\
+        n = n + n1;\
+               \
+    n=n1;sum2=n0;\
+    while n <= N:\
+        sum2 = sum2 + bt(n,t)*(n^modK-n1)/(n^(sig-y));\
+        n = n + n1;\
+    res = lbound - modmol*modgam*sum2;\
+    return (res)\
+\
+def abbeffe3l_saw(prevbound,nextN,y,t):\
+    xN    = n4*bpi*nextN^n2-bpi*t/n4;\
+    sig   = (n1+y)/n2+(t/n4)*(xN/(n4*bpi)).log()-(t/(n2*xN^2))*max(n0,n1-n3*y+n4*y*(n1+y)/(xN^n2));\
+    K     = t/n2*(alpha1(Z(n1-y,xN)/n2)-alpha1(Z(n1+y,xN)/n2));\
+    ReK   = K.real();\
+    modK  = t*y/(n2*(xN-n6));\
+    yK    = y - K.conjugate(); \
+    modgam= (n0d02*y).exp()*(xN/(n4*bpi))^(-y/n2);\
+\
+    mterm1  = n1;\
+    mterm2  = abs((-bt(n2,t))/n2^sig);\
+    mterm3  = abs((-bt(n3,t))/n3^sig);\
+    mterm4  = abs(bt(n2,t)*bt(n3,t)/n6^sig);\
+    modmol  = mterm1+mterm2+mterm3+mterm4;\
+    \
+    a1    = at(n1,t,y,modgam);\
+    common= (n1-a1)/(n1+a1);\
+    offset= n6*(nextN-1)\
+    n=offset+n1;\
+    while n <= offset+n6:\
+        cterm1  = divdelta(n,n1)*regdelta(n,n1*nextN)\
+        cterm2  = divdelta(n,n2)*regdelta(n,n2*nextN)*(-bt(n2,t))\
+        cterm3  = divdelta(n,n3)*regdelta(n,n3*nextN)*(-bt(n3,t))\
+        cterm4  = divdelta(n,n6)*regdelta(n,n6*nextN)*bt(n2,t)*bt(n3,t)\
+        bn  = cterm1*bt(n,t)+cterm2*bt(n/n2,t)+cterm3*bt(n/n3,t)+cterm4*bt(n/n6,t)\
+        an  = cterm1*at(n,t,y,modgam)+cterm2*at(n/n2,t,y,modgam)+cterm3*at(n/n3,t,y,modgam)+cterm4*at(n/n6,t,y,modgam)\
+        sum1 = max(abs(bn-an),common*abs(bn+an));\
+        res = prevbound - sum1/(n^sig)- modmol*modgam*bt(nextN,t)*(nextN^modK-n1)/(nextN^(sig-y));\
+        n = n + n1;\
+    return (res)\
+\
+def abbeffe5l(N,y,t):\
+    xN    = n4*bpi*N^n2-bpi*t/n4; xNp1 = n4*bpi*(N+R(1))^n2-bpi*t/n4;\
+    sig   = (n1+y)/n2+(t/n4)*(xN/(n4*bpi)).log()-(t/(n2*xN^2))*max(n0,n1-n3*y+n4*y*(n1+y)/(xN^n2));\
+    K     = t/n2*(alpha1(Z(n1-y,xN)/n2)-alpha1(Z(n1+y,xN)/n2));\
+    ReK   = K.real();\
+    delta = bpi*y/(n2*(xN-n6-(n14+n2*y)/bpi))+n2*y*(n7+y)*((n1+y+Z(n0,n1)*xN).below_abs()/(n4*bpi)).log()/(xN^(n2));\
+    modK  = t*y/(n2*(xN-n6));\
+    yK    = y - K.conjugate(); \
+    modgam= (n0d02*y).exp()*(xN/(n4*bpi))^(-y/n2);\
+\
+    mterm1  = n1;\
+    mterm2  = abs((-bt(n2,t))/n2^sig);\
+    mterm3  = abs((-bt(n3,t))/n3^sig);\
+    mterm4  = abs((-bt(n5,t))/n5^sig);\
+    mterm5  = abs(bt(n2,t)*bt(n3,t)/n6^sig);\
+    mterm6  = abs(bt(n2,t)*bt(n5,t)/n10^sig);\
+    mterm7  = abs(bt(n3,t)*bt(n5,t)/n15^sig);\
+    mterm8  = abs((-bt(n2,t))*bt(n3,t)*bt(n5,t)/n30^sig);\
+    modmol  = mterm1+mterm2+mterm3+mterm4+mterm5+mterm6+mterm7+mterm8;\
+    \
+    a1    = at(n1,t,y,modgam);\
+    common= (n1-a1)/(n1+a1);\
+    lbound= n1-a1; n=n2;\
+    while n <= n30*N:\
+        cterm1  = divdelta(n,n1)*regdelta(n,n1*N)\
+        cterm2  = divdelta(n,n2)*regdelta(n,n2*N)*(-bt(n2,t))\
+        cterm3  = divdelta(n,n3)*regdelta(n,n3*N)*(-bt(n3,t))\
+        cterm4  = divdelta(n,n5)*regdelta(n,n5*N)*(-bt(n5,t))\
+        cterm5  = divdelta(n,n6)*regdelta(n,n6*N)*bt(n2,t)*bt(n3,t)\
+        cterm6  = divdelta(n,n10)*regdelta(n,n10*N)*bt(n2,t)*bt(n5,t)\
+        cterm7  = divdelta(n,n15)*regdelta(n,n15*N)*bt(n3,t)*bt(n5,t)\
+        cterm8  = divdelta(n,n30)*regdelta(n,n30*N)*(-bt(n2,t))*bt(n3,t)*bt(n5,t)\
+        bterm1  = cterm1*bt(n,t)+cterm2*bt(n/n2,t)+cterm3*bt(n/n3,t)+cterm4*bt(n/n5,t)\
+        bterm2  = cterm5*bt(n/n6,t)+cterm6*bt(n/n10,t)+cterm7*bt(n/n15,t)+cterm8*bt(n/n30,t)\
+        bn =(bterm1 + bterm2)\
+        aterm1  = cterm1*at(n,t,y,modgam)+cterm2*at(n/n2,t,y,modgam)+cterm3*at(n/n3,t,y,modgam)+cterm4*at(n/n5,t,y,modgam)\
+        aterm2  = cterm5*at(n/n6,t,y,modgam)+cterm6*at(n/n10,t,y,modgam)+cterm7*at(n/n15,t,y,modgam)+cterm8*at(n/n30,t,y,modgam)\
+        an =(aterm1 + aterm2)\
+        sum1 = max(abs(bn-an),common*abs(bn+an));\
+        lbound = lbound - sum1/(n^sig);\
+        n = n + n1;\
+               \
+    n=n1;sum2=n0;\
+    while n <= N:\
+        sum2 = sum2 + bt(n,t)*(n^modK-n1)/(n^(sig-y));\
+        n = n + n1;\
+    res = lbound - modmol*modgam*sum2;\
+    return (res)\
+\
+def abbeffe5l_saw(prevbound,nextN,y,t):\
+    xN    = n4*bpi*nextN^n2-bpi*t/n4;\
+    sig   = (n1+y)/n2+(t/n4)*(xN/(n4*bpi)).log()-(t/(n2*xN^2))*max(n0,n1-n3*y+n4*y*(n1+y)/(xN^n2));\
+    K     = t/n2*(alpha1(Z(n1-y,xN)/n2)-alpha1(Z(n1+y,xN)/n2));\
+    ReK   = K.real();\
+    delta = bpi*y/(n2*(xN-n6-(n14+n2*y)/bpi))+n2*y*(n7+y)*((n1+y+Z(n0,n1)*xN).below_abs()/(n4*bpi)).log()/(xN^(n2));\
+    modK  = t*y/(n2*(xN-n6));\
+    yK    = y - K.conjugate(); \
+    modgam= (n0d02*y).exp()*(xN/(n4*bpi))^(-y/n2);\
+\
+    mterm1  = n1;\
+    mterm2  = abs((-bt(n2,t))/n2^sig);\
+    mterm3  = abs((-bt(n3,t))/n3^sig);\
+    mterm4  = abs((-bt(n5,t))/n5^sig);\
+    mterm5  = abs(bt(n2,t)*bt(n3,t)/n6^sig);\
+    mterm6  = abs(bt(n2,t)*bt(n5,t)/n10^sig);\
+    mterm7  = abs(bt(n3,t)*bt(n5,t)/n15^sig);\
+    mterm8  = abs((-bt(n2,t))*bt(n3,t)*bt(n5,t)/n30^sig);\
+    modmol  = mterm1+mterm2+mterm3+mterm4+mterm5+mterm6+mterm7+mterm8;\
+    \
+    a1    = at(n1,t,y,modgam);\
+    common= (n1-a1)/(n1+a1);\
+    offset= n30*(nextN-1)\
+    n=offset+n1;\
+    while n <= offset+n30:\
+        cterm1  = divdelta(n,n1)*regdelta(n,n1*nextN)\
+        cterm2  = divdelta(n,n2)*regdelta(n,n2*nextN)*(-bt(n2,t))\
+        cterm3  = divdelta(n,n3)*regdelta(n,n3*nextN)*(-bt(n3,t))\
+        cterm4  = divdelta(n,n5)*regdelta(n,n5*nextN)*(-bt(n5,t))\
+        cterm5  = divdelta(n,n6)*regdelta(n,n6*nextN)*bt(n2,t)*bt(n3,t)\
+        cterm6  = divdelta(n,n10)*regdelta(n,n10*nextN)*bt(n2,t)*bt(n5,t)\
+        cterm7  = divdelta(n,n15)*regdelta(n,n15*nextN)*bt(n3,t)*bt(n5,t)\
+        cterm8  = divdelta(n,n30)*regdelta(n,n30*nextN)*(-bt(n2,t))*bt(n3,t)*bt(n5,t)\
+        bterm1  = cterm1*bt(n,t)+cterm2*bt(n/n2,t)+cterm3*bt(n/n3,t)+cterm4*bt(n/n5,t)\
+        bterm2  = cterm5*bt(n/n6,t)+cterm6*bt(n/n10,t)+cterm7*bt(n/n15,t)+cterm8*bt(n/n30,t)\
+        bn =(bterm1 + bterm2)\
+        aterm1  = cterm1*at(n,t,y,modgam)+cterm2*at(n/n2,t,y,modgam)+cterm3*at(n/n3,t,y,modgam)+cterm4*at(n/n5,t,y,modgam)\
+        aterm2  = cterm5*at(n/n6,t,y,modgam)+cterm6*at(n/n10,t,y,modgam)+cterm7*at(n/n15,t,y,modgam)+cterm8*at(n/n30,t,y,modgam)\
+        an =(aterm1 + aterm2)\
+        sum1 = max(abs(bn-an),common*abs(bn+an));\
+        res = prevbound - sum1/(n^sig)- modmol*modgam*bt(nextN,t)*(nextN^modK-n1)/(nextN^(sig-y));\
+        n = n + n1;\
+               \
+    return (res)\
+\
+bby=R(2/10)\
+bbt=R(2/10)\
+\
+filename = "Lower bound (A+B) div B0 sawtooth N = 69098 to 1500000 step 1 t=0.2 y=0.2 euler5.txt";\
+f= open(filename,"a+")\
+\
+bstep = R(1);\
+N0=R(69098);\
+bound = abbeffe5l(N0,bby,bbt);\
+print(bound);\
+while N0 <= R(1500000):\
+    row = str(CIF(N0))+', '+str(CIF(bound))+'\\n';\
+    f.write(row);\
+    N0= N0 + bstep;\
+    bound=abbeffe5l_saw(bound,N0,bby,bbt);\
+f.close()}
