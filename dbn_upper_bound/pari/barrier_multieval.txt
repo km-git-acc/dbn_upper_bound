@@ -7,6 +7,17 @@ H01(s) = (1/2)*s*(s-1)*Pi^(-s/2)*sqrt(2*Pi)*exp((s/2-1/2)*log(s/2)-s/2);
 C0(p) = (exp(Pi*I*(p^2/2 + 3/8)) - I*sqrt(2)*cos(Pi*p/2))/(2*cos(Pi*p));
 B0_eff(x,y,t) = (1/8)*exp((t/4)*alpha1((1+y-I*x)/2)^2)*H01((1+y-I*x)/2);
 
+barrier_strip_search(bfile,X,numx=10^5,nprimes=5) = {
+p = primes(nprimes);
+offset = [-0.5,0,0.5];
+for(tht=0,numx,x=X+tht;\
+aty0 = vector(3,i,abs(prod(v=1,nprimes,1/(1-1/p[v]^(1/2-I*(x+offset[i])/2)))));\
+aty1 = vector(3,i,abs(prod(v=1,nprimes,1/(1-1/p[v]^(1-I*(x+offset[i])/2)))));\
+row = concat([tht],aty0); row = concat(row,aty1);\
+print(tht); write(bfile,row);\
+);
+}
+
 abceff(x,y,t) = {
     Tval = x/2;       
     Tdash = Tval + Pi*t/8;
