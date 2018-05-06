@@ -97,7 +97,6 @@ sig = carr[3]; modgamma = carr[8]; modK=carr[6];
 modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);
 a1 = at(1,t,y);
 common = (1-modgamma*a1)/(1+modgamma*a1);
-lbound = 1 - modgamma*a1;
 b = vector(D*N-1,n,sum(nd=1,ndivs,if(combdelta(n+1,d[nd],N)>0,moll[nd]*bt((n+1)/d[nd],t))));
 a = modgamma*vector(D*N-1,n,sum(nd=1,ndivs,if(combdelta(n+1,d[nd],N)>0,moll[nd]*at((n+1)/d[nd],t,y))));
 lbound = 1 - modgamma*a1 - sum(n=1,D*N-1,max(abs(b[n]-a[n]),common*abs(b[n]+a[n]))/(n+1)^sig) - modmoll*modgamma*sum(n=1,N,bt(n,t)*(n^modK-1)/n^(sig-y));return(lbound);
@@ -210,6 +209,68 @@ lbound = prevbound - sum(n=1,D,max(abs(b[n]-a[n]),common*abs(b[n]+a[n]))/(n+offs
 return(lbound);
 }
 
+abbeff_largex_ep_lbound_sawtooth_loop(boundfile,initbound,Nstart,Nend,y,t,mtype=1)={
+mollarr = mollifier(mtype,t);
+D = mollarr[1]; ndivs = mollarr[2]; d = mollarr[3]; moll = mollarr[4];
+a1 = at(1,t,y);
+prevbound=initbound;
+
+for(nextN=Nstart,Nend,\
+carr = bound_constants(nextN,y,t);\
+modgamma = carr[8]; sig = carr[3]; modK=carr[6];\
+modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);
+common = (1-modgamma*a1)/(1+modgamma*a1);\
+offset = D*(nextN-1);\
+b = vector(D,n,sum(nd=1,ndivs,if(combdelta(n+offset,d[nd],nextN)>0,moll[nd]*bt((n+offset)/d[nd],t))));\
+a = modgamma*vector(D,n,sum(nd=1,ndivs,if(combdelta(n+offset,d[nd],nextN)>0,moll[nd]*at((n+offset)/d[nd],t,y))));\
+lbound = prevbound - sum(n=1,D,max(abs(b[n]-a[n]),common*abs(b[n]+a[n]))/(n+offset)^sig) - modmoll*modgamma*bt(nextN,t)*(nextN^modK-1)/nextN^(sig-y);\
+row = [t,y,nextN,lbound];\
+print(row); write(boundfile,row);\
+prevbound=lbound;\
+);
+}
+
+lembound_conservative(N,y,t,carr,mollarr,common) = {
+D = mollarr[1]; ndivs = mollarr[2]; d = mollarr[3]; moll = mollarr[4];
+sig = carr[3]; modgamma = carr[8]; modK=carr[6];
+modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);
+a1 = at(1,t,y);
+b = vector(D*N-1,n,sum(nd=1,ndivs,if(combdelta(n+1,d[nd],N)>0,moll[nd]*bt((n+1)/d[nd],t))));
+a = modgamma*vector(D*N-1,n,sum(nd=1,ndivs,if(combdelta(n+1,d[nd],N)>0,moll[nd]*at((n+1)/d[nd],t,y))));
+lbound = 1 - modgamma*a1 - sum(n=1,D*N-1,max(abs(b[n]-a[n]),common*abs(b[n]+a[n]))/(n+1)^sig) - modmoll*modgamma*sum(n=1,N,bt(n,t)*(n^modK-1)/n^(sig-y));return(lbound);
+}
+
+abbeff_largex_ep_lbound_conservative(N,Nend,y,t,mtype=1)={
+carr = bound_constants(N,y,t);
+modgamend = bound_constants(Nend,y,t)[8];
+common = (1-modgamend)/(1+modgamend);
+mollarr = mollifier(mtype,t);
+lbound = lembound_conservative(N,y,t,carr,mollarr,common);
+return(lbound);
+}
+
+abbeff_largex_ep_lbound_sawtooth_conservative_loop(boundfile,initbound,Nstart,Nend,y,t,mtype=1)={
+mollarr = mollifier(mtype,t);
+D = mollarr[1]; ndivs = mollarr[2]; d = mollarr[3]; moll = mollarr[4];
+a1 = at(1,t,y);
+modgamend = bound_constants(Nend,y,t)[8];\
+common = (1-modgamend*a1)/(1+modgamend*a1);\
+prevbound=initbound;
+
+for(nextN=Nstart,Nend,\
+carr = bound_constants(nextN,y,t);\
+modgamma = carr[8]; sig = carr[3]; modK=carr[6];\
+modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);
+offset = D*(nextN-1);\
+b = vector(D,n,sum(nd=1,ndivs,if(combdelta(n+offset,d[nd],nextN)>0,moll[nd]*bt((n+offset)/d[nd],t))));\
+a = modgamma*vector(D,n,sum(nd=1,ndivs,if(combdelta(n+offset,d[nd],nextN)>0,moll[nd]*at((n+offset)/d[nd],t,y))));\
+lbound = prevbound - sum(n=1,D,max(abs(b[n]-a[n]),common*abs(b[n]+a[n]))/(n+offset)^sig) - modmoll*modgamma*bt(nextN,t)*(nextN^modK-1)/nextN^(sig-y);\
+row = [t,y,nextN,lbound];\
+print(row); write(boundfile,row);\
+prevbound=lbound;\
+);
+}
+
 abbeff_largex_bound(N,y,t,N0=2000)={
 \\based on older bound but can provide a bound estimate for arbitrarily large N
 N0 = if(N<N0,N,N0); 
@@ -227,13 +288,26 @@ lbound = 2 - (bbound + afac*abound);
 return(lbound);
 }
 
+\\example usage 1
 thresh=0.02;
 y=0.2;t=0.2;mtype=5;
 N=69098;
-bound = abbeff_largex_ep_lbound(N,y,t,mtype);
+\\bound = abbeff_largex_ep_lbound(N,y,t,mtype);
+bound = 0.0699020198333475;
 
 while(bound>=thresh,\
 N=N+1;\
 bound = abbeff_largex_ep_lbound_sawtooth(bound,N,y,t,mtype);\
 print(List([t,y,N,bound]));\
 );
+
+\\example usage 2
+N=69098;y=0.2;t=0.2;mtype=7;
+Nstart=N+1;
+Nend=1.5*10^6;
+\\initbound = abbeff_largex_ep_lbound_conservative(N,Nend,y,t,mtype);
+initbound = 0.0338943569372946644;
+
+boundfile="N_69098_to_1.5mil_y_0.2_t_0.2_moll_euler5_sawtooth_lemmabounds_conservative.txt";
+abbeff_largex_ep_lbound_sawtooth_conservative_loop(boundfile,initbound,Nstart,Nend,y,t,mtype);
+
