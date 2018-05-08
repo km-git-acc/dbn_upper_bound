@@ -179,12 +179,41 @@ giving the second claim.
 ...
 
 
-
 Now we prove claim (ii).
 
 ...
 
 Now we prove claim (iii).
+
+We attempt here to find N dependent positive lower bounds for $|f_{t}(x+iy)|$ or corresponding mollified sums through an incremental approach,
+
+$ |f_{N+1}| >= |f_{N}| - \sum$ (additional terms correesponding to N+1), 
+with the bound for $|f_{N_{min}}|$ computed as in someref or someref.
+
+If the incremental bound goes below a positive threshold at N, we reset $N_{min}$ to N and restart the process, generating a sawtooth pattern.
+
+For the Triangle inequality bound,
+
+$|f_{N+1}| >= |f_{N}| - \sum\limits_{n=DN+1}^{DN+D} (\frac{\sum\limits_{1<=d<=D:d|n} \lambda_{d} b_{n/d}^{t} (1 + |\gamma|n^y))}{n^\sigma}$
+
+For the Lemma inequality bound, we first make some observations.
+
+1) $\frac{1-a_1}{1+a_1} = \frac{1-|\gamma|}{1+|\gamma|}$ increases with N.
+
+2) If $\beta_{n} \alpha_{n} >= 0$ i.e. $\beta_{n}$ and $\alpha_{n}$ do not have oppposite signs,
+
+$|\beta_{n} + \alpha_{n}| >= |\beta_{n} - \alpha_{n}|$
+hence $\max (|\beta_{n} + \alpha_{n}|, |\beta_{n} - \alpha_{n}|) = |\beta_{n} + \alpha_{n}|$
+
+Now, $\beta_{n} = \sum\limits_{1<=d<=D:d|n} \lambda_{d} b_{n/d}^{t} = b_{n}^{t} \sum\limits_{1<=d<=D:d|n} \lambda_{d} ({\frac{d}{n^2}})^{(t/4) \log d}$
+
+and, $\alpha_{n} = \sum\limits_{1<=d<=D:d|n} \lambda_{d} a_{n/d}^{t} = b_{n}^{t}|\gamma|n^y \sum\limits_{1<=d<=D:d|n} \lambda_{d} ({\frac{d}{n^2}})^{(t/4) \log d} \frac{1}{d^y}$
+
+Hence, subject to condition 2) and replacing ,
+
+
+$|f_{N+1}| >= |f_{N}| - \sum\limits_{n=DN+1}^{DN+D} (\sum\limits_{1<=d<=D:d|n} \lambda_{d} b_{n/d}^{t} (1 + |\gamma|n^y))$
+
 
 ...
 
