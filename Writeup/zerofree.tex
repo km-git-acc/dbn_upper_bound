@@ -187,32 +187,67 @@ Now we prove claim (iii).
 
 We attempt here to find N dependent positive lower bounds for $|f_{t}(x+iy)|$ or corresponding mollified sums through an incremental approach,
 
-$ |f_{N+1}| >= |f_{N}| - \sum$ (additional terms correesponding to N+1), 
-with the bound for $|f_{N_{min}}|$ computed as in someref or someref.
+$ |f_{N+1}| >= |f_{N}| - \sum$ (additional terms corresponding to N+1), 
+with the bound for $|f_{N_{min}}|$ computed as in (77) or (78).
 
 If the incremental bound goes below a positive threshold at N, we reset $N_{min}$ to N and restart the process, generating a sawtooth pattern.
 
+For verifying the lower bounds for $[N_{min},N_{max}]$
+
 For the Triangle inequality bound,
 
-$|f_{N+1}| >= |f_{N}| - \sum\limits_{n=DN+1}^{DN+D} (\frac{\sum\limits_{1<=d<=D:d|n} \lambda_{d} b_{n/d}^{t} (1 + |\gamma|n^y))}{n^\sigma}$
+$$|f_{N_{min}}| = 1 - \alpha_1 - \sum\limits_{n=2}^{DN} \frac{|\beta_{n}| + |\alpha_{n}|}{n^{\sigma_{N_{min}}}} - \textrm{ error term}$$
 
-For the Lemma inequality bound, we first make some observations.
 
-1) $\frac{1-a_1}{1+a_1} = \frac{1-|\gamma|}{1+|\gamma|}$ increases with N.
+$$|f_{N+1}| \geq |f_{N}| - \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{|\beta_{n}| + |\alpha_{n}|}{n^{\sigma_{N+1}}}) - \textrm{ additional error term}$$
 
-2) If $\beta_{n} \alpha_{n} >= 0$ i.e. $\beta_{n}$ and $\alpha_{n}$ do not have oppposite signs,
+For the Lemma inequality bound, 
 
-$|\beta_{n} + \alpha_{n}| >= |\beta_{n} - \alpha_{n}|$
-hence $\max (|\beta_{n} + \alpha_{n}|, |\beta_{n} - \alpha_{n}|) = |\beta_{n} + \alpha_{n}|$
+$$|f_{N_{min}}| \geq 1 - \alpha_1 - \sum\limits_{n=2}^{DN} \frac{\frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} |\beta_{n} + \alpha_{n}|}{n^{\sigma_{N_{min}}}}  - \textrm{ error term}$$
 
-Now, $\beta_{n} = \sum\limits_{1<=d<=D:d|n} \lambda_{d} b_{n/d}^{t} = b_{n}^{t} \sum\limits_{1<=d<=D:d|n} \lambda_{d} ({\frac{d}{n^2}})^{(t/4) \log d}$
 
-and, $\alpha_{n} = \sum\limits_{1<=d<=D:d|n} \lambda_{d} a_{n/d}^{t} = b_{n}^{t}|\gamma|n^y \sum\limits_{1<=d<=D:d|n} \lambda_{d} ({\frac{d}{n^2}})^{(t/4) \log d} \frac{1}{d^y}$
+$$|f_{N+1}| >= |f_{N}| - \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{\frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} |\beta_{n} + \alpha_{n}|}{n^{\sigma_{N+1}}})  - \textrm{ additional error term}$$
+
+if $\beta_{n}\alpha_{n} \geq 0$ and $\frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} |\beta_{n} + \alpha_{n}| \geq |\beta_{n} - \alpha_{n}|$
+
+(In practice while calculating the incremental bounds for large N, only the dN+d terms will be non-zero).
+
+Now, $$\beta_{n} = \sum\limits_{1 \leq d \leq D:d|n} \lambda_{d} b_{n/d}^{t} = b_{n}^{t} \sum\limits_{1 \leq d \leq D:d|n} \lambda_{d} ({\frac{d}{n^2}})^{(t/4) \log d}$$
+
+and, $$\alpha_{n} = \sum\limits_{1 \leq d \leq D:d|n} \lambda_{d} a_{n/d}^{t} = b_{n}^{t}|\gamma|n^y \sum\limits_{1 \leq d \leq D:d|n} \frac{\lambda_{d}}{d^y} ({\frac{d}{n^2}})^{(t/4) \log d}$$
+
+Hence, $\beta_{n}\alpha_{n} \geq 0$ if $(\sum\limits_{1 \leq d \leq D:d|n} \lambda_{d} ({\frac{d}{n^2}})^{(t/4) \log d})(\sum\limits_{1 \leq d \leq D:d|n} \frac{\lambda_{d}}{d^y} ({\frac{d}{n^2}})^{(t/4) \log d}) \geq 0$
+
+for $N_{min} = 69098, N_{max} = 1.5*10^6, y =0.2, t=0.2$
+$\beta_{n}\alpha_{n} \geq 0$ for $2 \leq n \leq DN_{max}$
+
+$$..$$
+$$..$$
+$$..$$
+
+$$|\alpha_{n} = \sum\limits_{1 \leq d \leq D:d|n} \lambda_{d} a_{n/d}^{t} = b_{n}^{t}|\gamma|n^y \sum\limits_{1 \leq d \leq D:d|n} \frac{\lambda_{d}}{d^y} ({\frac{d}{n^2}})^{(t/4) \log d}$$
+
+
+
+
 
 Hence, subject to condition 2) and replacing ,
 
+$$|f_{N}|_{N_{min}} = 1 - \alpha_1 - \sum\limits_{n=1}^{DN} (\frac{\sum\limits_{1 \leq d \leq D:d|n} \lambda_{d} b_{n/d}^{t} (1 + |\gamma|n^y))}{n^\sigma}$$
 
-$|f_{N+1}| >= |f_{N}| - \sum\limits_{n=DN+1}^{DN+D} (\sum\limits_{1<=d<=D:d|n} \lambda_{d} b_{n/d}^{t} (1 + |\gamma|n^y))$
+
+$$|f_{N+1}| \geq |f_{N}| - \sum\limits_{n=DN+1}^{DN+D} (\frac{\sum\limits_{1 \leq d \leq D:d|n} \lambda_{d} b_{n/d}^{t} (1 + |\gamma|n^y))}{n^\sigma}$$
+
+we first make some observations.
+
+1) $\frac{1-a_1}{1+a_1} = \frac{1-|\gamma|}{1+|\gamma|}$ increases with N.
+
+2) If $\beta_{n} \alpha_{n} \geq 0$ i.e. $\beta_{n}$ and $\alpha_{n}$ do not have opposite signs,
+$|\beta_{n} + \alpha_{n}| \geq |\beta_{n} - \alpha_{n}|$
+hence $\max (|\beta_{n} + \alpha_{n}|, |\beta_{n} - \alpha_{n}|) = |\beta_{n} + \alpha_{n}|$
+
+
+$|f_{N+1}| >= |f_{N}| - \sum\limits_{n=DN+1}^{DN+D} (\sum\limits_{1 \leq d leq D:d|n} \lambda_{d} b_{n/d}^{t} (1 + |\gamma|n^y))$
 
 
 ...
