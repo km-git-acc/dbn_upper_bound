@@ -1,6 +1,6 @@
 \section{A new upper bound for the de Bruijn-Newman constant}
 
-In this section we prove Theorem \ref{new-upper}.  As stated in the introduction, it suffices to verify the conditions (i), (ii), (iii) of Theorem \ref{ubc-0} $t_0 := 0.2$, $X := 6 \times 10^{10} + 83952$, and $y_0 = 0.2$.  
+In this section we prove Theorem \ref{new-upper}.  As stated in the introduction, it suffices to verify the conditions (i), (ii), (iii) of Theorem \ref{ubc-0} $t_0 := 0.2$, $X := 6 \times 10^{10} + 83952 + [-0.5,0.5]$, and $y_0 = 0.2$.  
 
 Claim (i) is immediate from the result of Platt \cite{platt} that all the non-trivial zeroes of $\zeta$ with imaginary part between $0$ and $3.06 \times 10^{10}$ lie on the critical line $\{ \mathrm{Re}(s) = 1/2\}$.  For the remaining claims (ii), (iii), one has to verify $H_t(x+iy) \neq 0$ for various $(x,y,t)$ in the region \eqref{region}.
 To show that $H_t(x+iy) \neq 0$, it suffices from Theorem \ref{eff} to show that
@@ -19,7 +19,7 @@ so in particular
 \end{equation}
 $\kappa, s_*, \gamma$ are as in Theorem \ref{eff}, and $e_A, e_B, e_{C_0}$ are bounded by the bounds in that theorem.
 
-Note that if $x \geq 6 \times 10^{10} + 83952$ then $N \geq 69098$.  We calculate a somewhat crude upper bound for the right-hand side of \eqref{bbb}:
+Note that if $x \geq 6 \times 10^{10} + 83952 - 0.5$ then $N \geq 69098$.  We calculate a somewhat crude upper bound for the right-hand side of \eqref{bbb}:
 
 {\bf the estimate below needs to be redone for the new range of parameters}
 
@@ -86,9 +86,9 @@ The claim follows.
 It now suffices to establish the following claims:
 
 \begin{itemize}
-\item[(i)]  \eqref{bbb} holds when $6 \times 10^{10} + 83952 \leq x \leq 6 \times 10^{10} + 83953$, $0 \leq t \leq 0.2$, and $y \geq 0.2$.
-\item[(ii)]  \eqref{bbb} holds when $x \geq 6 \times 10^{10} + 83952$, $69098 \leq N \leq ???$, $t = 0.2$, and $y \geq 0.2$.
-\item[(iii)]  \eqref{bbb} holds when $??? \leq N \leq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
+\item[(i)]  \eqref{bbb} holds when $6 \times 10^{10} + 83952 - 0.5 \leq x \leq 6 \times 10^{10} + 83952 + 0.5$, $0 \leq t \leq 0.2$, and $y \geq 0.2$.
+\item[(ii)]  \eqref{bbb} holds when $x \geq 6 \times 10^{10} + 83952 - 0.5$, $69098 \leq N \leq ???$, $t = 0.2$, and $y \geq 0.2$.
+\item[(iii)]  \eqref{bbb} holds when $69098 \leq N \leq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
 \item[(iv)]  \eqref{bbb} holds when $N \geq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
 \end{itemize}
 
@@ -179,12 +179,62 @@ giving the second claim.
 ...
 
 
-
 Now we prove claim (ii).
 
 ...
 
 Now we prove claim (iii).
+
+We attempt here to find N dependent positive lower bounds for $|f_{t}(x+iy)|$ or corresponding mollified sums through an incremental approach,
+
+$$ |f_{N+1}| >= |f_{N}| - \sum \textrm{(additional terms corresponding to N+1)}$$
+with the bound for $|f_{N_{min}}|$ computed similarly to (77) or (78).
+
+If the incremental bound goes below a positive threshold at N, we reset $N_{min}$ to N and restart the process, generating a sawtooth pattern.
+
+For verifying the lower bounds for $[N_{min},N_{max}]$, and with
+
+$\beta_{n,N} = \sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} b_{n/d}^{t}$, $\alpha_{n,N} = \sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} a_{n/d}^{t}$, 
+
+(and multiplying (77), (78) with $|moll| = \sum_{d=1}^D \frac{|\lambda_d|}{d^\sigma}$ for convenience),
+
+
+For the Triangle inequality bound,
+
+$$|f_{N_{min}}| \geq 1 - |\gamma| - \sum\limits_{n=2}^{DN_{min}} \frac{|\beta_{n,N_{min}}| + |\alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}} - |moll||\gamma| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma-y}}$$
+
+
+$$|f_{N+1}| \geq |f_{N}| - \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{|\beta_{n,N+1}| + |\alpha_{n,N+1}|}{n^{\sigma_{N+1}}}) - |moll||\gamma| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma-y}}$$
+
+For the Lemma inequality bound, if $\frac{|\beta_{n,N} - \alpha_{n,N}|}{|\beta_{n,N} + \alpha_{n,N}|} \leq \frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} = C_{N_{max}}$
+
+
+$$|f_{N_{min}}| \geq 1 - |\gamma| - \sum\limits_{n=2}^{DN_{min}}  \frac{C_{N_{max}}|\beta_{n,N_{min}} + \alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}}  - |moll||\gamma| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma-y}}$$
+
+
+$$|f_{N+1}| >= |f_{N}| - \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{C_{N_{max}} |\beta_{n,N+1} + \alpha_{n,N+1}|}{n^{\sigma_{N+1}}})  - |moll||\gamma| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma-y}}$$
+
+Now, $\frac{|\beta_{n,N} - \alpha_{n,N}|}{|\beta_{n,N} + \alpha_{n,N}|} = \frac{|g(n,N,moll) - |\gamma|n^y|}{|g(n,N,moll) + |\gamma|n^y|}$, where
+$g(n,N,moll) = \frac{\sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} ({\frac{d}{n^2}})^{(t/4) \log d}}{\sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \frac{\lambda_{d}}{d^y} ({\frac{d}{n^2}})^{(t/4) \log d}}$
+
+
+
+For $N_{min} = 69098, N_{max} = 1.5*10^6, y =0.2, t=0.2, \lambda_d = (-1)^{\mu(d)}b^{t}_{d},$
+
+$C_{N_{max}} \approx 0.8896$, and using the Euler 7 mollifier,
+
+$\textrm{Except for } n = 2,3,5,7 \textrm{ where } g(n,N,moll) = 0$ and $C_{N_{max}}|\beta_{n,N_{min}} + \alpha_{n,N_{min}}|$ has to be replaced with $|\alpha_{n,N_{min}}|$, 
+
+It was computationally verified that $\frac{|g(n,N,moll) - |\gamma|n^y|}{|g(n,N,moll) + |\gamma|n^y|} \leq C_{N_{max}}$ when $\beta_{n,N},\alpha_{n,N}$ are not both zero.
+
+$f_{N_{min}} \geq 0.033$
+
+To be filled: Description of computational verification for $[N_{min},N_{max}]$
+
+
+$$..$$
+$$..$$
+$$..$$
 
 ...
 

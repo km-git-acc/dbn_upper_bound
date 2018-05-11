@@ -1,0 +1,162 @@
+default(realprecision, 30)
+
+\\init
+T(s)=imag(s)
+Td(s)=T(s)+Pi/4
+S(s,sig)=sig+I*Td(s)
+S1(s,sig)=1-sig+I*Td(s)
+
+\\Riemann xi(s)
+xi(s)=(s/2)*(s-1)*Pi^(-s/2)*gamma(s/2)*zeta(s)
+
+\\Tail estimates Ht and Ht'
+F(s)=log(s)+log(s-1)-s/2*log(Pi)+(s-1)/2*log(s/2)-s/2
+Q(s,X,t)=2*X/t-3/(4*Td(s))-2*real(s)/t-1/2*log(sqrt(X^2+Td(s)^2)/(2*Pi))
+Eterm1(s,t)=exp((Td(s)-T(s))^2/(4*t)+1/(6*(Td(s)-0.33)))
+Eterm2(s,X,t)=exp(real(F(X+I*Td(s)))-1/t*(X-real(s))^2)
+E(s,X,t)=Eterm1(s,t)/(sqrt(32*t)*Q(s,X,t))*Eterm2(s,X,t)
+Edterm(s,X,t)=(abs(Td(s)-T(s))+X-real(s))/Q(s,X,t)+1/Q(s,X,t)^2
+Ed(s,X,t)=Eterm1(s,t)/(sqrt(32*t^3))*Eterm2(s,X,t)*Edterm(s,X,t)
+
+\\Common integral terms
+Iterm1(s,sig,t)=xi(S(s,sig))*exp(-1/t*(S(s,sig)-s)^2)
+Iterm2(s,sig,t)=xi(S1(s,sig))*exp(-1/t*(S1(s,sig)-s)^2)
+
+\\Ht(z) integral
+Ht1(s,X,t)=1/(8*sqrt(Pi*t))*intnum(sig=1/2,X,Iterm1(s,sig,t)+Iterm2(s,sig,t)) + E(s,X,t)
+Htt(z,X,t)=Ht1((1-imag(z)+I*real(z))/2,X,t)
+
+\\Ht'(z) integral
+Htd1(s,X,t)=I/(8*sqrt(Pi)*t^(3/2))*intnum(sig=1/2,X,Iterm1(s,sig,t)*(S(s,sig)-s)+Iterm2(s,sig,t)*(S1(s,sig)-s))+ Ed(s,X,t)
+Htd(z,X,t)=Htd1((1-imag(z)+I*real(z))/2,X,t)
+
+\\Ht'(z)-bound version 1 (Tao's blog)
+Htdb1(s,t)=exp(1/t*(Td(s)-T(s))^2)/(sqrt(4*Pi*t^3))
+Htdb2(s,sig,t)=exp(-1/t*(sig-real(s))^2)*(abs(Td(s)-T(s))+sig-real(s))
+Htdb3(s,X,t)=Htdb1(s,t)*intnum(sig=0,X,abs(xi(S(s,sig)))*Htdb2(s,sig,t))+ Ed(s,X,t)
+Htdbv1(z,X,t)=Htdb3((1-imag(z)+I*real(z))/2,X,t)
+
+\\Ht'(z)-bound version 2 (KM's post)
+Htdb11(s,t)=exp(1/t*(Td(s)-T(s))^2)/(8*sqrt(Pi*t^3))
+Htdb21(s,sig,t)=exp(-1/t*(sig-real(s))^2)*abs(S(s,sig)-s)
+Htdb22(s,sig,t)=exp(-1/t*(1-sig-real(s))^2)*abs(S1(s,sig)-s)
+Htdb31(s,X,t)=Htdb11(s,t)*intnum(sig=1/2,X,abs(xi(S(s,sig)))*(Htdb21(s,sig,t)+Htdb22(s,sig,t)))+ Ed(s,X,t)
+Htdbv2(z,X,t)=Htdb31((1-imag(z)+I*real(z))/2,X,t)
+
+\\Output
+print(abs(Htd(1000+0.4*I,8,0.4)))
+print(Htdbv1(1000+0.4*I,8,0.4))
+print(Htdbv2(1000+0.4*I,8,0.4))
+
+alpha1(s) = 1/(2*s) + 1/(s-1) + (1/2)*log(s/(2*Pi));
+alpha1prime(s) = -1/(2*s^2) - 1/(s-1)^2 + 1/(2*s);
+H01(s) = (1/2)*s*(s-1)*Pi^(-s/2)*sqrt(2*Pi)*exp((s/2-1/2)*log(s/2)-s/2);
+C0(p) = (exp(Pi*I*(p^2/2 + 3/8)) - I*sqrt(2)*cos(Pi*p/2))/(2*cos(Pi*p));
+B0_eff(x,y,t=0.4) = (1/8)*exp((t/4)*alpha1((1+y-I*x)/2)^2)*H01((1+y-I*x)/2);
+
+abceff(x,y,t=0.4) = {
+    Tval = x/2;       
+    Tdash = Tval + Pi*t/8;
+    a=sqrt(Tdash/(2*Pi));
+    N=floor(a);
+    p = 1 - 2*(a-N);
+    U = exp(-I*((Tdash/2)*log(Tdash/(2*Pi)) - Tdash/2 - Pi/8));
+    sig1 = (1-y)/2;
+    s1 = sig1 + I*Tval;
+    sdash = sig1 + I*Tdash;
+    alph1 = alpha1(s1);
+    alph2 = alpha1(1-s1);
+    A = (1/8)*exp((t/4)*alph1^2)*H01(s1)*sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph1 - s1));
+    B = (1/8)*exp((t/4)*alph2^2)*H01(1-s1)*sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph2 - (1-s1)));
+    termC1 = Pi^(-sdash/2)*gamma(sdash/2)*(a^(-sig1))*C0(p)*U;
+    termC2 = Pi^(-(1-sdash)/2)*gamma((1-sdash)/2)*(a^(-(1-sig1)))*conj(C0(p))*conj(U);
+    C = (1/8)*exp(t*Pi^2/64)*(sdash*(sdash-1)/2)*((-1)^N)*(termC1 + termC2);
+    return(A+B-C);
+}
+
+newton_quot_abc(x,y=0.4,t=0.4,h=0.000001) = (abceff(x+h,y,t)-abceff(x,y,t))/h;
+
+row_output_full(x,y,t)={
+prec=precision(1.,10);
+z=x+I*y;
+s=(1-imag(z)+I*real(z))/2;
+X = log(x+1)+2;
+H = Htt(z,X,t); ABC=abceff(x,y,t); B0=B0_eff(x,y,t); HB0 = H/B0; H_match = abs(H/ABC);
+dH = Htd(z,X,t); NQ_ABC = newton_quot_abc(x,y,t); dHbound1 = Htdbv1(z,X,t); dHbound2 = Htdbv2(z,X,t); 
+dH_match = abs(dH/NQ_ABC); dratio1=abs(dH/dHbound1); dratio2=abs(dH/dHbound2);
+rel_err_H = abs(E(s,X,t)/H); rel_err_dH = abs(E(s,X,t)/dH);
+data=List([t*prec,z*prec,HB0*prec,H_match*prec,dH_match*prec,dratio1*prec,dratio2*prec,rel_err_H*prec,rel_err_dH*prec]);
+return(data);
+}
+
+row_output(x,y,t)={
+prec=precision(1.,10);
+z=x+I*y;
+s=(1-imag(z)+I*real(z))/2;
+X = log(x+1)+2;
+H = Htt(z,X,t); 
+dHbound2 = Htdbv2(z,X,t); 
+data=List([t*prec,z*prec,H*prec,dHbound2*prec]);
+return(data);
+}
+
+
+filename="test.csv";
+t=0.4; x1=26; x2=52; y1=-0.1; y2=0.4;
+wind_num = 0;
+Hstart=Htt(x1+I*y1,log(x1+1)+2,t);
+Hprev=Hstart;
+
+\\clockwise contour
+
+\\left side of rectangle
+print("Left");
+x=x1; y=y1;
+while(y<=y2,{
+row_out = row_output(x,y,t);
+print(row_out);
+\\write(filename,row_out);
+wind_num = wind_num + arg(H/Hprev);
+y=y+abs(H/dHbound2);
+Hprev=H;
+})
+
+\\top side of rectangle
+print("Top");
+x=x1; y=y2;
+while(x<=x2,{
+row_out = row_output(x,y,t);
+print(row_out);
+\\write(filename,row_out);
+wind_num = wind_num + arg(H/Hprev);
+x=x+abs(H/dHbound2);
+Hprev=H;
+})
+
+\\right side of rectangle
+print("Right");
+x=x2; y=y2;
+while(y>=y1,{
+row_out = row_output(x,y,t);
+print(row_out);
+\\write(filename,row_out);
+wind_num = wind_num + arg(H/Hprev);
+y=y-abs(H/dHbound2);
+Hprev=H;
+})
+
+\\bottom side of rectangle
+print("Bottom");
+x=x2; y=y1;
+while(x>=x1,{
+row_out = row_output(x,y,t);
+print(row_out);
+\\write(filename,row_out);
+wind_num = wind_num + arg(H/Hprev);
+x=x-abs(H/dHbound2);
+Hprev=H;
+})
+
+wind_num = wind_num + arg(Hstart/Hprev);
+wind_num = round(wind_num/(2*Pi))
+print("Winding Number = ", wind_num)

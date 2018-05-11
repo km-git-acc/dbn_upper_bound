@@ -1,0 +1,215 @@
+default(realprecision, 30)
+
+bt(n,t)=return(n^((t/4)*log(n)));
+alpha1(s) = 1/(2*s) + 1/(s-1) + (1/2)*log(s/(2*Pi));
+alpha1prime(s) = -1/(2*s^2) - 1/(s-1)^2 + 1/(2*s);
+H01(s) = (1/2)*s*(s-1)*Pi^(-s/2)*sqrt(2*Pi)*exp((s/2-1/2)*log(s/2)-s/2);
+C0(p) = (exp(Pi*I*(p^2/2 + 3/8)) - I*sqrt(2)*cos(Pi*p/2))/(2*cos(Pi*p));
+B0_eff(x,y,t) = (1/8)*exp((t/4)*alpha1((1+y-I*x)/2)^2)*H01((1+y-I*x)/2);
+
+barrier_strip_search(bfile,X,numx=10^5,nprimes=5) = {
+p = primes(nprimes);
+offset = [-0.5,0,0.5];
+for(tht=0,numx,x=X+tht;\
+aty0 = vector(3,i,abs(prod(v=1,nprimes,1/(1-1/p[v]^(1/2-I*(x+offset[i])/2)))));\
+aty1 = vector(3,i,abs(prod(v=1,nprimes,1/(1-1/p[v]^(1-I*(x+offset[i])/2)))));\
+row = concat([tht],aty0); row = concat(row,aty1);\
+print(tht); write(bfile,row);\
+);
+}
+
+abceff(x,y,t) = {
+    Tval = x/2;       
+    Tdash = Tval + Pi*t/8;
+    a=sqrt(Tdash/(2*Pi));
+    N=floor(a);
+    p = 1 - 2*(a-N);
+    U = exp(-I*((Tdash/2)*log(Tdash/(2*Pi)) - Tdash/2 - Pi/8));
+    sig1 = (1-y)/2;
+    s1 = sig1 + I*Tval;
+    sdash = sig1 + I*Tdash;
+    alph1 = alpha1(s1);
+    alph2 = alpha1(1-s1);
+    A = (1/8)*exp((t/4)*alph1^2)*H01(s1)*sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph1 - s1));
+    B = (1/8)*exp((t/4)*alph2^2)*H01(1-s1)*sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph2 - (1-s1)));
+    termC1 = Pi^(-sdash/2)*gamma(sdash/2)*(a^(-sig1))*C0(p)*U;
+    termC2 = Pi^(-(1-sdash)/2)*gamma((1-sdash)/2)*(a^(-(1-sig1)))*conj(C0(p))*conj(U);
+    C = (1/8)*exp(t*Pi^2/64)*(sdash*(sdash-1)/2)*((-1)^N)*(termC1 + termC2);
+    return(A+B-C);
+}
+
+abbeff(x,y,t) = {       
+    s = (1 - y + I*x)/2; 
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    alph1 = alpha1(s);
+    alph2 = alpha1(1-s);
+    A0 = (1/8)*exp((t/4)*alph1^2)*H01(s);
+    B0 = (1/8)*exp((t/4)*alph2^2)*H01(1-s);
+    A_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph1 - s));
+    B_sum = sum(n=1,N,n^((t/4.0)*log(n) - (t/2.0)*alph2 - (1-s)));
+    A = A0 * A_sum;
+    B = B0 * B_sum;
+    return ((A+B)/B0);
+}
+
+abbeff_approx(x,y,t,N0) = {       
+    s = (1 - y + I*x)/2;
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    if(N<N0,N0=N);
+    alph1 = alpha1(s);
+    alph2 = alpha1(1-s);
+    gam = exp((t/4)*(alph1^2-alph2^2) + (1/2-s)*(log(Pi)+1) + (s/2)*log(s*(1-s)/4) - (1/2)*log(s/2));
+    A_sum = sum(n=1,N0,n^((t/4)*log(n) - (t/2)*alph1 - s));
+    B_sum = sum(n=1,N0,n^((t/4)*log(n) - (t/2)*alph2 - (1-s)));
+    print(concat("Smallest B exponent: ",real(1-s + (t/2)*alph2 - (t/4)*log(N))));
+    return (B_sum+gam*A_sum);
+}
+
+ddx_abbeff(x,y,t) = {
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    s = (1+y-I*x)/2;
+    lambda = exp((t/4.0)*(alpha1(1-s)^2 - alpha1(s)^2))*H01(1-s)/H01(s); 
+    expo_b_main = s + 0.5*t*alpha1(s);
+    expo_a_main = 1-s + 0.5*t*alpha1(1-s);
+    b_numer_common = -I/2 - (I/4)*t*alpha1prime(s);
+    a_numer_common = I/2 + (I/4)*t*alpha1prime(1-s);
+    ddxloglambda = (I*t/4)*(alpha1(s)*alpha1prime(s) + alpha1(1-s)*alpha1prime(1-s)) + (I/4)*log(s/(2*Pi)) + (I/4)*log((1-s)/(2*Pi)) - (I/4)*(1/s + 1/(1-s));
+    ddxsum_b = sum(n=1,N,-log(n)*b_numer_common*n^((t/4)*log(n) - expo_b_main));
+    ddxsum_a = sum(n=1,N,(-log(n)*a_numer_common + ddxloglambda)*n^((t/4.0)*log(n) - expo_a_main));
+    ddxsum = ddxsum_b + lambda*ddxsum_a;
+    return(ddxsum);
+}
+
+ddx_abbeff_Nbound(N,y,t)={
+xN = 4*Pi*N^2 - Pi*t/4;
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+sig = (1+y)/2 + (t/4)*log(xN/(4*Pi)) - (t/(2*xN^2))*max(0,1 - 3*y + 4*y*(1+y)/xN^2);
+K = t/2*(alpha1((1-y+I*xN)/2) - alpha1((1+y+I*xN)/2));
+ReK = real(K);
+modK = t*y/(2*(xN-6));
+yK = y - conj(K);
+modgamma = exp(0.02*y)*(xN/(4*Pi))^(-y/2);
+
+ddxbound_sumb = sum(n=1,N,bt(n,t)*((t/4)*log(n)/(xN-6) + log(n)/2)/n^sig);
+ddxbound_suma = sum(n=1,N,bt(n,t)*(n^y)*((t/4)*log(n)/(xN-6) + (log(abs(1+y+I*xNp1)/(4*Pi)) + Pi + 3/xN)*((t/4)/(xN-6) + 1/2))/n^sig);
+ddxbound = ddxbound_sumb + modgamma*(N^modK)*ddxbound_suma;
+return(ddxbound);
+}
+
+ddt_abbeff(x,y,t) = {
+    N = floor(sqrt((x+Pi*t/4)/(4*Pi)));
+    s = (1+y-I*x)/2;
+    alph_b = alpha1(s);
+    alph_a = alpha1(1-s);
+    lambda = exp((t/4.0)*(alph_a^2 - alph_b^2))*H01(1-s)/H01(s); 
+    expo_b_main = s + (t/2)*alph_b;
+    expo_a_main = 1-s + (t/2)*alph_a;
+    ddtsum_b = (1/4)*sum(n=1,N,(log(n)^2 - 2*log(n)*alph_b)*n^((t/4)*log(n) - expo_b_main));
+    ddtsum_a = (1/4)*sum(n=1,N,(log(n)^2 - 2*log(n)*alph_a + alph_a^2 - alph_b^2)*n^((t/4.0)*log(n) - expo_a_main));
+    ddtsum = ddtsum_b + lambda*ddtsum_a;
+    return(ddtsum);
+}
+
+ddt_abbeff_Nbound(N,y,t)={
+xN = 4*Pi*N^2 - Pi*t/4;
+xNp1 = 4*Pi*(N+1)^2 - Pi*t/4;
+sig = (1+y)/2 + (t/4)*log(xN/(4*Pi)) - (t/(2*xN^2))*max(0,1 - 3*y + 4*y*(1+y)/xN^2);
+K = t/2*(alpha1((1-y+I*xN)/2) - alpha1((1+y+I*xN)/2));
+ReK = real(K);
+modK = t*y/(2*(xN-6));
+yK = y - conj(K);
+modgamma = exp(0.02*y)*(xN/(4*Pi))^(-y/2);
+
+ddtb_sumb = sum(n=1,N,bt(n,t)*((1/4)*log(n)*log(xNp1/(4*Pi*n)) + (Pi/8)*log(n) + 2*log(n)/(xN-6))/n^sig);
+ddtb_suma = sum(n=1,N,bt(n,t)*(n^y)*((1/4)*log(n)*log(xNp1/(4*Pi*n)) + (Pi/8)*log(n) + 2*log(n)/(xN-6) + (1/4)*(Pi/2 + 8/(xN-6))*(log(xNp1/(4*Pi)) + 8/(xN-6)))/n^sig);
+ddtbound = ddtb_sumb + modgamma*(N^modK)*ddtb_suma;
+return(ddtbound);
+}
+
+newton_quot_abc(x,y,t,h=0.000001) = (abceff(x+h,y,t)-abceff(x,y,t))/h;
+newton_quot_abbeff_x(x,y,t,h=0.00001) = return(abs((abbeff(x+h,y,t) - abbeff(x,y,t))/h));
+newton_quot_abbeff_t(x,y,t,h=0.00001) = return(abs((abbeff(x,y,t+h) - abbeff(x,y,t))/h));
+
+abbapproxarr(X,y,t,num,H,expterms,bexpo,aexpo,sarr)={
+    N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+    numn0 = (N - H/2)\/H;
+    n0 = vector(numn0,v,H/2+(v-1)*H);
+    logtn0 = vector(numn0,w,(t/2)*log(n0[w]));
+    n0hbmat = matrix(numn0,H,v,h,(n0[v]+h-H/2)^((-1-y+I*X)/2));
+    n0hamat = matrix(numn0,H,v,h,(n0[v]+h-H/2)^((-1+y-I*X)/2));
+    n0htmat = matrix(numn0,H,v,h,exp((t/4)*log(1+(h-H/2)/n0[v])^2));
+    n0hlogmat = matrix(numn0,H,v,h,log(1+(h-H/2)/n0[v]));
+    n0sumsbmat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)*n0hbmat[v,h]));
+    n0sumsamat = matrix(numn0,expterms,v,expo,sum(h=1,H,n0htmat[v,h]*n0hlogmat[v,h]^(expo-1)*n0hamat[v,h]));
+
+    afac = vector(num,v,exp((t/4)*(alpha1(sarr[v])^2 - alpha1(1-sarr[v])^2))*H01(sarr[v])/H01(1-sarr[v]));        
+    bsums = vector(num,v,sum(w=1,numn0,n0[w]^(bexpo[v] + logtn0[w]/2)*sum(idx=0,expterms-1,n0sumsbmat[w,idx+1]*(bexpo[v] + logtn0[w])^idx/factorial(idx))));
+    asums = vector(num,v,sum(w=1,numn0,n0[w]^(aexpo[v] + logtn0[w]/2)*sum(idx=0,expterms-1,n0sumsamat[w,idx+1]*(aexpo[v] + logtn0[w])^idx/factorial(idx))));
+    ests = vector(num,v,bsums[v]+afac[v]*asums[v]);
+	  return(ests);
+}
+
+abbeff_multieval_symmetric_rectangle(X,y,t,num=5,H=10,expterms=4)={
+    X=X+1/2;y=(1+y)/2;
+    N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+    output = List();
+    
+    thtarr = vector(num,v,-1/2 + (v-1)/(num-1));
+    zarr = vector(num,v,-(1-y) + 2*(1-y)*(v-1)/(num-1));
+    sarr = vector(0); bexpo=vector(0);aexpo=vector(0);
+	
+    \\x lower constant
+    sarr = concat(sarr,vector(num,v,(1-y+I*X-zarr[v]-I/2)/2));
+    bexpo = concat(bexpo,vector(num,v,-(t/2)*alpha1(1-sarr[v]) - zarr[v]/2 - I/4));
+    aexpo = concat(aexpo,vector(num,v,-(t/2)*alpha1(sarr[v]) + zarr[v]/2 + I/4));
+    
+    \\y upper constant
+    sarr = concat(sarr,vector(num,v,(1-y+I*(X+thtarr[v])-(1-y))/2)); 
+    bexpo = concat(bexpo,vector(num,v,-(t/2)*alpha1(1-sarr[v+num]) + I*thtarr[v]/2 - (1-y)/2));
+    aexpo = concat(aexpo,vector(num,v,-(t/2)*alpha1(sarr[v+num]) - I*thtarr[v]/2 + (1-y)/2));
+    
+    \\x upper constant and output to be attached in reverse order
+    sarr = concat(sarr,vector(num,v,(1-y+I*X-zarr[v]+I/2)/2));
+    bexpo = concat(bexpo,vector(num,v,-(t/2)*alpha1(1-sarr[v+2*num]) - zarr[v]/2 + I/4));
+    aexpo = concat(aexpo,vector(num,v,-(t/2)*alpha1(sarr[v+2*num]) + zarr[v]/2 - I/4));
+    
+    \\y lower constant and output to be attached in reverse order
+    sarr = concat(sarr,vector(num,v,(1-y+I*(X+thtarr[v])+(1-y))/2));
+    bexpo = concat(bexpo,vector(num,v,-(t/2)*alpha1(1-sarr[v+3*num]) + I*thtarr[v]/2 + (1-y)/2));
+    aexpo = concat(aexpo,vector(num,v,-(t/2)*alpha1(sarr[v+3*num]) - I*thtarr[v]/2 - (1-y)/2));
+
+    ests = abbapproxarr(X,y,t,4*num,H,expterms,bexpo,aexpo,sarr);
+    for(idx=1,num-1,listput(output,List([t,y+zarr[idx]*1.0,X-1/2.0,ests[idx]])));
+    for(idx=1,num-1,listput(output,List([t,y+(1-y),1.0*X+thtarr[idx]*1.0,ests[num+idx]])));
+    for(idx=1,num-1,listput(output,List([t,y+zarr[num-idx+1]*1.0,X+1/2.0,ests[3*num-idx+1]])));
+    for(idx=1,num-1,listput(output,List([t,y-(1-y),1.0*X+thtarr[num-idx+1]*1.0,ests[4*num-idx+1]])));
+
+    X=X-1/2;y=2*y-1;
+    return(output);
+    }
+
+
+detailsfile = "X_6_10pow10_plus_2099_y0_0.2_t_0.2_detailed_barrier_output.csv";
+summaryfile = "X_6_10pow10_plus_2099_y0_0.2_t_0.2_barrier_summary.csv";
+tstart=0.0; tend=0.2; X=6*10^10+2099; y0=0.2;
+t=tstart;
+counter=0;
+while(t<=tend,{
+\\timestart = getwalltime();
+counter=counter+1;
+N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
+if(Mod(counter,100)==1,Dtabb = ddt_abbeff_Nbound(N,y0,t); Dxabb = ddx_abbeff_Nbound(N,y0,t););
+sidemesh = ceil(Dxabb);
+rectmesh = 4*sidemesh - 4;
+minmodabb = 1000;
+abbdata = abbeff_multieval_symmetric_rectangle(X,y0,t,sidemesh,H=N,50);
+
+wind_num = sum(idx=1,rectmesh-1,arg(abbdata[idx][4]/abbdata[idx+1][4])) + arg(abbdata[rectmesh][4]/abbdata[1][4]);
+for(i=1,rectmesh,write(detailsfile,abbdata[i]); modabb = abs(abbdata[i][4]); if(modabb<minmodabb,minmodabb=modabb));
+wind_num = wind_num/(2*Pi);
+\\timeend = getwalltime();
+t_summary = List([t,Dtabb,Dxabb,wind_num,minmodabb,rectmesh]);
+print(t_summary);
+write(summaryfile,t_summary);
+t = t + minmodabb/(2*Dtabb);
+});

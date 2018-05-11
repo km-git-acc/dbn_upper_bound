@@ -56,9 +56,8 @@ For a sample file showing how a large range of z values can be explored and root
 
 ## Results
 ---------------------------------------------------------------------------------------------
-Please express your results here. A sample format can be your name or handle, t checked, T and epsilon verified, etc. Once there are multiple results, we can arrange it as a table. Also, once you are sure about your results, please update them or ask them to be updated on the Polymath page as well.
-
-Do double check your results, and triple check especially if you find a non real zero for any t>0, since the implications are huge! 
+Results can be checked on this wiki page,
+http://michaelnielsen.org/polymath1/index.php?title=Zero-free_regions
 
 
 ## Other Sections - Please add as needed

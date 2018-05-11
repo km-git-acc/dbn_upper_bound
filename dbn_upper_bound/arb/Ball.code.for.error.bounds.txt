@@ -1,0 +1,67 @@
+#Created by Rudolph - https://github.com/rudolph-git-acc
+
+from mpmath import *
+mp.dps=80
+bpi  = R(mp.pi());
+
+R = RealBallField(180); Z = ComplexBallField(180);
+
+n0=R(0); n1=R(1); nm1=R(-1); n2=R(2); n3=R(3); n4=R(4); n6=R(6); n16=R(16); n32=R(32);
+n0d125=R(125/1000); n0d02=R(2/100); n1d24=R(124/100); n0d313=R(313/1000); n3d33=R(333/100); 
+n3d58=R(358/100); n6d66=R(666/100); n6d92=R(692/100); n8d52=R(852/100)
+
+def xN(N,t):
+    res  = n4*bpi*N^n2-bpi*t/n4;
+    return (res)
+
+def lambd(x,y,t):
+    res  = (n0d02*y).exp()*(x/(n4*bpi))^(-y/n2);
+    return (res)
+
+def bt(n,t):
+    res  =(t/n4*(n.log())^n2).exp();
+    return (res)
+           
+def Ress(x,y,t):
+    res  =(n1+y)/n2+t/n4*(x/(n4*bpi)).log() -((max(n0,n1-n3*y))*t)/(n2*x^n2);
+    return (res)
+
+def kappa(x,y,t):
+    res  = t*y/(n2*(x-n6));
+    return (res)
+
+def eA(N,y,t):
+    x=xN(N,t); eAout=n0;n=n1;
+    while  n <= N:
+        eAout = eAout + (n^y)*bt(n,t)/(n^Ress(x,y,t))*(((t^n2/n32*((x/(n4*bpi*n^n2)).log())^n2+n0d313)/(x/n2-n3d33)).exp()-n1);
+        n = n + n1;
+    return ((abs(lambd(x,y,t))*N^abs(kappa(x,y,t))*eAout))
+
+def eB(N,y,t):
+    x=xN(N,t); eBout=n0;n=n1;
+    while  n <= N:
+        eBout = eBout + bt(n,t)/(n^Ress(x,y,t))*(((t^n2/n32*((x/(n4*bpi*n^n2)).log())^n2+n0d313)/(x/n2-n3d33)).exp()-n1);
+        n = n + n1;
+    return (eBout)
+
+def eC(N,y,t):
+    x=xN(N,t);
+    eCout1=(-t/n16*((x/(n4*bpi)).log())^n2+(n3*abs((x/(n4*bpi)).log()+ Z(n0,bpi/n2))+n3d58)/(x-n8d52)).exp();
+    eCout2=n1d24*(n3^y+n3^(-y))/(N-n0d125)+n6d92/(x-n6d66)
+    eCout=(x/(n4*bpi))^(nm1*(n1+y)/n4)*eCout1*eCout2
+    return (eCout)
+
+def eC0(N,y,t):
+    x=xN(N,t);
+    eCout1=(-t/n16*((x/(n4*bpi)).log())^n2+(n3*abs((x/(n4*bpi)).log()+ Z(n0,bpi/n2))+n3d58)/(x-n8d52)).exp();
+    eCout2=n1+n1d24*(n3^y+n3^(-y))/(N-n0d125)+n6d92/(x-n6d66)
+    eCout=(x/(n4*bpi))^(nm1*(n1+y)/n4)*eCout1*eCout2
+    return (eCout)
+
+bbt=R(4/10)
+bby=R(4/10)
+bbN=R(1000)
+print(eA(bbN,bby,bbt))
+print(eB(bbN,bby,bbt))
+print(eC(bbN,bby,bbt))
+print(eC0(bbN,bby,bbt))
