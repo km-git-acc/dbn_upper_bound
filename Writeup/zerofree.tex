@@ -201,18 +201,18 @@ $\beta_{n,N} = \sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} b_{n/d}^{
 
 For the Triangle inequality bound,
 
-$$|f_{N_{min}}| \geq 1 - |\gamma| - \sum\limits_{n=2}^{DN_{min}} \frac{|\beta_{n,N_{min}}| + |\alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}} - |moll||\gamma| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma-y}}$$
+$$|f_{N_{min}}| \geq \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N_{min}}}}} (1 - |\gamma| - \sum\limits_{n=2}^{DN_{min}} \frac{|\beta_{n,N_{min}}| + |\alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}}) - |\gamma| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma_{N_{min}}-y}}$$
 
 
-$$|f_{N+1}| \geq |f_{N}| - \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{|\beta_{n,N+1}| + |\alpha_{n,N+1}|}{n^{\sigma_{N+1}}}) - |moll||\gamma| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma-y}}$$
+$$|f_{N+1}| \geq |f_{N}| - \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N+1}}}} \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{|\beta_{n,N+1}| + |\alpha_{n,N+1}|}{n^{\sigma_{N+1}}}) - |\gamma| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma_{N+1}-y}}$$
 
 For the Lemma inequality bound, if $\frac{|\beta_{n,N} - \alpha_{n,N}|}{|\beta_{n,N} + \alpha_{n,N}|} \leq \frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} = C_{N_{max}}$
 
 
-$$|f_{N_{min}}| \geq 1 - |\gamma| - \sum\limits_{n=2}^{DN_{min}}  \frac{C_{N_{max}}|\beta_{n,N_{min}} + \alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}}  - |moll||\gamma| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma-y}}$$
+$$|f_{N_{min}}| \geq \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N_{min}}}}} (1 - |\gamma| - \sum\limits_{n=2}^{DN_{min}}  \frac{C_{N_{max}}|\beta_{n,N_{min}} + \alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}} ) - |\gamma| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma_{N_{min}}-y}}$$
 
 
-$$|f_{N+1}| >= |f_{N}| - \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{C_{N_{max}} |\beta_{n,N+1} + \alpha_{n,N+1}|}{n^{\sigma_{N+1}}})  - |moll||\gamma| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma-y}}$$
+$$|f_{N+1}| >= |f_{N}| - \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N+1}}}} \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{C_{N_{max}} |\beta_{n,N+1} + \alpha_{n,N+1}|}{n^{\sigma_{N+1}}})  - |\gamma| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma_{N+1}-y}}$$
 
 Now, $\frac{|\beta_{n,N} - \alpha_{n,N}|}{|\beta_{n,N} + \alpha_{n,N}|} = \frac{|g(n,N,moll) - |\gamma|n^y|}{|g(n,N,moll) + |\gamma|n^y|}$, where
 $g(n,N,moll) = \frac{\sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} ({\frac{d}{n^2}})^{(t/4) \log d}}{\sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \frac{\lambda_{d}}{d^y} ({\frac{d}{n^2}})^{(t/4) \log d}}$
@@ -227,10 +227,23 @@ $\textrm{Except for } n = 2,3,5,7 \textrm{ where } g(n,N,moll) = 0$ and $C_{N_{m
 
 It was computationally verified that $\frac{|g(n,N,moll) - |\gamma|n^y|}{|g(n,N,moll) + |\gamma|n^y|} \leq C_{N_{max}}$ when $\beta_{n,N},\alpha_{n,N}$ are not both zero.
 
-$f_{N_{min}} \geq 0.033$
+$f_{N_{min}} \geq $ (to be updated with new estimate)
 
 To be filled: Description of computational verification for $[N_{min},N_{max}]$
 
+Possible improvement: Replacing $C_{N_{max}} |\beta_{n,N+1} + \alpha_{n,N+1}|$ with a general conditional numerator to eliminate a separate verification of $\frac{|g(n,N,moll) - |\gamma|n^y|}{|g(n,N,moll) + |\gamma|n^y|} \leq C_{N_{max}}$ and to automatically handle the few exceptions.
+
+For example, using $ M_{1} = C_{N_{max}} |\beta_{n} + \alpha_{n}|, M_{2} = |\beta_{n} - \alpha_{n}|, M_{3} = |\beta_{n} - |\frac{\gamma_{N_{max}}}{\gamma_{N}}| \alpha_{n}|$
+
+$numerator_{n} =$
+
+$ 1_{\beta_{n} \alpha_{n} < 0} M_{2}$
+
+$ + 1_{\beta_{n}\alpha_{n} \geq 0,|\alpha_{n}| < |\beta_{n}|}\max (M_{1},M_{3})$
+
+$ + 1_{\beta_{n}\alpha_{n} \geq 0,|\alpha_{n}| \geq |\beta_{n}|,M_{1} \geq M_{2}} M_{1}$
+
+$ + 1_{\beta_{n}\alpha_{n} \geq 0,|\alpha_{n}| \geq |\beta_{n}|,M_{2} > M_{1}} \max (M_{2},M_{3})$ 
 
 $$..$$
 $$..$$
