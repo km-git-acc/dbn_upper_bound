@@ -1,12 +1,14 @@
 \section{Dynamics of zeroes}\label{dynamics-sec}
 
-In this section we control the dynamics of the zeroes of $H_t$ in order to establish Theorem \ref{ubc-0}.  We begin with the analysis of the dynamics of a single zero of $H_t$:
+In this section we control the dynamics of the zeroes of $H_t$ in order to establish Theorem \ref{ubc-0}.  As $H_t$ is even with functional equation $H_t = H_t^*$, the zeroes are symmetric around the origin and the real axis; from \eqref{htdef} and the non-negativity of $\Phi$, we also see that $H_t(iy) > 0$ for all $y \in \R$, so there are no zeroes on the imaginary axis.  From the super-exponential decay of $\Phi$ and \eqref{htdef} we see that the entire function $H_t$ is of order $1$; by Jensen's formula, this implies that the number of zeroes in a large disk $D(0,R)$ is at most $O( R^{1+o(1)})$ as $R \to \infty$.
 
-\begin{proposition}[Dynamics of a single zero]\label{dynam}  Let $t_0 \in \R$, and let $(z_k(t_0))_{k \in \Z \backslash \{0\}}$ be an enumeration of the zeroes of $H_{t_0}$ (counting multiplicity), with the symmetry condition $z_{-k}(t_0) = -z_k(t_0)$.
+We begin with the analysis of the dynamics of a single zero of $H_t$:
+
+\begin{proposition}[Dynamics of a single zero]\label{dynam}  Let $t_0 \in \R$, and let $(z_k(t_0))_{k \in \Z \backslash \{0\}}$ be an enumeration of the zeroes of $H_{t_0}$ in $\C$ (counting multiplicity), with the symmetry condition $z_{-k}(t_0) = -z_k(t_0)$.
 \begin{itemize}
 \item[(i)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a simple zero of $H_{t_0}$, then there exists a neighbourhood $U$ of $z_j(t_0)$, a neighbourhood $I$ of $t_0$ in $\R$, and a smooth map $z_j: I \to U$ such that for every $t \in I$, $z_j(t)$ is the unique zero of $H_t$ in $U$.  Furthermore one has the equation
 \begin{equation}\label{zjk}
- \left(\frac{\partial}{\partial t} z_j\right)(t_0) = 2 \sum^{\prime}_{k \neq j} \frac{1}{z_j(t_0) - z_k(t_0)} 
+ \frac{\partial z_j}{\partial t}(t_0) = 2 \sum^{\prime}_{k \neq j} \frac{1}{z_j(t_0) - z_k(t_0)} 
 \end{equation}
 where the sum is over those $k \in \Z \backslash \{0\}$ with $k \neq j$, and the prime means that the $k$ and $-k$ terms are summed together (assuming $k \neq \pm j$) in order to make the sum convergent.
 \item[(ii)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a repeated zero of $H_{t_0}$ of order $m \geq 2$, then there is a neighbourhood $U$ of $z_j(t_0)$ such that for $t$ sufficiently close to $t_0$, there are precisely $m$ zeroes of $H_t$ in $U$, and they take the form
@@ -21,7 +23,7 @@ and the implied constant in the $O()$ notation can depend on $t_0$, $j$, and $m$
 \end{proposition}
 
 The differential equation \eqref{zjk} was previously derived in \cite[Lemma 2.4]{csv} in the case $t > \Lambda$ (in which all zeroes are real and simple).
-The $x_1,\dots,x_m$ can be given explicitly as
+The $x_1,\dots,x_m$ can be given explicitly for small values of $m$ as
 $$ x_1 = -1; \quad x_2 = +1$$
 when $m=2$,
 $$ x_1 = -\sqrt{3}; \quad x_2 = 0; \quad x_3 = +\sqrt{3}$$
@@ -31,31 +33,31 @@ when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all t
 
 \begin{proof}  First suppose we are in the situation of (i).  As $z_j(t_0)$ is simple, $\frac{\partial}{\partial z} H_t$ is non-zero at $z_0$; since $H_t(z)$ is a smooth function of both $t$ and $z$, we conclude from the implicit function theorem that there is a unique solution $z_j(t) \in U$ to the equation
 $$ H_t( z_j(t) ) = 0$$
-with $z_j(t)$ in a sufficiently small neighbourhood $U$ of $z_j(t_0)$, if $t$ is a sufficiently small neighbourhood of $I$; furthermore, $z_j(t)$ depends smoothly on $t$.  Differentiating the above equation at $t_0$, we obtain
-$$ \left(\frac{\partial}{\partial t} H_t\right)( z_j(t_0) ) + \left(\frac{\partial}{\partial t} z_j\right)(t_0) H'_t(z_j(t_0)) = 0,$$
+with $z_j(t)$ in a sufficiently small neighbourhood $U$ of $z_j(t_0)$, if $t$ is in a sufficiently small neighbourhood of $I$; furthermore, $z_j(t)$ depends smoothly on $t$.  Differentiating the above equation at $t_0$, we obtain
+$$ \frac{\partial H_t}{\partial t}|_{t=t_0}( z_j(t_0) ) + \frac{\partial z_j}{\partial t}(t_0) H'_{t_0}(z_j(t_0)) = 0,$$
 where the primes denote differentiation in the $z$ variable.
 On the other hand, from \eqref{htdef} and differentiation under the integral sign (which can be justified using the rapid decrease of $\Phi$) we have the backwards heat equation
 \begin{equation}\label{back}
-\frac{\partial}{\partial t} H_t = -H''_t
+\frac{\partial H_t}{\partial t} = -H''_t
 \end{equation}
-and hence
+for all $t \geq 0$.  Inserting this into the previous equation, we conclude that
 \begin{equation}\label{tzj}
-\left(\frac{\partial}{\partial t} z_j\right)(t_0)  = \frac{H''_t}{H'_t}( z_j(t_0) ).
+\frac{\partial z_j}{\partial t}(t_0)  = \frac{H''_t}{H'_t}( z_j(t_0) ),
 \end{equation}
-Henceforth we omit the dependence on $t_0$ for brevity.  From Taylor expansion of $H_t$, $H'_t$, and $H''_t$ around the simple zero $z_j$ we see that
+noting that the denominator $H'_t(z_j(t_0))$ vanishes by the hypothesis that the zero at $z_j(t_0)$ is simple.  Henceforth we omit the dependence on $t_0$ for brevity.  From Taylor expansion of $H_t$, $H'_t$, and $H''_t$ around the simple zero $z_j$ we see that
 \begin{equation}\label{htz-eq}
  \frac{H''_t}{H'_t}( z_j) = 2 \lim_{z \to z_j}\left(  \frac{H'_t}{H_t}( z_j) - \frac{1}{z-z_j} \right).
 \end{equation}
-On the other hand, as $H_t$ is even, non-zero at the origin, and entire of order $1$ (as can be easily verified from \eqref{htdef}) we see from the Hadamard factorization theorem that
-$$ H_t(z) = C_t \prod_k^{\prime} \left(1 - \frac{z}{z_k}\right)$$
-for some nonzero complex number $C_t$, where the prime indicates that the $k$ and $-k$ factors are multiplied together.  Taking logarithmic derivatives, we conclude that
+On the other hand, as $H_t$ is even, non-zero at the origin, and entire of order $1$, we see from the Hadamard factorization theorem that
+$$ H_t(z) = H_t(0) \prod_k^{\prime} \left(1 - \frac{z}{z_k}\right),$$
+where the prime indicates that the $k$ and $-k$ factors are multiplied together.  Note that the product converges absolutely since the number of zeroes in $D(0,R)$ grows like $O( R^{1+o(1)})$.  Taking logarithmic derivatives, we conclude that
 $$ \frac{H'_t}{H_t}(z) = \sum_k^{\prime} \frac{1}{z-z_k}.$$
-Inserting this into \eqref{tzj}, \eqref{htz-eq} and using the dominated convergence theorem (noting from the order one property of $H_t$ that the number of zeroes $z_k$ in a large disk $D(0,R)$ will grow by at most $O(R^{1+o(1)})$), we obtain the claim (i).
+Inserting this into \eqref{tzj}, \eqref{htz-eq} and using the dominated convergence theorem (again using the growth in the number of zeroes to justify the interchange of summation and limits), we obtain the claim (i).
 
 Now we prove (ii).  We abbreviate $z_j(t_0)$ as $z_j$.  By Taylor expansion we have
-$$ \frac{\partial^k}{\partial z^k} H_{t_0}(z) = m (m-1) \dots (m-k+1) a_m (z-z_j)^{m-k} + O( |z-z_j|^{\max(m-k+1,0)} )$$
-as $z \to z_k$ for any fixed integer $j \geq 0$ and some non-zero complex number $a_m = a_m(z_j, t_0)$; applying the backwards heat equation \eqref{back} we thus have
-$$ \frac{\partial^k}{\partial t^k} H_{t_0}(z) = (-1)^k m (m-1) \dots (m-2k+1) a_m (z-z_j)^{m-2k} + O( |z-z_j|^{\max(m-2k+1,0)} ).$$
+$$ \frac{\partial^{2k} H_{t_0}}{\partial z^{2k}}(z) = m (m-1) \dots (m-2k+1) a_m (z-z_j)^{m-2k} + O( |z-z_j|^{\max(m-2k+1,0)} )$$
+as $z \to z_j$ for any fixed integer $k \geq 0$ and some non-zero complex number $a_m = a_m(z_j, t_0)$ (with the implied constant in the $O()$ notation allowed to depend on $k$, $z_j$, $t_0$); applying the backwards heat equation \eqref{back} we thus have
+$$ \frac{\partial^k H_t}{\partial t^k}|_{t=t_0}(z) = (-1)^k m (m-1) \dots (m-2k+1) a_m (z-z_j)^{m-2k} + O( |z-z_j|^{\max(m-2k+1,0)} ).$$
 Performing Taylor expansion in time and using \eqref{heform2}, we conclude that in the regime $z - z_j = O( |t-t_0|^{1/2} )$, one has the bound
 $$ H_t(z) = a_m ((t-t_0)^{1/2})^m \left( \operatorname{He}_m\left( \sqrt{2} \frac{z-z_j}{(t-t_0)^{1/2}} \right) + O\left( |t-t_0|^{1/2} \right) \right)$$
 as $t \to t_0$, where we use some branch of the square root.  By the inverse function theorem (and the simple nature of the zeroes of $\operatorname{He}_m$), we conclude that for $t$ sufficiently close but not equal to to $t_0$, we have $m$ zeroes of $H_t$ of the form
@@ -84,7 +86,7 @@ Then there are no zeroes $H_{t_0}(x+iy) = 0$ with $x \in \R$ and $y \geq y_0$.
 
 \begin{proof}  It is well known that the Riemann $\xi$ function has no zeroes outside of the strip $\{ 0 \leq \mathrm{Re}(s) \leq 1 \}$, hence there are no zeroes $H_0(x+iy)=0$ with $y > 1$.  By Theorem \ref{debr-bound}, we may thus remove the upper bound constraints $y \leq 1$, $y \leq \sqrt{1-2t_0}$, and $y \leq \sqrt{1-2t}$ from (i), (ii), and (iii) respectively.
 
-By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $0 \leq x \leq X$ and $y \geq Y(t)$, where $Y(t) := \sqrt{y_0^2 + 2(t_0-t)}$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred.  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: 0 \leq	 x \leq X, y \geq Y(t_1) \}$.  The right side $x=X$ of this boundary is ruled out by hypothesis (ii), and the left side $x=0$ is ruled out by \eqref{htdef} and the positivity of $\Phi$.  Thus by the symmetry properties of $H_{t_1}$ we must have
+By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $0 \leq x \leq X$ and $y \geq Y(t)$, where $Y(t) \coloneqq \sqrt{y_0^2 + 2(t_0-t)}$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred (such a time exists because $H_t$ varies continuously in $t$, and there are no zeroes $H_t(x+iy)=0$ with (say) $y>1$).  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: 0 \leq	 x \leq X, y \geq Y(t_1) \}$.  The right side $x=X$ of this boundary is ruled out by hypothesis (ii), and (as mentioned at the start of the section) the left side $x=0$ is ruled out by \eqref{htdef} and the positivity of $\Phi$.  Thus by the symmetry properties of $H_{t_1}$ we must have
 $$ H_{t_1}(x+iY(t_1)) = 0$$
 for some $0 < x < X$.
 

@@ -24,7 +24,7 @@ De Bruijn \cite{debr} introduced the more general family of functions $H_t \colo
  H_t(z) \coloneqq \int_0^\infty e^{tu^2} \Phi(u) \cos(zu)\ du.
 \end{equation}
 As noted in \cite[p.114]{csv}, one can view $H_t$ as the evolution of $H_0$ under the backwards heat equation $\partial_t H_t(z)= -\partial_{zz} H_t(z)$.
-As with $H_0$, each of the $H_t$ are entire even functions with functional equation $H_t(\overline{z}) = \overline{H_t(z)}$; from the super-exponential decay of $e^{tu^2} \Phi(u)$ we see that the $H_t$ are in fact entire of order $1$ .  It follows from the work of Polya \cite{polya} that if $H_t$ has purely real zeroes for some $t$, then $H_{t'}$ has purely real zeroes for all $t'>t$; de Bruijn showed that the zeroes of $H_t$ are purely real for $t \geq 1/2$.  Newman \cite{newman} strengthened this result by showing that there is an absolute constant $-\infty < \Lambda \leq 1/2$, now known as the \emph{De Bruijn-Newman constant}, with the property that $H_t$ has purely real zeroes if and only if $t \geq \Lambda$.  The Riemann hypothesis is then clearly equivalent to the upper bound $\Lambda \leq 0$.  Recently in \cite{brad} the complementary bound $\Lambda \geq 0$ was established, answering a conjecture of Newman \cite{newman}.  Furthermore, Ki, Kim, and Lee \cite{kkl} sharpened the upper bound $\Lambda \leq 1/2$ of de Bruijn \cite{debr} slightly to $\Lambda < 1/2$.  
+As with $H_0$, each of the $H_t$ are entire even functions with functional equation $H_t(\overline{z}) = \overline{H_t(z)}$; from the super-exponential decay of $e^{tu^2} \Phi(u)$ we see that the $H_t$ are in fact entire of order $1$.  It follows from the work of Polya \cite{polya} that if $H_t$ has purely real zeroes for some $t$, then $H_{t'}$ has purely real zeroes for all $t'>t$; de Bruijn showed that the zeroes of $H_t$ are purely real for $t \geq 1/2$.  Newman \cite{newman} strengthened this result by showing that there is an absolute constant $-\infty < \Lambda \leq 1/2$, now known as the \emph{De Bruijn-Newman constant}, with the property that $H_t$ has purely real zeroes if and only if $t \geq \Lambda$.  The Riemann hypothesis is then clearly equivalent to the upper bound $\Lambda \leq 0$.  Recently in \cite{brad} the complementary bound $\Lambda \geq 0$ was established, answering a conjecture of Newman \cite{newman}, and improving upon several previous lower bounds for $\Lambda$ \cite{cnv,nrv,crv,cosv,odlyzko,saouter}.  Furthermore, Ki, Kim, and Lee \cite{kkl} sharpened the upper bound $\Lambda \leq 1/2$ of de Bruijn \cite{debr} slightly to $\Lambda < 1/2$.  
 
 In this paper we improve the upper bound:
 
@@ -35,16 +35,16 @@ The proof of Theorem \ref{new-upper} combines numerical verification with some n
 
 \begin{theorem}[Upper bound criterion]\label{ubc-0}  Suppose that $t_0, X > 0$ and $0 < y_0 \leq 1$ obey the following hypotheses:
 \begin{itemize}
-\item[(i)]  There are no zeroes $\zeta(\sigma+iT) = 0$ with $\frac{1+y_0}{2} \leq \sigma \leq 1$ and $0 \leq T \leq \frac{X}{2}$.
-\item[(ii)]  There are no zeroes $H_{t_0}(x+iy)=0$ with $x \geq X+\sqrt{1-y_0^2}$ and $y_0 \leq y \leq \sqrt{1-2t_0}$.
-\item[(iii)]  There are no zeroes $H_{t}(x+iy)=0$ with $X \leq x \geq X+\sqrt{1-y_0^2}$, $y_0 \leq y \leq \sqrt{1-2t}$, and $0 \leq t \leq t_0$.
+\item[(i)]  (Numerical verification of RH) There are no zeroes $\zeta(\sigma+iT) = 0$ with $\frac{1+y_0}{2} \leq \sigma \leq 1$ and $0 \leq T \leq \frac{X}{2}$.
+\item[(ii)]  (Asymptotic zero-free region) There are no zeroes $H_{t_0}(x+iy)=0$ with $x \geq X+\sqrt{1-y_0^2}$ and $y_0 \leq y \leq \sqrt{1-2t_0}$.
+\item[(iii)]  (Barrier) There are no zeroes $H_{t}(x+iy)=0$ with $X \leq x \geq X+\sqrt{1-y_0^2}$, $\sqrt{y_0^2+2(t_0-t)} \leq y \leq \sqrt{1-2t}$, and $0 \leq t \leq t_0$.
 \end{itemize}
 Then $\Lambda \leq t_0 + \frac{1}{2} y_0^2$.
 \end{theorem}
 
-We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 5 \times 10^9$, and $y_0 = 0.4$.  One could of course seek to improve the upper bound on $\Lambda$ by choosing smaller values of $t_0, y_0$ (and larger values of $X$), though the numerical effort required to verify the conditions (i), (ii), (iii) would increase as one does so.
+Informally, hypothesis (i) implies that at time $t=0$, there are no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier region in (iii).  The absence of zeroes in that barrier, together with a continuity argument and an analysis of the time derivative of each zero, can then be used to show that for later times $0 < t \leq t_0$, there continue to be no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier.  Hypothesis (ii) then gives the complementary assertion to the right of the barrier, and one can use an existing theorem of de Bruijn (Theorem \ref{debr-bound}) to conclude.
 
-The conditions (i), (ii), (iii) are amenable to both numerical and analytic verification.  The verification of (i) can be outsourced to existing literature on the numerical verification of RH such as \cite{platt}.  Our dependence on this literature is the main constraint limiting the size of the $X$ parameter.
+We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952$ is in place to make the partial Euler product $\prod_{p \leq 11} (1 - \frac{1}{p^{\frac{1-iX}{2}}})^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii).  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)
 
 To verify (ii) and (iii), we need efficient approximations for $H_t(x+iy)$ in the regime where $t,y$ are bounded and $x$ is large.  For sake of numerically explicit constants, we will focus attention on the region
 \begin{equation}\label{region}
@@ -56,7 +56,7 @@ To describe the approximation of $H_t(x+iy)$ we will use, we need some notation.
 \begin{equation}\label{M-def}
  M_0(s) \coloneqq \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \sqrt{2\pi} \exp\left( \left(\frac{s}{2}-\frac{1}{2}\right)\Log \frac{s}{2} - \frac{s}{2} \right),
 \end{equation}
-where $\Log$ denotes the standard branch of the complex logarithm, with branch cut at the negative axis and imaginary part in $(-\pi,\pi]$.  We may form a holomorphic branch $\log M_0: \C \backslash (-\infty,1] \to \C$ of the logarithm of $M_0$ by the formula
+where $\Log$ denotes the standard branch of the complex logarithm, with branch cut at the negative axis and imaginary part in $(-\pi,\pi]$. One may interpret $M_0(s)$ as the Stirling approximation to the factor $\frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right)$ appearing in \eqref{hoz}, \eqref{sas}.  We may form a holomorphic branch $\log M_0: \C \backslash (-\infty,1] \to \C$ of the logarithm of $M_0$ by the formula
 \begin{equation}\label{logM}
  \log M_0(s) \coloneqq \Log s + \Log(s-1) - \frac{s}{2} \log \pi + \log \frac{\sqrt{2\pi}}{16} + 
  \left(\frac{s}{2}-\frac{1}{2}\right)\Log \frac{s}{2} - \frac{s}{2};
@@ -65,41 +65,41 @@ differentiating this, we see that the logarithmic derivative $\alpha: \C \backsl
 \begin{equation}\label{alpha-def}
 \alpha \coloneqq (\log M_0)' = \frac{M'_0}{M_0}
 \end{equation}
-is given explicitly the formula
+is given explicitly by the formula
 \begin{equation}\label{alpha-form}
 \begin{split}
  \alpha(s) &= \frac{1}{s} + \frac{1}{s-1} - \frac{1}{2} \log \pi + \frac{1}{2} \log \frac{s}{2} - \frac{1}{2s} \\
 &= \frac{1}{2s} + \frac{1}{s-1} + \frac{1}{2} \log \frac{s}{2\pi}.
 \end{split}
 \end{equation}
-For any $t \in \R$, we then define the deformation $M_t: \C \backslash (-\infty,1]$ of $M_0$ by the formula
+For any time $t \in \R$, we then define the deformation $M_t: \C \backslash (-\infty,1]$ of $M_0$ by the formula
 \begin{equation}\label{Mt-def}
-M_t(s) \coloneqq \exp( \frac{t}{4} \alpha(s)^2 ) M_0(s)
+M_t(s) \coloneqq \exp\left( \frac{t}{4} \alpha(s)^2 \right) M_0(s)
 \end{equation}
 for any $t \geq 0$.
 In the region \eqref{region}, we introduce the quantity
 \begin{equation}\label{bo-def} 
-B_0(x+iy) \coloneqq M_t(\frac{1+y-ix}{2}).
+B_t(x+iy) \coloneqq M_t\left(\frac{1+y-ix}{2}\right).
 \end{equation} 
-As it turns out, $B_0$ is an asymptotic approximation to $H_t(x+iy)$, in the sense that
+As it turns out, $B_t(x+iy)$ is an asymptotic approximation to $H_t(x+iy)$ in the region \eqref{region}, in the sense that
 \begin{equation}\label{limx}
- \lim_{x \to \infty} \frac{H_t(x+iy)}{B_0(x+iy)} = 1
+ \lim_{x \to \infty} \frac{H_t(x+iy)}{B_t(x+iy)} = 1
 \end{equation}
 for any fixed $t>0$ and $y>0$.  In fact we have a significantly more accurate approximation (of Riemann-Siegel type) with effective error estimates as follows.
 For any real number $X$, let $O_{\leq}(X)$ denote a quantity that is bounded in magnitude by $X$. We also use $x_+ = \max(x,0)$ to denote the positive part of a real number $x$.
 
-\begin{theorem}[Effective approximation to $H_t(x+iy)$]\label{eff}  Let $t,x,y$ lie in the region \eqref{region}.  Then we have
+\begin{theorem}[Effective Riemann-Siegel approximation to $H_t(x+iy)$]\label{eff}  Let $t,x,y$ lie in the region \eqref{region}.  Then we have
 \begin{equation}\label{ratio-form-eff}
-\frac{H_t(x+iy)}{B_0(x+iy)} = f_t(x+iy) + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
+\frac{H_t(x+iy)}{B_t(x+iy)} = f_t(x+iy) + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
 \end{equation}
 where
 \begin{align}
 f_t(x+iy) &\coloneqq \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}\label{ft-def} \\
 b_n^t &\coloneqq \exp( \frac{t}{4} \log^2 n ) \label{bn-def}\\
-\gamma \coloneqq \gamma(x+iy) &\coloneqq \frac{M_t(\frac{1-y+ix}{2})}{M_t(\frac{1+y-ix}{2})} \label{lambda-def} \\
+\gamma = \gamma(x+iy) &\coloneqq \frac{M_t(\frac{1-y+ix}{2})}{M_t(\frac{1+y-ix}{2})} \label{lambda-def} \\
 s_* = s_*(x+iy) &\coloneqq \frac{1+y-ix}{2} +\frac{t}{2} \alpha(\frac{1+y-ix}{2}) \label{sn-def}\\
-\kappa \coloneqq \kappa(x+iy) &\coloneqq \frac{t}{2} (\alpha(\frac{1-y+ix}{2}) - \alpha(\frac{1+y+ix}{2})) \label{kappa-def}\\
-N &\coloneqq \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor \label{N-def-main} 
+\kappa = \kappa(x+iy) &\coloneqq \frac{t}{2} \left(\alpha(\frac{1-y+ix}{2}) - \alpha(\frac{1+y+ix}{2})\right) \label{kappa-def}\\
+N &\coloneqq \left\lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \right\rfloor \label{N-def-main} 
 \end{align}
 and $e_A, e_B, e_{C,0}$ are certain explicitly computable positive quantities depending on $t$ and $x+iy$.  Furthermore, we have the following bounds:
 \begin{align}
@@ -113,7 +113,7 @@ e_{C,0} &\leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}
 
 This theorem will be proven in Section \ref{initial-sec}.  The strategy is to express $H_t$ as a convolution of $H_0$ with a gaussian heat kernel, then apply an effective Riemann-Siegel expansion to $H_0$ to rewrite $H_t$ as the sum of various contour integrals; see Section \ref{heatflow-sec} for details.  One then uses the saddle point method to shift each such contour to a location that is suitable for effective estimation. 
 
-In the asymptotic limit $x \to \infty$, one easily sees that $e_A+e_B = O( \frac{\log^2 x}{x} )$ and $e_{C,0} = O( x^{-\frac{3+y}{4}} \exp(-\frac{t}{16} \log^2 x ) )$, and $f_t(x+iy) = 1 + O( x^{-\frac{t}{4}\log 2} )$, thus giving the cruder asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$.
+In the asymptotic limit $x \to \infty$, one easily sees that $e_A+e_B = O( \frac{\log^2 x}{x} )$, $e_{C,0} = O( x^{-\frac{3+y}{4}} \exp(-\frac{t}{16} \log^2 x ) )$, and $f_t(x+iy) = 1 + O( x^{-\frac{t}{4}\log 2} )$, thus giving the cruder asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$.
 
 In addition to establishing upper bounds such as Theorem \ref{new-upper}, one can use Theorem \ref{eff} (together with variants in slightly larger regions than \eqref{region}, for instance if $y$ is allowed to be as large as $10$) to obtain asymptotic control on the zeroes of $H_t$.  Indeed, in Section \ref{asymptotic-sec} we will establish
 
@@ -124,7 +124,8 @@ In addition to establishing upper bounds such as Theorem \ref{new-upper}, one ca
 (This is well-defined since the left-hand side is an increasing function of $x_n$ for $x_n \geq 4\pi$.)
 \begin{itemize}
 \item[(i)]  If $x \geq \exp(\frac{C}{t})$ and $H_t(x+iy)=0$, then $y=0$, and
-$$ x = x_n + O(x^{-ct}).$$  
+$$ x = x_n + O(x^{-ct})$$
+for some $n$.  
 \item[(ii)]  Conversely, for each $n \geq \exp( \frac{C}{t} )$ there is exactly one zero $H_t$ in the disk $\{ x+iy: |x+iy - x_n| \leq \frac{c}{\log x_n} \}$ (and by part (i), this zero will be real and lie within $O(x^{-ct})$ of $x_n$).
 \item[(iii)]  If $X \geq \exp(\frac{C}{t})$, the number $N_t(X)$ of zeroes with real part between $0$ and $X$ (counting multiplicity) is
 $$ N_t(X) = \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{t}{16} \log \frac{X}{4\pi} + O(1).$$
@@ -136,9 +137,9 @@ $$ N_t(X) = \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + O( \log(2+X) )
 Here and in the sequel we use $X = O(Y)$ to denote the estimate $|X| \leq AY$ for some constant $A$ that is absolute (in particular, $A$ is independent of $t$ and $C$).
 \end{theorem}
 
-Roughly speaking, these estimates tell us that the zeroes of $H_t$ behaves (on macroscopic scales) like those of $H_0$ in the region $x = O(\exp(O(1/t)))$, and are very evenly spaced outside of this range.
+Roughly speaking, these estimates tell us that the zeroes of $H_t$ behaves (on macroscopic scales) like those of $H_0$ in the region $x = O(\exp(O(1/t)))$, and are very evenly spaced (and on the real axis) outside of this range.  The factor $\frac{t}{16} \log \frac{x_n}{4\pi}$ in \eqref{lip} indicates that as time $t$ advances, the zeroes (or at least those with large values of $x$) will tend to move towards the origin at a speed of approximately $\frac{\pi}{4}$.
 
-These results refine Theorems 1.3 and 1.4 of \cite{kkl}, which gave similar results but with constants that depended on $t$ in a non-uniform (and ineffective) fashion, and error terms that were of shape $o(1)$ rather than $O(x^{-ct})$ in the limit $x \to \infty$ (holding $t$ fixed).  The results may be compared with those in \cite{arias-lune}, who (in our notation) show that assuming RH, the zeroes of $H_0$ are precisely the solutions $x_n$ to the equation
+The results in Theorem \ref{Zero} refine Theorems 1.3 and 1.4 of \cite{kkl}, which gave similar results but with constants that depended on $t$ in a non-uniform (and ineffective) fashion, and error terms that were of shape $o(1)$ rather than $O(x^{-ct})$ in the limit $x \to \infty$ (holding $t$ fixed).  The results may be compared with those in \cite{arias-lune}, who (in our notation) show that assuming RH, the zeroes of $H_0$ are precisely the solutions $x_n$ to the equation
 $$ \frac{1}{2\pi} \mathrm{arg}\left( - e^{2 i \vartheta(x_n/2)} \frac{\zeta'(\frac{1-ix_n}{2})}{\zeta'(\frac{1+ix_n}{2})}\right) = n $$
 for integer $n$, where $-\vartheta(t)$ is the phase of $\zeta(\frac{1}{2}+it)$ and one chooses a branch of the argument so that the left-hand side is $-\frac{1}{2}$ when $x_n=0$.
 
@@ -146,7 +147,7 @@ for integer $n$, where $-\vartheta(t)$ is the phase of $\zeta(\frac{1}{2}+it)$ a
 
 \section{Notation}
 
-We use the standard branch $\log$ of the logarithm to define the standard complex powers $z^w \coloneqq \exp( w \Log z)$, and in particular define the standard square root $\sqrt{z} \coloneqq z^{1/2}$.  We record the standard gaussian identity
+We use the standard branch $\log$ of the logarithm to define the standard complex powers $z^w \coloneqq \exp( w \Log z)$, and in particular define the standard square root $\sqrt{z} \coloneqq z^{1/2}$.  We record the familiar gaussian identity
 \begin{equation}\label{gaussian}
  \int_\R \exp\left(-(au^2+bu+c)\right)\ du = \sqrt{\frac{\pi}{a}} \exp\left( \frac{b^2}{4a} - c\right)
 \end{equation}
@@ -154,7 +155,7 @@ for any complex numbers $a,b,c$ with $\mathrm{Re} a > 0$.
 
 When using order of magnitude notation such as $O_{\leq}(X)$, any expression of the form $A=B$ using this notation should be interpreted as the assertion that any quantity of the form $A$ is also of the form $B$, thus for instance $O_{\leq}(1) + O_{\leq}(1) = O_{\leq}(3)$.  (In particular, the equality relation is no longer symmetric with this notation.)
 
-If $F$ is a meromorphic function, we use $F'$ to denote its derivative.  We also use $F^*$ to denote the reflection $F^*(s) := \overline{F(\overline{s})}$ of $F$.  Observe from analytic continuation that if $F:\Omega \to \C$ is holomorphic on a connected open domain $\Omega \subset \C$ containing an interval in $\R$, and is real-valued on $\Omega \cap \R$, then it is equal to its own reflection: $F = F^*$ (since $F - F^*$ has an uncountable number of zeroes).
+If $F$ is a meromorphic function, we use $F'$ to denote its derivative.  We also use $F^*$ to denote the reflection $F^*(s) := \overline{F(\overline{s})}$ of $F$.  Observe from analytic continuation that if $F:\Omega \to \C$ is holomorphic on a connected open domain $\Omega \subset \C$ containing an interval in $\R$, and is real-valued on $\Omega \cap \R$, then it is equal to its own reflection: $F = F^*$ (since the holomorphic function $F - F^*$ has an uncountable number of zeroes).
 
 %We use $x_+ \coloneqq \max(x,0)$ to denote the positive part of a real number $x$.  
 %If $E$ is a statement, we use $1_E$ to denote its indicator, thus $1_E=1$ when $E$ is true and $1_E=0$ when $E$ is false.  For natural numbers $d,n$, we use $d|n$ to denote the assertion that $d$ divides $n$.

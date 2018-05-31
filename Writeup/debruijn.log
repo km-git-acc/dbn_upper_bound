@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  3 MAY 2018 20:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  31 MAY 2018 09:59
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -483,20 +483,23 @@ Package grfext Info: Graphics extension search list:
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (intro.tex [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
-Overfull \hbox (51.60272pt too wide) in paragraph at lines 116--117
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+Overfull \hbox (36.57935pt too wide) in paragraph at lines 116--117
 []\OT1/txr/m/n/10.95 In the as-ymp-totic limit $\OML/txmi/m/it/10.95 x \OMS/txsy/m/n/10.95 ! 1$\OT1/txr/m/n/10.95 , one 
 eas-ily sees that $\OML/txmi/m/it/10.95 e[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 e[] \OT1/txr/m/n/10.95 = \OML/txmi
-/m/it/10.95 O\OT1/txr/m/n/10.95 ([])$ and $\OML/txmi/m/it/10.95 e[] \OT1/txr/m/n/10.95 = \OML/txmi/m/it/10.95 O\OT1/txr/
-m/n/10.95 (\OML/txmi/m/it/10.95 x[] []\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  [] [][] \OML/txmi/m/it/10.95 x\OT1/txr/m/
-n/10.95 ))$,
+/m/it/10.95 O\OT1/txr/m/n/10.95 ([])$, $\OML/txmi/m/it/10.95 e[] \OT1/txr/m/n/10.95 = \OML/txmi/m/it/10.95 O\OT1/txr/m/n
+/10.95 (\OML/txmi/m/it/10.95 x[] []\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  [] [][] \OML/txmi/m/it/10.95 x\OT1/txr/m/n/1
+0.95 ))$,
  []
 
-[4] [5]) (dynamics.tex [6] [7] [8] [9]) (heatflow.tex [10]) (elementary.tex [11] [12]) (initial.tex [13]
+[5]) (dynamics.tex [6] [7] [8] [9]) (heatflow.tex [10] [11]) (elementary.tex [12] [13]) (initial.tex [14]
 Overfull \hbox (38.62108pt too wide) detected at line 45
 []
  []
 
-[14] [15] [16]
+[15] [16]
 Overfull \hbox (6.45036pt too wide) detected at line 142
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
@@ -510,18 +513,18 @@ xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.
 /10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
-[17] [18] [19] [20] [21] [22] [23]
+[17] [18] [19] [20] [21] [22] [23] [24]
 Overfull \hbox (16.23422pt too wide) in paragraph at lines 384--385
 []\OT1/txr/m/n/10.95 From the mean value the-o-rem (and not-ing that $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML
 /txmi/m/it/10.95 M[]$\OT1/txr/m/n/10.95 , so that $[] = []$),
  []
 
-[24] [25] [26]) (dirichlet.tex [27] [28] [29]) (zerofree.tex [30]
+[25] [26] [27]) (dirichlet.tex [28] [29] [30]) (zerofree.tex [31]
 Overfull \hbox (12.20158pt too wide) detected at line 54
 []
  []
 
-[31]
+[32]
 Overfull \hbox (8.69379pt too wide) detected at line 75
 \OML/txmi/m/it/10.95 e[] \OMS/txsy/m/n/10.95  [][] [] [] []
  []
@@ -531,7 +534,7 @@ Overfull \hbox (169.2075pt too wide) detected at line 81
 []
  []
 
-[32]
+
 Overfull \hbox (61.7023pt too wide) detected at line 100
 \OMS/txsy/m/n/10.95 j[]j \OT1/txr/m/n/10.95 = \OMS/txsy/m/n/10.95 j[]j  [] []\OT1/txr/m/n/10.95 ([] + []) + \OMS/txsy/m
 /n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 N[] [] []\OT1/txr/m/n/10.95 ([] + ([] [] + \OM
@@ -549,7 +552,7 @@ Overfull \hbox (60.0103pt too wide) detected at line 136
 10.95 j [] []\OT1/txr/m/n/10.95 ([] + [] + [])\OML/txmi/m/it/10.95 :
  []
 
-
+[34]
 Overfull \hbox (65.17635pt too wide) detected at line 155
 [] \OT1/txr/m/n/10.95 = [] []([] \OMS/txsy/m/n/10.95   [] [] \OML/txmi/m/it/10.95 n\OT1/txr/m/n/10.95 ) + \OML/txmi/m/it
 /10.95  [] []\OT1/txr/m/n/10.95 ([] \OMS/txsy/m/n/10.95   [] [] \OML/txmi/m/it/10.95 n \OT1/txr/m/n/10.95 + [](\OML/txm
@@ -557,28 +560,28 @@ i/m/it/10.95 \OT1/txr/m/n/10.95 ([])[] \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.
 /m/it/10.95 :
  []
 
-[34] [35] [36]) (asymptotic.tex [37] [38] [39]
+[35] [36] [37]) (asymptotic.tex [38] [39] [40]
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
 
-[40] [41] [42])
+[41] [42] [43] [44])
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no “ in font txr!
- [43]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 229.
+ [45]
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 232.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
-) [44] (debruijn.aux) ) 
+) [46] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
- 5837 strings out of 493303
- 83841 string characters out of 3138857
- 160732 words of memory out of 3000000
- 9075 multiletter control sequences out of 15000+200000
+ 5839 strings out of 493303
+ 83856 string characters out of 3138857
+ 159737 words of memory out of 3000000
+ 9077 multiletter control sequences out of 15000+200000
  39837 words of font info for 101 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,18n,38p,1490b,336s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,18n,38p,1490b,338s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/
@@ -587,9 +590,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKT
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
 fonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (44 pages, 288373 bytes).
+Output written on debruijn.pdf (46 pages, 297491 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
+ 204 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

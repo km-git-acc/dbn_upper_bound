@@ -20,10 +20,13 @@ whenever $s \in \C \backslash (-\infty,1]$.  If $\mathrm{Im}(s) > 3$, we conclud
 \end{equation}
 thanks to Lemma \ref{elem-lem}(i).  
 
+We also recall the function $M_t$ and the coefficients $b_n^t$ from \eqref{Mt-def}, \eqref{bn-def} respectively.  It turns out we have a good approximation
+$$r_{t,n}(\sigma+iT) \approx M_t(\sigma+iT) \frac{b_n^t}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}}.$$
+More precisely, we have
 
 \begin{proposition}[Estimate for $r_{t,n}$]\label{rtn-prop}  Let $\sigma$ be real, let $T>10$, let $n$ be a positive integer, and let $0 < t \leq 1/2$.  Then 
 $$ r_{t,n}(\sigma+iT) = M_t(\sigma+iT) \frac{b_n^t}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} \left(1 + O_{\leq}(\eps_{t,n}(\sigma+iT))\right)$$
-where $M_t, b_n^t$ were defined in \eqref{Mt-def}, \eqref{bn-def} and
+where 
 \begin{equation}\label{eps-def}
  \eps_{t,n}(\sigma+iT) \coloneqq \exp\left( \frac{\frac{t^2}{8} |\alpha(\sigma+iT) - \log n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right)-1,
 \end{equation}
