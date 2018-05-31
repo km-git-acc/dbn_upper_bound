@@ -1,12 +1,14 @@
 \section{Dynamics of zeroes}\label{dynamics-sec}
 
-In this section we control the dynamics of the zeroes of $H_t$ in order to establish Theorem \ref{ubc-0}.  We begin with the analysis of the dynamics of a single zero of $H_t$:
+In this section we control the dynamics of the zeroes of $H_t$ in order to establish Theorem \ref{ubc-0}.  As $H_t$ is even with functional equation $H_t = H_t^*$, the zeroes are symmetric around the origin and the real axis; from \eqref{htdef} and the non-negativity of $\Phi$, we also see that $H_t(iy) > 0$ for all $y \in \R$, so there are no zeroes on the imaginary axis.
 
-\begin{proposition}[Dynamics of a single zero]\label{dynam}  Let $t_0 \in \R$, and let $(z_k(t_0))_{k \in \Z \backslash \{0\}}$ be an enumeration of the zeroes of $H_{t_0}$ (counting multiplicity), with the symmetry condition $z_{-k}(t_0) = -z_k(t_0)$.
+We begin with the analysis of the dynamics of a single zero of $H_t$:
+
+\begin{proposition}[Dynamics of a single zero]\label{dynam}  Let $t_0 \in \R$, and let $(z_k(t_0))_{k \in \Z \backslash \{0\}}$ be an enumeration of the zeroes of $H_{t_0}$ in $\C$ (counting multiplicity), with the symmetry condition $z_{-k}(t_0) = -z_k(t_0)$.
 \begin{itemize}
 \item[(i)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a simple zero of $H_{t_0}$, then there exists a neighbourhood $U$ of $z_j(t_0)$, a neighbourhood $I$ of $t_0$ in $\R$, and a smooth map $z_j: I \to U$ such that for every $t \in I$, $z_j(t)$ is the unique zero of $H_t$ in $U$.  Furthermore one has the equation
 \begin{equation}\label{zjk}
- \left(\frac{\partial}{\partial t} z_j\right)(t_0) = 2 \sum^{\prime}_{k \neq j} \frac{1}{z_j(t_0) - z_k(t_0)} 
+ \frac{\partial z_j}{\partial t}(t_0) = 2 \sum^{\prime}_{k \neq j} \frac{1}{z_j(t_0) - z_k(t_0)} 
 \end{equation}
 where the sum is over those $k \in \Z \backslash \{0\}$ with $k \neq j$, and the prime means that the $k$ and $-k$ terms are summed together (assuming $k \neq \pm j$) in order to make the sum convergent.
 \item[(ii)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a repeated zero of $H_{t_0}$ of order $m \geq 2$, then there is a neighbourhood $U$ of $z_j(t_0)$ such that for $t$ sufficiently close to $t_0$, there are precisely $m$ zeroes of $H_t$ in $U$, and they take the form
@@ -32,15 +34,15 @@ when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all t
 \begin{proof}  First suppose we are in the situation of (i).  As $z_j(t_0)$ is simple, $\frac{\partial}{\partial z} H_t$ is non-zero at $z_0$; since $H_t(z)$ is a smooth function of both $t$ and $z$, we conclude from the implicit function theorem that there is a unique solution $z_j(t) \in U$ to the equation
 $$ H_t( z_j(t) ) = 0$$
 with $z_j(t)$ in a sufficiently small neighbourhood $U$ of $z_j(t_0)$, if $t$ is a sufficiently small neighbourhood of $I$; furthermore, $z_j(t)$ depends smoothly on $t$.  Differentiating the above equation at $t_0$, we obtain
-$$ \left(\frac{\partial}{\partial t} H_t\right)( z_j(t_0) ) + \left(\frac{\partial}{\partial t} z_j\right)(t_0) H'_t(z_j(t_0)) = 0,$$
+$$ \frac{\partial H_t}{\partial t}|_{t=t_0}( z_j(t_0) ) + \frac{\partial z_j}{\partial t}(t_0) H'_{t_0}(z_j(t_0)) = 0,$$
 where the primes denote differentiation in the $z$ variable.
 On the other hand, from \eqref{htdef} and differentiation under the integral sign (which can be justified using the rapid decrease of $\Phi$) we have the backwards heat equation
 \begin{equation}\label{back}
-\frac{\partial}{\partial t} H_t = -H''_t
+\frac{\partial H_t}{\partial t} = -H''_t
 \end{equation}
-and hence
+for all $t \geq 0$, and hence
 \begin{equation}\label{tzj}
-\left(\frac{\partial}{\partial t} z_j\right)(t_0)  = \frac{H''_t}{H'_t}( z_j(t_0) ).
+\frac{\partial z_j}{\partial t}(t_0)  = \frac{H''_t}{H'_t}( z_j(t_0) ).
 \end{equation}
 Henceforth we omit the dependence on $t_0$ for brevity.  From Taylor expansion of $H_t$, $H'_t$, and $H''_t$ around the simple zero $z_j$ we see that
 \begin{equation}\label{htz-eq}
@@ -53,9 +55,9 @@ $$ \frac{H'_t}{H_t}(z) = \sum_k^{\prime} \frac{1}{z-z_k}.$$
 Inserting this into \eqref{tzj}, \eqref{htz-eq} and using the dominated convergence theorem (noting from the order one property of $H_t$ that the number of zeroes $z_k$ in a large disk $D(0,R)$ will grow by at most $O(R^{1+o(1)})$), we obtain the claim (i).
 
 Now we prove (ii).  We abbreviate $z_j(t_0)$ as $z_j$.  By Taylor expansion we have
-$$ \frac{\partial^k}{\partial z^k} H_{t_0}(z) = m (m-1) \dots (m-k+1) a_m (z-z_j)^{m-k} + O( |z-z_j|^{\max(m-k+1,0)} )$$
-as $z \to z_k$ for any fixed integer $j \geq 0$ and some non-zero complex number $a_m = a_m(z_j, t_0)$; applying the backwards heat equation \eqref{back} we thus have
-$$ \frac{\partial^k}{\partial t^k} H_{t_0}(z) = (-1)^k m (m-1) \dots (m-2k+1) a_m (z-z_j)^{m-2k} + O( |z-z_j|^{\max(m-2k+1,0)} ).$$
+$$ \frac{\partial^{2k} H_{t_0}}{\partial z^{2k}}(z) = m (m-1) \dots (m-2k+1) a_m (z-z_j)^{m-2k} + O( |z-z_j|^{\max(m-2k+1,0)} )$$
+as $z \to z_j$ for any fixed integer $j \geq 0$ and some non-zero complex number $a_m = a_m(z_j, t_0)$; applying the backwards heat equation \eqref{back} we thus have
+$$ \frac{\partial^k H_t}{\partial t^k}|_{t=t_0}(z) = (-1)^k m (m-1) \dots (m-2k+1) a_m (z-z_j)^{m-2k} + O( |z-z_j|^{\max(m-2k+1,0)} ).$$
 Performing Taylor expansion in time and using \eqref{heform2}, we conclude that in the regime $z - z_j = O( |t-t_0|^{1/2} )$, one has the bound
 $$ H_t(z) = a_m ((t-t_0)^{1/2})^m \left( \operatorname{He}_m\left( \sqrt{2} \frac{z-z_j}{(t-t_0)^{1/2}} \right) + O\left( |t-t_0|^{1/2} \right) \right)$$
 as $t \to t_0$, where we use some branch of the square root.  By the inverse function theorem (and the simple nature of the zeroes of $\operatorname{He}_m$), we conclude that for $t$ sufficiently close but not equal to to $t_0$, we have $m$ zeroes of $H_t$ of the form
