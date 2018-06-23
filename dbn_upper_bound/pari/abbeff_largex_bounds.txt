@@ -80,15 +80,8 @@ return(lbound);
 }
 
 
-lbound_numerator(betaval,alphaval,modgamma,modgamend) = {
-M1 = ((1-modgamend)/(1+modgamend))*abs(betaval+alphaval);
-M2 = abs(betaval-alphaval);
-M3 = abs(betaval-(modgamend/modgamma)*alphaval);
-\\absbeta = abs(betaval); absalph = abs(alphaval);
-\\result = if(absbeta*absalph>=0,if(absbeta>=absalph,max(M1,M3),if(M1>=M2,M1,max(M2,M3))),M2);
-result = vecmax([M1,M2,M3]);
-return(result);
-}
+ba_lemma(n,d,moll,N,t,y) = sum(nd=1,#d,if(combdelta(n,d[nd],N)>0,moll[nd]*[at(n/d[nd],t,0),at(n/d[nd],t,y)],[0,0]));
+lsummand(mollba,modgamma,modgamend,n,sig) = if(mollba==[0,0],0,vecmax([(1-modgamend)/(1+modgamend)*abs(mollba[1]+modgamma*mollba[2]),abs(mollba[1]-modgamma*mollba[2]),abs(mollba[1]-modgamend*mollba[2])])/n^sig);
 
 
 abbeff_largex_ep_sawtooth_incremental_lbounds(boundfile,initbound,threshold,Nstart,Nend,y,t,mtype)={
@@ -100,12 +93,11 @@ for(nextN=Nstart,Nend,\
 [sig,modK,modgamma] = bound_constants(nextN,y,t);
 modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);\
 offset = vector(ndivs,nd,d[nd]*(nextN-1));\
-b = vector(ndivs,v,vector(d[v],n,sum(nd=1,ndivs,if(combdelta(n+offset[v],d[nd],nextN)>0,moll[nd]*bt((n+offset[v])/d[nd],t)))));\
-a = modgamma*vector(ndivs,v,vector(d[v],n,sum(nd=1,ndivs,if(combdelta(n+offset[v],d[nd],nextN)>0,moll[nd]*at((n+offset[v])/d[nd],t,y)))));\
-lbound = prevbound - (1/modmoll)*sum(v=1,ndivs,sum(n=1,d[v],lbound_numerator(b[v][n],a[v][n],modgamma,modgamend)/(n+offset[v])^sig)) - modgamma*bt(nextN,t)*(nextN^modK-1)/nextN^(sig-y);\
+lbound = prevbound - (1/modmoll)*sum(v=1,ndivs,sum(n=1,d[v],lsummand(ba_lemma(n+offset[v],d,moll,nextN,t,y),modgamma,modgamend,n+offset[v],sig))) - modgamma*bt(nextN,t)*(nextN^modK-1)/nextN^(sig-y);\
+\\print(nextN);
 if(lbound<threshold,return(nextN));\
 row = [nextN,lbound];\
-if(nextN%100==0,print(row);write(boundfile,row););\
+if(nextN%10000==0,print(row);write(boundfile,row););\
 prevbound=lbound;\
 );
 return(Nend);
@@ -116,9 +108,7 @@ modgamend = exp(0.02*y)*((4*Pi*Nend^2 - Pi*t/4)/(4*Pi))^(-y/2);
 [D,ndivs,d,moll] = mollifier(mtype,t);
 [sig,modK,modgamma] = bound_constants(Nmin,y,t);
 modmoll = sum(nd=1,ndivs,abs(moll[nd])/d[nd]^sig);
-b = vector(D*Nmin-1,n,sum(nd=1,ndivs,if(combdelta(n+1,d[nd],Nmin)>0,moll[nd]*bt((n+1)/d[nd],t))));
-a = modgamma*vector(D*Nmin-1,n,sum(nd=1,ndivs,if(combdelta(n+1,d[nd],Nmin)>0,moll[nd]*at((n+1)/d[nd],t,y))));
-lbound = (1/modmoll)*(1 - modgamma - sum(n=1,D*Nmin-1,lbound_numerator(b[n],a[n],modgamma,modgamend)/(n+1)^sig)) - modgamma*sum(n=1,Nmin,bt(n,t)*(n^modK-1)/n^(sig-y));
+lbound = (1/modmoll)*(1 - modgamma - sum(n=1,D*Nmin-1,lsummand(ba_lemma(n+1,d,moll,Nmin,t,y),modgamma,modgamend,n+1,sig))) - modgamma*sum(n=1,Nmin,bt(n,t)*(n^modK-1)/n^(sig-y));
 row = [Nmin,lbound,"Nmin bound"];
 print(row);write(boundfile,row);
 return(lbound);
@@ -142,7 +132,7 @@ lbound = 2 - (bbound + afac*abound);
 return(lbound);
 }
 
-boundfile="~/boundtest2.txt";
+boundfile="~/t_0.2_y_0.2_moll5_sawtooth_v2.txt";
 Nend=1.5*10^6;threshold=0.03;y=0.2;t=0.2;mtype=5;
 Nmin = 80000;
 while(Nmin<=Nend,\
