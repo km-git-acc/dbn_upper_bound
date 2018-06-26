@@ -21,16 +21,17 @@ For Julia, please check the Julia fork https://github.com/km-git-acc/DBNUpperBou
 
 There was also a lot of work done in Python in the earlier phase of the project, which may be of interest.
 
-Please refer to the README files in the respective folders for more details on how to use the different scripts.
+Please refer to the README files in the respective folders on how to use the different scripts. A lot of interesting discussion has also taken place in the 'Issues' threads (which are being used as general discussion+brainstorming+issues threads), which may be worth reading for detailed understanding. 
 
-The algorithms can likely run on any machine, but better configs will certainly help
+The scripts can likely run on any machine, but better configs will certainly help
 
 
 Results
 ---------------------------------------------------------------------------------------------
 Results can be checked on this wiki page,
 http://michaelnielsen.org/polymath1/index.php?title=Zero-free_regions
+
 (Currently, a dBN bound of 0.22 has been achieved unconditionally, and several tighter bounds conditional on RH verified to appropriate heights also demonstrated)
 
-A lot of the summarized output is present in the Output folder, some in the python/research folder, and large files posted as links in comments on the Blog.
+A lot of the summarized output from the scripts is present in the Output folder, some in the python/research folder, and large files posted as links in comments on the Blog.
 
