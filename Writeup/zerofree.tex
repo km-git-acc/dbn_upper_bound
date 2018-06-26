@@ -1,29 +1,40 @@
 \section{A new upper bound for the de Bruijn-Newman constant}
 
-In this section we prove Theorem \ref{new-upper}.  As stated in the introduction, it suffices to verify the conditions (i), (ii), (iii) of Theorem \ref{ubc-0} $t_0 := 0.2$, $X := 6 \times 10^{10} + 83952 + [-0.5,0.5]$, and $y_0 = 0.2$.  
+In this section we prove Theorem \ref{new-upper}.  As stated in the introduction, it suffices to verify the conditions (i), (ii), (iii) of Theorem \ref{ubc-0} $t_0 \coloneqq 0.2$, $X \coloneqq X_0-0.5$, and $y_0 \coloneqq 0.2$, where $X_0 \coloneqq 6 \times 10^{10} + 83952$.  
 
-Claim (i) is immediate from the result of Platt \cite{platt} that all the non-trivial zeroes of $\zeta$ with imaginary part between $0$ and $3.06 \times 10^{10}$ lie on the critical line $\{ \mathrm{Re}(s) = 1/2\}$.  For the remaining claims (ii), (iii), one has to verify $H_t(x+iy) \neq 0$ for various $(x,y,t)$ in the region \eqref{region}.
-To show that $H_t(x+iy) \neq 0$, it suffices from Theorem \ref{eff} to show that
-\begin{equation}\label{bbb}
-|f_t(x+iy)| > e_A + e_B + e_{C,0} 
-\end{equation}
-where
+Claim (i) is immediate from the result of Platt \cite{platt} that all the non-trivial zeroes of $\zeta$ with imaginary part between $0$ and $3.06 \times 10^{10}$ lie on the critical line $\{ \mathrm{Re}(s) = 1/2\}$.  For the remaining claims (ii), (iii), we need to verify that $H_t(x+iy) \neq 0$ for two regions of $(x,y,t)$:
+\begin{itemize}
+\item[(ii)]  $x \geq X_0 - 0.5 + \sqrt{0.96}$, $0.2 \leq y \leq \sqrt{0.6}$, and $t = 0.2$. 
+\item[(iii)]  $X_0 - 0.5 \leq x \leq X_0 - 0.5 + \sqrt{0.96}$, $\sqrt{0.04 + 2(0.2-t)} \leq y \leq \sqrt{0.6}$, and $0 \leq t \leq 0.2$.
+\end{itemize}
+Both of these regions lie in \eqref{region}.  Enlarging the regions slightly, and applying Corollary \ref{zero-test}, it thus suffices to establish the following claim:
+
+\begin{proposition}\label{sweep}  Let $(x,y,t)$ lie in one of the following regions:
+\begin{itemize}
+\item[(ii)] (Asymptotic zero free region) $x \geq X_0$, $0.2 \leq y \leq \sqrt{0.6}$, and $t = 0.2$.
+\item[(iii)] (Barrier)  $X_0 - 0.5 \leq x \leq X_0 + 0.5$, $0.2 \leq y \leq \sqrt{0.6}$, and $0 \leq t \leq 0.2$.
+\end{itemize}
+Define
 \begin{align*}
 f_t(x+iy) &\coloneqq \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}\\
 b_n^t &\coloneqq \exp( \frac{t}{4} \log^2 n),\\
-N &\coloneqq \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor \leq [\frac{x}{4\pi} (1 + \frac{\pi t}{4x})]^{1/2}
+N &\coloneqq \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor \leq [\frac{x}{4\pi} (1 + \frac{\pi t}{4x})]^{1/2},
 \end{align*}
 so in particular
 \begin{equation}\label{logx}
  \log \frac{x}{4\pi} \geq 2 \log N - \log(1 + \frac{\pi t}{4x}),
 \end{equation}
-$\kappa, s_*, \gamma$ are as in Theorem \ref{eff}, and $e_A, e_B, e_{C_0}$ are bounded by the bounds in that theorem.
+and let $\kappa, s_*, \gamma, e_A, e_B, e_{C_0}$ be as in Theorem \ref{eff}, and $e_A, e_B, e_{C_0}$.  Then
+\begin{equation}\label{bbb}
+|f_t(x+iy)| > e_A + e_B + e_{C,0} 
+\end{equation}
+\end{proposition}
 
 Note that if $x \geq 6 \times 10^{10} + 83952 - 0.5$ then $N \geq 69098$.  We calculate a somewhat crude upper bound for the right-hand side of \eqref{bbb}:
 
 {\bf the estimate below needs to be redone for the new range of parameters}
 
-\begin{lemma}\label{lac}  If $x \geq 5 \times 10^9$, $0 \leq t \leq 0.2$, and $0.4 \leq y \leq 1$, then
+\begin{lemma}\label{lac} For $(x,y,t)$ in either of the regions (ii), (iii) in Proposition \ref{sweep}, one has
 $$ e_A + e_B + e_{C,0} \leq 4.37 \times 10^{-4} + 6.53 \times 10^{-10} F_{N,t}(0.7 + \frac{t}{4} \log \frac{x}{4\pi}).$$
 where
 \begin{equation}\label{fnt-def}
@@ -40,28 +51,30 @@ where
 $$ \delta_1 := \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi} + 0.626}{x-6.66}.$$
 From Lemma \ref{elem-lem}(vi), the quantity $\delta_1$ is monotone decreasing in $x$ in the region \eqref{region}.  Thus we have
 \begin{equation}\label{delta1-bound}
- \delta_1 \leq \frac{\frac{t_0^2}{16} \log^2 \frac{x_0}{4\pi} + 0.626}{x_0-6.66}
+ \delta_1 \leq \frac{\frac{(0.2)^2}{16} \log^2 \frac{X_0-0.5}{4\pi} + 0.626}{X_0-0.5-6.66}
 \end{equation}
-whenever $x \geq x_0 \geq 200$ and $0 \leq t \leq t_0$.  Substituting $t_0 = 0.2$, $x_0 = 5 \times 10^9$ we conclude that
-$$  \delta_1 \leq 3.22 \times 10^{-10}$$
+whenever $x \geq X_0-0.5 \geq 200$ and $0 \leq t \leq 0.2$.  Computing the right-hand side, we conclude that
+$$  \delta_1 \leq 2.07 \times 10^{-11}$$
 and hence
-$$ e^{\delta_1} - 1 \leq 3.23 \times 10^{-10}.$$
+$$ e^{\delta_1} - 1 \leq 2.08 \times 10^{-11}.$$
 Also, from Theorem \ref{eff} and \eqref{fnt-def} we can bound
 \begin{align*}
 |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) &\leq |\gamma| N^y N^{|\kappa|} F_{N,t}( \mathrm{Re}(s_*) ) \\
 &\leq \exp( 0.02 y + y (\log N - \frac{1}{2} \log \frac{x}{4\pi}) + \frac{ty}{2(x-6)} \log N ) F_{N,t}( \mathrm{Re}(s_*) )  \\
-&\leq \exp( 0.02 y + (y + \frac{ty}{2(x-6)} \frac{1}{2} \log(1 + \frac{\pi t}{4x}) + \frac{ty}{4(x-6)} \log \frac{x}{4\pi} ) F_{N,t}( \mathrm{Re}(s_*) ).
+&\leq \exp( 0.02 y + (y + \frac{ty}{2(x-6)}) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) + \frac{ty}{4(x-6)} \log \frac{x}{4\pi} ) F_{N,t}( \mathrm{Re}(s_*) ).
 \end{align*}
-For $y \leq 1$, $0 \leq t \leq 0.2$, and $x \geq 5 \times 10^9$ we see from Lemma \ref{elem-lem}(vi) that
-$$ \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \leq \frac{0.2}{4(5 \times 10^9-6)}\log \frac{5 \times 10^9}{4\pi} \leq 1.99 \times 10^{-10}$$
+For $y \leq 1$, $0 \leq t \leq 0.2$, and $x \geq X_0 - 0.5$ we see from Lemma \ref{elem-lem}(vi) that
+$$ \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \leq \frac{0.2}{4(X_0 - 0.5-6)}\log \frac{X_0 - 0.5}{4\pi} \leq 1.86 \times 10^{-11}$$
 and
-$$ (y + \frac{ty}{2(x-6)} \frac{1}{2} \log(1 + \frac{\pi t}{4x}) \leq 1.58 \times 10^{-11}$$
+$$ (y + \frac{ty}{2(x-6)}) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) \leq (1 + \frac{0.2}{2(X_0-0.5-6)}) \frac{1}{2} \log(1 + \frac{0.2 \pi}{4(X_0-0.5)}) \leq 1.31 \times 10^{-12}$$
 and thus
 \begin{equation}\label{gafn}
  |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) \leq 1.021  F_{N,t}( \mathrm{Re}(s_*) ).
 \end{equation}
 Thus
-$$  e_A + e_B \leq 6.53 \times 10^{-10} F_{N,t}( \mathrm{Re}(s_*) ).$$
+$$  e_A + e_B \leq 2.124 \times 10^{-11} F_{N,t}( \mathrm{Re}(s_*) ).$$
+{\bf OK TO HERE}
+
 From Proposition \ref{estimates}(ii) (and the observation that $1-3y+\frac{4y(1+y)}{x^2}$ is negative when $y \geq 0.4$ and $x \geq 5 \times 10^9$) we have
 $$ \mathrm{Re}(s_*) \geq 0.7 + \frac{t}{4} \log \frac{x}{4\pi}.$$
 Since $F_{N,t}(\sigma)$ is non-increasing in $\sigma$, we conclude
