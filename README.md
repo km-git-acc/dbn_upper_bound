@@ -1,5 +1,5 @@
 # dbn_upper_bound
-## Computational effort to upper bound the de Bruijn-Newman constant as part of a Polymath project
+Computational effort to upper bound the de Bruijn-Newman constant as part of a Polymath project
 -----------------------------------------------------------------------------------------------
 
 As you may know, Prof. Terence Tao launched and has been moderating a Polymath project to upper bound the de Bruijn-Newman constant (dBN constant for brevity). This involves both 1) an Analytic or theory part (hard math) to derive/refine several formulas and estimates, and 2) a computational part to check whether the de Bruijn family of functions H_t are zero free in the regions marked for numerical verification.
@@ -13,7 +13,7 @@ For the Polymath proposal, please [check this link](https://terrytao.wordpress.c
 For the wiki, comprehensive list of papers, permanent record of results, please head to the [Polymath webpage](http://michaelnielsen.org/polymath1/index.php?title=De_Bruijn-Newman_constant)
 
 
-## Computational Libraries and Machine Requirements
+Computational Libraries and Machine Requirements
 --------------------------------------------------------------------------------------------
 Most of the recent work has been done in the Pari/GP, Arb and Julia languages. For large scale runs, the Arb scripts are recommended, and for mathlike readability, the other two.
 
@@ -26,7 +26,7 @@ Please refer to the README files in the respective folders for more details on h
 The algorithms can likely run on any machine, but better configs will certainly help
 
 
-## Results
+Results
 ---------------------------------------------------------------------------------------------
 Results can be checked on this wiki page,
 http://michaelnielsen.org/polymath1/index.php?title=Zero-free_regions
