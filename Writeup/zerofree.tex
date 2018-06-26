@@ -100,8 +100,8 @@ It now suffices to establish the following claims:
 
 \begin{itemize}
 \item[(i)]  \eqref{bbb} holds when $6 \times 10^{10} + 83952 - 0.5 \leq x \leq 6 \times 10^{10} + 83952 + 0.5$, $0 \leq t \leq 0.2$, and $y \geq 0.2$.
-\item[(ii)]  \eqref{bbb} holds when $x \geq 6 \times 10^{10} + 83952 - 0.5$, $69098 \leq N \leq ???$, $t = 0.2$, and $y \geq 0.2$.
-\item[(iii)]  \eqref{bbb} holds when $69098 \leq N \leq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
+\item[(ii)]  \eqref{bbb} holds when $x \geq 6 \times 10^{10} + 83952 - 0.5$, $69098 \leq N \leq 80000$, $t = 0.2$, and $y \geq 0.2$.
+\item[(iii)]  \eqref{bbb} holds when $80000 \leq N \leq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
 \item[(iv)]  \eqref{bbb} holds when $N \geq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
 \end{itemize}
 
@@ -194,7 +194,10 @@ giving the second claim.
 
 Now we prove claim (ii).
 
-...
+For $N \in [69098,80000]$, it was computationally verified that $|f_{N}| > 0.042$, since the Lemma bound (eqn 78) using the Euler 5 mollifier monotonically increased with N, from 0.04278 to 0.08011.
+
+$ $
+ 
 
 Now we prove claim (iii).
 
@@ -203,46 +206,57 @@ We attempt here to find N dependent positive lower bounds for $|f_{t}(x+iy)|$ or
 $$ |f_{N+1}| >= |f_{N}| - \sum \textrm{(additional terms corresponding to N+1)}$$
 with the bound for $|f_{N_{min}}|$ computed similarly to (77) or (78).
 
+$ $
+
 If the incremental bound goes below a positive threshold at N, we reset $N_{min}$ to N and restart the process, generating a sawtooth pattern.
+
+$ $
 
 For verifying the lower bounds for $[N_{min},N_{max}]$, and with
 
-$\beta_{n,N} = \sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} b_{n/d}^{t}$, $\alpha_{n,N} = \sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} a_{n/d}^{t}$, 
+$\beta_{n,N} = \sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} b_{n/d}^{t}$, 
 
-(and multiplying (77), (78) with $|moll| = \sum_{d=1}^D \frac{|\lambda_d|}{d^\sigma}$ for convenience),
+$\alpha_{n,N} = \sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} a_{n/d}^{t}$,
 
+$g(n,N,N_{max}) = \max(\frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} |\beta_{n,N} + \alpha_{n,N}|, |\beta_{n,N} - \alpha_{n,N}|,  |\beta_{n,N} - |\frac{\gamma_{N_{max}}}{\gamma_{N}}| \alpha_{n,N}|)$,
+
+$ $
 
 For the Triangle inequality bound,
 
-$$|f_{N_{min}}| \geq 1 - |\gamma| - \sum\limits_{n=2}^{DN_{min}} \frac{|\beta_{n,N_{min}}| + |\alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}} - |moll||\gamma| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma-y}}$$
+$$|f_{N_{min}}| \geq \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N_{min}}}}} (1 - |\gamma_{N_{min}}| - \sum\limits_{n=2}^{DN_{min}} \frac{|\beta_{n,N_{min}}| + |\alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}}) - |\gamma_{N_{min}}| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma_{N_{min}}-y}}$$
 
 
-$$|f_{N+1}| \geq |f_{N}| - \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{|\beta_{n,N+1}| + |\alpha_{n,N+1}|}{n^{\sigma_{N+1}}}) - |moll||\gamma| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma-y}}$$
+$$|f_{N+1}| \geq |f_{N}| - \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N+1}}}} \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{|\beta_{n,N+1}| + |\alpha_{n,N+1}|}{n^{\sigma_{N+1}}}) - |\gamma_{N+1}| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma_{N+1}-y}}$$
 
-For the Lemma inequality bound, if $\frac{|\beta_{n,N} - \alpha_{n,N}|}{|\beta_{n,N} + \alpha_{n,N}|} \leq \frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} = C_{N_{max}}$
+$ $
 
+For the Lemma inequality bound,
 
-$$|f_{N_{min}}| \geq 1 - |\gamma| - \sum\limits_{n=2}^{DN_{min}}  \frac{C_{N_{max}}|\beta_{n,N_{min}} + \alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}}  - |moll||\gamma| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma-y}}$$
-
-
-$$|f_{N+1}| >= |f_{N}| - \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{C_{N_{max}} |\beta_{n,N+1} + \alpha_{n,N+1}|}{n^{\sigma_{N+1}}})  - |moll||\gamma| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma-y}}$$
-
-Now, $\frac{|\beta_{n,N} - \alpha_{n,N}|}{|\beta_{n,N} + \alpha_{n,N}|} = \frac{|g(n,N,moll) - |\gamma|n^y|}{|g(n,N,moll) + |\gamma|n^y|}$, where
-$g(n,N,moll) = \frac{\sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} ({\frac{d}{n^2}})^{(t/4) \log d}}{\sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \frac{\lambda_{d}}{d^y} ({\frac{d}{n^2}})^{(t/4) \log d}}$
+$$|f_{N_{min}}| \geq \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N_{min}}}}} (1 - |\gamma_{N_{min}}| - \sum\limits_{n=2}^{DN_{min}}  \frac{g(n,N_{min},N_{max})}{n^{\sigma_{N_{min}}}} ) - |\gamma_{N_{min}}| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma_{N_{min}}-y}}$$
 
 
+$$|f_{N+1}| >= |f_{N}| - \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N+1}}}} \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{g(n,N_{min},N_{max})}{n^{\sigma_{N+1}}})  - |\gamma_{N+1}| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma_{N+1}-y}}$$
 
-For $N_{min} = 69098, N_{max} = 1.5*10^6, y =0.2, t=0.2, \lambda_d = (-1)^{\mu(d)}b^{t}_{d},$
+Note: The incremental bounds work since,
 
-$C_{N_{max}} \approx 0.8896$, and using the Euler 7 mollifier,
+1) $\beta_{n,N}=\beta_{n,N+1} \textrm{ and } \frac{\alpha_{n,N}}{\gamma_N} = \frac{\alpha_{n,N+1}}{\gamma_{N+1}} \textrm{ when } n \notin [dN,dN+d] \textrm{ for } d:d|D$  
 
-$\textrm{Except for } n = 2,3,5,7 \textrm{ where } g(n,N,moll) = 0$ and $C_{N_{max}}|\beta_{n,N_{min}} + \alpha_{n,N_{min}}|$ has to be replaced with $|\alpha_{n,N_{min}}|$, 
+2) $g(n,N,N_{max})$ can be seen to have the following properties with n fixed and N varying, resulting in it being constant or decreasing with increasing N,
 
-It was computationally verified that $\frac{|g(n,N,moll) - |\gamma|n^y|}{|g(n,N,moll) + |\gamma|n^y|} \leq C_{N_{max}}$ when $\beta_{n,N},\alpha_{n,N}$ are not both zero.
+$\bullet g(n,N,N_{max}) =  |\beta_{n,N} - \alpha_{n,N}| \textrm{ when } \beta_{n,N} \alpha_{n,N} \leq 0$
 
-$f_{N_{min}} \geq 0.033$
+$\bullet g(n,N,N_{max}) =  \max(\frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} |\beta_{n,N} + \alpha_{n,N}|,  |\beta_{n,N} - |\frac{\gamma_{N_{max}}}{\gamma_{N}}| \alpha_{n,N}|)) \textrm{ when } \beta_{n,N} \alpha_{n,N} > 0 \textrm{ and } |\beta_{n,N}| \geq |\alpha_{n,N}|$
 
-To be filled: Description of computational verification for $[N_{min},N_{max}]$
+$\bullet g(n,N,N_{max}) =  \max(\frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} |\beta_{n,N} + \alpha_{n,N}|, |\beta_{n,N} - \alpha_{n,N}|,  |\beta_{n,N} - |\frac{\gamma_{N_{max}}}{\gamma_{N}}| \alpha_{n,N}|)) \textrm{ when } \beta_{n,N} \alpha_{n,N} > 0 \textrm{ and } |\alpha_{n,N}| > |\beta_{n,N}|$
+
+$ $
+
+Now, with $N_{max} = 1.5 million, y =0.2, t=0.2, \textrm{ Euler 5 mollifier, and threshold } = 0.03$
+
+and starting with $N_{min} = 80000$, and resetting $N_{min}$ whenever the incremental lemma bound goes below 0.03, 
+
+it was computationally verified that $|f_{N}| \geq$ 0.03 for $N \in$ [80000,1.5 million]  
 
 
 $$..$$

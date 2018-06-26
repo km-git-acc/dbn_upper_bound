@@ -1,0 +1,57 @@
+bt(n,t) = n^((t/4)*log(n));
+at(n,t,y) = n^(y+(t/4)*log(n));
+
+habc_sharperbound(N,y,t)={
+    xN = 4*Pi*N*N - t*Pi/4.0;
+    Nsqadj = xN/(4*Pi);
+    modgamma = exp(0.02*y)*(Nsqadj^(-y/2));
+    Res = (1+y)/2 + (t/4)*log(Nsqadj) - t*max(0,1-3*y+4*y*(1+y)/xN^2)/(2*xN^2);
+    K = t*y/(2*(xN-6));
+    e1 = modgamma*(N^K)*sum(n=1,N,(n^y)*(bt(n,t)/n^Res)*(exp(((t*t/16)*log(Nsqadj/n^2)^2 + 0.626)/(xN - 6.66))-1));
+    e2 = sum(n=1,N,(bt(n,t)/n^Res)*(exp(((t*t/16)*log(Nsqadj/n^2)^2 + 0.626)/(xN - 6.66))-1));
+    
+    e3_term1 = Nsqadj^(-1*(1+y)/4);
+    e3_term2_expo1 = (-t/16.0)*log(Nsqadj)^2;
+    e3_term2_expo2 = (3*abs(log(Nsqadj) + I*Pi/2) + 3.58)/(xN - 8.52);
+    e3_term3_abc = 1.24*(3^y + 1/3^y)/(N - 0.125) + 6.92/(xN - 6.66);
+    e3_term3_ab  = 1 + e3_term3_abc;
+    e3_abc = e3_term1*exp(e3_term2_expo1 + e3_term2_expo2)*e3_term3_abc;
+    e3_ab  = e3_term1*exp(e3_term2_expo1 + e3_term2_expo2)*e3_term3_ab;
+    
+    e_total_ab  = e1 + e2 + e3_ab;
+    e_total_abc = e1 + e2 + e3_abc;
+    
+    return([N, e1, e2, e3_ab, e3_abc, e_total_ab, e_total_abc]);
+}
+
+fast_error_bound(Na,Nb,y,t)={
+    xN = 4*Pi*Na*Na - t*Pi/4.0;
+    Nsqadj = xN/(4*Pi);
+    Res = (1+y)/2 + (t/4)*log(Nsqadj) - t*max(0,1-3*y+4*y*(1+y)/xN^2)/(2*xN^2);
+    K = t*y/(2*(xN-6));
+    \\eB = sum(n=1,Nb,(bt(n,t)/n^Res)*(exp(((t*t/16)*log(Nsqadj/n^2)^2 + 0.626)/(xN - 6.66))-1));
+    eBest = exp(((t^2/16)*log(Nsqadj)^2 + 0.626)/(xN - 6.66)) - 1 + Nb*intnum(u=1/Nb,1,(bt(Nb*u,t)/(Nb*u)^Res)*(exp(((t^2/16)*log(Nsqadj/(Nb*u)^2)^2 + 0.626)/(xN - 6.66))-1));
+    eC0 = (Nsqadj^(-1*(1+y)/4))*exp((-t/16.0)*log(Nsqadj)^2 + (3*abs(log(Nsqadj) + I*Pi/2) + 3.58)/(xN - 8.52))*(1 + 1.24*(3^y + 1/3^y)/(Na - 0.125) + 6.92/(xN - 6.66));
+    etot  = 3*eBest + eC0;
+    print([eC0,eBest]);
+    return(etot);
+}
+
+faster_error_bound(Na,Nb,y,t)={
+    xN = 4*Pi*Na*Na - t*Pi/4.0;
+    Nsqadj = xN/(4*Pi);
+    Res = (1+y)/2 + (t/4)*log(Nsqadj) - t*max(0,1-3*y+4*y*(1+y)/xN^2)/(2*xN^2);
+    K = t*y/(2*(xN-6));
+    eB_summand1 = (bt(1,t)/1^Res)*(exp(((t*t/16)*log(Nsqadj/1^2)^2 + 0.626)/(xN - 6.66))-1);
+    eB_summandNb = (bt(Nb,t)/Nb^Res)*(exp(((t*t/16)*log(Nsqadj/Nb^2)^2 + 0.626)/(xN - 6.66))-1);
+    \\print([eB_summand1,eB_summandNb]);
+    eAeB_bound = 3*Nb*max(eB_summand1,eB_summandNb);
+    eC0 = (Nsqadj^(-1*(1+y)/4))*exp((-t/16.0)*log(Nsqadj)^2 + (3*abs(log(Nsqadj) + I*Pi/2) + 3.58)/(xN - 8.52))*(1 + 1.24*(3^y + 1/3^y)/(Na - 0.125) + 6.92/(xN - 6.66));
+    etot  = eAeB_bound + eC0;
+    print([eC0,eAeB_bound]);
+    return(etot);
+}
+
+
+print(fast_error_bound(80000,1500000,0.2,0.2));
+print(faster_error_bound(80000,1500000,0.2,0.2));

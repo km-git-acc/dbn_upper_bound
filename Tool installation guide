@@ -1,0 +1,34 @@
+Pari/GP
+------------------------------------
+https://pari.math.u-bordeaux.fr/
+
+Arb
+-----------------------------------
+http://arblib.org/
+
+In addition, Arb scripts have to be compiled before using, something like
+gcc Scriptname -o Executable -larb -lflint
+
+Julia
+------------------------------------
+Nice description at https://github.com/km-git-acc/DBNUpperBound.jl
+
+Python
+-----------------------------------------------------
+0. Installing python if not present already
+1. [Python 3.6](https://docs.python.org/3/library/venv.html)
+2. Packages in python_requirements.txt 
+
+## Steps to setup a Python 3.6 virtual environment
+1. Install the virtual environment
+```bash
+python3.6 -m venv venv
+```
+2. Activate the virtual environment
+```bash
+source venv/bin/activate
+```
+3. Make sure you have the required packages inside the virtual environment. 
+```bash
+pip install -r python_requirements.txt
+```
