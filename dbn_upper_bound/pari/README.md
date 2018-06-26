@@ -18,7 +18,9 @@ Guide to using the scripts
 -> Euler bounds can be calculated through the functions in the abbeff_largex_bounds file. Within that file, 
 for 1) and 4), the function abbeff_largex_ep_bound can be used, 
 while for 5) where [Nmin,Nmax] can be a large range, functions abbeff_largex_ep_sawtooth_base_lbound and abbeff_largex_ep_sawtooth_incremental_lbounds can be used
+
 -> For barrier strip related calculations, the file barrier_multieval_t_agnostic can be used
+
 -> To compute error bounds, the file error bounds can be used
 
 The remaining scripts contain definitions and work related to earlier approaches to establishing dbn bounds, which one is encouraged to explore as well. 
