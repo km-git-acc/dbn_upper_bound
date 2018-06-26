@@ -2,7 +2,7 @@ The scripts in this folder are written in Pari/GP. To install it, please follow 
 
 It is recommended to first understand the theory and derivations on which the below guide and the scripts are based. Towards that, please read <a href='https://terrytao.wordpress.com/'>Prof. Tao's blog</a>, and the <a href='https://github.com/km-git-acc/dbn_upper_bound/blob/master/Writeup/debruijn.pdf'>writeup</a>. 
 
-###General steps followed to prove a certain dbn bound 
+General steps followed to prove a certain dbn bound 
 -----------------------------------------------------------------------------------------------
 1) For a given t0 and y0, choose an N_min where some euler bound, mollified or otherwise is reasonably positive
 2) For the N_min determined in 1), choose a barrier region [X,X+1] where |(A+B)/B0| seems large
@@ -13,7 +13,7 @@ It is recommended to first understand the theory and derivations on which the be
 
 (In 3), 4) and 5), also conduct a check whether the error bounds for |(H-(A+B))/B0| are smaller than the smallest |(A+B)/B0| and the smallest euler bounds)
 
-###Guide to using the scripts
+Guide to using the scripts
 -------------------------------------------
 -> Euler bounds can be calculated through the functions in the abbeff_largex_bounds file. Within that file, 
 for 1) and 4), the function abbeff_largex_ep_bound can be used, 
