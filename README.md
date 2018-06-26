@@ -2,7 +2,7 @@
 ## Computational effort to upper bound the de Bruijn-Newman constant as part of a Polymath project
 -----------------------------------------------------------------------------------------------
 
-As you may know, Prof. Terence Tao will be launching and moderating a Polymath project to upper bound the de Bruijn-Newman constant (dBN constant for brevity). This will involve both 1) an Analytic or theory part (hard math) to derive/refine several formulas and estimates, and 2) a computational part to check whether the de Bruijn family of functions H_t are zero free in the regions marked for numerical verification.
+As you may know, Prof. Terence Tao launched and has been moderating a Polymath project to upper bound the de Bruijn-Newman constant (dBN constant for brevity). This involves both 1) an Analytic or theory part (hard math) to derive/refine several formulas and estimates, and 2) a computational part to check whether the de Bruijn family of functions H_t are zero free in the regions marked for numerical verification.
 
 This repo is meant to facilitate the computational aspect.
 
@@ -13,52 +13,24 @@ For the Polymath proposal, please [check this link](https://terrytao.wordpress.c
 For the wiki, comprehensive list of papers, permanent record of results, please head to the [Polymath webpage](http://michaelnielsen.org/polymath1/index.php?title=De_Bruijn-Newman_constant)
 
 
-## Computational Requirements
+## Computational Libraries and Machine Requirements
 --------------------------------------------------------------------------------------------
-1. [Python 3.6](https://docs.python.org/3/library/venv.html)
-2. Packages in python_requirements.txt 
+Most of the recent work has been done in the Pari/GP, Arb and Julia languages. For large scale runs, the Arb scripts are recommended, and for mathlike readability, the other two.
 
 For Julia, please check the Julia fork https://github.com/km-git-acc/DBNUpperBound.jl, maintained by WilCrofter.
 
-For other languages, please update accordingly.
+There was also a lot of work done in Python in the earlier phase of the project, which may be of interest.
+
+Please refer to the README files in the respective folders for more details on how to use the different scripts.
 
 The algorithms can likely run on any machine, but better configs will certainly help
 
-## Steps to setup a Python 3.6 virtual environment
-1. Install the virtual environment
-```bash
-python3.6 -m venv venv
-```
-2. Activate the virtual environment
-```bash
-source venv/bin/activate
-```
-3. Make sure you have the required packages inside the virtual environment. 
-```bash
-pip install -r python_requirements.txt
-```
-
-## Running H_t evaluations
---------------------------------------------------------------------------------------------
-There are two main files in the python folder containing commonly used functions, utility.py and mputility.py. mputility uses the mpmath library which is preferred for H_t(z) for large z values.
-
-Getting to workable code is quite simple. For eg.
-
-from mputility import *
-
-
-Ht_AFE_ABC(10000000.0,0.2)
-
-
-which evaluates H_t using the approx functional eqn for z=10000000.0 and t=0.2
-
-For a sample file showing how a large range of z values can be explored and roots found, please check sample_afe_abc_calc.py. 
 
 ## Results
 ---------------------------------------------------------------------------------------------
 Results can be checked on this wiki page,
 http://michaelnielsen.org/polymath1/index.php?title=Zero-free_regions
+(Currently, a dBN bound of 0.22 has been achieved unconditionally, and several tighter bounds conditional on RH verified to appropriate heights also demonstrated)
 
+A lot of the summarized output is present in the Output folder, some in the python/research folder, and large files posted as links in comments on the Blog.
 
-## Other Sections - Please add as needed
----------------------------------------------------------------------------------------------
