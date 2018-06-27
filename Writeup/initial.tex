@@ -28,7 +28,7 @@ More precisely, we have
 $$ r_{t,n}(\sigma+iT) = M_t(\sigma+iT) \frac{b_n^t}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} \left(1 + O_{\leq}(\eps_{t,n}(\sigma+iT))\right)$$
 where 
 \begin{equation}\label{eps-def}
- \eps_{t,n}(\sigma+iT) \coloneqq \exp\left( \frac{\frac{t^2}{8} |\alpha(\sigma+iT) - \log n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right)-1,
+ \eps_{t,n}(\sigma+iT) \coloneqq \exp\left( \frac{\frac{t^2}{8} |\alpha(\sigma+iT) - \log n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right)-1.
 \end{equation}
 \end{proposition}
 
@@ -40,26 +40,26 @@ whenever $\mathrm{Im}(s) > 2$.  Let $\alpha_n$ denote the quantity
 \begin{equation}\label{alphan-def}
 \alpha_n \coloneqq \alpha(\sigma+iT) - \log n;
 \end{equation}
-this is the logarithmic derivative of $M(s) n^{-s}$ at $s=\sigma+iT$.  From \eqref{rtn-def} we have
+this is the logarithmic derivative of $M(s) n^{-s}$ at $s=\sigma+iT$.  
+By \eqref{alpha-form} and the hypothesis $T \geq 10$, the imaginary part of $\alpha_n$ may be lower bounded by
+\begin{equation}\label{iman}
+ \mathrm{Im}(\alpha_n) \geq -\frac{1}{2T} - \frac{1}{T} \geq -0.15;
+\end{equation}
+in particular, $\sigma+iT$ and $\sigma+iT+\frac{t}{2}\alpha_n$ have imaginary parts of the same sign.
+We can now apply \eqref{rtn-def} to obtain
 \begin{align*}
  r_{t,n}(\sigma+iT) &= \exp\left( - \frac{t}{4} \alpha_n^2\right) \int_\R \exp\left( - \sqrt{t} v \alpha_n\right) M_0\left( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n\right) \times \\
 &\quad \times \exp\left( -\left(\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n \right) \log n + O_{\leq}\left( \frac{1}{6(|\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n|-0.66)} \right) \right)
 \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
 \end{align*}
-By \eqref{alpha-form} and the hypothesis $T \geq 10$, the imaginary part of $\alpha_n$ may be lower bounded by
-$$ \mathrm{Im}(\alpha_n) \geq -\frac{1}{2T} - \frac{1}{T} \geq -0.15;$$
-since $t \leq 1/2$, we conclude that $\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n$ has imaginary part at least $T - 0.08$.  Thus
-\begin{align*}
- r_{t,n}(s) &= \exp( - \frac{t}{4} \alpha_n^2) \int_\R \exp( - \sqrt{t} v \alpha_n) M_0\left( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n\right) \times
-\\
-&\quad \times \exp\left( -\left(\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n \right) \log n + O_{\leq}\left( \frac{1}{6(T - 0.74)} \right) \right)
-\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
-\end{align*}
+From \eqref{iman} we see that $\sigma+iT+\sqrt{t}v+\frac{t}{2}\alpha_n)$ has imaginary part at least $T-0.08$. Thus
+$$ O_{\leq}\left( \frac{1}{6(|\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n|-0.66)} \right)  = 
+O_{\leq}\left( \frac{1}{6(T - 0.74)} \right) = O_{\leq}\left( \frac{1}{6(T - 3.08)} \right).$$
 From \eqref{alpha-deriv-bound} we have
 $$ \alpha'(s) = O_{\leq}\left( \frac{1}{2(T-3.08)} \right)$$
 for all $s$ on the line segment between $\sigma+iT$ and $\sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n$.  Applying Taylor's theorem with remainder to the branch of the logarithm $\log M_0$ defined in \eqref{logM}, we conclude that
 $$ M_0( \sigma + iT + \sqrt{t} v + \frac{t}{2} \alpha_n) = M_0(\sigma+iT) \exp\left( \alpha(\sigma+iT) (\sqrt{t} v + \frac{t}{2} \alpha_n) + O_{\leq}\left( \frac{|\sqrt{t} v + \frac{t}{2} \alpha_n|^2}{4(T-3.08)}  \right)\right).$$
-Inserting this estimate, writing $\alpha(\sigma+iT) = \alpha_n + \log n$, estimating $\frac{1}{6(T-0.74)}$ by $\frac{1}{6(T-3.08)}$ and $|\sqrt{t} v + \frac{t}{2} \alpha_n|^2$ by $2tv^2 + \frac{t^2}{2} |\alpha_n|^2$, and simplifying, we conclude that
+Combining these estimates, writing $\alpha(\sigma+iT) = \alpha_n + \log n$, estimating $|\sqrt{t} v + \frac{t}{2} \alpha_n|^2$ by $2tv^2 + \frac{t^2}{2} |\alpha_n|^2$, and simplifying, we conclude that
 \begin{align*}
  r_{t,n}(s) &= M_0(\sigma+iT) \exp\left( \frac{t}{4} \alpha_n^2 - (\sigma+iT) \log n\right) \times \\
 &\quad \times  \int_\R \exp\left(  O_{\leq}\left( \frac{\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}}{T-3.08} \right) \right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
@@ -68,7 +68,11 @@ Using \eqref{alphan-def}, \eqref{Mt-def}, \eqref{bn-def} we see that
 $$ M_0(\sigma+iT) \exp\left( \frac{t}{4} \alpha_n^2 - (\sigma+iT) \log n\right) = M_t(\sigma+iT) \frac{b_n^t}{n^{\sigma+iT+\frac{t}{2} \alpha(\sigma+iT)}} $$
 and so it suffices to show that
 $$  \int_\R \exp\left( O_{\leq}\left( \frac{\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}}{T-3.08} \right) \right)\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv = 1 + O\left(\exp\left( \frac{\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right)-1\right).$$
-Since $\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv $ integrates to one, and $\frac{1}{T-3.08} \leq \frac{1}{T-3.33}$, it suffices by Lemma \ref{elem-lem}(iv) to show that
+Since $\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv $ integrates to one, it suffices by Lemma \ref{elem-lem}(iv) to show that
+$$
+  \int_\R \exp\left( \frac{t v^2+ \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}}{2(T-3.08)} \right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv \leq \exp\left( \frac{\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right).
+$$
+Since $\frac{1}{T-3.08} < \frac{1}{T-3.33}$, we can remove the $\frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}$ terms from both sides and reduce to showing that
 \begin{equation}\label{ax}
   \int_\R \exp\left( \frac{t v^2}{2(T-3.08)} \right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv \leq \exp\left( \frac{t}{4(T-3.33)} \right).
 	\end{equation}
@@ -91,13 +95,13 @@ N &\coloneqq \lfloor a \rfloor \label{N-def}\\
 p &\coloneqq 1 - 2(a-N) \label{p-def}\\
 U &\coloneqq \exp\left( -i\left(\frac{T'}{2} \log \frac{T'}{2\pi} - \frac{T'}{2} - \frac{\pi}{8}\right) \right)\label{U-def}.
 \end{align}
-Let $K$ be a positive integer.  Then we have an expansion
+Let $K$ be a positive integer.  Then we have the expansion
 $$ \int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}} = (-1)^{N-1} U a^{-\sigma} \left(\sum_{k=0}^K \frac{C_k(p,\sigma)}{a^k} + RS_K(s)\right) $$
 where $C_0(p,\sigma) = C_0(p)$ is independent of $\sigma$ and is given explicitly by the formula
 \begin{equation}\label{C0-def}
 C_0(p) \coloneqq \frac{e^{\pi i (\frac{p^2}{2} +\frac{3}{8})} - i \sqrt{2} \cos \frac{\pi p}{2}}{2 \cos(\pi p)}
 \end{equation}
-(removing the singularities at $p = \pm 1/2$), while for $k \geq 1$ the $C_k(p,\sigma)$ are quantities obeying the bounds
+(removing the singularities at $p = \pm 1/2$), while for $k \geq 1$ the $C_k(p,\sigma)$ are complex numbers obeying the bounds
 \begin{equation}\label{ck-bound-1}
 |C_k(p,\sigma)| \leq \frac{\sqrt{2}}{2\pi} \frac{9^\sigma \Gamma(k/2)}{2^k}
 \end{equation}
@@ -105,7 +109,7 @@ for $\sigma>0$ and
 \begin{equation}\label{ck-bound-2}
 |C_k(p,\sigma)| \leq \frac{2^{\frac{1}{2}-\sigma}}{2\pi} \frac{\Gamma(k/2)}{2\pi ((3-2\log 2)\pi)^{k/2}}
 \end{equation}
-for $\sigma \leq 0$, while the error term $RS_K(s)$ is a quantity obeying the bounds
+for $\sigma \leq 0$, while the error term $RS_K(s)$ is a complex number obeying the bounds
 \begin{equation}\label{rsk-bound-1}
 |RS_K(s)| \leq \frac{1}{7} 2^{3\sigma/2} \frac{\Gamma((K+1)/2)}{(a/1.1)^{K+1}}
 \end{equation}
@@ -125,6 +129,16 @@ Note that $p$ ranges in the interval $[-1,1]$.  One can show that
 \end{equation}
 for all $p \in [-1,1]$; this follows for instance from the $n=0$ case of \cite[Theorem 6.1]{arias}.
 
+Informally, the above proposition (and \eqref{RON-def}, \eqref{M-def}) yield the approximation
+\begin{align*}
+ R_{0,N}(s) &\approx \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right) (-1)^{N-1} U a^{-\sigma} C_0(p) \\
+&\approx (-1)^{N-1} U M_0(s) a^{-\sigma} C_0(p).
+\end{align*}
+If one writes $s = \sigma+iT$, then by using the approximation $\alpha(s) \approx \frac{1}{2} \log \frac{iT}{2\pi}$ for the log-derivative of $M_0$, one can then obtain the approximate formula
+$$ R_{0,N}(s) \approx (-1)^{N-1} U e^{\pi i \sigma/4} M_0(iT) C_p(p).$$
+In fact we have the more general approximation
+$$ R_{t,N}(s) \approx (-1)^{N-1} U e^{\pi i \sigma/4} \exp\left( \frac{t \pi^2}{64}\right) M_0(iT') C_p(p)$$
+where $T' \coloneqq T + \frac{\pi t}{8}$.  More precisely, we have
 
 \begin{proposition}[Estimate for $R_{t,N}$]\label{RTN-prop}  Let $0 \leq \sigma \leq 1$, let $T \geq 100$, and let $0 < t \leq 1/2$.  Set
 $$ T' \coloneqq T + \frac{\pi t}{8} $$
@@ -145,8 +159,8 @@ $$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = \frac{1}{8} \frac{s_v(s_v-1)}{2} \pi^{-s_
 \left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right) $$
 for any positive integer $K_v$ that we permit to depend (in a measurable fashion) on $v$, where $s_v \coloneqq \sigma + iT' + \sqrt{t} v$. From \eqref{M-def} and Lemma \ref{elem-lem}(v) we thus have
 $$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = M_0(s_v) \exp\left( O_{\leq}\left(\frac{1}{12(T'-0.33)}\right) \right) (-1)^{N-1} U a^{-\sigma-\sqrt{t} v}
-\left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_K(s_v)\right).$$
-From \eqref{alpha-deriv-bound} and Taylor expansion of a logarithm of $M$, we have
+\left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right).$$
+From \eqref{alpha-deriv-bound} and Taylor expansion of the logarithm $\log M_0$ defined in \eqref{logM}, we have
 $$ M_0(s_v) = M_0(iT') \exp\left( \alpha(iT') (\sigma + \sqrt{t} v) + O_{\leq}\left( \frac{(\sigma + \sqrt{t} v)^2}{4(T'-0.33)} \right) \right).$$
 From \eqref{alpha-form}, \eqref{a-def} one has
 $$ \alpha(iT') = O_{\leq}\left( \frac{1}{2T'}\right) + O_{\leq}\left( \frac{1}{T'}\right) + \frac{1}{2} \Log \frac{iT'}{2\pi} = \log a + \frac{i\pi}{4} + O_{\leq}\left( \frac{3}{2T'}\right)$$
@@ -211,7 +225,7 @@ $$  0.036 2^{-u} \sum_{1 \leq k \leq \frac{T'}{\pi}} (0.445)^k \frac{\Gamma(k/2)
 \frac{1}{2} 2^{-u} \sum_{\frac{T'}{\pi} \leq k \leq -u+4} \frac{\Gamma(k/2)}{(a/1.1)^k}.$$
 
 For $u \geq 0$, we can estimate \eqref{u0} by
-$$ 0.2 \times 9^u (\frac{1}{a} + \frac{0.865}{a^2}) \leq \frac{0.2 \times 9^u}{a - 0.865}$$
+$$ 0.2 \times 9^u \left(\frac{1}{a} + \frac{0.865}{a^2}\right) \leq \frac{0.2 \times 9^u}{a - 0.865}$$
 thanks to Lemma \ref{elem-lem}(i).  For $u<0$, we observe that if $k \leq 2 a^2 = \frac{T'}{\pi}$ then
 $$ \frac{\Gamma(k+2/2)}{a^{k+2}} = \frac{k}{2 a^2} \frac{\Gamma(k/2)}{a^k} \leq \frac{\Gamma(k/2)}{a^k}$$
 and hence by the geometric series formula
@@ -324,20 +338,20 @@ Then
 $$ H_t(x+iy) = A(x+iy) + B(x+iy) - C(x+iy) + O_{\leq}(E_A(x+iy) + E_B(x+iy) + E_C(x+iy))$$
 where
 \begin{align*}
-E_A(x+iy) &\coloneqq |M_t(\frac{1-y+ix}{2})| \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y}{2}+\frac{t}{2} \mathrm{Re} \alpha(\frac{1-y+ix}{2})}} \eps_{t,n}(\frac{1-y+ix}{2}) \\
-E_B(x+iy) &\coloneqq |M_t(\frac{1+y+ix}{2})|\sum_{n=1}^N  \frac{b_n^t}{n^{\frac{1+y}{2}+\frac{t}{2} \mathrm{Re} \alpha(\frac{1+y+ix}{2})}} \eps_{t,n}(\frac{1+y+ix}{2})  \\
-E_C(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| (\tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2}))  
+E_A(x+iy) &\coloneqq \left|M_t\left(\frac{1-y+ix}{2}\right)\right| \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y}{2}+\frac{t}{2} \mathrm{Re} \alpha(\frac{1-y+ix}{2})}} \eps_{t,n}(\frac{1-y+ix}{2}) \\
+E_B(x+iy) &\coloneqq \left|M_t\left(\frac{1+y+ix}{2}\right)\right|\sum_{n=1}^N  \frac{b_n^t}{n^{\frac{1+y}{2}+\frac{t}{2} \mathrm{Re} \alpha(\frac{1+y+ix}{2})}} \eps_{t,n}(\frac{1+y+ix}{2})  \\
+E_C(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| \left(\tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})\right)  
 \end{align*}
 and $\eps_{t,n}, \tilde \eps$ were defined in \eqref{eps-def}, \eqref{epsp-def}. 
 \end{corollary}
 
-In many cases one can use the cruder ``$A+B$'' approximation that is immediate from the above corollary and \eqref{cop}:
+In our applications, we will just use the cruder ``$A+B$'' approximation that is immediate from the above corollary and \eqref{cop}:
 
 \begin{corollary}[$A+B$ approximation]\label{ab-cor} With the notation and hypotheses as in Corollary \ref{abc-cor}, we have
 $$ H_t(x+iy) = A(x+iy) + B(x+iy) + O_{\leq}(E_A(x+iy) + E_B(x+iy) + E_{C,0}(x+iy))$$
 where
 \begin{align*}
-E_{C,0}(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| (1 + \tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})). 
+E_{C,0}(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| \left(1 + \tilde \eps\left(\frac{1-y+ix}{2}\right) + \tilde \eps\left(\frac{1+y+ix}{2}\right)\right). 
 \end{align*}
 \end{corollary}
 
@@ -351,12 +365,12 @@ and
 \end{equation}
 where
 \begin{align}
-e_A \coloneqq e_A(x+iy) &\coloneqq |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\mathrm{Re}(s) + \mathrm{Re}(\kappa)}} \eps_{t,n}(\frac{1-y+ix}{2}) \label{ea-def}\\
-e_B \coloneqq e_B(x+iy) &\coloneqq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s)}} \eps_{t,n}(\frac{1+y+ix}{2}) \label{eb-def} \\
-e_{C} \coloneqq e_{C}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} (\tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})).\label{ecc-def}\\
-e_{C,0} \coloneqq e_{C,0}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} (1 + \tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})),\label{ec-def}
+e_A \coloneqq e_A(x+iy) &\coloneqq |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\mathrm{Re}(s) + \mathrm{Re}(\kappa)}} \eps_{t,n}\left(\frac{1-y+ix}{2}\right) \label{ea-def}\\
+e_B \coloneqq e_B(x+iy) &\coloneqq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s)}} \eps_{t,n}\left(\frac{1+y+ix}{2}\right) \label{eb-def} \\
+e_{C} \coloneqq e_{C}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} \left(\tilde \eps\left(\frac{1-y+ix}{2}\right) + \tilde \eps\left(\frac{1+y+ix}{2}\right)\right).\label{ecc-def}\\
+e_{C,0} \coloneqq e_{C,0}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{\left|M_t\left(\frac{1+y+ix}{2}\right)\right|} \left(1 + \tilde \eps\left(\frac{1-y+ix}{2}\right) + \tilde \eps\left(\frac{1+y+ix}{2}\right)\right),\label{ec-def}
 \end{align}
-where $\gamma,s_*,\kappa$ were defined in \eqref{lambda-def}, \eqref{sn-def}, \eqref{kappa-def}.  Note also from \eqref{tp-def}, \eqref{a-def}, \eqref{N-def} that $N$ is given by \eqref{N-def-main}.
+and where $\gamma,s_*,\kappa$ were defined in \eqref{lambda-def}, \eqref{sn-def}, \eqref{kappa-def}.  Note also from \eqref{tp-def}, \eqref{a-def}, \eqref{N-def} that $N$ is given by \eqref{N-def-main}.
 
 To conclude the proof of Theorem \ref{eff} it thus suffices to obtain the following estimates.
 
@@ -414,9 +428,9 @@ $$ y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6} \leq y \frac{\frac{t}{4}
 Claim (i) follows.  We remark that one can improve the $e^{0.02 y}$ factor here by Taylor expanding $\alpha$ to second order rather than first order, but we will not need to do so here.
 
 To prove claim (ii), it suffices by \eqref{s-def} to show that
-$$ \mathrm{Re} \alpha(\frac{1+y-ix}{2}) \geq \frac{1}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+}{x^2} - \frac{4y(1+y)}{x^4}.$$
+$$ \mathrm{Re} \alpha\left(\frac{1+y-ix}{2}\right) \geq \frac{1}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+}{x^2} - \frac{4y(1+y)}{x^4}.$$
 By \eqref{alpha-form} one has
-$$ \mathrm{Re} \alpha(\frac{1+y-ix}{2}) = \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} + \frac{1}{2} \log \frac{\sqrt{(1+y)^2+x^2}}{4\pi}.$$
+$$ \mathrm{Re} \alpha\left(\frac{1+y-ix}{2}\right) = \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} + \frac{1}{2} \log \frac{\sqrt{(1+y)^2+x^2}}{4\pi}.$$
 We bound $\sqrt{(1+y)^2+x^2} \geq x$ and calculate
 \begin{align*}
  \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} &= - \frac{1-3y}{(1+y)^2+x^2} -\frac{4y(1+y)}{((1+y)^2+x^2)((1+y)^2+x^2)} \\
@@ -425,10 +439,10 @@ We bound $\sqrt{(1+y)^2+x^2} \geq x$ and calculate
 Lower bounding the numerator by its nonnegative part and then lower bounding $(1+y)^2+x^2$ by $x^2$, we obtain the claim.
 
 Claim (iii) is immediate from \eqref{alphap-b} and the fundamental theorem of calculus.  Now we turn to (iv), (v).  From \eqref{asig} one has
-$$ \alpha(\frac{1 \pm y + ix}{2}) - \log n = \frac{1}{2} \log \frac{x}{4\pi n^2} + i \frac{\pi}{4} + O_{\leq}\left( \frac{3}{x-6}\right)$$
+$$ \alpha\left(\frac{1 \pm y + ix}{2}\right) - \log n = \frac{1}{2} \log \frac{x}{4\pi n^2} + i \frac{\pi}{4} + O_{\leq}\left( \frac{3}{x-6}\right)$$
 for either choice of sign $\pm$.  In particular, we have
 \begin{equation}\label{alphn}
- |\alpha(\frac{1 \pm y + ix}{2}) - \log n|^2 = \frac{1}{4} \log^2 \frac{x}{4\pi n^2} + \frac{\pi^2}{16} + 
+ \left|\alpha\left(\frac{1 \pm y + ix}{2}\right) - \log n\right|^2 = \frac{1}{4} \log^2 \frac{x}{4\pi n^2} + \frac{\pi^2}{16} + 
 O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}\right).
 \end{equation}
 For any $1 \leq n \leq N$, we have
@@ -436,7 +450,7 @@ $$ 1 \leq n^2 \leq N^2 \leq a^2 = \frac{x+\frac{\pi t}{16}}{4\pi};$$
 in the region \eqref{region}, the right-hand side is certainly bounded by $(\frac{x}{4\pi})^2$, so that
 $$ \frac{4\pi}{x} \leq \frac{x}{4\pi n^2} \leq \frac{x}{4\pi}$$
 and hence
-$$ |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}| \leq |\log \frac{x}{4\pi} + i \frac{\pi}{2}|.$$
+$$ \left|\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}\right| \leq \left|\log \frac{x}{4\pi} + i \frac{\pi}{2}\right|.$$
 In the region \eqref{region} we have  $x \geq 200$, we see from Lemma \ref{elem-lem}(vi) (after squaring) that $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-6}$ is decreasing in $x$.  Thus
 \begin{align*}
 \frac{\pi^2}{16} + \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}

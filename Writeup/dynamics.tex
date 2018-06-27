@@ -10,7 +10,7 @@ We begin with the analysis of the dynamics of a single zero of $H_t$:
 \begin{equation}\label{zjk}
  \frac{\partial z_j}{\partial t}(t_0) = 2 \sum^{\prime}_{k \neq j} \frac{1}{z_j(t_0) - z_k(t_0)} 
 \end{equation}
-where the sum is over those $k \in \Z \backslash \{0\}$ with $k \neq j$, and the prime means that the $k$ and $-k$ terms are summed together (assuming $k \neq \pm j$) in order to make the sum convergent.
+where the sum is over those $k \in \Z \backslash \{0\}$ with $k \neq j$, and the prime means that the $k$ and $-k$ terms are summed together (except for the $k=-j$ term, which is summed separately) in order to make the sum convergent.
 \item[(ii)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a repeated zero of $H_{t_0}$ of order $m \geq 2$, then there is a neighbourhood $U$ of $z_j(t_0)$ such that for $t$ sufficiently close to $t_0$, there are precisely $m$ zeroes of $H_t$ in $U$, and they take the form
 $$ z_j(t_0) + \sqrt{2} (t-t_0)^{1/2} x_j + O( |t-t_0|)$$
 for $j=1,\dots,m$ as $t \to t_0$, where $x_1 < \dots < x_m$ are the roots of the $m^{\operatorname{th}}$ Hermite polynomial
@@ -28,12 +28,12 @@ $$ x_1 = -1; \quad x_2 = +1$$
 when $m=2$,
 $$ x_1 = -\sqrt{3}; \quad x_2 = 0; \quad x_3 = +\sqrt{3}$$
 when $m=3$, and
-$$ x_1 = -\sqrt{3+\sqrt{6}}; \quad x_2 = -\sqrt{3-\sqrt{6}}; \quad x_3 = \sqrt{3 - \sqrt{6}}; \quad \sqrt{3 + \sqrt{6}}$$
+$$ x_1 = -\sqrt{3+\sqrt{6}}; \quad x_2 = -\sqrt{3-\sqrt{6}}; \quad x_3 = \sqrt{3 - \sqrt{6}}; \quad  x_4 = \sqrt{3 + \sqrt{6}}$$
 when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all the zeroes $x_1,\dots,x_m$ of $\operatorname{He}_m$ are real; from the Hermite equation $\left(\frac{d^2}{dz^2} - z \frac{d}{dz} + m\right) \operatorname{He}_m(z) = 0$ and the Picard uniqueness theorem for ODE we see that the zeroes are all simple.
 
-\begin{proof}  First suppose we are in the situation of (i).  As $z_j(t_0)$ is simple, $\frac{\partial}{\partial z} H_t$ is non-zero at $z_0$; since $H_t(z)$ is a smooth function of both $t$ and $z$, we conclude from the implicit function theorem that there is a unique solution $z_j(t) \in U$ to the equation
+\begin{proof}  First suppose we are in the situation of (i).  As $z_j(t_0)$ is simple, $\frac{\partial}{\partial z} H_t$ is non-zero at $z_j(t_0)$; since $H_t(z)$ is a smooth function of both $t$ and $z$, we conclude from the implicit function theorem that there is a unique solution $z_j(t) \in U$ to the equation
 $$ H_t( z_j(t) ) = 0$$
-with $z_j(t)$ in a sufficiently small neighbourhood $U$ of $z_j(t_0)$, if $t$ is in a sufficiently small neighbourhood of $I$; furthermore, $z_j(t)$ depends smoothly on $t$.  Differentiating the above equation at $t_0$, we obtain
+with $z_j(t)$ in a sufficiently small neighbourhood $U$ of $z_j(t_0)$, if $t$ is in a sufficiently small neighbourhood $I$ of $t_0$; furthermore, $z_j(t)$ depends smoothly on $t$, and agrees with $z_j(t_0)$ when $t=t_0$.  Differentiating the above equation at $t_0$, we obtain
 $$ \frac{\partial H_t}{\partial t}|_{t=t_0}( z_j(t_0) ) + \frac{\partial z_j}{\partial t}(t_0) H'_{t_0}(z_j(t_0)) = 0,$$
 where the primes denote differentiation in the $z$ variable.
 On the other hand, from \eqref{htdef} and differentiation under the integral sign (which can be justified using the rapid decrease of $\Phi$) we have the backwards heat equation
@@ -60,7 +60,7 @@ as $z \to z_j$ for any fixed integer $k \geq 0$ and some non-zero complex number
 $$ \frac{\partial^k H_t}{\partial t^k}|_{t=t_0}(z) = (-1)^k m (m-1) \dots (m-2k+1) a_m (z-z_j)^{m-2k} + O( |z-z_j|^{\max(m-2k+1,0)} ).$$
 Performing Taylor expansion in time and using \eqref{heform2}, we conclude that in the regime $z - z_j = O( |t-t_0|^{1/2} )$, one has the bound
 $$ H_t(z) = a_m ((t-t_0)^{1/2})^m \left( \operatorname{He}_m\left( \sqrt{2} \frac{z-z_j}{(t-t_0)^{1/2}} \right) + O\left( |t-t_0|^{1/2} \right) \right)$$
-as $t \to t_0$, where we use some branch of the square root.  By the inverse function theorem (and the simple nature of the zeroes of $\operatorname{He}_m$), we conclude that for $t$ sufficiently close but not equal to to $t_0$, we have $m$ zeroes of $H_t$ of the form
+as $t \to t_0$, using (say) the standard branch of the square root.  By the inverse function theorem (and the simple nature of the zeroes of $\operatorname{He}_m$), we conclude that for $t$ sufficiently close but not equal to to $t_0$, we have $m$ zeroes of $H_t$ of the form
 $$ z_j + (t-t_0)^{1/2} x_j + O( |t-t_0| ).$$
 By Rouche's theorem, if $U$ is a sufficiently small neighborhood of $z_j$ then these are the only zeroes of $H_t$ in $U$ for $t$ sufficiently close to $t_0$.  The claim follows.
 \end{proof}

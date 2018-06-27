@@ -6,14 +6,14 @@ e^{tu^2} = \int_\R e^{\pm 2 \sqrt{t} vu} \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv$$
 for any complex $u$ and either choice of sign $\pm$. Multiplying by $e^{\pm i zu}$ and averaging, we conclude that
 $$
 e^{tu^2} \cos(zu) = \int_\R \cos\left(\left(z - 2 i \sqrt{t} v\right)u\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv$$
-for any complex $z,u$.  Multiplying by $\Phi(u)$ and using Fubini's theorem, we conclude that
+for any complex $z,u$.  Multiplying by $\Phi(u)$ and using Fubini's theorem, we conclude the heat kernel representation
 $$ H_t(z) = \int_\R H_0( z - 2i \sqrt{t} v ) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv $$
 for any complex $z$.  Using \eqref{hoz}, we thus have
 \begin{equation}\label{htz}
  H_t(z) = \int_\R \frac{1}{8} \xi\left( \frac{1+iz}{2} + \sqrt{t} v \right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
 \end{equation}
 
-\begin{remark}  We have found numerically that the formula \eqref{htz} gives a fast and accurate means to compute $H_t(z)$ when $z$ is of moderate size, e.g., if $z = x+iy$ with $|x| \leq 10^6$ and $|y| \leq 1$.  However, we will not need to directly compute the right-hand side of \eqref{htz} for our application to bounding $\Lambda$, as we will only need to control $H_t(x+iy)$ for large values of $x$, and we will shortly develop tractable approximations of Riemann-Siegel type that are suitable for this regime.
+\begin{remark}  We have found numerically that the formula \eqref{htz} gives a fast and accurate means to compute $H_t(z)$ when $z$ is of moderate size, e.g., if $z = x+iy$ with $|x| \leq 10^6$ and $|y| \leq 1$.  However, we will not need to directly compute the right-hand side of \eqref{htz} for our application to bounding $\Lambda$, as we will only need to control $H_t(x+iy)$ for large values of $x$, and we will shortly develop tractable approximations of Riemann-Siegel type that are more suitable for this regime.
 \end{remark}
 
 We now combine this formula with expansions of the Riemann $\xi$-function.  From \cite[(2.10.6)]{titch} we have the Riemann-Siegel formula
