@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  26 JUN 2018 22:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  28 JUN 2018 15:15
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -497,21 +497,21 @@ Overfull \hbox (38.62108pt too wide) detected at line 54
  []
 
 [15] [16] [17]
-Overfull \hbox (6.45036pt too wide) detected at line 159
+Overfull \hbox (6.45036pt too wide) detected at line 161
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
 txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] []
  []
 
 
-Overfull \hbox (49.59889pt too wide) detected at line 162
+Overfull \hbox (49.59889pt too wide) detected at line 164
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it
 /10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
 [18] [19] [20] [21] [22] [23] [24] [25]
-Overfull \hbox (16.23422pt too wide) in paragraph at lines 401--402
+Overfull \hbox (16.23422pt too wide) in paragraph at lines 403--404
 []\OT1/txr/m/n/10.95 From the mean value the-o-rem (and not-ing that $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML
 /txmi/m/it/10.95 M[]$\OT1/txr/m/n/10.95 , so that $[] = []$),
  []
@@ -526,12 +526,12 @@ Overfull \hbox (8.69379pt too wide) detected at line 88
 \OML/txmi/m/it/10.95 e[] \OMS/txsy/m/n/10.95  [][] [] [] []
  []
 
-
+[34]
 Overfull \hbox (169.2075pt too wide) detected at line 94
 []
  []
 
-[34]
+
 Overfull \hbox (61.7023pt too wide) detected at line 113
 \OMS/txsy/m/n/10.95 j[]j \OT1/txr/m/n/10.95 = \OMS/txsy/m/n/10.95 j[]j  [] []\OT1/txr/m/n/10.95 ([] + []) + \OMS/txsy/m
 /n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 N[] [] []\OT1/txr/m/n/10.95 ([] + ([] [] + \OM
@@ -557,28 +557,31 @@ i/m/it/10.95 \OT1/txr/m/n/10.95 ([])[] \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.
 /m/it/10.95 :
  []
 
-[36] [37] [38] [39]) (asymptotic.tex [40] [41] [42]
+[36] [37] [38] [39]) (asymptotic.tex [40] [41]
+Underfull \vbox (badness 1460) has occurred while \output is active []
+
+ [42] [43]
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
 
-[43] [44] [45])
+[44] [45] [46])
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no “ in font txr!
- [46]
+ [47]
 LaTeX Font Info:    Try loading font information for OT1+txtt on input line 232.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
-) [47] (debruijn.aux) ) 
+) [48] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
  5845 strings out of 493303
  83903 string characters out of 3138857
- 160787 words of memory out of 3000000
+ 161787 words of memory out of 3000000
  9083 multiletter control sequences out of 15000+200000
  39837 words of font info for 101 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,18n,38p,1490b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,18n,38p,1490b,338s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/
@@ -587,9 +590,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKT
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
 fonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (47 pages, 306902 bytes).
+Output written on debruijn.pdf (48 pages, 308261 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
+ 210 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
