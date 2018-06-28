@@ -30,16 +30,19 @@ and let $\kappa, s_*, \gamma, e_A, e_B, e_{C_0}$ be as in Theorem \ref{eff}, and
 \end{equation}
 \end{proposition}
 
-Note that if $x \geq 6 \times 10^{10} + 83952 - 0.5$ then $N \geq 69098$.  We calculate a somewhat crude upper bound for the right-hand side of \eqref{bbb}:
+Note that if $x \geq X_0 - 0.5$ then $N \geq N_0 \coloneqq 69098$, with $N=N_0$ when $X_0-0.5 \leq x \leq X_0+0.5$.  We calculate a somewhat crude upper bound for the right-hand side of \eqref{bbb}:
 
 {\bf the estimate below needs to be redone for the new range of parameters}
 
 \begin{lemma}\label{lac} For $(x,y,t)$ in either of the regions (ii), (iii) in Proposition \ref{sweep}, one has
-$$ e_A + e_B + e_{C,0} \leq 4.37 \times 10^{-4} + 6.53 \times 10^{-10} F_{N,t}(0.7 + \frac{t}{4} \log \frac{x}{4\pi}).$$
+$$ e_A + e_B + e_{C,0} \leq 1.249 \times 10^{-3} + 2.124 \times 10^{-11} F_{N,0.2}( 0.7001 + \frac{t}{4} \log \frac{x}{4\pi} )
+$$
 where
 \begin{equation}\label{fnt-def}
  F_{N,t}( \sigma ) := \sum_{n=1}^N \frac{b_n^t}{n^\sigma}.
 \end{equation}
+In the region (ii), we have
+$$ e_A + e_B + e_{C,0} \leq 1.251 \times 10^{-3}.$$
 \end{lemma}
 
 \begin{proof}
@@ -73,26 +76,29 @@ and thus
 \end{equation}
 Thus
 $$  e_A + e_B \leq 2.124 \times 10^{-11} F_{N,t}( \mathrm{Re}(s_*) ).$$
-{\bf OK TO HERE}
 
-From Proposition \ref{estimates}(ii) (and the observation that $1-3y+\frac{4y(1+y)}{x^2}$ is negative when $y \geq 0.4$ and $x \geq 5 \times 10^9$) we have
-$$ \mathrm{Re}(s_*) \geq 0.7 + \frac{t}{4} \log \frac{x}{4\pi}.$$
-Since $F_{N,t}(\sigma)$ is non-increasing in $\sigma$, we conclude
-$$  e_A + e_B \leq 6.53 \times 10^{-10} F_{N,0.2}( 0.7 + \frac{t}{4} \log \frac{x}{4\pi} ).$$
+To estimate $\mathrm{Re}(s_*)$, we use From Proposition \ref{estimates}(ii) or \eqref{kappa-bound}, together with the inequality
+$$ \frac{t}{2x^2} (1-3y+\frac{4y(1+y)}{x^2})_+ \leq \frac{0.2}{2 (X_0-0.5)^2} (1 - 3 \times 0.2 + \frac{8}{(X_0-0.5)^2})_+
+\leq 1.2 \times 10^{-23}$$
+to obtain t
+$$ \mathrm{Re}(s_*) \geq 0.7001 + \frac{t}{4} \log \frac{x}{4\pi}$$
+(say).  Since $F_{N,t}(\sigma)$ is non-increasing in $\sigma$, we conclude
+$$  e_A + e_B \leq 2.124 \times 10^{-11} F_{N,0.2}( 0.7001 + \frac{t}{4} \log \frac{x}{4\pi} ).$$
 
 From Proposition \ref{estimates}(vi) one has
-$$ e_{C,0} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(1 + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.72}{x-6.66}\right).$$
-From Lemma \ref{elem-lem}(vi), the quantities $\frac{\log^2 \frac{x}{4\pi} + \frac{\pi^2}{4}}{(x-8.52)^2}$ is monotone decreasing in $x$ in \eqref{region}, hence $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-8.52}$ is also monotone decreasing.  Also the expression is monotone decreasing in $y$. We conclude that
+$$ e_{C,0} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(1 + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.92}{x-6.66}\right).$$
+From Lemma \ref{elem-lem}(vi), the quantity $\frac{\log^2 \frac{x}{4\pi} + \frac{\pi^2}{4}}{(x-8.52)^2}$ is monotone decreasing in $x$ in \eqref{region}, hence $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-8.52}$ is also monotone decreasing.  Also the expression is monotone decreasing in $y$. We conclude that
 \begin{equation}\label{ec0-bound}
- e_{C,0} \leq \left(\frac{x_0}{4\pi}\right)^{-\frac{1+y_0}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x_0}{4\pi} + \frac{3 |\log \frac{x_0}{4\pi} + i \frac{\pi}{2}|+3.58}{x_0-8.52} \right) \left(1 + \frac{1.24 \times (3^{y_0}+3^{-y_0})}{N_0-0.125} + \frac{6.72}{x_0-6.66}\right)
+\begin{split}
+ e_{C,0} &\leq \left(\frac{X_0-0.5}{4\pi}\right)^{-\frac{1+0.2}{4}} \exp\left( \frac{3 |\log \frac{X_0-0.5}{4\pi} + i \frac{\pi}{2}|+3.58}{X_0-0.5-8.52} \right) \left(1 + \frac{1.24 \times (3^{\sqrt{0.6}}+3^{-\sqrt{0.6}})}{N_0-0.125} + \frac{6.92}{X_0-0.5-6.66}\right) \\
+&\leq 1.249 \times 10^{-3}
+\end{split}
 \end{equation}
-whenever $x \geq x_0 \geq 200$, $y \geq y_0 > 0$, and $N \geq N_0$.  Setting $x_0 = 5 \times 10^9$, $y_0 = 0.4$, and $N_0 = 19947$ and using $t \geq 0$ we conclude that
-From \eqref{ec0-bound} one has
-\begin{align*}
-e_{C,0} &\leq \left(\frac{5 \times 10^9}{4\pi}\right)^{-\frac{1+0.4}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{5 \times 10^9}{4\pi} + \frac{3 |\log \frac{5 \times 10^9}{4\pi} + i \frac{\pi}{2}|+3.58}{5 \times 10^9-8.52} \right) \left(1 + \frac{1.24 \times (3^{0.4}+3^{-0.4})}{19947-0.125} + \frac{6.92}{5 \times 10^9-6.66}\right)
-&\leq 4.37 \times 10^{-4}.
-\end{align*}
-The claim follows.
+where we have discarded the negative term $- \frac{t}{16} \log^2 \frac{X_0-0.5}{4\pi}$.  
+The first claim follows.  For the second claim, we have in the region (ii) that $N=N_0$, and we may crudely bound
+$$
+F_{N,0.2}( 0.7001 + \frac{t}{4} \log \frac{x}{4\pi} ) \leq F_{N_0,0.2}(0.7001) \leq 10538$$
+and then the second claim follows from the first.
 \end{proof}
 
 

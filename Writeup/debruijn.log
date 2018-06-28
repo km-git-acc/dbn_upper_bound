@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  28 JUN 2018 15:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  28 JUN 2018 16:25
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -517,50 +517,47 @@ Overfull \hbox (16.23422pt too wide) in paragraph at lines 403--404
  []
 
 [26] [27] [28]) (dirichlet.tex [29] [30] [31]) (zerofree.tex [32] [33]
-Overfull \hbox (15.84793pt too wide) detected at line 65
+Overfull \hbox (15.84793pt too wide) detected at line 68
 []
- []
-
-
-Overfull \hbox (8.69379pt too wide) detected at line 88
-\OML/txmi/m/it/10.95 e[] \OMS/txsy/m/n/10.95  [][] [] [] []
  []
 
 [34]
-Overfull \hbox (169.2075pt too wide) detected at line 94
+Overfull \hbox (31.33856pt too wide) detected at line 96
 []
  []
 
 
-Overfull \hbox (61.7023pt too wide) detected at line 113
+Overfull \hbox (31.33856pt too wide) in alignment at lines 95--96
+[] [] 
+ []
+
+
+Overfull \hbox (61.7023pt too wide) detected at line 119
 \OMS/txsy/m/n/10.95 j[]j \OT1/txr/m/n/10.95 = \OMS/txsy/m/n/10.95 j[]j  [] []\OT1/txr/m/n/10.95 ([] + []) + \OMS/txsy/m
 /n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 N[] [] []\OT1/txr/m/n/10.95 ([] + ([] [] + \OM
 L/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + [])([] + []))
  []
 
 
-Overfull \hbox (14.18898pt too wide) detected at line 118
+Overfull \hbox (14.18898pt too wide) detected at line 124
 []
  []
 
 [35]
-Overfull \hbox (60.0103pt too wide) detected at line 149
+Overfull \hbox (60.0103pt too wide) detected at line 155
 \OMS/txsy/m/n/10.95 j[]j  [] []\OT1/txr/m/n/10.95 ([] + []) + \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/
 10.95 j [] []\OT1/txr/m/n/10.95 ([] + [] + [])\OML/txmi/m/it/10.95 :
  []
 
-
-Overfull \hbox (65.17635pt too wide) detected at line 168
+[36]
+Overfull \hbox (65.17635pt too wide) detected at line 174
 [] \OT1/txr/m/n/10.95 = [] []([] \OMS/txsy/m/n/10.95   [] [] \OML/txmi/m/it/10.95 n\OT1/txr/m/n/10.95 ) + \OML/txmi/m/it
 /10.95  [] []\OT1/txr/m/n/10.95 ([] \OMS/txsy/m/n/10.95   [] [] \OML/txmi/m/it/10.95 n \OT1/txr/m/n/10.95 + [](\OML/txm
 i/m/it/10.95 \OT1/txr/m/n/10.95 ([])[] \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 ([])))\OML/txmi
 /m/it/10.95 :
  []
 
-[36] [37] [38] [39]) (asymptotic.tex [40] [41]
-Underfull \vbox (badness 1460) has occurred while \output is active []
-
- [42] [43]
+[37] [38] [39]) (asymptotic.tex [40] [41] [42] [43]
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
@@ -581,7 +578,7 @@ Here is how much of TeX's memory you used:
  9083 multiletter control sequences out of 15000+200000
  39837 words of font info for 101 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,18n,38p,1490b,338s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,21n,38p,1490b,338s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/
@@ -590,7 +587,7 @@ ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKT
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
 fonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (48 pages, 308261 bytes).
+Output written on debruijn.pdf (48 pages, 307921 bytes).
 PDF statistics:
  210 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
