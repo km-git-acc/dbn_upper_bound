@@ -35,14 +35,7 @@ Note that if $x \geq X_0 - 0.5$ then $N \geq N_0 \coloneqq 69098$, with $N=N_0$ 
 {\bf the estimate below needs to be redone for the new range of parameters}
 
 \begin{lemma}\label{lac} For $(x,y,t)$ in either of the regions (ii), (iii) in Proposition \ref{sweep}, one has
-$$ e_A + e_B + e_{C,0} \leq 1.249 \times 10^{-3} + 2.124 \times 10^{-11} F_{N,0.2}( 0.7001 + \frac{t}{4} \log \frac{x}{4\pi} )
-$$
-where
-\begin{equation}\label{fnt-def}
- F_{N,t}( \sigma ) := \sum_{n=1}^N \frac{b_n^t}{n^\sigma}.
-\end{equation}
-In the region (ii), we have
-$$ e_A + e_B + e_{C,0} \leq 1.251 \times 10^{-3}.$$
+$$ e_A + e_B + e_{C,0} \leq 1.25 \times 10^{-3}.$$
 \end{lemma}
 
 \begin{proof}
@@ -51,15 +44,22 @@ From Theorem \ref{eff} we have
  e_A + e_B \leq (e^{\delta_1}-1) (F_{N,t}(\mathrm{Re}(s_*)) + |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) )
 \end{equation}
 where
-$$ \delta_1 := \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi} + 0.626}{x-6.66}.$$
+\begin{equation}\label{fnt-def}
+ F_{N,t}( \sigma ) := \sum_{n=1}^N \frac{b_n^t}{n^\sigma}.
+\end{equation}
+and
+\begin{equation}\label{dela}
+ \delta_1 \coloneqq \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi} + 0.626}{x-6.66}.
+\end{equation}
 From Lemma \ref{elem-lem}(vi), the quantity $\delta_1$ is monotone decreasing in $x$ in the region \eqref{region}.  Thus we have
 \begin{equation}\label{delta1-bound}
  \delta_1 \leq \frac{\frac{(0.2)^2}{16} \log^2 \frac{X_0-0.5}{4\pi} + 0.626}{X_0-0.5-6.66}
 \end{equation}
 whenever $x \geq X_0-0.5 \geq 200$ and $0 \leq t \leq 0.2$.  Computing the right-hand side, we conclude that
 $$  \delta_1 \leq 2.07 \times 10^{-11}$$
-and hence
-$$ e^{\delta_1} - 1 \leq 2.08 \times 10^{-11}.$$
+and hence by Taylor expansion
+$$ e^{\delta_1} - 1 \leq 1.001 \delta_1$$
+(say).
 Also, from Theorem \ref{eff} and \eqref{fnt-def} we can bound
 \begin{align*}
 |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) &\leq |\gamma| N^y N^{|\kappa|} F_{N,t}( \mathrm{Re}(s_*) ) \\
@@ -75,17 +75,37 @@ and thus
  |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) \leq 1.021  F_{N,t}( \mathrm{Re}(s_*) ).
 \end{equation}
 Thus
-$$  e_A + e_B \leq 2.124 \times 10^{-11} F_{N,t}( \mathrm{Re}(s_*) ).$$
-
+$$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}( \mathrm{Re}(s_*) ).$$
 To estimate $\mathrm{Re}(s_*)$, we use From Proposition \ref{estimates}(ii) or \eqref{kappa-bound}, together with the inequality
 $$ \frac{t}{2x^2} (1-3y+\frac{4y(1+y)}{x^2})_+ \leq \frac{0.2}{2 (X_0-0.5)^2} (1 - 3 \times 0.2 + \frac{8}{(X_0-0.5)^2})_+
 \leq 1.2 \times 10^{-23}$$
-to obtain t
-$$ \mathrm{Re}(s_*) \geq 0.7001 + \frac{t}{4} \log \frac{x}{4\pi}$$
+to obtain 
+$$ \mathrm{Re}(s_*) \geq 0.6001 + \frac{t}{4} \log \frac{x}{4\pi}$$
 (say).  Since $F_{N,t}(\sigma)$ is non-increasing in $\sigma$, we conclude
-$$  e_A + e_B \leq 2.124 \times 10^{-11} F_{N,0.2}( 0.7001 + \frac{t}{4} \log \frac{x}{4\pi} ).$$
+$$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} ).$$
+Since
+$$ N = \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor,$$
+$0 \leq t \leq 0.2$, and $x \geq X_0-0.5$, it is easy to see that
+$$ N \leq \frac{x}{4\pi}$$
+and hence by \eqref{bn-def}
+$$ \frac{b_n^t}{n^{\frac{t}{4} \log \frac{x}{\pi}} \leq 1$$
+for all $1 \leq n \leq N$.  Therefore
+$$ F_{N,t}( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} ) \leq \sum_{n=1}^N \frac{1}{n^{0.6001}}$$
+and hence by the integral test
+$$ F_{N,t}( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} ) \leq \int_1^{N+1} \frac{ds}{s^{0.6001}} = \frac{1}{0.3999} (N+1)^{0.3999} $$
+so that (by \eqref{dela})
+$$ e_A + e_B \leq 1.023 \frac{\frac{(0.2)^2}{16} \log^2 \frac{x}{4\pi} + 0.626}{x-6.66} \frac{1}{0.3999} (N+1)^{0.3999}.$$
+We have
+$$ N+1 \leq (1.001) (\frac{x-6.66}{4\pi})^{1/2} $$
+(say), and hence
+$$ e_A + e_B \leq 0.7220 \frac{0.0025 \log^2 \frac{x}{4\pi} + 0.626}{(x-6.66)^{0.79995}}
+From Lemma \ref{elem-lem}(vi), the right-hand side is monotone decreasing in the region $x \geq X_0-0.5$, thus
+\begin{align*}
+ e_A + e_B &\leq 0.7220 \frac{0.0025 \log^2 \frac{X_0-0.5}{4\pi} + 0.626}{(X_0-0.5-6.66)^{0.79995}} \\
+&\leq 3.221 \times 10^{-9}.
+\end{align*}
 
-From Proposition \ref{estimates}(vi) one has
+Meanwhile, from Proposition \ref{estimates}(vi) one has
 $$ e_{C,0} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(1 + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.92}{x-6.66}\right).$$
 From Lemma \ref{elem-lem}(vi), the quantity $\frac{\log^2 \frac{x}{4\pi} + \frac{\pi^2}{4}}{(x-8.52)^2}$ is monotone decreasing in $x$ in \eqref{region}, hence $\frac{|\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-8.52}$ is also monotone decreasing.  Also the expression is monotone decreasing in $y$. We conclude that
 \begin{equation}\label{ec0-bound}
@@ -94,21 +114,21 @@ From Lemma \ref{elem-lem}(vi), the quantity $\frac{\log^2 \frac{x}{4\pi} + \frac
 &\leq 1.249 \times 10^{-3}
 \end{split}
 \end{equation}
-where we have discarded the negative term $- \frac{t}{16} \log^2 \frac{X_0-0.5}{4\pi}$.  
-The first claim follows.  For the second claim, we have in the region (ii) that $N=N_0$, and we may crudely bound
-$$
-F_{N,0.2}( 0.7001 + \frac{t}{4} \log \frac{x}{4\pi} ) \leq F_{N_0,0.2}(0.7001) \leq 10538$$
-and then the second claim follows from the first.
+where we have discarded the negative term $- \frac{t}{16} \log^2 \frac{X_0-0.5}{4\pi}$.  Combining the estimates, we obtain the claim.
 \end{proof}
 
 
-It now suffices to establish the following claims:
+It now suffices to establish the bound
+\begin{equation}\label{ft0}
+ |f_t(x+iy)| > 1.25 \times 10^{-3}
+\end{equation}
+in the following regions:
 
 \begin{itemize}
-\item[(i)]  \eqref{bbb} holds when $6 \times 10^{10} + 83952 - 0.5 \leq x \leq 6 \times 10^{10} + 83952 + 0.5$, $0 \leq t \leq 0.2$, and $y \geq 0.2$.
-\item[(ii)]  \eqref{bbb} holds when $x \geq 6 \times 10^{10} + 83952 - 0.5$, $69098 \leq N \leq 80000$, $t = 0.2$, and $y \geq 0.2$.
-\item[(iii)]  \eqref{bbb} holds when $80000 \leq N \leq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
-\item[(iv)]  \eqref{bbb} holds when $N \geq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
+\item[(i)]  \eqref{ft0} holds when $6 \times 10^{10} + 83952 - 0.5 \leq x \leq 6 \times 10^{10} + 83952 + 0.5$, $0 \leq t \leq 0.2$, and $y \geq 0.2$.
+\item[(ii)]  \eqref{ft0} holds when $x \geq 6 \times 10^{10} + 83952 - 0.5$, $69098 \leq N \leq 80000$, $t = 0.2$, and $y \geq 0.2$.
+\item[(iii)]  \eqref{ft0} holds when $80000 \leq N \leq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
+\item[(iv)]  \eqref{ft0} holds when $N \geq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
 \end{itemize}
 
 
