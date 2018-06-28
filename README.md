@@ -12,6 +12,7 @@ For the Polymath proposal, please [check this link](https://terrytao.wordpress.c
 
 For the wiki, comprehensive list of papers, permanent record of results, please head to the [Polymath webpage](http://michaelnielsen.org/polymath1/index.php?title=De_Bruijn-Newman_constant)
 
+For an intuitive understanding on establishing dBN bounds, please check this <a href='https://github.com/km-git-acc/dbn_upper_bound/blob/master/Barrier_Approach_Visual_Guide.pdf'>visual guide</a> created by <a href='Rudolph'>https://github.com/rudolph-git-acc</a> 
 
 Computational Libraries and Machine Requirements
 --------------------------------------------------------------------------------------------
