@@ -88,4 +88,12 @@ noting that the fractional parts $\{ \frac{X}{4\pi} \log p\}$ for $p \leq 11$ ar
 \{ \frac{X}{4\pi} \log 7 \} &= 0.0774\dots\\
 \{ \frac{X}{4\pi} \log 11 \} &= 0.0954\dots
 \end{align*}
-{\bf perhaps say more about how exactly we found the shift $83952$?}  
+{\bf perhaps say more about how exactly we found the shift $83952$?}
+
+To search for a good shift, in practice we can evaluate $eulerprod = |\prod\limits_{p}^{P}\frac{1}{1-\frac{1}{p^{1-ix/2}}}|$, the exponent corresponding to y=1 (where $\min|(A+B)/B0|$ for a rectangle contour is expected), and $x=X+{(q-0.5,q,q+0.5)}$, q an integer from 1 to N (say 100,000). We can then choose candidates q where $\min(eulerprod_{(q-0.5,q,q+0.5)})$ is above a treshold (say 4).
+
+For each of the chosen candidates, we can then evaluate $\min(|(A+B)/B0|_{(q-0.5,q,q+0.5)})$ at t=0, and finally select a candidate where this is highest.
+
+Hence for X  near $6 \times 10^{10}$, using the above scheme with the first 10 primes, we get 7 candidates, n=(1046, 22402, 24198, 52806, 77752, 83952, 99108).
+
+Among these, q=83952 gives the highest $\min|(A+B)/B0|_{(q-0.5,q,q+0.5)} (\approx 4.32)$.
