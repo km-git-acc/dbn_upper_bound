@@ -635,7 +635,7 @@ finish:
     if (result == EXIT_FAILURE)
     {
         flint_printf("Usage:\n");
-        flint_printf("%s x xnum nprimes thres y0 t0 sw d\n\n", argv[0]);
+        flint_printf("%s x xnum nprimes thres y0 t0 sw \n\n", argv[0]);
         flint_printf(
     "This script assists in finding an optimal locations to place\n"
     "a Barrier. Input values are x for the search start, numx for\n"
