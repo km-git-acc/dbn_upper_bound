@@ -148,7 +148,7 @@ Here and in the sequel we use $X = O(Y)$ to denote the estimate $|X| \leq AY$ fo
 \end{theorem}
 
 Roughly speaking, these estimates tell us that the zeroes of $H_t$ behaves (on macroscopic scales) like those of $H_0$ in the region $x = O(\exp(O(1/t)))$, and are very evenly spaced (and on the real axis) outside of this range.  The factor $\frac{t}{16} \log \frac{x_n}{4\pi}$ in \eqref{lip} indicates that as time $t$ advances, the zeroes (or at least those with large values of $x$) will tend to move towards the origin at a speed of approximately $\frac{\pi}{4}$.  Although we will not prove this here, the conclusions (i) and (iii) suggest that one in fact has an asymptotic of the form
-$$ N_t(X) = \lfloor  \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{X}{4\pi} + O( X^{-ct} ) \rfloor$$
+$$ N_t(X) = \left\lfloor  \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{X}{4\pi} + O( X^{-ct} ) \right\rfloor$$
 when $X \geq \exp(C/t)$; in particular (since the sawtooth function $x - \lfloor x \rfloor$ has average value $\frac{1}{2}$) one would have the heuristic approximation
 $$ N_t(X) \approx \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{7}{8} + \frac{t}{16} \log \frac{X}{4\pi} $$
  after performing some averaging in $X$, thus recovering the familiar $\frac{7}{8}$ term in the usual averaged asymptotics for $N_0(X)$.
@@ -161,7 +161,7 @@ for integer $n$, where $-\vartheta(t)$ is the phase of $\zeta(\frac{1}{2}+it)$ a
 
 \section{Notation}
 
-We use the standard branch $\log$ of the logarithm to define the standard complex powers $z^w \coloneqq \exp( w \Log z)$, and in particular define the standard square root $\sqrt{z} \coloneqq z^{1/2}$.  We record the familiar gaussian identity
+We use the standard branch $\Log$ of the logarithm to define the standard complex powers $z^w \coloneqq \exp( w \Log z)$, and in particular define the standard square root $\sqrt{z} \coloneqq z^{1/2}$.  We record the familiar gaussian identity
 \begin{equation}\label{gaussian}
  \int_\R \exp\left(-(au^2+bu+c)\right)\ du = \sqrt{\frac{\pi}{a}} \exp\left( \frac{b^2}{4a} - c\right)
 \end{equation}
