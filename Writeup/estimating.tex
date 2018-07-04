@@ -1,0 +1,77 @@
+\section{Estimating a sum}
+
+\begin{lemma}
+Let $N \geq N_0 \geq 1$ be natural numbers, and let $\sigma,t > 0$ be such that
+$$ \sigma > \frac{t}{2} \log N.$$
+Then
+$$ \sum_{n=1}^N \frac{b_n^t}{n^\sigma} \leq \sum_{n=1}^{N_0}
+\frac{b_n^t}{n^\sigma}  + 
+\max( N_0^{1-\sigma} b_{N_0}^t, N^{1-\sigma} b_N^t ) \log \frac{N}{N_0}.$$
+\end{lemma}
+
+\begin{proof}  From the identity
+$$ \frac{b_n^t}{n^\sigma} = \frac{\exp\left( \frac{t}{4} (\log N - \log n)^2 - \frac{t}{4} (\log N)^2\right) }{n^{\sigma - \frac{t}{2} \log N}}$$
+we see that the summands $\frac{b_n^t}{n^\sigma}$ are decreasing for $1 \leq n \leq N$, hence by the integral test one has
+$$ \sum_{n=1}^N \frac{b_n^t}{n^\sigma} \leq \sum_{n=1}^{N_0}
+\frac{b_n^t}{n^\sigma}  + \int_{N_0}^N \frac{b_a^t}{a^\sigma}\ da.$$
+Making the change of variables $a = e^u$, the right-hand side becomes
+$$\sum_{n=1}^{N_0} \frac{b_n^t}{n^\sigma} \exp( (1-\sigma) u + \frac{t}{4} u^2 )\ du.$$
+The expression $(1-\sigma) u + \frac{t}{4} u^2$ is convex in $u$, and is thus bounded by the maximum of its values at the endpoints $u = \log N_0, \log N$; thus
+$$\exp( (1-\sigma) u + \frac{t}{4} u^2) \leq N_0^{1-\sigma} b_{N_0}^t, N^{1-\sigma} b_N^t.$$
+The claim follows. 
+\end{proof}
+
+Let $N$ be a natural number.  For any complex numbers $z,w$, we define the quantity
+$$ F_N(z,w) \coloneqq \sum_{n=1}^N  n^{-z + w \log n}.$$
+In particular, the function $f_t(x+iy)$ defined in \eqref{ft-def} has the form
+$$ f_t(x+iy) = F_N( \frac{1+y-ix}{2} + \frac{t}{2} \alpha(\frac{1+y-ix}{2}), \frac{t}{4} ) + \gamma \overline{F_N( \frac{1-y-ix}{2} + \frac{t}{2} \alpha(\frac{1-y-ix}{2}), \frac{t}{4} )}.$$
+It is thus of interest to efficiently evaluate $F_N(z,w)$ for multiple different values of $z,w$.  We will be particularly interested in the regime where $w=O(1)$ and $z = z_0 + \zeta$ for some $\zeta = O(1)$ and some fixed $z_0$ (e.g. $z_0 = \frac{1-iX}{2}$, thus
+$$F_N(z_0+\zeta, w) = \sum_{n=1}^N n^{-z_0} n^{-\zeta + w \log n}.$$
+
+If one were to naively evaluate $F_N(-\frac{iX}{2}+\zeta, w)$ at $M$ different values of $(z,w)$, this would require about $O(NM)$ operations.  We now seek to use fewer operations to perform these evaluations, at the cost of some accuracy.
+
+We can partition the interval $\{1,\dots,N\}$ into an initial segment $\{1,\dots,N_0\}$ and about $O(N/H)$ segments of the form $\{ N_i - H/2, \dots, N_i + H/2\}$ for various $N_i$.  This lets us split
+$$F_N(z_0+\zeta, w) = F_{N_0}(-\frac{iX}{2}+\zeta, w) + \sum_i \sum_{-H/2 \leq h \leq H/2} 
+(N_i + h)^{-z_0} \exp( - \zeta \log(N_i+h) + w \log^2(N_i+h) ).$$
+Writing $\log(N_i + h) = \log(N_i) + \varepsilon_{i,h}$, where $\varepsilon_{i,h} := \log(1 + \frac{h}{N_i})$, we thus have
+$$F_N(z_0+\zeta, w) = F_{N_0}(z_0+\zeta, w) + \sum_i \sum_{-H/2 \leq h \leq H/2} 
+(N_i + h)^{-z_0} \exp( A_i(\zeta,w) + B_i(\zeta,w) \varepsilon_{i,h} + w \varepsilon_{i,h}^2 )$$
+where
+$$ A_i(\zeta,w)\coloneqq  - \zeta \log(N_i) + w \log^2(N_i)$$
+and
+$$ B_i(\zeta,w) \coloneqq - \zeta + 2 w \log N_i.$$
+From Taylor's theorem with remainder, we have
+$$ \exp( a ) = \sum_{j=0}^T \frac{a^j}{j!} + O_{\leq}( \frac{|a|^{T+1}}{(T+1)!} \exp(|a|) )$$
+and hence
+$$F_N(z_0+\zeta, w) = F_{N_0}(z_0+\zeta, w) + \sum_i \sum_{-H/2 \leq h \leq H/2} 
+(N_i + h)^{-z_0} \exp( A_i(\zeta,w) ) \sum_{j=0}^T \frac{1}{j!} (B_i(\zeta,w) \varepsilon_{i,h} + w \varepsilon_{i,h}^2)^j
++ O_{\leq}( E )$$
+where $E$ is the error term
+$$ E \coloneqq \sum_i \sum_{-H/2 \leq h \leq H/2} (n_0+h)^{-\mathrm{Re}(z_0)} \exp( \mathrm{Re} A_i(\zeta,w) ) \frac{|B_i(\zeta,w) \varepsilon_{i,h} + w \varepsilon_{i,h}^2|^{T+1}}{(T+1)!} \exp( |B_i(\zeta,w) \varepsilon_{i,h} + w \varepsilon_{i,h}^2| ).$$
+By binomial expansion, we then have
+$$F_N(z_0+\zeta, w) = F_{N_0}(z_0+\zeta, w) + \sum_i \sum_{-H/2 \leq h \leq H/2} 
+(N_i + h)^{-z_0} \exp( A_i(\zeta,w) ) \sum_{j_1,j_2 \geq 0: j_1+j_2 \leq T} \frac{1}{j_1! j_2!} (B_i(\zeta,w) \varepsilon_{i,h})^{j_1} (w \varepsilon_{i,h}^2)^{j_2}
++ O_{\leq}( E )$$
+which we can rearrange as
+$$F_N(z_0+\zeta, w) = F_{N_0}(z_0+\zeta, w) + \sum_i \sum_{j=0}^{2T} \beta_{i,j,h} \sigma_{i,j}(\zeta,w)+ O_{\leq}( E )$$
+where
+$$ \beta_{i,j,h} := \sum_{-H/2 \leq h \leq H/2} (N_i + h)^{-z_0} \varepsilon_{i,h}^j$$
+and
+$$\sigma_{i,j}(\zeta,w) := \sum_{j_1,j_2 \geq 0: j_1+2j_2 = j; j_1+j_2 \leq T} \frac{1}{j_1! j_2!} B_i(\zeta,w)^{j_1} w^{j_2}.$$
+The point is that it only requires $O( \frac{N}{H} T H )$ calculations to compute the $\beta_{i,j,h}$, and $O( \frac{N}{H} T M )$ calculations to compute the $\sigma_{i,j}(\zeta,w)$, so the total computation time is now
+$$O( N_0 M + \frac{N}{H} T H + \frac{N}{H} T M + \frac{N}{H} T M ) = O( NM ( \frac{N_0}{N} + \frac{T}{M} + \frac{T}{H} ) )$$
+which can be a significant speedup over $O(NM)$ when $N_0 \ll N$, $T \ll M$, and $T \ll H$.
+
+Now we control the error term $E$.  From the concavity of the logarithm we have
+$$|\varepsilon_{i,h}| \leq |\varepsilon_{i,-H/2}| = \log \frac{N_i}{N_i-H/2} \leq \log(1 + \frac{H}{2N_0})$$
+and
+$$ |B_i(\zeta,w)| \leq |\zeta| + 2 |w| \log N$$
+and hence
+$$ E \leq \frac{\delta^{T+1}}{(T+1)!} \exp( \delta) \sum_i \exp( \mathrm{Re} A_i(\zeta,w) )
+\sum_{-H/2 \leq h \leq H/2} (N_i+h)^{-\mathrm{Re} z_0}
+$$
+where
+$$ \delta := (|\zeta| + 2 |w| \log N) \log(1+\frac{H}{2N_0}) + |w| \log^2(1+\frac{H}{2N_0}).$$
+
+
+
