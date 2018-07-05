@@ -1,0 +1,21 @@
+y := 0.2;
+t := 0.2;
+x0 := 6 * 10^10 + 83952 - 0.5;
+N0 := 69098;
+kappa := t*y/(2*(x0-6));
+
+
+bn := exp( t * (log(n))^2 / 4);
+
+
+
+x := (N^2 - t/16) * (4*Pi);
+Gamma := exp(0.02 * y) * (x/4*Pi)^(-y/2);
+sigma := (1+y)/2 + (t/4)*log(x/(4*Pi)) - (t/(2*x)) * (1 - 3*y + 4*y*(1+y)/x0^2);
+sigma2 := sigma - y - kappa;
+
+X := evalf( (max( subs(n=N0,bn*n^(1-sigma)), subs(n=N,bn*n^(1-sigma))) + Gamma * 
+max( subs(n=N0,bn*n^(1-sigma2)), subs(n=N,bn*n^(1-sigma2))) )* log(N/N0));
+
+N := 1.5*10^6;
+evalf( add( bn / n^sigma, n=1..N0) + Gamma * add(bn / n^sigma2, n=1..N0)); 

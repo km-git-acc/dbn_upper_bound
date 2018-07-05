@@ -56,7 +56,7 @@ the claim follows.
 
 Returning to the estimation of $f_t(x+iy)$, we conclude from Lemma \ref{dirb}(i) with $s$ replaced by $s_*$, $\beta_n$ replaced by $b_n^t$, and $\alpha_n$ replaced by $|\gamma| n^{y-\overline{\kappa}} b_n^t$ that
 \begin{equation}\label{x-init}
-|f_t(x+iy)| \geq 1 - |\gamma| - \sum_{n=2}^N \frac{b_n^t}{n^\sigma} (1 + |\gamma| n^{y - \mathrm{Re}(\kappa)}),
+|f_t(x+iy)| \geq 2 - \sum_{n=1}^N \frac{b_n^t}{n^\sigma} - |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\sigma-y-|\kappa|}},
 \end{equation}
 where $\sigma \coloneqq \Re s_*$.  This rather crude bound will suffice when $x$ is very large, particularly when combined with the estimates in Proposition \ref{estimates}.   For smaller values of $x$, we would like to use parts (ii) and (iii) of Lemma \ref{dirb}.  A technical difficulty arises because the quantity $|\lambda| n^{y-\overline{\kappa}} b_n^t$ quantity need not be real, so that Lemma \ref{dirb}(ii) is not directly available.  However, by writing
 $$ n^{-\overline{\kappa}} = 1 + O_{\leq}( n^{|\kappa|} - 1 )$$
