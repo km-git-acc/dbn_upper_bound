@@ -14,14 +14,25 @@ $$ \sum_{n=1}^N \frac{b_n^t}{n^\sigma} \leq \sum_{n=1}^{N_0}
 \begin{proof}  From the identity
 $$ \frac{b_n^t}{n^\sigma} = \frac{\exp\left( \frac{t}{4} (\log N - \log n)^2 - \frac{t}{4} (\log N)^2\right) }{n^{\sigma - \frac{t}{2} \log N}}$$
 we see that the summands $\frac{b_n^t}{n^\sigma}$ are decreasing for $1 \leq n \leq N$, hence by the integral test one has
-$$ \sum_{n=1}^N \frac{b_n^t}{n^\sigma} \leq \sum_{n=1}^{N_0}
-\frac{b_n^t}{n^\sigma}  + \int_{N_0}^N \frac{b_a^t}{a^\sigma}\ da.$$
+\begin{equation}\label{rado}
+ \sum_{n=1}^N \frac{b_n^t}{n^\sigma} \leq \sum_{n=1}^{N_0}
+\frac{b_n^t}{n^\sigma}  + \int_{N_0}^N \frac{b_a^t}{a^\sigma}\ da.
+\end{equation}
 Making the change of variables $a = e^u$, the right-hand side becomes
 $$\sum_{n=1}^{N_0} \frac{b_n^t}{n^\sigma} \exp( (1-\sigma) u + \frac{t}{4} u^2 )\ du.$$
 The expression $(1-\sigma) u + \frac{t}{4} u^2$ is convex in $u$, and is thus bounded by the maximum of its values at the endpoints $u = \log N_0, \log N$; thus
 $$\exp( (1-\sigma) u + \frac{t}{4} u^2) \leq N_0^{1-\sigma} b_{N_0}^t, N^{1-\sigma} b_N^t.$$
 The claim follows. 
 \end{proof}
+
+\begin{remark}  The right-hand side of \eqref{rado} can be evaluated exactly as
+$$
+\sum_{n=1}^{N_0}
+\frac{b_n^t}{n^\sigma}  + \frac{\sqrt \pi}{\sqrt t} \exp(\frac{-(\sigma - 1)^2}{t}) \left( \textrm{erfi}(\frac{\frac{t}{2} \log N  - \sigma + 1}{\sqrt t} ) - \textrm{erfi}(\frac{\frac{t}{2} \log N_0  - \sigma + 1}{\sqrt t}) \right).$$
+{\bf check this, e.g., numerically}
+In practice, this upper bound for $\sum_{n=1}^N \frac{b_n^t}{n^\sigma}$ is slightly more accurate than the one in Lemma \ref{largen}, and is a good approximation even for relatively small values of $N_0$ (e.g., $N_0=100$).  However, the cruder bound above suffices for the numerical values of parameters needed to establish the bound $\Lambda \leq 0.22$.
+\end{remark}
+
 
 Let $N$ be a natural number.  For any complex numbers $z,w$, we define the quantity
 $$ F_N(z,w) \coloneqq \sum_{n=1}^N  n^{-z + w \log n}.$$
