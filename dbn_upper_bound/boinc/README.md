@@ -6,9 +6,10 @@ I) Installing the Boinc client
 1) Downloading the installer
 ------------------------------
 For Windows, download the Boinc+Virtualbox from either http://boinc.berkeley.edu/download.php or https://boinc.berkeley.edu/download_all.php
+
 For Mac and Linux, Boinc and Virtualbox have to be downloaded separately. The Boinc installer can be downloaded from the same links as above. Virtualbox will have to be downloaded from https://www.virtualbox.org/
-or
-Click on the Green Join button on http://anthgrid.com/dbnupperbound/ and follow the instructions
+
+Alternatively, click on the Green Join button on http://anthgrid.com/dbnupperbound/ and follow the instructions
 
 2) Installing Boinc+Virtualbox
 ---------------------------------
