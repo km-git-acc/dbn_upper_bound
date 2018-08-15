@@ -14,8 +14,11 @@ Alternatively, click on the Green Join button on http://anthgrid.com/dbnupperbou
 2) Installing Boinc+Virtualbox
 ---------------------------------
 a) Check that virtualization is enabled on your machine. If it is not enabled, please enable it through the BIOS (this is an unavoidable step since Virtualbox needs this enabled for running properly)
+
 b) Run the installer to install Boinc+Virtualbox on your machine
+
 c) Open the Boinc Manager GUI
+
 
 As a sanity check, open the file client_state.xml (for eg. in Windows found in the C:/ProgramData/BOINC folder)
 and check whether the vm extensions line is indeed <p_vm_extensions_disabled>0</p_vm_extensions_disabled>. 
@@ -25,8 +28,11 @@ II) Setting up the Boinc client for the project
 -----------------------------------------
 Within the Boinc manager,
 1) Click on Add Project, or Click on Tools > Add Project
+
 2) In the Choose a Project window, enter http://anthgrid.com/dbnupperbound in the Project URL field at the bottom and proceed
+
 3)a) If you are registering for the project, then use the 'No, new user' button and supply your email address and desired password. On proceeding and clicking finish, you will end up at the project website where you can edit your profile.
+
 3)b) If you are already registered with the project (maybe you registered through the website directly, or you are repeating the installation on a second computer, or had to remove the project from the manager and add it back again (which can often be used to fix obscure problems), or some other reason), use the 'Yes, existing user' button, and supply your existing credentials.
 
 III) Setting up computing preferences
@@ -35,6 +41,7 @@ Within the GUI manager, go to View > Advanced View
 then Options > Computing Preferences, to open the Preference Settings window
 Within the Computing tab
 1) Set Usage Limits and When to Suspend settings to appropriate values so the computations do not affect your day to day work
+
 2) In the Other section, it is recommended to set task storing to store 0 days of work and 0 days of additional work, so that your client downloads and processes only 1 job at a time. 
 (With non-zero values, there is a possibility that the client will end up downloading too many tasks and putting them in an execution queue, putting a disproportionate responsibility on your machine, and increasing lead times for task completions.
 
@@ -61,5 +68,6 @@ The project website can give a detailed view of the tasks completed by different
 Some good-to-have Sections to be added
 ----------------------------
 1) Running things through an account manager like BAM
+
 2) Running the client on headless systems with no manager GUI available
 etc.
