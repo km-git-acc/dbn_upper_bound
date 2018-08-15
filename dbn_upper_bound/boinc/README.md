@@ -31,9 +31,9 @@ Within the Boinc manager,
 
 2) In the Choose a Project window, enter http://anthgrid.com/dbnupperbound in the Project URL field at the bottom and proceed
 
-3)a) If you are registering for the project, then use the 'No, new user' button and supply your email address and desired password. On proceeding and clicking finish, you will end up at the project website where you can edit your profile.
+3) a) If you are registering for the project, then use the 'No, new user' button and supply your email address and desired password. On proceeding and clicking finish, you will end up at the project website where you can edit your profile.
 
-3)b) If you are already registered with the project (maybe you registered through the website directly, or you are repeating the installation on a second computer, or had to remove the project from the manager and add it back again (which can often be used to fix obscure problems), or some other reason), use the 'Yes, existing user' button, and supply your existing credentials.
+3) b) If you are already registered with the project (maybe you registered through the website directly, or you are repeating the installation on a second computer, or had to remove the project from the manager and add it back again (which can often be used to fix obscure problems), or some other reason), use the 'Yes, existing user' button, and supply your existing credentials.
 
 III) Setting up computing preferences
 -------------------------------------------
