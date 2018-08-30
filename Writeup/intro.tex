@@ -19,7 +19,7 @@ where $\Phi$ is the super-exponentially decaying function
 \end{equation}
 The sum defining $\Phi(u)$ converges absolutely for negative $u$ also.  From Poisson summation one can verify that $\Phi$ satisfies the functional equation $\Phi(u) = \Phi(-u)$ (i.e., $\Phi$ is even). 
 
-De Bruijn \cite{debr} introduced the more general family of functions $H_t \colon \C \to \C$ for $t \in \R$ by the formula
+De Bruijn \cite{debr} introduced (with somewhat different notation) the more general family of functions $H_t \colon \C \to \C$ for $t \in \R$ by the formula
 \begin{equation}\label{htdef}
  H_t(z) \coloneqq \int_0^\infty e^{tu^2} \Phi(u) \cos(zu)\ du.
 \end{equation}
@@ -43,6 +43,8 @@ Then $\Lambda \leq t_0 + \frac{1}{2} y_0^2$.
 \end{theorem}
 
 Informally, hypothesis (i) implies that at time $t=0$, there are no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier region in (iii).  The absence of zeroes in that barrier, together with a continuity argument and an analysis of the time derivative of each zero, can then be used to show that for later times $0 < t \leq t_0$, there continue to be no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier.  Hypothesis (ii) then gives the complementary assertion to the right of the barrier, and one can use an existing theorem of de Bruijn (Theorem \ref{debr-bound}) to conclude.
+
+{\bf insert one of Rudolph's graphcs to illustrate Theorem \ref{ubc-0} here?}
 
 We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} (1 - \frac{1}{p^{\frac{1-iX}{2}}})^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii).  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)
 
@@ -85,7 +87,11 @@ As it turns out, $B_t(x+iy)$ is an asymptotic approximation to $H_t(x+iy)$ in th
 \begin{equation}\label{limx}
  \lim_{x \to \infty} \frac{H_t(x+iy)}{B_t(x+iy)} = 1
 \end{equation}
-for any fixed $t>0$ and $y>0$.  In fact we have the following significantly more accurate approximation (of Riemann-Siegel type) with effective error estimates.
+for any fixed $t>0$ and $y>0$.  
+
+{\bf maybe give a table or graph comparing $H_t$ and $B_t$ in various regimes?}
+
+In fact we have the following significantly more accurate approximation (of Riemann-Siegel type) with effective error estimates.
 For any real number $X$, let $O_{\leq}(X)$ denote a quantity that is bounded in magnitude by $X$. We also use $x_+ = \max(x,0)$ to denote the positive part of a real number $x$.
 
 \begin{theorem}[Effective Riemann-Siegel approximation to $H_t(x+iy)$]\label{eff}  Let $t,x,y$ lie in the region \eqref{region}.  Then we have
@@ -104,7 +110,7 @@ N &\coloneqq \left\lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \right\rfloor \la
 and $e_A, e_B, e_{C,0}$ are certain explicitly computable positive quantities\footnote{See \eqref{ea-def}-\eqref{ec-def} for the precise definition of these quantities.} depending on $t$ and $x+iy$.  Furthermore, we have the following bounds:
 \begin{align}
 |\gamma| &\leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2}  \label{gamma-bound} \\
-\mathrm{Re} s_* &\geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{t}{2x^2} (1-3y+\frac{4y(1+y)}{x^2})_+  \label{res-bound} \\
+\mathrm{Re} s_* &\geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{t}{2x^2} \left(1-3y+\frac{4y(1+y)}{x^2}\right)_+  \label{res-bound} \\
 |\kappa| &\leq  \frac{ty}{2(x-6)} \label{kappa-bound} \\
 e_A + e_B &\leq \sum_{n=1}^N (1 + |\gamma| N^{|\kappa|} n^y) \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi n^2} + 0.626}{x-6.66} \right)-1 \right) \label{eab-bound} \\
 e_{C,0} &\leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+10.44}{x-8.52} \right) \label{ec-bound}
@@ -112,6 +118,8 @@ e_{C,0} &\leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}
 \end{theorem}
 
 This theorem will be proven in Section \ref{initial-sec}.  The strategy is to express $H_t$ as a convolution of $H_0$ with a gaussian heat kernel, then apply an effective Riemann-Siegel expansion to $H_0$ to rewrite $H_t$ as the sum of various contour integrals; see Section \ref{heatflow-sec} for details.  One then uses the saddle point method to shift each such contour to a location that is suitable for effective estimation. 
+
+{\bf A graph or table to illustrate the accuracy of the $f_t$ approximation to $H_t/B_t$ approximation for various choices of parameters.}
 
 From \eqref{ratio-form-eff} and the triangle inequality, we have a numerically verifiable criterion to establish non-vanishing of $H_t$ at a given point:
 
@@ -123,7 +131,13 @@ then $H_t(x+iy) \neq 0$.
 \end{corollary}
 
 
-In the asymptotic limit $x \to \infty$, one easily sees that $e_A+e_B = O( \frac{\log^2 x}{x} )$, $e_{C,0} = O( x^{-\frac{3+y}{4}} \exp(-\frac{t}{16} \log^2 x ) )$, and $f_t(x+iy) = 1 + O( x^{-\frac{t}{4}\log 2} )$, thus giving the cruder asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$.
+In the asymptotic limit $x \to \infty$, one easily sees that 
+\begin{align*}
+e_A+e_B &= O\left( \frac{\log^2 x}{x} \right)\\
+e_{C,0} &= O\left( x^{-\frac{3+y}{4}} \exp\left(-\frac{t}{16} \log^2 x \right) \right)\\
+f_t(x+iy) &= 1 + O\left( x^{-\frac{t}{4}\log 2} \right),
+\end{align*}
+thus giving the crude asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$.
 
 In addition to establishing upper bounds such as Theorem \ref{new-upper}, one can use Theorem \ref{eff} and Corollary \ref{zero-test} (together with variants in slightly larger regions than \eqref{region}, for instance if $y$ is allowed to be as large as $10$) to obtain asymptotic control on the zeroes of $H_t$.  Indeed, in Section \ref{asymptotic-sec} we will establish
 
