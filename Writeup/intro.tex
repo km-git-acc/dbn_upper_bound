@@ -44,7 +44,10 @@ Then $\Lambda \leq t_0 + \frac{1}{2} y_0^2$.
 
 Informally, hypothesis (i) implies that at time $t=0$, there are no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier region in (iii).  The absence of zeroes in that barrier, together with a continuity argument and an analysis of the time derivative of each zero, can then be used to show that for later times $0 < t \leq t_0$, there continue to be no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier.  Hypothesis (ii) then gives the complementary assertion to the right of the barrier, and one can use an existing theorem of de Bruijn (Theorem \ref{debr-bound}) to conclude.
 
-{\bf insert one of Rudolph's graphcs to illustrate Theorem \ref{ubc-0} here?}
+In practice, we have found it convenient numerically to replace the barrier region in Theorem \ref{ubc-0} with the larger and simpler region
+$$ X \leq x \leq X+1; \quad y_0 \leq y \leq 1; \quad 0 \leq t \leq t_0.$$
+
+{\bf insert one of Rudolph's graphics to illustrate Theorem \ref{ubc-0} here?}
 
 We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} (1 - \frac{1}{p^{\frac{1-iX}{2}}})^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii).  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)
 
