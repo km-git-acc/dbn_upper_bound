@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  30 AUG 2018 10:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  7 SEP 2018 09:24
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -482,11 +482,9 @@ Package grfext Info: Graphics extension search list:
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (intro.tex [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
-Underfull \vbox (badness 5985) has occurred while \output is active []
-
- [4] [5] [6]) (dynamics.tex [7] [8] [9] [10])
-(heatflow.tex [11] [12]) (elementary.tex [13] [14]) (initial.tex [15]
+ (intro.tex [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4] [5] [6]) (dynamics.tex [7]
+ [8] [9] [10]) (heatflow.tex [11] [12])
+(elementary.tex [13] [14]) (initial.tex [15]
 Overfull \hbox (38.62108pt too wide) detected at line 54
 []
  []
@@ -600,7 +598,7 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  5856 strings out of 493303
  84146 string characters out of 3138857
- 161842 words of memory out of 3000000
+ 161844 words of memory out of 3000000
  9088 multiletter control sequences out of 15000+200000
  39837 words of font info for 101 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -613,7 +611,7 @@ fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 /MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (51 pages, 323206 bytes).
+Output written on debruijn.pdf (51 pages, 323454 bytes).
 PDF statistics:
  220 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
