@@ -49,6 +49,11 @@ $$ X \leq x \leq X+1; \quad y_0 \leq y \leq 1; \quad 0 \leq t \leq t_0.$$
 
 {\bf insert one of Rudolph's graphics to illustrate Theorem \ref{ubc-0} here?}
 
+\begin{figure}[h!]
+  \includegraphics[width=0.9\linewidth]{Barrier_approach.png}
+  \caption{The Barrier-approach visualised}
+\end{figure}
+
 We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} (1 - \frac{1}{p^{\frac{1-iX}{2}}})^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii).  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)
 
 To verify (ii) and (iii), we need efficient approximations (of Riemann-Siegel type) for $H_t(x+iy)$ in the regime where $t,y$ are bounded and $x$ is large.  For sake of numerically explicit constants, we will focus attention on the region
@@ -94,6 +99,11 @@ for any fixed $t>0$ and $y>0$.
 
 {\bf maybe give a table or graph comparing $H_t$ and $B_t$ in various regimes?}
 
+\begin{figure}[h!]
+  \includegraphics[width=1.0\linewidth]{Ht_vs_Bt_variousregimes.png}
+  \caption{$H_t$ vs $B_t$ in various regimes.}
+\end{figure}
+
 In fact we have the following significantly more accurate approximation (of Riemann-Siegel type) with effective error estimates.
 For any real number $X$, let $O_{\leq}(X)$ denote a quantity that is bounded in magnitude by $X$. We also use $x_+ = \max(x,0)$ to denote the positive part of a real number $x$.
 
@@ -124,6 +134,16 @@ This theorem will be proven in Section \ref{initial-sec}.  The strategy is to ex
 
 {\bf A graph or table to illustrate the accuracy of the $f_t$ approximation to $H_t/B_t$ approximation for various choices of parameters.}
 
+\begin{figure}[h!]
+  \includegraphics[width=0.6\linewidth]{ft_vs_HtdivBt_y_09.png}
+  \caption{Accuracy of the $f_t$ approximation to $H_t/B_t$ approximation $y=0.9, t=0.1$.}
+\end{figure}
+
+\begin{figure}[h!]
+  \includegraphics[width=0.6\linewidth]{ft_vs_HtdivBt_y_0.png}
+  \caption{Accuracy of the $f_t$ approximation to $H_t/B_t$ approximation $y=0, t=0.3$.}
+\end{figure}
+
 From \eqref{ratio-form-eff} and the triangle inequality, we have a numerically verifiable criterion to establish non-vanishing of $H_t$ at a given point:
 
 \begin{corollary}[Criterion for non-vanishing]\label{zero-test}  Let $t,x,y$ lie in the region \eqref{region}, and let $f_t, e_A, e_B, e_{C,0}$ be as in Theorem \ref{eff}.  If one has the inequality
@@ -141,6 +161,13 @@ e_{C,0} &= O\left( x^{-\frac{3+y}{4}} \exp\left(-\frac{t}{16} \log^2 x \right) \
 f_t(x+iy) &= 1 + O\left( x^{-\frac{t}{4}\log 2} \right),
 \end{align*}
 thus giving the crude asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$.
+
+{\bf added a graph to show the effect of the extra Riemann Siegel term}
+
+\begin{figure}[h!]
+  \includegraphics[width=0.6\linewidth]{Extra_RS_term.png}
+  \caption{A more accurate approximation by adding an extra term to $f_t$.}
+\end{figure}
 
 In addition to establishing upper bounds such as Theorem \ref{new-upper}, one can use Theorem \ref{eff} and Corollary \ref{zero-test} (together with variants in slightly larger regions than \eqref{region}, for instance if $y$ is allowed to be as large as $10$) to obtain asymptotic control on the zeroes of $H_t$.  Indeed, in Section \ref{asymptotic-sec} we will establish
 

@@ -316,7 +316,7 @@ and from \eqref{res-bound} one has
 We can then apply Lemma \ref{largen} twice to bound the left-hand side of \eqref{nan} by $A+B$, where
 \begin{align*}
 A &\coloneqq \sum_{n=1}^{N_0} \frac{b_n^{0.2}}{n^{\sigma'}} + 1.005 \left( \frac{x_N}{4\pi} \right)^{-0.1} \sum_{n=1}^{N_0} \frac{b_n^{0.2}}{n^{\sigma''}}, \\
-B &\coloneqq (\max( N_0^{1-\sigma'} b_{N_0}^{0.2}, N^{1-\sigma''} b_N^{0.2} ) + 1.005 \left( \frac{x_N}{4\pi} \right)^{-0.1} 
+B &\coloneqq (\max( N_0^{1-\sigma'} b_{N_0}^{0.2}, N^{1-\sigma'} b_N^{0.2} ) + 1.005 \left( \frac{x_N}{4\pi} \right)^{-0.1} 
 \max( N_0^{1-\sigma''} b_{N_0}^{0.2}, N^{1-\sigma''} b_N^{0.2} ) )\log \frac{N}{N_0} \\
 \sigma' &:= 0.6 + 0.1 \log N - 5.1 \times 10^{-29} \\
 \sigma'' &:= 0.4 + 0.1 \log N - 7.09 \times 10^{-16}.
@@ -324,7 +324,11 @@ B &\coloneqq (\max( N_0^{1-\sigma'} b_{N_0}^{0.2}, N^{1-\sigma''} b_N^{0.2} ) + 
 The quantity $A$ is decreasing in $N$, so we may bound it by its value at $N = 1.5 \times 10^6$.  Performing the sum numerically, we obtain
 $$ A \leq 1.88.$$
 Finally, the quantity $B$ can also be seen to be decreasing in $N$ in the range $N \geq 1.5 \times 10^6$, and obeys the bound
-$$ B \leq 0.07.$$
+$$ B \leq 0.075.$$
 The claim follows.
-{\bf maybe give a plot of $B$ here?}
+
+\begin{figure}[h!]
+  \includegraphics[width=0.7\linewidth]{B_vs_N.png}
+  \caption{Plot of B vs N}
+\end{figure}
 

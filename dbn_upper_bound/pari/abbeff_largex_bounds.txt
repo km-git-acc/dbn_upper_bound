@@ -115,7 +115,7 @@ return(lbound);
 }
 
 
-abbeff_largex_bound(N,y,t,N0=2000)={
+abbeff_nomoll_analytic_bound(N,y,t,N0=2000)={
 \\based on older bound but can provide a bound estimate for arbitrarily large N
 N0 = if(N<N0,N,N0); 
 xN = 4*Pi*N^2 - Pi*t/4;
@@ -130,6 +130,18 @@ bbound = sum(n=1,N0,bt(n,t)/n^sb) + max(N0^(1-sigb-(t/4)*log(N^2/N0)),N^(1-sigb-
 abound = sum(n=1,N0,bt(n,t)/n^sa) + max(N0^(1-siga-(t/4)*log(N^2/N0)),N^(1-siga-(t/4)*log(N)))*log(N/N0);
 lbound = 2 - (bbound + afac*abound);
 return(lbound);
+}
+
+erfi(z) = if(z>0,abs(1-erfc(I*z)),-abs(1-erfc(I*z)));
+tailint(llim,ulim,a,b) = (sqrt(Pi)/sqrt(b)/2)*exp(-(a-1)^2/(4*b))*(erfi((2*b*log(ulim)-a+1)/sqrt(b)/2)-erfi((2*b*log(llim)-a+1)/sqrt(b)/2));
+
+abbeff_moll2_analytic_bound(N,y,t,N0=1000)={
+S1_main = sum(n=1,N0,(1+n^y/N^y)*n^(-(1+y)/2-(t/4)*log(N^2/n)));
+S1_tail = tailint(N0,N,(1+y)/2+(t/2)*log(N),t/4) + (1/N^y)*tailint(N0,N,(1-y)/2+(t/2)*log(N),t/4);
+S1 = S1_main + S1_tail;
+modb2 = 2^(-(1+y)/2-(t/4)*log(N^2/2));
+bound = 2 - (1-modb2)*S1 - 2*modb2*(tailint(N/2,N,(1+y)/2+(t/2)*log(N),t/4) + (1/N^y)*tailint(N/2,N,(1-y)/2+(t/2)*log(N),t/4));
+return(bound);
 }
 
 boundfile="~/t_0.2_y_0.2_moll5_sawtooth_v2.txt";
