@@ -42,19 +42,18 @@ The proof of Theorem \ref{new-upper} combines numerical verification with some n
 Then $\Lambda \leq t_0 + \frac{1}{2} y_0^2$.
 \end{theorem}
 
-Informally, hypothesis (i) implies that at time $t=0$, there are no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier region in (iii).  The absence of zeroes in that barrier, together with a continuity argument and an analysis of the time derivative of each zero, can then be used to show that for later times $0 < t \leq t_0$, there continue to be no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier.  Hypothesis (ii) then gives the complementary assertion to the right of the barrier, and one can use an existing theorem of de Bruijn (Theorem \ref{debr-bound}) to conclude.
+Informally, hypothesis (i) implies that at time $t=0$, there are no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier region in (iii).  The absence of zeroes in that barrier, together with a continuity argument and an analysis of the time derivative of each zero, can then be used to show that for later times $0 < t \leq t_0$, there continue to be no zeroes $H_t(x+iy)=0$ with large values of $y$ to the left of the barrier; see Figure \ref{barrier-fig}.  Hypothesis (ii) then gives the complementary assertion to the right of the barrier, and one can use an existing theorem of de Bruijn (Theorem \ref{debr-bound}) to conclude.
 
 In practice, we have found it convenient numerically to replace the barrier region in Theorem \ref{ubc-0} with the larger and simpler region
 $$ X \leq x \leq X+1; \quad y_0 \leq y \leq 1; \quad 0 \leq t \leq t_0.$$
 
-{\bf insert one of Rudolph's graphics to illustrate Theorem \ref{ubc-0} here?}
-
 \begin{figure}[h!]
   \includegraphics[width=0.9\linewidth]{Barrier_approach.png}
-  \caption{The Barrier-approach visualised}
+  \caption{A visualization of Theorem \ref{ubc-0}.  If at time $t_0$ one can show that there are no zeroes $H_t(x+iy)=0$ in the ``canopy'' $0 \leq x <\infty$, $y_0 \leq y \leq 1$, then a theorem of de Bruijn allows one to conclude the desired bound $\Lambda \leq t_0 + \frac{1}{2} y_0^2$.  The hypothesis (i) prevents zeroes hitting this canopy from an initial position to the left of the barrier; the hypothesis (iii) prevents zeroes from lying in the canopy to the right of the barrier; and the hypothesis (ii) prevents zeroes from starting to the right of the barrier and reaching the canopy to the left of the barrier.}
+\label{barrier-fig}
 \end{figure}
 
-We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} (1 - \frac{1}{p^{\frac{1-iX}{2}}})^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii).  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)
+We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} (1 - \frac{1}{p^{\frac{1-iX}{2}}})^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii).  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)  Further upper bounds to $\Lambda$ can be obtained if one assumes the Riemann hypothesis to hold up to larger heights than that in \cite{platt}: see Section \ref{further-sec}.
 
 To verify (ii) and (iii), we need efficient approximations (of Riemann-Siegel type) for $H_t(x+iy)$ in the regime where $t,y$ are bounded and $x$ is large.  For sake of numerically explicit constants, we will focus attention on the region
 \begin{equation}\label{region}
@@ -95,13 +94,12 @@ As it turns out, $B_t(x+iy)$ is an asymptotic approximation to $H_t(x+iy)$ in th
 \begin{equation}\label{limx}
  \lim_{x \to \infty} \frac{H_t(x+iy)}{B_t(x+iy)} = 1
 \end{equation}
-for any fixed $t>0$ and $y>0$.  
-
-{\bf maybe give a table or graph comparing $H_t$ and $B_t$ in various regimes?}
+for any fixed $t>0$ and $y>0$; see Figure \ref{ht-bt}.  
 
 \begin{figure}[h!]
   \includegraphics[width=1.0\linewidth]{Ht_vs_Bt_variousregimes.png}
-  \caption{$H_t$ vs $B_t$ in various regimes.}
+  \caption{The quantity $|H_t(x+iy)|/|B_t(x+iy)|$ when $y=t=0.4$ and $\log_{10} x \leq 12$ (left) and when for $1000 \leq x \leq 1030$ and various choices of $(y,t)$ (right).}
+\label{ht-bt}
 \end{figure}
 
 In fact we have the following significantly more accurate approximation (of Riemann-Siegel type) with effective error estimates.
