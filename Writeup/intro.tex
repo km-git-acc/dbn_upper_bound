@@ -4,7 +4,7 @@ Let $H_0 \colon \C \to \C$ denote the function
 \begin{equation}\label{hoz}
  H_0(z) \coloneqq \frac{1}{8} \xi\left(\frac{1}{2} + \frac{iz}{2}\right),
 \end{equation}
-where $\xi$ denotes the Riemann xi function
+where $\xi$ denotes the Riemann $\xi$ function
 \begin{equation}\label{sas}
  \xi(s) \coloneqq \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right) \zeta(s)
 \end{equation}
@@ -128,19 +128,21 @@ e_{C,0} &\leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}
 \end{align}
 \end{theorem}
 
-This theorem will be proven in Section \ref{initial-sec}.  The strategy is to express $H_t$ as a convolution of $H_0$ with a gaussian heat kernel, then apply an effective Riemann-Siegel expansion to $H_0$ to rewrite $H_t$ as the sum of various contour integrals; see Section \ref{heatflow-sec} for details.  One then uses the saddle point method to shift each such contour to a location that is suitable for effective estimation. 
-
-{\bf A graph or table to illustrate the accuracy of the $f_t$ approximation to $H_t/B_t$ approximation for various choices of parameters.}
+This theorem will be proven in Section \ref{initial-sec}; see Figures \ref{htft}, \ref{htft-2} for a numerical illustration of the approximation.  The strategy is to express $H_t$ as a convolution of $H_0$ with a gaussian heat kernel, then apply an effective Riemann-Siegel expansion to $H_0$ to rewrite $H_t$ as the sum of various contour integrals; see Section \ref{heatflow-sec} for details.  One then uses the saddle point method to shift each such contour to a location that is suitable for effective estimation. 
 
 \begin{figure}[h!]
   \includegraphics[width=0.6\linewidth]{ft_vs_HtdivBt_y_09.png}
-  \caption{Accuracy of the $f_t$ approximation to $H_t/B_t$ approximation $y=0.9, t=0.1$.}
+  \caption{Comparison of $|f_t(x+iy)|$ and $|H_t(x+iy)|/|B_t(x+iy)|$ for $y=0.9$, $t=0.1$, $1000 \leq x \leq 1030$.}
+	\label{htft}
 \end{figure}
 
 \begin{figure}[h!]
   \includegraphics[width=0.6\linewidth]{ft_vs_HtdivBt_y_0.png}
-  \caption{Accuracy of the $f_t$ approximation to $H_t/B_t$ approximation $y=0, t=0.3$.}
+  \caption{Comparison of $|f_t(x+iy)|$ and $|H_t(x+iy)|/|B_t(x+iy)|$ for $y=0$, $t=0.3$, $1000 \leq x \leq 1030$.}
+	\label{htft-2}
 \end{figure}
+
+{\bf would it be possible to also supply a figure for a different range of $x$ to show that the approximation improves as $x$ gets larger?}
 
 From \eqref{ratio-form-eff} and the triangle inequality, we have a numerically verifiable criterion to establish non-vanishing of $H_t$ at a given point:
 
@@ -158,13 +160,12 @@ e_A+e_B &= O\left( \frac{\log^2 x}{x} \right)\\
 e_{C,0} &= O\left( x^{-\frac{3+y}{4}} \exp\left(-\frac{t}{16} \log^2 x \right) \right)\\
 f_t(x+iy) &= 1 + O\left( x^{-\frac{t}{4}\log 2} \right),
 \end{align*}
-thus giving the crude asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$.
-
-{\bf added a graph to show the effect of the extra Riemann Siegel term}
+thus giving the crude asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term $-\frac{C_t}{B_t}$ is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$; see \eqref{ratio-form-refined} and Figure \ref{htft-c}.
 
 \begin{figure}[h!]
   \includegraphics[width=0.6\linewidth]{Extra_RS_term.png}
-  \caption{A more accurate approximation by adding an extra term to $f_t$.}
+  \caption{Comparison of $|f_t(x+iy)|$, $|f_t(x+iy)-\frac{C_t(x+iy)}{B_t(x+iy)}|$ and $|H_t(x+iy)|/|B_t(x+iy)|$ for $y=0$, $t=0.3$, $1000 \leq x \leq 1012$.}
+	\label{htft-c}
 \end{figure}
 
 In addition to establishing upper bounds such as Theorem \ref{new-upper}, one can use Theorem \ref{eff} and Corollary \ref{zero-test} (together with variants in slightly larger regions than \eqref{region}, for instance if $y$ is allowed to be as large as $10$) to obtain asymptotic control on the zeroes of $H_t$.  Indeed, in Section \ref{asymptotic-sec} we will establish
@@ -203,7 +204,7 @@ for integer $n$, where $-\vartheta(t)$ is the phase of $\zeta(\frac{1}{2}+it)$ a
 
 \section{Notation}
 
-We use the standard branch $\Log$ of the logarithm to define the standard complex powers $z^w \coloneqq \exp( w \Log z)$, and in particular define the standard square root $\sqrt{z} \coloneqq z^{1/2}$.  We record the familiar gaussian identity
+We use the standard branch $\Log$ of the logarithm to define the standard complex powers $z^w \coloneqq \exp( w \Log z)$, and in particular define the standard square root $\sqrt{z} \coloneqq z^{1/2} = \exp( \frac{1}{2} \Log z)$.  We record the familiar gaussian identity
 \begin{equation}\label{gaussian}
  \int_\R \exp\left(-(au^2+bu+c)\right)\ du = \sqrt{\frac{\pi}{a}} \exp\left( \frac{b^2}{4a} - c\right)
 \end{equation}
