@@ -131,9 +131,9 @@ e_{C,0} &\leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}
 This theorem will be proven in Section \ref{initial-sec}; see Figures \ref{htft}, \ref{htft-2} for a numerical illustration of the approximation.  The strategy is to express $H_t$ as a convolution of $H_0$ with a gaussian heat kernel, then apply an effective Riemann-Siegel expansion to $H_0$ to rewrite $H_t$ as the sum of various contour integrals; see Section \ref{heatflow-sec} for details.  One then uses the saddle point method to shift each such contour to a location that is suitable for effective estimation. 
 
 \begin{figure}[h!]
-  \includegraphics[width=0.6\linewidth]{ft_vs_HtdivBt_y_09.png}
-  \caption{Comparison of $|f_t(x+iy)|$ and $|H_t(x+iy)|/|B_t(x+iy)|$ for $y=0.9$, $t=0.1$, $1000 \leq x \leq 1030$.}
-	\label{htft}
+\includegraphics[width=\linewidth]{ft_vs_HtdivBt_y_09.png}
+\caption{Comparison of $|f_t(x+iy)|$ and $|H_t(x+iy)|/|B_t(x+iy)|$ for $y=0.9$, $t=0.1$, $1000 \leq x \leq 1030$, (left) and when $10^6 \leq x \leq 10^6 + 30$ (right). The approximation improves as $x$ gets larger.}
+\label{htft}
 \end{figure}
 
 \begin{figure}[h!]
