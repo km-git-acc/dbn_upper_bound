@@ -89,9 +89,15 @@ noting that the fractional parts $\{ \frac{X}{4\pi} \log p\}$ for $p \leq 11$ ar
 \{ \frac{X}{4\pi} \log 11 \} &= 0.0954\dots
 \end{align*}
 We found this shift by the following somewhat \emph{ad hoc} procedure.  We first introduced the quantity
-$$ \mathrm{eulerprod}(x) \coloneqq \left|\prod\limits_{p \leq 27}\frac{1}{1-\frac{1}{p^{1-ix/2}}}\right|,$$
+$$ \mathrm{eulerprod}(x) \coloneqq \left|\prod\limits_{p \leq 29}\frac{1}{1-\frac{1}{p^{1-ix/2}}}\right|,$$
 which is the  exponent corresponding to $y=1$ (where the minimum value of $|f_t(x+iy)|$ in the barrier region is expected to occur).  We numerically located candidate integers $1 \leq q \leq 10^5$ for which the quantity
 $$ \min_{x - 6 \times 10^{10} - q \in \{-0.5,0,0.5\}} |\mathrm{eulerprod}(x)|$$
 exceeded a threshold (we chose $4$), to obtain seven candidates for $q$: $1046$, $22402$, $24198$, $52806$, $77752$, $83952$, and $99108$.  Among these candidates, we selected the value of $q$ which maximised the quantity
 $$ \min_{x - 6 \times 10^{10} - q \in \{-0.5,0,0.5\}} |f_0(x+i)|,$$
 namely $q = 83952$ (this quantity being $\approx 4.32$ for this value of $q$).
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{euler_product_approximation.png}
+  \caption{Improving approximation of ep$_n(x)$ w.r.t. $|f_0(x+iy)|$ as n is increased, where ep$_n(x)$=eulerprod$(x,p_n)$, shown near $X=6 \times 10^{10} + 83951.5$, which was chosen as a barrier location.}
+	\label{htft}
+\end{figure}
+
