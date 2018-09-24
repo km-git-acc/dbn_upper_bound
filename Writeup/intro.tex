@@ -8,7 +8,7 @@ where $\xi$ denotes the Riemann $\xi$ function
 \begin{equation}\label{sas}
  \xi(s) \coloneqq \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right) \zeta(s)
 \end{equation}
-(after removing all singularities) and $\zeta$ is the Riemann zeta function.
+(after removing all singularities) and $\zeta$ is the Riemann $\zeta$ function.
 Then $H_0$ is an entire even function with functional equation $H_0(\overline{z}) = \overline{H_0(z)}$, and the Riemann hypothesis is equivalent to the assertion that all the zeroes of $H_0$ are real.
 
 It is a classical fact (see \cite[p. 255]{titch}) that $H_0$ has the Fourier representation
@@ -19,7 +19,7 @@ where $\Phi$ is the super-exponentially decaying function
 \end{equation}
 The sum defining $\Phi(u)$ converges absolutely for negative $u$ also.  From Poisson summation one can verify that $\Phi$ satisfies the functional equation $\Phi(u) = \Phi(-u)$ (i.e., $\Phi$ is even). 
 
-De Bruijn \cite{debr} introduced (with somewhat different notation) the more general family of functions $H_t \colon \C \to \C$ for $t \in \R$ by the formula
+De Bruijn \cite{debr} introduced (with somewhat different notation) the more general family of functions $H_t \colon \C \to \C$ for $t \in \R$, defined by the formula
 \begin{equation}\label{htdef}
  H_t(z) \coloneqq \int_0^\infty e^{tu^2} \Phi(u) \cos(zu)\ du.
 \end{equation}
@@ -53,7 +53,7 @@ $$ X \leq x \leq X+1; \quad y_0 \leq y \leq 1; \quad 0 \leq t \leq t_0.$$
 \label{barrier-fig}
 \end{figure}
 
-We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} (1 - \frac{1}{p^{\frac{1-iX}{2}}})^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii).  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)  Further upper bounds to $\Lambda$ can be obtained if one assumes the Riemann hypothesis to hold up to larger heights than that in \cite{platt}: see Section \ref{further-sec}.
+We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} (1 - \frac{1}{p^{\frac{1-iX}{2}}})^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii); see also Figure \ref{euler}.  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)  Further upper bounds to $\Lambda$ can be obtained if one assumes the Riemann hypothesis to hold up to larger heights than that in \cite{platt}: see Section \ref{further-sec}.
 
 To verify (ii) and (iii), we need efficient approximations (of Riemann-Siegel type) for $H_t(x+iy)$ in the regime where $t,y$ are bounded and $x$ is large.  For sake of numerically explicit constants, we will focus attention on the region
 \begin{equation}\label{region}
@@ -142,7 +142,7 @@ This theorem will be proven in Section \ref{initial-sec}; see Figures \ref{htft}
 	\label{htft-2}
 \end{figure}
 
-{\bf would it be possible to also supply a figure for a different range of $x$ to show that the approximation improves as $x$ gets larger?}
+{\bf I think it would also be good to have a plot of $e_A, e_B, e_{C,0}, e_A+e_B+e_{C,0}$, and $|f_t - H_t/B_t|$ for a fairly large range of $x$ (maybe using log-scale in $x$).}
 
 From \eqref{ratio-form-eff} and the triangle inequality, we have a numerically verifiable criterion to establish non-vanishing of $H_t$ at a given point:
 
