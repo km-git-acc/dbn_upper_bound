@@ -54,7 +54,7 @@ $$ A_i(\zeta,w)\coloneqq  - \zeta \log(N_i) + w \log^2(N_i)$$
 and
 $$ B_i(\zeta,w) \coloneqq - \zeta + 2 w \log N_i.$$
 From Taylor's theorem with remainder, we have
-$$ \exp( a ) = \sum_{j=0}^T \frac{a^j}{j!} + O_{\leq}( \frac{|a|^{T+1}}{(T+1)!} \exp(|a|) )$$
+$$ \exp( a ) = \sum_{j=0}^T \frac{a^j}{j!} + O_{\leq}\left( \frac{|a|^{T+1}}{(T+1)!} \exp(|a|) \right)$$
 and hence
 $$F_N(z_0+\zeta, w) = F_{N_0}(z_0+\zeta, w) + \sum_i \sum_{-H/2 \leq h \leq H/2} 
 (N_i + h)^{-z_0} \exp( A_i(\zeta,w) ) \sum_{j=0}^T \frac{1}{j!} (B_i(\zeta,w) \varepsilon_{i,h} + w \varepsilon_{i,h}^2)^j

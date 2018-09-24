@@ -127,13 +127,12 @@ Note that $p$ ranges in the interval $[-1,1]$.  One can show that
 \begin{equation}\label{cop}
 |C_0(p)| \leq \frac{1}{2}
 \end{equation}
-for all $p \in [-1,1]$; this follows for instance from the $n=0$ case of \cite[Theorem 6.1]{arias}.
-
-{\bf Maybe insert a plot of $|C_0(p)|$ for $-1 \leq p \leq 1$ here?}
+for all $p \in [-1,1]$; this follows for instance from the $n=0$ case of \cite[Theorem 6.1]{arias}.  See also Figure \ref{c0p}.
 
 \begin{figure}[h!]
   \includegraphics[width=0.7\linewidth]{C0_p.png}
   \caption{Plot of $|C_0(p)|$ for $-1 \leq p \leq 1$.}
+	\label{c0p}
 \end{figure}
 
 Informally, the above proposition (and \eqref{RON-def}, \eqref{M-def}) yield the approximation
@@ -425,7 +424,7 @@ and hence
 Inserting these bounds, we conclude that
 $$ \log|\gamma| = -y \mathrm{Re} \left( \left(\frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right)\right) \left(1 + O_{\leq}\left(\frac{t}{2(x-6)}\right)\right) \right).$$
 Expanding this out, we have
-$$ \log|\gamma| = -y (\frac{1}{2} \log \frac{x}{4\pi} + O_{\leq}\left( \frac{2+\sigma + \frac{t}{4} \log \frac{x}{4\pi} + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)}}{x-6} \right)).$$
+$$ \log|\gamma| = -y \left(\frac{1}{2} \log \frac{x}{4\pi} + O_{\leq}\left( \frac{2+\sigma + \frac{t}{4} \log \frac{x}{4\pi} + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)}}{x-6} \right)\right).$$
 In the region \eqref{region}, which implies that $0 \leq \sigma \leq 1$, we have
 $$ 2 + \sigma + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)} \leq 3.21$$
 and thus
@@ -515,5 +514,3 @@ $$
 \tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2}) \leq \frac{1.24 \times (3^y+3^{-y})}{a-0.125} + \frac{3.46}{T'-3.33}$$
 giving the claim (substituting $T' = x/2$ and $a \geq N$).
 \end{proof}
-
-{\bf give table illustrating accuracy of approximation}
