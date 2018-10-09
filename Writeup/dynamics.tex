@@ -46,11 +46,11 @@ for all $t \geq 0$.  Inserting this into the previous equation, we conclude that
 \end{equation}
 noting that the denominator $H'_t(z_j(t_0))$ vanishes by the hypothesis that the zero at $z_j(t_0)$ is simple.  Henceforth we omit the dependence on $t_0$ for brevity.  From Taylor expansion of $H_t$, $H'_t$, and $H''_t$ around the simple zero $z_j$ we see that
 \begin{equation}\label{htz-eq}
- \frac{H''_t}{H'_t}( z_j) = 2 \lim_{z \to z_j}\left(  \frac{H'_t}{H_t}( z_j) - \frac{1}{z-z_j} \right).
+ \frac{H''_t}{H'_t}( z_j) = 2 \lim_{z \to z_j}\left(  \frac{H'_t}{H_t}( z) - \frac{1}{z-z_j} \right).
 \end{equation}
 On the other hand, as $H_t$ is even, non-zero at the origin, and entire of order $1$, we see from the Hadamard factorization theorem that
 $$ H_t(z) = H_t(0) \prod_k^{\prime} \left(1 - \frac{z}{z_k}\right),$$
-where the prime indicates that the $k$ and $-k$ factors are multiplied together.  Note that the product converges absolutely since the number of zeroes in $D(0,R)$ grows like $O( R^{1+o(1)})$.  Taking logarithmic derivatives, we conclude that
+where the prime indicates that the $k$ and $-k$ factors are multiplied together.  The product is locally uniformly convergent, so we may take logarithmic derivatives and conclude that
 $$ \frac{H'_t}{H_t}(z) = \sum_k^{\prime} \frac{1}{z-z_k}.$$
 Inserting this into \eqref{tzj}, \eqref{htz-eq} and using the dominated convergence theorem (again using the growth in the number of zeroes to justify the interchange of summation and limits), we obtain the claim (i).
 
