@@ -427,17 +427,21 @@ void alpha1(acb_t z, const acb_t s, slong prec)
 }
 
 static void
-bexpo_aexpo_afac_bsums_asums(acb_mat_t ests, acb_mat_t sarr, acb_mat_t bexpo, acb_mat_t aexpo, const acb_t ssexpo, 
-               acb_mat_t afac, acb_mat_t asums, acb_mat_t bsums, const acb_poly_t finpoly, const arb_t t, const arb_t logtn0, 
-               const arb_t n0, slong id, const slong k, const slong prec)
+bexpo_aexpo_afac_bsums_asums(acb_mat_t ests, acb_t sarr, const acb_t ssexpo, const acb_poly_t finpoly, const arb_t t, 
+                             const arb_t logtn0, const arb_t n0, slong id, const slong k, const slong prec)
 
 {
-    acb_t a, b, c, d, s, negs, conjs, onemins, alphas, alphaconjs, alpha1mins, one;
+    acb_t a, b, c, d, s, afac, bexpo, aexpo, bsums, asums, negs, conjs, onemins, alphas, alphaconjs, alpha1mins, one;
     acb_init(a);
     acb_init(b);
     acb_init(c);
     acb_init(d);
     acb_init(s);
+    acb_init(afac);
+    acb_init(bexpo);
+    acb_init(aexpo);
+    acb_init(bsums);
+    acb_init(asums);
     acb_init(negs);
     acb_init(conjs);
     acb_init(onemins);
@@ -454,7 +458,7 @@ bexpo_aexpo_afac_bsums_asums(acb_mat_t ests, acb_mat_t sarr, acb_mat_t bexpo, ac
     arb_neg(negt, t);
 
     //set alpha1(sarr(k))/2, alpha1(1-sarr(k))/2, alpha1conj(sarr(k))/2
-    acb_set(s, acb_mat_entry(sarr, k, 0));
+    acb_set(s, sarr);
     alpha1(alphas, s, prec);
     acb_mul_2exp_si(alphas, alphas, -1);
 
@@ -470,14 +474,12 @@ bexpo_aexpo_afac_bsums_asums(acb_mat_t ests, acb_mat_t sarr, acb_mat_t bexpo, ac
     //bexpo
     acb_mul_arb(b, alpha1mins, negt, prec);
     acb_sub(b, b, onemins, prec);
-    acb_add(b, b, ssexpo, prec);
-    acb_set(acb_mat_entry(bexpo, k, 0), b);
+    acb_add(bexpo, b, ssexpo, prec);
 
     //aexpo
     acb_mul_arb(b, alphaconjs, negt, prec);
     acb_sub(b, b, conjs, prec);
-    acb_add(b, b, ssexpo, prec);
-    acb_set(acb_mat_entry(aexpo, k, 0), b);
+    acb_add(aexpo, b, ssexpo, prec);
 
     //afac
     acb_pow_ui(b, alphas, 2, prec);
@@ -488,32 +490,29 @@ bexpo_aexpo_afac_bsums_asums(acb_mat_t ests, acb_mat_t sarr, acb_mat_t bexpo, ac
     H01(b, s, prec);            
     H01(d, onemins, prec);   
     acb_div(b, b, d, prec);
-    acb_mul(b, b, a, prec);
-    acb_set(acb_mat_entry(afac, k, 0), b);
+    acb_mul(afac, b, a, prec);
 
     //bsums
     arb_mul_2exp_si(ab, logtn0, -1);
-    acb_add_arb(a, acb_mat_entry(bexpo, k, 0), ab, prec);
+    acb_add_arb(a, bexpo, ab, prec);
     acb_set_arb(b, n0);
     acb_pow(a, b, a, prec);
-    acb_add_arb(b, acb_mat_entry(bexpo, k, 0), logtn0, prec);
+    acb_add_arb(b, bexpo, logtn0, prec);
     acb_poly_evaluate(c, finpoly, b, prec);
-    acb_mul(b, c, a, prec);
-    acb_set(acb_mat_entry(bsums, k, 0), b);
+    acb_mul(bsums, c, a, prec);
 
     //asums
-    acb_add_arb(a, acb_mat_entry(aexpo, k, 0), ab, prec);
+    acb_add_arb(a, aexpo, ab, prec);
     acb_set_arb(b, n0);
     acb_pow(a, b, a, prec);
-    acb_add_arb(b, acb_mat_entry(aexpo, k, 0), logtn0, prec);
+    acb_add_arb(b, aexpo, logtn0, prec);
     acb_poly_evaluate(c, finpoly, b, prec);
-    acb_mul(b, c, a, prec);
-    acb_set(acb_mat_entry(asums, k, 0), b);
+    acb_mul(asums, c, a, prec);
 
     //ests
-    acb_conj(b, acb_mat_entry(asums, k, 0));
-    acb_mul(a, acb_mat_entry(afac, k, 0), b, prec);
-    acb_add(a, a, acb_mat_entry(bsums, k, 0), prec);
+    acb_conj(b, asums);
+    acb_mul(a, afac, b, prec);
+    acb_add(a, a, bsums, prec);
     acb_set(acb_mat_entry(ests, k, 0), a);
 
     //establish minimum value of modabb
@@ -566,14 +565,12 @@ void* abbeff_symmetric_rectangle(void *voidData)
     slong prec=data->prec;
     slong num=data->num;
     slong prt=data->prt;
-       
-    acb_mat_t sarr, bexpo, aexpo, afac, bsums, asums; 
-    arb_mat_t thtarr, zarr;
 
-    acb_t a, b, c, one, onei, Idiv4, IXdiv2;
+    acb_t a, b, c, sarr, one, onei, Idiv4, IXdiv2;
     acb_init(a);
     acb_init(b);
     acb_init(c);
+    acb_init(sarr);
     acb_init(Idiv4);
     acb_init(IXdiv2);
     acb_init(one);
@@ -581,10 +578,14 @@ void* abbeff_symmetric_rectangle(void *voidData)
     acb_init(onei);
     acb_onei(onei);
 
-    arb_t ab, ac, ad, half, oneminy, oneminydiv2, ydiv2, numarb, nummin1, varb;
+    arb_t ab, ac, ad, thtarrv, thtarrv1, zarrv, zarrv1, half, oneminy, oneminydiv2, ydiv2, numarb, nummin1, varb;
     arb_init(ab);
     arb_init(ac);
     arb_init(ad);
+    arb_init(thtarrv);
+    arb_init(thtarrv1);
+    arb_init(zarrv);
+    arb_init(zarrv1);
     arb_init(half);
     arb_init(numarb);
     arb_init(nummin1);
@@ -610,21 +611,9 @@ void* abbeff_symmetric_rectangle(void *voidData)
     arb_set_ui(numarb, num);
     arb_sub_si(nummin1, numarb, 1, prec); 
 
-    //run along all four sides of the rectangle
-    arb_mat_init(thtarr, num, 1);
-    arb_mat_init(zarr, num, 1);
-    acb_mat_init(sarr, 4*num-4, 1);
-    acb_mat_init(afac, 4*num-4, 1); 
-    acb_mat_init(bexpo, 4*num-4, 1);
-    acb_mat_init(aexpo, 4*num-4, 1);
-    acb_mat_init(bsums, 4*num-4, 1);
-    acb_mat_init(asums, 4*num-4, 1);
-
     arb_mul_2exp_si(ab, half, -1);
-    arb_neg(ab, ab);
-    arb_set(arb_mat_entry(thtarr, 0, 0), ab);  
-    arb_neg(ab, oneminydiv2);
-    arb_set(arb_mat_entry(zarr, 0, 0), ab); 
+    arb_neg(thtarrv, ab);  
+    arb_neg(zarrv, oneminydiv2);
 
     for (v = start; v < stop; v++)
     { 
@@ -634,26 +623,23 @@ void* abbeff_symmetric_rectangle(void *voidData)
 
        //thtarr
        arb_sub(ac, ad, half, prec);
-       arb_mul_2exp_si(ac, ac, -1);
-       arb_set(arb_mat_entry(thtarr, v+1, 0), ac);
+       arb_mul_2exp_si(thtarrv1, ac, -1);
 
        //zarr 
        arb_mul(ac, oneminydiv2, ad, prec);
        arb_mul_2exp_si(ac, ac, 1);
-       arb_sub(ac, ac, oneminydiv2, prec);
-       arb_set(arb_mat_entry(zarr, v+1, 0), ac);
+       arb_sub(zarrv1, ac, oneminydiv2, prec);
 
        //x lower constant
        k = v;
        acb_add_arb(a, IXdiv2, oneminydiv2, prec);
-       acb_sub_arb(a, a, arb_mat_entry(zarr, v, 0), prec);
-       acb_sub(a, a, Idiv4, prec);
-       acb_set(acb_mat_entry(sarr, k, 0), a);
-       bexpo_aexpo_afac_bsums_asums(ests, sarr, bexpo, aexpo, ssexpo, afac, asums, bsums, finpoly, t, logtn0, n0, id, k, prec);
+       acb_sub_arb(a, a, zarrv, prec);
+       acb_sub(sarr, a, Idiv4, prec);
+       bexpo_aexpo_afac_bsums_asums(ests, sarr, ssexpo, finpoly, t, logtn0, n0, id, k, prec);
 
        if (prt==1)
        {      
-          arb_mul_2exp_si(ab, arb_mat_entry(zarr, v, 0), 1);
+          arb_mul_2exp_si(ab, zarrv, 1);
           arb_add(ab, y, ab, prec); 
           acb_set_arb(acb_mat_entry(ests, k, 1), ab);
           arb_sub(ad, x, half, prec);
@@ -662,17 +648,16 @@ void* abbeff_symmetric_rectangle(void *voidData)
 
        //y upper constant
        k = num+v-1;
-       acb_set_arb(a, arb_mat_entry(thtarr, v, 0));
+       acb_set_arb(a, thtarrv);
        acb_mul_onei(a, a);
-       acb_add(a, IXdiv2, a, prec);
-       acb_set(acb_mat_entry(sarr, k, 0), a);
-       bexpo_aexpo_afac_bsums_asums(ests, sarr, bexpo, aexpo, ssexpo, afac, asums, bsums, finpoly, t, logtn0, n0, id, k, prec);
+       acb_add(sarr, IXdiv2, a, prec);
+       bexpo_aexpo_afac_bsums_asums(ests, sarr, ssexpo, finpoly, t, logtn0, n0, id, k, prec);
 
        if (prt==1)
        {      
           arb_set_si(ab, 1);
           acb_set_arb(acb_mat_entry(ests, k, 1), ab);
-          arb_mul_2exp_si(ad, arb_mat_entry(thtarr, v, 0), 1);
+          arb_mul_2exp_si(ad, thtarrv, 1);
           arb_add(ad, x, ad, prec);
           acb_set_arb(acb_mat_entry(ests, k, 2), ad);
        }
@@ -680,14 +665,13 @@ void* abbeff_symmetric_rectangle(void *voidData)
        //x upper and output to be attached in reverse order
        k = 3*num-(v+1)-3;
        acb_add_arb(a, IXdiv2, oneminydiv2, prec);
-       acb_sub_arb(a, a, arb_mat_entry(zarr, v+1, 0), prec);
-       acb_add(a, a, Idiv4, prec);
-       acb_set(acb_mat_entry(sarr, k, 0), a);
-       bexpo_aexpo_afac_bsums_asums(ests, sarr, bexpo, aexpo, ssexpo, afac, asums, bsums, finpoly, t, logtn0, n0, id, k, prec);
+       acb_sub_arb(a, a, zarrv1, prec);
+       acb_add(sarr, a, Idiv4, prec);
+       bexpo_aexpo_afac_bsums_asums(ests, sarr, ssexpo, finpoly, t, logtn0, n0, id, k, prec);
 
        if (prt==1)
        {  
-          arb_mul_2exp_si(ab, arb_mat_entry(zarr, v+1, 0), 1);    
+          arb_mul_2exp_si(ab, zarrv1, 1);    
           arb_add(ab, y, ab, prec);
           acb_set_arb(acb_mat_entry(ests, k, 1), ab);
           arb_add(ad, x, half, prec);
@@ -697,37 +681,27 @@ void* abbeff_symmetric_rectangle(void *voidData)
        //y lower and output to be attached in reverse order
        k = 4*num-(v+1)-4;
        acb_add_arb(a, IXdiv2, oneminydiv2, prec);
-       acb_set_arb(b, arb_mat_entry(thtarr, v+1, 0));
+       acb_set_arb(b, thtarrv1);
        acb_mul_onei(b, b);
        acb_add(a, a, b, prec);
-       acb_add_arb(a, a, oneminydiv2, prec);
-       acb_set(acb_mat_entry(sarr, k, 0), a);
-       bexpo_aexpo_afac_bsums_asums(ests, sarr, bexpo, aexpo, ssexpo, afac, asums, bsums, finpoly, t, logtn0, n0, id, k, prec);
+       acb_add_arb(sarr, a, oneminydiv2, prec);
+       bexpo_aexpo_afac_bsums_asums(ests, sarr, ssexpo, finpoly, t, logtn0, n0, id, k, prec);
 
        if (prt==1)
        {      
           arb_add_si(ab, y, -1, prec);
           arb_add(ab, ab, y, prec);
           acb_set_arb(acb_mat_entry(ests, k, 1), ab);
-          arb_mul_2exp_si(ad, arb_mat_entry(thtarr, v+1, 0), 1);
+          arb_mul_2exp_si(ad, thtarrv1, 1);
           arb_add(ad, x, ad, prec);
           acb_set_arb(acb_mat_entry(ests, k, 2), ad);
        }
     }
 
-    acb_mat_clear(sarr);
-    acb_mat_clear(afac);
-    acb_mat_clear(bexpo);
-    acb_mat_clear(aexpo);
-    acb_mat_clear(bsums);
-    acb_mat_clear(asums);
-
-    arb_mat_clear(thtarr);
-    arb_mat_clear(zarr);
-
     acb_clear(a);
     acb_clear(b);
     acb_clear(c);
+    acb_clear(sarr);
     acb_clear(one);
     acb_clear(onei);
     acb_clear(Idiv4);
@@ -736,6 +710,10 @@ void* abbeff_symmetric_rectangle(void *voidData)
     arb_clear(ab);
     arb_clear(ac);
     arb_clear(ad);
+    arb_clear(thtarrv);
+    arb_clear(thtarrv1);
+    arb_clear(zarrv);
+    arb_clear(zarrv1);
     arb_clear(half);
     arb_clear(oneminy);
     arb_clear(oneminydiv2);
@@ -937,8 +915,10 @@ abbeff_t_loop(slong res, const arb_t X, const arb_t y0, const arb_t ts, const ar
         acb_mat_init(ests, rectmesh, 3);
 
         //for very small num it doesn't make sense to split the loop into threads
-        if (num < numthreads*20)
-           numthreads = 1;
+        //if (num < numthreads*20)
+        //   numthreads = 1;
+        //if (rectmesh < 3000)
+          // numthreads = 1;
 
         //starting values for the minmodabbs per thread
         arb_mat_init(minmodabb, numthreads, 1);
@@ -953,7 +933,7 @@ abbeff_t_loop(slong res, const arb_t X, const arb_t y0, const arb_t ts, const ar
         struct ThreadData data[numthreads];
 
         //prep all the thread data (divide up ranges in the overall loop with start and stop of range)
-        slong threadtasks = (num-1+numthreads-1)/numthreads;
+        slong threadtasks = (num-1)/numthreads;
         for (i = 0; i < numthreads; i++)
         {
             data[i].start=i*threadtasks;
@@ -964,7 +944,7 @@ abbeff_t_loop(slong res, const arb_t X, const arb_t y0, const arb_t ts, const ar
             data[i].prt= prt;
         }
         data[numthreads-1].stop = num - 1;
- 
+
         //start the threads with an indexed (array) of a data-structure (with pointers to it from the threads).
         for (i = 0; i < numthreads; i++)
         {

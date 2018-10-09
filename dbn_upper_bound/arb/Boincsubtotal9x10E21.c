@@ -56,7 +56,7 @@ matet(arb_mat_t resarb, const arb_t xval, const slong expterms, const slong tayl
 
 void 
 storedsums(slong res, const arb_t X, const slong N, const slong expterms, const slong taylorterms,
-           const slong indexsubtotal, const slong chunks, const slong prec)
+           const slong indexsubtotal, const slong chunks, const slong digits, const slong prec)
 
 {
     acb_mat_t finalmat, resacb;
@@ -121,7 +121,7 @@ storedsums(slong res, const arb_t X, const slong N, const slong expterms, const 
        endloop = (indexsubtotal + 1) * tasksize;
     }
 
-    printf("start: %ld end: %ld \n", startloop, endloop);
+    printf("Subtotalindex: %ld, start: %ld, end: %ld \n", indexsubtotal, startloop, endloop);
 
     //produce the stored sums matrix(expterms, taylorterms)
     for (n = startloop; n < endloop; n++)
@@ -133,6 +133,9 @@ storedsums(slong res, const arb_t X, const slong N, const slong expterms, const 
         arb_div(ab, narb, n0, prec);
         arb_log(ab, ab, prec);
 
+        //if (n % 10000 == 0)
+          //  printf("%ld \n", n);
+
         matet(resarb, ab, expterms, taylorterms, expvec, tayvec, prec);
 
         acb_mat_set_arb_mat(resacb, resarb);
@@ -143,7 +146,7 @@ storedsums(slong res, const arb_t X, const slong N, const slong expterms, const 
 
     //print the stored sums for storage in file
     arb_printn(X, 30, ARB_STR_NO_RADIUS);
-    printf(", %ld, %ld, %d\n", expterms, taylorterms, 20);
+    printf(", %ld, %ld, %ld\n", expterms, taylorterms, digits);
 
     for (e = 0; e < expterms; e++)
     {
@@ -151,9 +154,9 @@ storedsums(slong res, const arb_t X, const slong N, const slong expterms, const 
          {
               acb_get_real(re, acb_mat_entry(finalmat, e, t));
               acb_get_imag(im, acb_mat_entry(finalmat, e, t));
-              arb_printn(re, 30, ARB_STR_NO_RADIUS);
+              arb_printn(re, digits+10, ARB_STR_NO_RADIUS);
               printf(", ");
-              arb_printn(im, 30, ARB_STR_NO_RADIUS);
+              arb_printn(im, digits+10, ARB_STR_NO_RADIUS);
               if (t < taylorterms - 1) 
                   printf(", ");
               else
@@ -193,7 +196,7 @@ int main(int argc, char *argv[])
 
     const char *indexsubtotal_str;
 
-    slong N, prec, res, expterms, taylorterms, chunks, indexsubtotal;
+    slong N, prec, res, expterms, taylorterms, chunks, indexsubtotal, digits;
     int result = EXIT_SUCCESS;
     res=0;
 
@@ -209,22 +212,27 @@ int main(int argc, char *argv[])
     indexsubtotal = atol(indexsubtotal_str);
 
     //****** all fixed parameters are set in this section ******
-    prec = 20 * 3.32192809488736 + 100;
+    digits = 10;
+	prec = digits * 3.32192809488736 + 90;
 
-    arb_set_str(X, "60000155019", prec);
-    N = 69098;
+    arb_set_str(X, "9000000000000000070686", prec);
+    //arb_set_str(X, "200000000000000066447", prec);
+    N = 26761861742;
+    //N = 3989422804;
 
-    expterms = 54;
-    taylorterms = 54;
+    expterms = 114;
+    taylorterms = 114;
+    //expterms = 100;
+    //taylorterms = 100;
 
-    chunks = 9;
+    chunks = 20000;
     //***********************************************************
 
     if ((indexsubtotal < 0) || (indexsubtotal > chunks - 1))
         goto finish;
 
 TIMEIT_ONCE_START
-    storedsums(res, X, N, expterms, taylorterms, indexsubtotal, chunks, prec);
+    storedsums(res, X, N, expterms, taylorterms, indexsubtotal, chunks, digits, prec);
 TIMEIT_ONCE_STOP
 
 finish:
