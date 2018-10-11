@@ -102,6 +102,12 @@ for any fixed $t>0$ and $y>0$; see Figure \ref{ht-bt}.
 \label{ht-bt}
 \end{figure}
 
+\begin{figure}[h!]
+  \includegraphics[width=0.8\linewidth]{LogHt_Log_Bt.png}
+  \caption{The quantities $\log|H_t(x+iy)|$ and $\log|B_t(x+iy)|$ when $y=t=0.4$ and $\log_{10} x \leq 7$. This illustrates how $B_t$ captures the bulk of the exponential decay of $H_t$.}
+\label{loghtandlogbt}
+\end{figure}
+
 In fact we have the following significantly more accurate approximation (of Riemann-Siegel type) with effective error estimates.
 For any real number $X$, let $O_{\leq}(X)$ denote a quantity that is bounded in magnitude by $X$. We also use $x_+ = \max(x,0)$ to denote the positive part of a real number $x$.
 
@@ -143,6 +149,18 @@ This theorem will be proven in Section \ref{initial-sec}; see Figures \ref{htft}
 \end{figure}
 
 {\bf I think it would also be good to have a plot of $e_A, e_B, e_{C,0}, e_A+e_B+e_{C,0}$, and $|f_t - H_t/B_t|$ for a fairly large range of $x$ (maybe using log-scale in $x$).}
+
+\begin{figure}[h!]
+  \includegraphics[width=0.8\linewidth]{ft_min_Ht_vs_errorterms.png}
+  \caption{The error upper bound $|e_A+e_B+e_{C,0}|$ versus $|f_t - H_t/B_t|$ when $y=t=0.2$ and $\log_{10} x \leq 5$.}
+\label{errorboundtot}
+\end{figure}
+
+\begin{figure}[h!]
+  \includegraphics[width=1.0\linewidth]{eA_eB_eC_errorbounds.png}
+  \caption{The individual error upper bounds $|e_A|$, $|e_B|$ and $|e_{C,0}|$ with $y=t=0.2$ and $\log_{10} x \leq 5$. The $e_{C,0}$-term clearly dominates.}
+\label{ind_errorbounds}
+\end{figure}
 
 From \eqref{ratio-form-eff} and the triangle inequality, we have a numerically verifiable criterion to establish non-vanishing of $H_t$ at a given point:
 
@@ -197,6 +215,12 @@ $$ N_t(X) \approx \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{7}
  after performing some averaging in $X$, thus recovering the familiar $\frac{7}{8}$ term in the usual averaged asymptotics for $N_0(X)$.
 
 {\bf perhaps have a graphic comparing the actual zeroes of $H_t$ with the places where $\frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{X}{4\pi}$ is an integer?}
+
+\begin{figure}[h!]
+  \includegraphics[width=1.0\linewidth]{Integerconvergence_t_and_x_direction.png}
+  \caption{The real zeroes $x_i$ of $H_t$ will convergence to integer values of $g(x_i,t)= \frac{x_i}{4\pi} \log \frac{x_i}{4\pi} - \frac{x_i}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{x_i}{4\pi}$ when $t$ (left) and/or $x$ (right) increases.}
+\label{integer_conv_zeros}
+\end{figure}
 
 The results in Theorem \ref{Zero} refine previous results of Ki, Kim, and Lee \cite[Theorems 1.3, 1.4]{kkl}, which gave similar results but with constants that depended on $t$ in a non-uniform (and ineffective) fashion, and error terms that were of shape $o(1)$ rather than $O(x^{-ct})$ in the limit $x \to \infty$ (holding $t$ fixed).  The results may also be compared with those in \cite{arias-lune}, who (in our notation) show that assuming RH, the zeroes of $H_0$ are precisely the solutions $x_n$ to the equation
 $$ \frac{1}{2\pi} \mathrm{arg}\left( - e^{2 i \vartheta(x_n/2)} \frac{\zeta'(\frac{1-ix_n}{2})}{\zeta'(\frac{1+ix_n}{2})}\right) = n $$
