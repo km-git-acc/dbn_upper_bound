@@ -696,6 +696,10 @@ void* abbeff_symmetric_rectangle(void *voidData)
           arb_add(ad, x, ad, prec);
           acb_set_arb(acb_mat_entry(ests, k, 2), ad);
        }
+
+    arb_set(thtarrv, thtarrv1);
+    arb_set(zarrv, zarrv1);
+
     }
 
     acb_clear(a);
@@ -807,10 +811,10 @@ abbeff_t_loop(slong res, const arb_t X, const arb_t y0, const arb_t ts, const ar
 
     printf("\n");
     printf("Processing the barrier for X= ");
-    arf_printd(arb_midref(X), 20);
+    arf_printd(arb_midref(X), 30);
     printf("...");
     arb_add_si(a, X, 1, prec);
-    arf_printd(arb_midref(a), 20);
+    arf_printd(arb_midref(a), 30);
     printf(" (N = %ld)", N);
     printf(", y0 = ");
     arf_printd(arb_midref(y0), 10);
@@ -989,7 +993,7 @@ abbeff_t_loop(slong res, const arb_t X, const arb_t y0, const arb_t ts, const ar
         arf_printd(arb_midref(dtabb), 20);
         printf(", ");
         arf_printd(arb_midref(dzabb), 20);
-        printf(", %f, ", arf_get_d(arb_midref(windtot), ARF_RND_NEAR));
+        printf(", %05.10f, ", arf_get_d(arb_midref(windtot), ARF_RND_NEAR));
         arf_printd(arb_midref(minmod), 20);
         printf(", ");
         printf("%ld\n", rectmesh);
@@ -1184,7 +1188,7 @@ int main(int argc, char *argv[])
     acb_mat_init(finalmat, expterms, taylorterms);
 
     //precision
-    prec = digits * 3.32192809488736 + 60;
+    prec = digits * 3.32192809488736 + 90;
 
     //fill finalmat
     printf("\n");
