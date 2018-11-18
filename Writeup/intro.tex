@@ -53,7 +53,7 @@ $$ X \leq x \leq X+1; \quad y_0 \leq y \leq 1; \quad 0 \leq t \leq t_0.$$
 \label{barrier-fig}
 \end{figure}
 
-We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} (1 - \frac{1}{p^{\frac{1-iX}{2}}})^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii); see also Figure \ref{euler}.  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)  Further upper bounds to $\Lambda$ can be obtained if one assumes the Riemann hypothesis to hold up to larger heights than that in \cite{platt}: see Section \ref{further-sec}.
+We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} \left(1 - \frac{1}{p^{\frac{1-iX}{2}}}\right)^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii); see also Figure \ref{euler}.  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)  Further upper bounds to $\Lambda$ can be obtained if one assumes the Riemann hypothesis to hold up to larger heights than that in \cite{platt}: see Section \ref{further-sec}.
 
 To verify (ii) and (iii), we need efficient approximations (of Riemann-Siegel type) for $H_t(x+iy)$ in the regime where $t,y$ are bounded and $x$ is large.  For sake of numerically explicit constants, we will focus attention on the region
 \begin{equation}\label{region}
@@ -65,7 +65,7 @@ We will need some notation to describe the approximations of $H_t(x+iy)$ we will
 \begin{equation}\label{M-def}
  M_0(s) \coloneqq \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \sqrt{2\pi} \exp\left( \left(\frac{s}{2}-\frac{1}{2}\right)\Log \frac{s}{2} - \frac{s}{2} \right),
 \end{equation}
-where $\Log$ denotes the standard branch of the complex logarithm, with branch cut at the negative axis and imaginary part in $(-\pi,\pi]$. One may interpret $M_0(s)$ as the Stirling approximation to the factor $\frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right)$ appearing in \eqref{hoz}, \eqref{sas}.  We may form a holomorphic branch $\log M_0: \C \backslash (-\infty,1] \to \C$ of the logarithm of $M_0$ by the formula
+where $\Log$ denotes the standard branch of the complex logarithm, with branch cut at the negative axis and imaginary part in $(-\pi,\pi]$. One may interpret $M_0(s)$ as the Stirling approximation to the factor $\frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right)$ appearing in \eqref{hoz}, \eqref{sas}; it decays exponentially as one moves to infinity $s \to \pm i \infty$ along the critical strip.  We may form a holomorphic branch $\log M_0: \C \backslash (-\infty,1] \to \C$ of the logarithm of $M_0$ by the formula
 \begin{equation}\label{logM}
  \log M_0(s) \coloneqq \Log s + \Log(s-1) - \frac{s}{2} \log \pi + \log \frac{\sqrt{2\pi}}{16} + 
  \left(\frac{s}{2}-\frac{1}{2}\right)\Log \frac{s}{2} - \frac{s}{2};
@@ -90,11 +90,11 @@ In the region \eqref{region}, we introduce the quantity
 \begin{equation}\label{bo-def} 
 B_t(x+iy) \coloneqq M_t\left(\frac{1+y-ix}{2}\right).
 \end{equation} 
-As it turns out, $B_t(x+iy)$ is an asymptotic approximation to $H_t(x+iy)$ in the region \eqref{region}, in the sense that
+For fixed $t \geq 0$ and $y>0$, $B_t(x+iy)$ is non-vanishing, and it is easy to verify the asymptotic $|B_t(x+iy)| = e^{-(\frac{\pi}{8} + o(1)) x}$.  As it turns out, $B_t(x+iy)$ is an asymptotic approximation to $H_t(x+iy)$ in the region \eqref{region}, in the sense that
 \begin{equation}\label{limx}
  \lim_{x \to \infty} \frac{H_t(x+iy)}{B_t(x+iy)} = 1
 \end{equation}
-for any fixed $t>0$ and $y>0$; see Figure \ref{ht-bt}.  
+for any fixed $t>0$ and $y>0$; see Figure \ref{ht-bt}.  (However, the convergence of \eqref{limx} is \emph{not} uniform as $t$ approaches zero.)
 
 \begin{figure}[h!]
   \includegraphics[width=1.0\linewidth]{Ht_vs_Bt_variousregimes.png}
@@ -148,8 +148,6 @@ This theorem will be proven in Section \ref{initial-sec}; see Figures \ref{htft}
 	\label{htft-2}
 \end{figure}
 
-{\bf I think it would also be good to have a plot of $e_A, e_B, e_{C,0}, e_A+e_B+e_{C,0}$, and $|f_t - H_t/B_t|$ for a fairly large range of $x$ (maybe using log-scale in $x$).}
-
 \begin{figure}[h!]
   \includegraphics[width=0.8\linewidth]{ft_min_Ht_vs_errorterms.png}
   \caption{The error upper bound $|e_A+e_B+e_{C,0}|$ versus $|f_t - H_t/B_t|$ when $y=t=0.2$ and $\log_{10} x \leq 5$.}
@@ -186,39 +184,39 @@ thus giving the crude asymptotic \eqref{limx} in the region \eqref{region} at le
 	\label{htft-c}
 \end{figure}
 
-In addition to establishing upper bounds such as Theorem \ref{new-upper}, one can use Theorem \ref{eff} and Corollary \ref{zero-test} (together with variants in slightly larger regions than \eqref{region}, for instance if $y$ is allowed to be as large as $10$) to obtain asymptotic control on the zeroes of $H_t$.  Indeed, in Section \ref{asymptotic-sec} we will establish
+In addition to establishing upper bounds such as Theorem \ref{new-upper}, one can use Theorem \ref{eff} and Corollary \ref{zero-test} (together with variants in slightly larger regions than \eqref{region}, for instance if $y$ is allowed to be as large as $10$) to obtain asymptotic control on the zeroes of $H_t$, refining previous work of Ki, Kim, and Lee \cite{kkl}.  Indeed, in Section \ref{asymptotic-sec} we will establish
 
-\begin{theorem}[Distribution of zeroes of $H_t$]\label{Zero}  Let $0 < t \leq 1/2$, let $C>0$ be a sufficiently large absolute constant, and let $c>0$ be a sufficiently small absolute constant.  For all $n \geq C$, let $x_n$ be the unique real number greater than $4\pi$ such that
+\begin{theorem}[Distribution of zeroes of $H_t$]\label{Zero}  Let $0 < t \leq 1/2$, let $C>0$ be a sufficiently large absolute constant, and let $c>0$ be a sufficiently small absolute constant.  For $x \geq 4\pi$, define
+$$ g(x,t) \coloneqq  \frac{x}{4\pi} \log \frac{x}{4\pi} - \frac{x}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{x}{4\pi} $$
+and all $n \geq C$, let $x_n$ be the unique real number greater than $4\pi$ such that
 \begin{equation}\label{lip}
- \frac{x_n}{4\pi} \log \frac{x_n}{4\pi} - \frac{x_n}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{x_n}{4\pi} = n.
+ g(x_n,t) = n.
 \end{equation}
-(This is well-defined since the left-hand side is an increasing function of $x_n$ for $x_n \geq 4\pi$.)
+(This is well-defined since the $g(x,t)$ is increasing in $x$ for $x \geq 4\pi$.)
 \begin{itemize}
 \item[(i)]  If $x \geq \exp(\frac{C}{t})$ and $H_t(x+iy)=0$, then $y=0$, and
 $$ x = x_n + O(x^{-ct})$$
 for some $n$.  
 \item[(ii)]  Conversely, for each $n \geq \exp( \frac{C}{t} )$ there is exactly one zero $H_t$ in the disk $\{ x+iy: |x+iy - x_n| \leq \frac{c}{\log x_n} \}$ (and by part (i), this zero will be real and lie within $O(x^{-ct})$ of $x_n$).
 \item[(iii)]  If $X \geq \exp(\frac{C}{t})$, the number $N_t(X)$ of zeroes with real part between $0$ and $X$ (counting multiplicity) is
-$$ N_t(X) = \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{t}{16} \log \frac{X}{4\pi} + O(1).$$
+$$ N_t(X) = g(X,t) + O(1).$$
 \item[(iv)]  For any $X \geq 0$, one has
 $$ N_t(X+1) - N_t(X) \leq O( \log(2+X) )$$
 and
-$$ N_t(X) = \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + O( \log(2+X) ).$$
+$$ N_t(X) = g(X,t) + O( \log(2+X) ).$$
 \end{itemize}
 Here and in the sequel we use $X = O(Y)$ to denote the estimate $|X| \leq AY$ for some constant $A$ that is absolute (in particular, $A$ is independent of $t$ and $C$).
 \end{theorem}
 
 Roughly speaking, these estimates tell us that the zeroes of $H_t$ behaves (on macroscopic scales) like those of $H_0$ in the region $x = O(\exp(O(1/t)))$, and are very evenly spaced (and on the real axis) outside of this range.  The factor $\frac{t}{16} \log \frac{x_n}{4\pi}$ in \eqref{lip} indicates that as time $t$ advances, the zeroes (or at least those with large values of $x$) will tend to move towards the origin at a speed of approximately $\frac{\pi}{4}$.  Although we will not prove this here, the conclusions (i) and (iii) suggest that one in fact has an asymptotic of the form
-$$ N_t(X) = \left\lfloor  \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{X}{4\pi} + O( X^{-ct} ) \right\rfloor$$
+$$ N_t(X) = \left\lfloor g(X,t) + O( X^{-ct} ) \right\rfloor$$
 when $X \geq \exp(C/t)$; in particular (since the sawtooth function $x - \lfloor x \rfloor$ has average value $\frac{1}{2}$) one would have the heuristic approximation
 $$ N_t(X) \approx \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{7}{8} + \frac{t}{16} \log \frac{X}{4\pi} $$
  after performing some averaging in $X$, thus recovering the familiar $\frac{7}{8}$ term in the usual averaged asymptotics for $N_0(X)$.
 
-{\bf perhaps have a graphic comparing the actual zeroes of $H_t$ with the places where $\frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{X}{4\pi}$ is an integer?}
-
 \begin{figure}[h!]
   \includegraphics[width=1.0\linewidth]{Integerconvergence_t_and_x_direction.png}
-  \caption{The real zeroes $x_i$ of $H_t$ will convergence to integer values of $g(x_i,t)= \frac{x_i}{4\pi} \log \frac{x_i}{4\pi} - \frac{x_i}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{x_i}{4\pi}$ when $t$ (left) and/or $x$ (right) increases.}
+  \caption{The real zeroes $x_i$ of $H_t$ will convergence to integer values of $g(x_i,t)$ when $t$ (left) and/or $x$ (right) increases.}
 \label{integer_conv_zeros}
 \end{figure}
 
@@ -226,7 +224,8 @@ The results in Theorem \ref{Zero} refine previous results of Ki, Kim, and Lee \c
 $$ \frac{1}{2\pi} \mathrm{arg}\left( - e^{2 i \vartheta(x_n/2)} \frac{\zeta'(\frac{1-ix_n}{2})}{\zeta'(\frac{1+ix_n}{2})}\right) = n $$
 for integer $n$, where $-\vartheta(t)$ is the phase of $\zeta(\frac{1}{2}+it)$ and one chooses a branch of the argument so that the left-hand side is $-\frac{1}{2}$ when $x_n=0$.
 
-
+\begin{remark}  One can draw an analogy between the various potential behaviours of zeroes of $H_t$ and the three classical states of matter.  A ``gaseous'' state corresponds to the situation in which the zeroes of $H_t$ are strictly complex.  A ``liquid'' state corresponds to a situation in which the zeroes are real, but disordered (with highly unequal spacings between zeroes).  A ``solid'' state corresponds to a situation in which the zeroes are real and arranged roughly in an arithmetic progression.  Thus for instance the Riemann hypothesis and the GUE hypothesis assert (roughly speaking) that the zeroes of $H_0$ should exhibit liquid behaviour everywhere, while Theorem \ref{Zero} asserts that the zeroes of $H_t$, $t>0$ ``solidify'' in the region $x \geq \exp(C/t)$.  Below this region we expect liquid behaviour.  In general, as the parameter $t$ increases, the zeroes appear to ``cool'' down, transitioning from gaseous to liquid to solid type states; see \cite{brad} for some formalisations of this intuition.
+\end{remark}
 
 \section{Notation}
 
