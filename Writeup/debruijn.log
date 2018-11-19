@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  19 NOV 2018 08:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  19 NOV 2018 12:49
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -489,11 +489,11 @@ File: Barrier_approach.png Graphic file (type png)
 Package pdftex.def Info: Barrier_approach.png  used on input line 51.
 (pdftex.def)             Requested size: 376.42575pt x 177.73363pt.
  [3 <./Barrier_approach.png>]
-<Ht_vs_Bt_variousregimes.png, id=24, 1589.94pt x 595.22375pt>
-File: Ht_vs_Bt_variousregimes.png Graphic file (type png)
-<use Ht_vs_Bt_variousregimes.png>
-Package pdftex.def Info: Ht_vs_Bt_variousregimes.png  used on input line 100.
-(pdftex.def)             Requested size: 418.25368pt x 156.58008pt.
+<ftvsht.png, id=24, 1281.78876pt x 483.8075pt>
+File: ftvsht.png Graphic file (type png)
+<use ftvsht.png>
+Package pdftex.def Info: ftvsht.png  used on input line 100.
+(pdftex.def)             Requested size: 418.25368pt x 157.86307pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -506,7 +506,7 @@ Package pdftex.def Info: loghtbt.png  used on input line 106.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4] [5 <./Ht_vs_Bt_variousregimes.png> <./loghtbt.png>]
+[4] [5 <./ftvsht.png> <./loghtbt.png>]
 <ft_vs_HtdivBt_y_09.png, id=34, 1592.95125pt x 601.24625pt>
 File: ft_vs_HtdivBt_y_09.png Graphic file (type png)
 <use ft_vs_HtdivBt_y_09.png>
@@ -707,8 +707,8 @@ File: ot1txtt.fd 2000/12/15 v3.1
 ) [59] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
  5948 strings out of 493303
- 86224 string characters out of 3138857
- 162965 words of memory out of 3000000
+ 86139 string characters out of 3138857
+ 161965 words of memory out of 3000000
  9165 multiletter control sequences out of 15000+200000
  41015 words of font info for 103 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -721,7 +721,7 @@ ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKT
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
 fonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (59 pages, 1667774 bytes).
+Output written on debruijn.pdf (59 pages, 1615126 bytes).
 PDF statistics:
  273 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
