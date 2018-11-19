@@ -18,7 +18,7 @@ Define
 \begin{align*}
 f_t(x+iy) &\coloneqq \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}\\
 b_n^t &\coloneqq \exp( \frac{t}{4} \log^2 n),\\
-N &\coloneqq \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor \leq [\frac{x}{4\pi} (1 + \frac{\pi t}{4x})]^{1/2},
+N &\coloneqq \left\lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \right\rfloor \leq \left(\frac{x}{4\pi} (1 + \frac{\pi t}{4x})\right)^{1/2},
 \end{align*}
 so in particular
 \begin{equation}\label{logx}
@@ -26,7 +26,7 @@ so in particular
 \end{equation}
 and let $\kappa, s_*, \gamma, e_A, e_B, e_{C_0}$ be as in Theorem \ref{eff}, and $e_A, e_B, e_{C_0}$.  Then
 \begin{equation}\label{bbb}
-|f_t(x+iy)| > e_A + e_B + e_{C,0} 
+|f_t(x+iy)| > e_A + e_B + e_{C,0}.
 \end{equation}
 \end{proposition}
 
@@ -56,17 +56,17 @@ From Lemma \ref{elem-lem}(vi), the quantity $\delta_1$ is monotone decreasing in
  \delta_1 \leq \frac{\frac{(0.2)^2}{16} \log^2 \frac{X_0-0.5}{4\pi} + 0.626}{X_0-0.5-6.66}
 \end{equation}
 whenever $x \geq X_0-0.5 \geq 200$ and $0 \leq t \leq 0.2$.  Computing the right-hand side, we conclude that
-$$  \delta_1 \leq 2.07 \times 10^{-11}$$
+$$  \delta_1 \leq 3.12 \times 10^{-11}$$
 and hence by Taylor expansion
 $$ e^{\delta_1} - 1 \leq 1.001 \delta_1$$
 (say).
 Also, from Theorem \ref{eff} and \eqref{fnt-def} we can bound
 \begin{align*}
 |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) &\leq |\gamma| N^y N^{|\kappa|} F_{N,t}( \mathrm{Re}(s_*) ) \\
-&\leq \exp( 0.02 y + y (\log N - \frac{1}{2} \log \frac{x}{4\pi}) + \frac{ty}{2(x-6)} \log N ) F_{N,t}( \mathrm{Re}(s_*) )  \\
-&\leq \exp( 0.02 y + (y + \frac{ty}{2(x-6)}) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) + \frac{ty}{4(x-6)} \log \frac{x}{4\pi} ) F_{N,t}( \mathrm{Re}(s_*) ).
+&\leq \exp\left( 0.02 y + y (\log N - \frac{1}{2} \log \frac{x}{4\pi}) + \frac{ty}{2(x-6)} \log N \right) F_{N,t}( \mathrm{Re}(s_*) )  \\
+&\leq \exp\left( 0.02 y + (y + \frac{ty}{2(x-6)}) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) + \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \right) F_{N,t}( \mathrm{Re}(s_*) ).
 \end{align*}
-For $y \leq 1$, $0 \leq t \leq 0.2$, and $x \geq X_0 - 0.5$ we see from Lemma \ref{elem-lem}(vi) that
+For $0.2 \leq y \leq 1$, $0 \leq t \leq 0.2$, and $x \geq X_0 - 0.5$ we see from Lemma \ref{elem-lem}(vi) that
 $$ \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \leq \frac{0.2}{4(X_0 - 0.5-6)}\log \frac{X_0 - 0.5}{4\pi} \leq 1.86 \times 10^{-11}$$
 and
 $$ (y + \frac{ty}{2(x-6)}) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) \leq (1 + \frac{0.2}{2(X_0-0.5-6)}) \frac{1}{2} \log(1 + \frac{0.2 \pi}{4(X_0-0.5)}) \leq 1.31 \times 10^{-12}$$
@@ -76,15 +76,15 @@ and thus
 \end{equation}
 Thus
 $$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}( \mathrm{Re}(s_*) ).$$
-To estimate $\mathrm{Re}(s_*)$, we use From Proposition \ref{estimates}(ii) or \eqref{kappa-bound}, together with the inequality
-$$ \frac{t}{2x^2} (1-3y+\frac{4y(1+y)}{x^2})_+ \leq \frac{0.2}{2 (X_0-0.5)^2} (1 - 3 \times 0.2 + \frac{8}{(X_0-0.5)^2})_+
+To estimate $\mathrm{Re}(s_*)$, we use Proposition \ref{estimates}(ii) or \eqref{kappa-bound}, together with the inequality
+$$ \frac{t}{2x^2} \left(1-3y+\frac{4y(1+y)}{x^2}\right)_+ \leq \frac{0.2}{2 (X_0-0.5)^2} \left(1 - 3 \times 0.2 + \frac{8}{(X_0-0.5)^2}\right)_+
 \leq 1.2 \times 10^{-23}$$
 to obtain 
 $$ \mathrm{Re}(s_*) \geq 0.6001 + \frac{t}{4} \log \frac{x}{4\pi}$$
 (say).  Since $F_{N,t}(\sigma)$ is non-increasing in $\sigma$, we conclude
 $$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} ).$$
 Since
-$$ N = \lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \rfloor,$$
+$$ N = \left\lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \right\rfloor,$$
 $0 \leq t \leq 0.2$, and $x \geq X_0-0.5$, it is easy to see that
 $$ N \leq \frac{x}{4\pi}$$
 and hence by \eqref{bn-def}
@@ -102,7 +102,7 @@ $$ e_A + e_B \leq 0.7220 \frac{0.0025 \log^2 \frac{x}{4\pi} + 0.626}{(x-6.66)^{0
 From Lemma \ref{elem-lem}(vi), the right-hand side is monotone decreasing in the region $x \geq X_0-0.5$, thus
 \begin{align*}
  e_A + e_B &\leq 0.7220 \frac{0.0025 \log^2 \frac{X_0-0.5}{4\pi} + 0.626}{(X_0-0.5-6.66)^{0.79995}} \\
-&\leq 3.221 \times 10^{-9}.
+&\leq 3.444 \times 10^{-9}.
 \end{align*}
 
 Meanwhile, from Proposition \ref{estimates}(vi) one has
@@ -125,45 +125,48 @@ It now suffices to establish the bound
 in the following regions:
 
 \begin{itemize}
-\item[(i)]  \eqref{ft0} holds when $6 \times 10^{10} + 83952 - 0.5 \leq x \leq 6 \times 10^{10} + 83952 + 0.5$, $0 \leq t \leq 0.2$, and $y \geq 0.2$.
-\item[(ii)]  \eqref{ft0} holds when $x \geq 6 \times 10^{10} + 83952 - 0.5$, $69098 \leq N \leq 80000$, $t = 0.2$, and $y \geq 0.2$.
-\item[(iii)]  \eqref{ft0} holds when $80000 \leq N \leq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
-\item[(iv)]  \eqref{ft0} holds when $N \geq 1.5 \times 10^6$, $t = 0.2$, and $y \geq 0.2$.
+\item[(i)]  When $6 \times 10^{10} + 83952 - 0.5 \leq x \leq 6 \times 10^{10} + 83952 + 0.5$, $0 \leq t \leq 0.2$, and $0.2 \leq y \leq 1$.
+\item[(ii)]  When $x \geq 6 \times 10^{10} + 83952 - 0.5$, $69098 \leq N \leq 80000$, $t = 0.2$, and $0.2 \leq y \leq 1$.
+\item[(iii)]  When $80000 \leq N \leq 1.5 \times 10^6$, $t = 0.2$, and $0.2 \leq y \leq 1$.
+\item[(iv)]  When $N \geq 1.5 \times 10^6$, $t = 0.2$, and $0.2 \leq y \leq 1$.
 \end{itemize}
 
 
 We begin with claim (i).  We need some derivative estimates on the quantity $f_t(x+iy )$.
 
 \begin{lemma} In the region \eqref{region}, and away from the jump discontinuities of $N$, we have
-$$ |\frac{\partial f_t}{\partial x}| = |\frac{\partial f_t}{\partial y}| \leq  \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} (\frac{\log n}{2} + \frac{t \log n}{4(x-6)}) + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^{y} }{n^{\mathrm{Re}(s_{*})}}
-( \frac{t \log n}{4(x-6)} + (\log \frac{|1+y+ix|}{4\pi} + \pi + \frac{3}{x}) (\frac{1}{2} + \frac{t}{4(x-6)})) $$
+\begin{align*}
+ \left|\frac{\partial f_t}{\partial x}\right| = \left|\frac{\partial f_t}{\partial y}\right| &\leq  \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) \\
+&\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^{y} }{n^{\mathrm{Re}(s_{*})}}
+\left( \frac{t \log n}{4(x-6)} + \left(\log \frac{|1+y+ix|}{4\pi} + \pi + \frac{3}{x}\right) \left(\frac{1}{2} + \frac{t}{4(x-6)}\right)\right)
+\end{align*}
 and
-\begin{align*} |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}) \\
+\begin{align*} \left|\frac{\partial f_t}{\partial t}\right| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}\right) \\
 &\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^y}{n^{\mathrm{Re}(s_{*})}}
-(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6})).
+\left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right)\right).
 \end{align*}
 \end{lemma}
 
 \begin{proof}
 We begin with the first estimate.  Write 
-$$ s_{**} \coloneqq \overline{s_*} - y + \kappa = \frac{1-y+ix}{2} + \frac{t}{2} \alpha(\frac{1-y+ix}{2})$$
+$$ s_{**} \coloneqq \overline{s_*} - y + \kappa = \frac{1-y+ix}{2} + \frac{t}{2} \alpha\left(\frac{1-y+ix}{2}\right)$$
 then
 \begin{equation}\label{ftne}
 f_t = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N \frac{b_n^t}{n^{s_{**}}}.
 \end{equation}
 One can check that $s_*, s_{**}, \gamma$ are holomorphic functions of $x+iy$, hence by the Cauchy-Riemann equations
-$$ |\frac{\partial f_t}{\partial x}| = |\frac{\partial f_t}{\partial y}|.$$
+$$ \left|\frac{\partial f_t}{\partial x}\right| = \left|\frac{\partial f_t}{\partial y}\right|.$$
 By the product and chain rules, we may calculate
 $$ 
 \frac{\partial f_t}{\partial x} = - \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} \frac{\partial s_*}{\partial x} \log n + \gamma \sum_{n=1}^N \frac{b_n^t}{n^{s_{**}}}
-( \frac{\partial}{\partial x} \log \gamma - \frac{\partial s_{**}}{\partial x} \log n).$$
+\left( \frac{\partial}{\partial x} \log \gamma - \frac{\partial s_{**}}{\partial x} \log n\right).$$
 From \eqref{sn-def}, \eqref{alpha-deriv-bound} we have
 \begin{align*}
- \frac{\partial s_*}{\partial x} &= -\frac{i}{2} - \frac{it}{4} \alpha'(\frac{1-y+ix}{2}) \\
-&= -\frac{i}{2} + O_{\leq}( \frac{t}{4(x-6)} ).
+ \frac{\partial s_*}{\partial x} &= -\frac{i}{2} - \frac{it}{4} \alpha'\left(\frac{1-y+ix}{2}\right) \\
+&= -\frac{i}{2} + O_{\leq}\left( \frac{t}{4(x-6)} \right).
 \end{align*}
 Similarly we have
-$$ \frac{\partial s_{**}}{\partial x} = \frac{i}{2} + O_{\leq}( \frac{t}{4(x-6)} ).$$
+$$ \frac{\partial s_{**}}{\partial x} = \frac{i}{2} + O_{\leq}\left( \frac{t}{4(x-6)} \right).$$
 Writing $s = \frac{1-y+ix}{2}$, we have from \eqref{lambda-def}, \eqref{Mt-def} that
 $$ \log \gamma = \frac{t}{4} (\alpha(s)^2 - \alpha(1-s)^2) + \log M_0(s) - \log M_0(1-s) $$
 and hence by \eqref{alpha-def}
@@ -171,8 +174,8 @@ $$ \frac{\partial \gamma}{\partial x} = \frac{it}{4} (\alpha(s) \alpha'(s) + \al
 + \frac{i}{2} \alpha(s) + \frac{i}{2} \alpha(1-s).$$
 From the triangle inequality and \eqref{alpha-deriv-bound}, we thus have
 $$ 
-|\frac{\partial f_t}{\partial x}| \leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} (\frac{\log n}{2} + \frac{t \log n}{4(x-6)}) + |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
-( \frac{t \log n}{4(x-6)} + \frac{|\alpha(s) + \alpha(1-s) - \log n|}{2} + \frac{t (|\alpha(s)| + |\alpha(1-s)|)}{4(x-6)}).$$
+|\frac{\partial f_t}{\partial x}| \leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) + |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
+\left( \frac{t \log n}{4(x-6)} + \frac{|\alpha(s) + \alpha(1-s) - \log n|}{2} + \frac{t (|\alpha(s)| + |\alpha(1-s)|)}{4(x-6)}\right).$$
 We have from \eqref{alpha-form} that
 $$ |\alpha(s)|, |\alpha(s) - \frac{1}{2} \log n| \leq \frac{1}{2} \log \frac{|1-y+ix|}{4\pi} + \frac{\pi}{2} + \frac{3}{2x} $$
 since $n \leq N \leq \frac{x}{4\pi} \leq \frac{|1-y+ix|}{4\pi}$.  Similarly
@@ -186,12 +189,12 @@ Now we estimate the time derivative.  Since
  \frac{\partial}{\partial t} \log b_n^t &= \frac{1}{4} \log^2 n \\
  \frac{\partial}{\partial t} s_* &= \frac{1}{2} \alpha(\frac{1+y-ix}{2}) \\
  \frac{\partial}{\partial t} s_{**} &= \frac{1}{2} \alpha(\frac{1-y+ix}{2}) \\
- \frac{\partial}{\partial t} \log \gamma &= \frac{1}{4} (\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))
+ \frac{\partial}{\partial t} \log \gamma &= \frac{1}{4} \left(\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2})\right)
 \end{align*}
 we see from differentiating \eqref{ftne} that, we obtain
-$$ \frac{\partial f_t}{\partial t} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} (\frac{\log^2 n}{4} - \frac{\alpha(\frac{1+y-ix}{2})}{2} \log n) 
+$$ \frac{\partial f_t}{\partial t} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} \left(\frac{\log^2 n}{4} - \frac{\alpha(\frac{1+y-ix}{2})}{2} \log n\right) 
 + \gamma \sum_{n=1}^N \frac{b_n^t}{n^{s_{**}}}
-(\frac{\log^2 n}{4} - \frac{\alpha(\frac{1-y+ix}{2})}{2} \log n + \frac{1}{4} (\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))).$$
+\left(\frac{\log^2 n}{4} - \frac{\alpha(\frac{1-y+ix}{2})}{2} \log n + \frac{1}{4} (\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))\right).$$
 From \eqref{alpha-deriv-bound}, \eqref{alpha-form} we have
 \begin{align*}
  \alpha(\frac{1 \pm y+ix}{2}) &= \alpha(\frac{ix}{2}) + O_{\leq}( \frac{1}{x-6} ) \\
@@ -204,12 +207,12 @@ $$ \alpha(\frac{1-y+ix}{2}) - \alpha(\frac{1+y-ix}{2}) = \frac{\pi i}{2} + O_{\l
 and
 $$ \alpha(\frac{1-y+ix}{2}) + \alpha(\frac{1+y-ix}{2}) = \log \frac{x}{4\pi} + O_{\leq}( \frac{8}{x-6} )$$
 so that
-$$ |\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))| \leq (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6}).$$
+$$ \left|\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))\right| \leq \left(\frac{\pi}{2} + \frac{8}{x-6}\right) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right).$$
 We conclude from the triangle inequality that
 \begin{align*}
- |\frac{\partial f_t}{\partial t}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} (\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}) \\
+ \left|\frac{\partial f_t}{\partial t}\right| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}\right) \\
 &+ |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
-(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6}))
+\left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6})\right)
 \end{align*}
 giving the second claim.
 \end{proof}
@@ -295,7 +298,7 @@ $$..$$
 Finally, we prove claim (iv).  In this regime we have
 $$ x \geq x_N \coloneqq 4\pi N^2 - \frac{\pi t}{4};$$
 in particular,
-$$ x \geq x_{1.5*10^6} \geq  2.82 \times 10^{13}.$$
+$$ x \geq x_{1.5 \times 10^6} \geq  2.82 \times 10^{13}.$$
 In view of \eqref{x-init}, it suffices to show that
 \begin{equation}\label{nan}
  \sum_{n=1}^N \frac{b_n^{0.2}}{n^\sigma} + |\gamma| \sum_{n=1}^N \frac{b_n^{0.2}}{n^{\sigma-0.2-|\kappa|}}
@@ -309,8 +312,8 @@ $$
 |\gamma| \leq 1.005 \left( \frac{x_N}{4\pi} \right)^{-0.1}$$
 and from \eqref{res-bound} one has
 \begin{align*}
-\sigma &\geq 0.6 + \frac{0.2}{4} \log \frac{x_N}{4\pi} - \frac{0.2}{2x_{1.5*10^6}^2} (0.4+\frac{0.96}{x_{1.5*10^6}^2})_+ \\
-&\geq 0.6 + 0.1 \log N + 0.05 \log (1 - \frac{t}{16 (1.5*10^6)^2}) - \frac{0.2}{2x_{1.5*10^6}^2} (0.4+\frac{0.96}{x_{1.5*10^6}^2})_+ \\
+\sigma &\geq 0.6 + \frac{0.2}{4} \log \frac{x_N}{4\pi} - \frac{0.2}{2x_{1.5*10^6}^2} \left(0.4+\frac{0.96}{x_{1.5*10^6}^2}\right)_+ \\
+&\geq 0.6 + 0.1 \log N + 0.05 \log \left(1 - \frac{t}{16 (1.5*10^6)^2}\right) - \frac{0.2}{2x_{1.5*10^6}^2} \left(0.4+\frac{0.96}{x_{1.5*10^6}^2}\right)_+ \\
 &\geq 0.6 + 0.1 \log N - 5.1 \times 10^{-29}.
 \end{align*}
 We can then apply Lemma \ref{largen} twice to bound the left-hand side of \eqref{nan} by $A+B$, where

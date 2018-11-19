@@ -71,12 +71,12 @@ where
 $$ \beta_{i,j,h} := \sum_{-H/2 \leq h \leq H/2} (N_i + h)^{-z_0} \varepsilon_{i,h}^j$$
 and
 $$\sigma_{i,j}(\zeta,w) := \sum_{j_1,j_2 \geq 0: j_1+2j_2 = j; j_1+j_2 \leq T} \frac{1}{j_1! j_2!} B_i(\zeta,w)^{j_1} w^{j_2}.$$
-The point is that it only requires $O( \frac{N}{H} T H )$ calculations to compute the $\beta_{i,j,h}$, and $O( \frac{N}{H} T M )$ calculations to compute the $\sigma_{i,j}(\zeta,w)$, so the total computation time is now
-$$O( N_0 M + \frac{N}{H} T H + \frac{N}{H} T M + \frac{N}{H} T M ) = O( NM ( \frac{N_0}{N} + \frac{T}{M} + \frac{T}{H} ) )$$
+The point is that it only requires $O\left( \frac{N}{H} T H \right)$ calculations to compute the $\beta_{i,j,h}$, and $O\left( \frac{N}{H} T M \right)$ calculations to compute the $\sigma_{i,j}(\zeta,w)$, so the total computation time is now
+$$O\left( N_0 M + \frac{N}{H} T H + \frac{N}{H} T M + \frac{N}{H} T M \right) = O\left( NM \left( \frac{N_0}{N} + \frac{T}{M} + \frac{T}{H} \right) \right)$$
 which can be a significant speedup over $O(NM)$ when $N_0 \ll N$, $T \ll M$, and $T \ll H$.
 
 Now we control the error term $E$.  From the concavity of the logarithm we have
-$$|\varepsilon_{i,h}| \leq |\varepsilon_{i,-H/2}| = \log \frac{N_i}{N_i-H/2} \leq \log(1 + \frac{H}{2N_0})$$
+$$|\varepsilon_{i,h}| \leq |\varepsilon_{i,-H/2}| = \log \frac{N_i}{N_i-H/2} \leq \log\left(1 + \frac{H}{2N_0}\right)$$
 and
 $$ |B_i(\zeta,w)| \leq |\zeta| + 2 |w| \log N$$
 and hence
@@ -84,7 +84,7 @@ $$ E \leq \frac{\delta^{T+1}}{(T+1)!} \exp( \delta) \sum_i \exp( \mathrm{Re} A_i
 \sum_{-H/2 \leq h \leq H/2} (N_i+h)^{-\mathrm{Re} z_0}
 $$
 where
-$$ \delta := (|\zeta| + 2 |w| \log N) \log(1+\frac{H}{2N_0}) + |w| \log^2(1+\frac{H}{2N_0}).$$
+$$ \delta := (|\zeta| + 2 |w| \log N) \log(1+\frac{H}{2N_0}) + |w| \log^2\left(1+\frac{H}{2N_0}\right).$$
 
 
 

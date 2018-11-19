@@ -61,7 +61,7 @@ To verify (ii) and (iii), we need efficient approximations (of Riemann-Siegel ty
 \end{equation}
 though the results here would also hold (with different explicit constants) if the numerical quantities $\frac{1}{2}, 1, 200$ were replaced by other quantities.
 
-We will need some notation to describe the approximations of $H_t(x+iy)$ we will use in this paper.    We will need the function $M_0: \C \backslash (-\infty,1] \to \C \backslash \{0\}$ defined by the formula
+A key difficulty here is that $H_t(x+iy)$ decays exponentially fast in $x$ (basically because of the Gamma factor in \eqref{sas}); see Figure \ref{loghtandlogbt}.  This means that any direct attempt to numerically establish a zero-free region for $H_t(x+iy)$ for large $x$ would require enormous amounts of numerical precision.  To get around this, we will first renormalise the function $H_t(x+iy)$ by dividing it by a nowhere vanishing explicit function $B_t(x+iy)$ (basically a variant of the aforementioned Gamma factor) that removes this decay.  To describe this function, we first introduce the function $M_0: \C \backslash (-\infty,1] \to \C \backslash \{0\}$ defined by the formula
 \begin{equation}\label{M-def}
  M_0(s) \coloneqq \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \sqrt{2\pi} \exp\left( \left(\frac{s}{2}-\frac{1}{2}\right)\Log \frac{s}{2} - \frac{s}{2} \right),
 \end{equation}
@@ -103,8 +103,8 @@ for any fixed $t>0$ and $y>0$; see Figure \ref{ht-bt}.  (However, the convergenc
 \end{figure}
 
 \begin{figure}[h!]
-  \includegraphics[width=0.8\linewidth]{LogHt_Log_Bt.png}
-  \caption{The quantities $\log|H_t(x+iy)|$ and $\log|B_t(x+iy)|$ when $y=t=0.4$ and $\log_{10} x \leq 7$. This illustrates how $B_t$ captures the bulk of the exponential decay of $H_t$.}
+  \includegraphics[width=0.8\linewidth]{loghtbt.png}
+  \caption{The quantities $\log|H_t(x+iy)|$ and $\log|B_t(x+iy)|$ when $y=t=0.4$ and $\log_{10} x \leq 7$.   Both quantities decay like $- \frac{\pi}{8} x \approx -0.393 x$.}
 \label{loghtandlogbt}
 \end{figure}
 
