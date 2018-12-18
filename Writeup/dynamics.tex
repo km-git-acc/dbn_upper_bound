@@ -22,14 +22,14 @@ and the implied constant in the $O()$ notation can depend on $t_0$, $j$, and $m$
 \end{itemize}
 \end{proposition}
 
-The differential equation \eqref{zjk} was previously derived in \cite[Lemma 2.4]{csv} in the case $t > \Lambda$ (in which all zeroes are real and simple).
-The $x_1,\dots,x_m$ can be given explicitly for small values of $m$ as
+The differential equation \eqref{zjk} was previously derived in \cite[Lemma 2.4]{csv} in the case $t > \Lambda$ (in which all zeroes are real and simple); however, in our applications we also need to consider the regime $t<\Lambda$ in which the zeroes are permitted to be complex or repeated.
+The roots $x_1,\dots,x_m$ can be given explicitly for small values of $m$ as
 $$ x_1 = -1; \quad x_2 = +1$$
 when $m=2$,
 $$ x_1 = -\sqrt{3}; \quad x_2 = 0; \quad x_3 = +\sqrt{3}$$
 when $m=3$, and
 $$ x_1 = -\sqrt{3+\sqrt{6}}; \quad x_2 = -\sqrt{3-\sqrt{6}}; \quad x_3 = \sqrt{3 - \sqrt{6}}; \quad  x_4 = \sqrt{3 + \sqrt{6}}$$
-when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all the zeroes $x_1,\dots,x_m$ of $\operatorname{He}_m$ are real; from the Hermite equation $\left(\frac{d^2}{dz^2} - z \frac{d}{dz} + m\right) \operatorname{He}_m(z) = 0$ and the Picard uniqueness theorem for ODE we see that the zeroes are all simple.
+when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all the roots $x_1,\dots,x_m$ of $\operatorname{He}_m$ are real; from the Hermite equation $\left(\frac{d^2}{dz^2} - z \frac{d}{dz} + m\right) \operatorname{He}_m(z) = 0$ and the Picard uniqueness theorem for ODE we see that the zeroes are all simple.
 
 \begin{proof}  First suppose we are in the situation of (i).  As $z_j(t_0)$ is simple, $\frac{\partial}{\partial z} H_t$ is non-zero at $z_j(t_0)$; since $H_t(z)$ is a smooth function of both $t$ and $z$, we conclude from the implicit function theorem that there is a unique solution $z_j(t) \in U$ to the equation
 $$ H_t( z_j(t) ) = 0$$
