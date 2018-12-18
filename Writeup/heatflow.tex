@@ -27,7 +27,7 @@ $$ R_{0,0}(s) = \sum_{n=1}^N r_{0,n}(s)+ R_{0,N}(s)$$
 for any non-negative integer $N$, where $r_{0,n}, R_{0,N}$ are the meromorphic functions
 \begin{align}
  r_{0,n}(s) &:= \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right) n^{-s},\label{ron-def} \\
-R_{0,N}(s) &:= \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right) \int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}}\label{RON-def}
+R_{0,N}(s) &:= \frac{1}{8} \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right) \int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}}\ dw\label{RON-def}
 \end{align}
 and $N \swarrow N+1$ denotes any infinite line oriented in the direction $e^{5\pi i /4}$ that crosses the interval $[N,N+1]$.  For any $z$ that is not purely imaginary, we see from Stirling's approximation that the functions $r_{0,n}(\frac{1+iz}{2} + \sqrt{t} v)$ and $R_{0,N}(\frac{1+iz}{2} + \sqrt{t} v)$ grow slower than gaussian as $v \to \pm \infty$ (indeed they grow like $\exp( O( |v| \log |v| ) )$, where the implied constants depend on $t,z$).  From this and
 \eqref{htz}, \eqref{xio} we conclude that

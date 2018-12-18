@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  19 NOV 2018 12:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  18 DEC 2018 15:02
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -316,56 +316,56 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 (debruijn.aux)
 \openout1 = `debruijn.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 89.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 89.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 90.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 90.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omltxmi.fd"
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 89.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 89.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 90.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 90.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omstxsy.fd"
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 89.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 89.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 90.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 90.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omxtxex.fd"
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 89.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 89.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 90.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 90.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxexa.fd"
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 89.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 90.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txr.fd"
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 89.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 90.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxsya.fd"
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 89.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 90.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxsyb.fd"
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 89.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 90.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 89.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 90.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxmia.fd"
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 89.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 90.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxsyc.fd"
 File: utxsyc.fd 2000/12/15 v3.1
@@ -553,28 +553,342 @@ File: Extra_RS_term.png Graphic file (type png)
 Package pdftex.def Info: Extra_RS_term.png  used on input line 182.
 (pdftex.def)             Requested size: 250.95476pt x 187.16232pt.
  [9 <./Extra_RS_term.png>]
-<Integerconvergence_t_and_x_direction.png, id=58, 1306.8825pt x 500.87125pt>
+<Integerconvergence_t_and_x_direction.png, id=58, 1291.82625pt x 503.8825pt>
 File: Integerconvergence_t_and_x_direction.png Graphic file (type png)
 <use Integerconvergence_t_and_x_direction.png>
 Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 218.
-(pdftex.def)             Requested size: 418.25368pt x 160.29735pt.
- [10 <./Integerconvergence_t_and_x_direction.png>]) (dynamics.tex [11]
-[12] [13] [14]) (heatflow.tex [15] [16]) (elementary.tex [17] [18]) (initial.tex [19]
+(pdftex.def)             Requested size: 418.25368pt x 163.13708pt.
+ [10 <./Integerconvergence_t_and_x_direction.png>]
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 237.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
+File: ot1txtt.fd 2000/12/15 v3.1
+)
+Overfull \hbox (18.65007pt too wide) in paragraph at lines 242--244
+\OT1/txtt/m/n/10.95 and a full list of participants and their grant acknowledgments may be found
+ []
+
+
+Overfull \hbox (42.54176pt too wide) in paragraph at lines 250--251
+[]\OT1/txtt/m/n/10.95 We use the standard branch $[]$ of the logarithm to define the standard complex
+ []
+
+
+Overfull \hbox (1.39531pt too wide) in paragraph at lines 256--257
+[]\OT1/txtt/m/n/10.95 When using order of magnitude notation such as $\OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 (\OML/t
+xmi/m/it/10.95 X\OT1/txr/m/n/10.95 )$\OT1/txtt/m/n/10.95 , any expression of
+ []
+
+
+Overfull \hbox (37.06055pt too wide) in paragraph at lines 256--257
+\OT1/txtt/m/n/10.95 that any quantity of the form $\OML/txmi/m/it/10.95 A$ \OT1/txtt/m/n/10.95 is also of the form $\OML
+/txmi/m/it/10.95 B$\OT1/txtt/m/n/10.95 , thus for instance $\OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 (1) +
+ []
+
+
+Overfull \hbox (9.4871pt too wide) in paragraph at lines 256--257
+\OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 (1) = \OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 (3)$\OT1/txtt/m/n/10.95 . (I
+n particular, the equality relation is no longer symmetric
+ []
+
+
+Overfull \hbox (3.1567pt too wide) in paragraph at lines 258--259
+[]\OT1/txtt/m/n/10.95 If $\OML/txmi/m/it/10.95 F$ \OT1/txtt/m/n/10.95 is a meromorphic function, we use $\OML/txmi/m/it/
+10.95 F[]$ \OT1/txtt/m/n/10.95 to denote its derivative. We
+ []
+
+
+Overfull \hbox (23.18445pt too wide) in paragraph at lines 258--259
+\OT1/txtt/m/n/10.95 also use $\OML/txmi/m/it/10.95 F[]$ \OT1/txtt/m/n/10.95 to denote the reflection $\OML/txmi/m/it/10.
+95 F[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s\OT1/txr/m/n/10.95 ) := []$ \OT1/txtt/m/n/10.95 of $\OML/txmi/m/it/10.95
+ F$\OT1/txtt/m/n/10.95 . Observe from analytic
+ []
+
+
+Overfull \hbox (8.27306pt too wide) in paragraph at lines 258--259
+\OT1/txtt/m/n/10.95 is equal to its own reflection: $\OML/txmi/m/it/10.95 F \OT1/txr/m/n/10.95 = \OML/txmi/m/it/10.95 F[
+]$ \OT1/txtt/m/n/10.95 (since the holomorphic function $\OML/txmi/m/it/10.95 F \OMS/txsy/m/n/10.95  
+ []
+
+[11]) (dynamics.tex
+Overfull \hbox (1.45657pt too wide) in paragraph at lines 3--4
+[]\OT1/txtt/m/n/10.95 In this section we control the dynamics of the zeroes of $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/
+10.95 in order to
+ []
+
+
+Overfull \hbox (9.24579pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 establish Theorem 1.2[]. As $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/10.95 is even with functional e
+quation $\OML/txmi/m/it/10.95 H[] \OT1/txr/m/n/10.95 = \OML/txmi/m/it/10.95 H[]$\OT1/txtt/m/n/10.95 , the
+ []
+
+
+Overfull \hbox (2.73978pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 zeroes are symmetric around the origin and the real axis; from [] and the
+ []
+
+
+Overfull \hbox (16.42726pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 zeroes on the imaginary axis. From the super-exponential decay of $\OT1/txr/m/n/10.95 $ \OT1/txtt/m
+/n/10.95 and []
+ []
+
+
+Overfull \hbox (12.17776pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 we see that the entire function $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/10.95 is of order $\OT1/txr
+/m/n/10.95 1$\OT1/txtt/m/n/10.95 ; by Jensen's formula, this
+ []
+
+
+Overfull \hbox (15.17307pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 implies that the number of zeroes in a large disk $\OML/txmi/m/it/10.95 D\OT1/txr/m/n/10.95 (0\OML/t
+xmi/m/it/10.95 ; R\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 is at most $\OML/txmi/m/it/10.95 O\OT1/txr/m/n/10.95 (\OML/t
+xmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 )$
+ []
+
+
+Overfull \hbox (14.40034pt too wide) in paragraph at lines 25--27
+[]\OT1/txtt/m/n/10.95 The differential equation [] was previously derived in [[], Lemma 2.4] in
+ []
+
+
+Overfull \hbox (2.60341pt too wide) in paragraph at lines 25--27
+\OT1/txtt/m/n/10.95 applications we also need to consider the regime $\OML/txmi/m/it/10.95 t < \OT1/txr/m/n/10.95 $ \OT
+1/txtt/m/n/10.95 in which the zeroes
+ []
+
+
+Overfull \hbox (63.05695pt too wide) in paragraph at lines 25--27
+\OT1/txtt/m/n/10.95 are permitted to be complex or repeated. The roots $\OML/txmi/m/it/10.95 x[]; [] ; x[]$ \OT1/txtt/m/
+n/10.95 can be given explicitly
+ []
+
+[12]
+Overfull \hbox (23.1456pt too wide) in paragraph at lines 31--33
+\OT1/txtt/m/n/10.95 when $\OML/txmi/m/it/10.95 m \OT1/txr/m/n/10.95 = 4$\OT1/txtt/m/n/10.95 . From [] and iterating Roll
+e's theorem we see that all the roots
+ []
+
+
+Overfull \hbox (41.645pt too wide) in paragraph at lines 31--33
+\OT1/txtt/m/n/10.95 and the Picard uniqueness theorem for ODE we see that the zeroes are all simple. 
+ []
+
+[13] [14] [15]) (heatflow.tex
+Overfull \hbox (30.65007pt too wide) in paragraph at lines 110--1
+[]\OT1/txtt/m/n/10.95 By combining Proposition 3.3[] with Theorem 3.2[], we obtain Theorem 1.2[], noting
+ []
+
+
+Overfull \hbox (21.2562pt too wide) in paragraph at lines 110--1
+\OT1/txtt/m/n/10.95 from [], [] that condition (i) of Proposition 3.3[] is equivalent to condition
+ []
+
+
+Overfull \hbox (19.1526pt too wide) in paragraph at lines 3--4
+[]\OT1/txtt/m/n/10.95 As discussed in the introduction, we will establish Theorem 1.3[] by writing
+ []
+
+
+Overfull \hbox (36.62862pt too wide) in paragraph at lines 3--4
+\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/10.95 in terms of $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/10.95 using the funda
+mental solution to the heat equation. Namely,
+ []
+
+
+Overfull \hbox (50.87505pt too wide) in paragraph at lines 5--7
+\OT1/txtt/m/n/10.95 for any complex $\OML/txmi/m/it/10.95 u$ \OT1/txtt/m/n/10.95 and either choice of sign $\OMS/txsy/m/
+n/10.95 $\OT1/txtt/m/n/10.95 . Multiplying by $\OML/txmi/m/it/10.95 e[]$ \OT1/txtt/m/n/10.95 and averaging,
+ []
+
+
+Overfull \hbox (42.22171pt too wide) in paragraph at lines 8--10
+\OT1/txtt/m/n/10.95 for any complex $\OML/txmi/m/it/10.95 z; u$\OT1/txtt/m/n/10.95 . Multiplying by $\OT1/txr/m/n/10.95 
+(\OML/txmi/m/it/10.95 u\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 and using Fubini's theorem, we conclude
+ []
+
+
+Overfull \hbox (30.00403pt too wide) in paragraph at lines 19--20
+[]\OT1/txtt/m/n/10.95 We now combine this formula with expansions of the Riemann $\OML/txmi/m/it/10.95 $\OT1/txtt/m/n/1
+0.95 -function. From
+ []
+
+
+Overfull \hbox (17.70837pt too wide) in paragraph at lines 22--24
+\OT1/txtt/m/n/10.95 for any complex $\OML/txmi/m/it/10.95 s$ \OT1/txtt/m/n/10.95 that is not an integer (in order to avo
+id the poles of the
+ []
+
+
+Overfull \hbox (6.9628pt too wide) in paragraph at lines 24--26
+\OT1/txtt/m/n/10.95 the interval $\OT1/txr/m/n/10.95 [0\OML/txmi/m/it/10.95 ; \OT1/txr/m/n/10.95 1]$\OT1/txtt/m/n/10.95 
+. From the residue theorem (and the gaussian decrease of
+ []
+
+[16]
+Overfull \hbox (13.67429pt too wide) in paragraph at lines 26--28
+\OT1/txtt/m/n/10.95 for any non-negative integer $\OML/txmi/m/it/10.95 N$\OT1/txtt/m/n/10.95 , where $\OML/txmi/m/it/10.
+95 r[]; R[]$ \OT1/txtt/m/n/10.95 are the meromorphic functions 
+ []
+
+
+Overfull \hbox (7.02057pt too wide) in paragraph at lines 31--34
+\OT1/txtt/m/n/10.95 and $\OML/txmi/m/it/10.95 N \OMS/txsy/m/n/10.95 . \OML/txmi/m/it/10.95 N \OT1/txr/m/n/10.95 + 1$ \OT
+1/txtt/m/n/10.95 denotes any infinite line oriented in the direction $\OML/txmi/m/it/10.95 e[]$ \OT1/txtt/m/n/10.95 that
+
+ []
+
+
+Overfull \hbox (25.28001pt too wide) in paragraph at lines 31--34
+\OT1/txtt/m/n/10.95 see from Stirling's approximation that the functions $\OML/txmi/m/it/10.95 r[]\OT1/txr/m/n/10.95 ([]
+ + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 and $\OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 ([]
+ +
+ []
+
+
+Overfull \hbox (29.44551pt too wide) in paragraph at lines 31--34
+[]\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 grow slower than gaussian as $\OML/txmi/m/it/10.95 v \
+OMS/txsy/m/n/10.95 ! 1$ \OT1/txtt/m/n/10.95 (indeed they grow like $[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 O\OT1/tx
+r/m/n/10.95 (\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 v\OMS/txsy/m/n/10.95 j [] j\OML/txmi/m/it/10.95 v\OMS/txsy/m/n/10
+.95 j\OT1/txr/m/n/10.95 ))$\OT1/txtt/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (32.70618pt too wide) in paragraph at lines 31--34
+\OT1/txtt/m/n/10.95 where the implied constants depend on $\OML/txmi/m/it/10.95 t; z$\OT1/txtt/m/n/10.95 ). From this an
+d [], [] we conclude
+ []
+
+
+Overfull \hbox (27.42697pt too wide) in paragraph at lines 36--38
+\OT1/txtt/m/n/10.95 for any $\OML/txmi/m/it/10.95 t > \OT1/txr/m/n/10.95 0$\OT1/txtt/m/n/10.95 , any $\OML/txmi/m/it/10.
+95 z$ \OT1/txtt/m/n/10.95 that is not purely imaginary, and any non-negative integer
+ []
+
+
+Overfull \hbox (11.18863pt too wide) in paragraph at lines 41--43
+\OT1/txtt/m/n/10.95 these can be thought of as the evolutions of $\OML/txmi/m/it/10.95 r[]; R[]$ \OT1/txtt/m/n/10.95 res
+pectively under the
+ []
+
+
+Overfull \hbox (30.14189pt too wide) in paragraph at lines 44--45
+[]\OT1/txtt/m/n/10.95 The functions $\OML/txmi/m/it/10.95 r[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s\OT1/txr/m/n/10.9
+5 )\OML/txmi/m/it/10.95 ; R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 grow sl
+ower than gaussian as long as the imaginary
+ []
+
+
+Overfull \hbox (6.2109pt too wide) in paragraph at lines 44--45
+\OT1/txtt/m/n/10.95 part of $\OML/txmi/m/it/10.95 s$ \OT1/txtt/m/n/10.95 is bounded and bounded away from zero. As a con
+sequence, we may
+ []
+
+
+Overfull \hbox (26.61147pt too wide) in paragraph at lines 47--49
+\OT1/txtt/m/n/10.95 for any complex number $\OML/txmi/m/it/10.95 []$ \OT1/txtt/m/n/10.95 with $[]\OT1/txr/m/n/10.95 (\O
+ML/txmi/m/it/10.95 s\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 ; []\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s \OT1/txr/m/n
+/10.95 + []\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 having the same sign. Similarly
+ []
+
+
+Overfull \hbox (11.53574pt too wide) in paragraph at lines 51--53
+\OT1/txtt/m/n/10.95 for any complex number $\OML/txmi/m/it/10.95 []$ \OT1/txtt/m/n/10.95 with $[]\OT1/txr/m/n/10.95 (\O
+ML/txmi/m/it/10.95 s\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 ; []\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s \OT1/txr/m/n
+/10.95 + []\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 having the same sign. In the
+ []
+
+
+Overfull \hbox (17.54079pt too wide) in paragraph at lines 51--53
+\OT1/txtt/m/n/10.95 spirit of the saddle point method, we will select the parameters $\OML/txmi/m/it/10.95 []; []$ \OT
+1/txtt/m/n/10.95 later
+ []
+
+
+Overfull \hbox (20.64302pt too wide) in paragraph at lines 51--53
+\OT1/txtt/m/n/10.95 in the paper in order to make the integrands in [], [] close to stationary
+ []
+
+
+Overfull \hbox (7.54187pt too wide) in paragraph at lines 51--53
+\OT1/txtt/m/n/10.95 in phase at $\OML/txmi/m/it/10.95 v \OT1/txr/m/n/10.95 = 0$\OT1/txtt/m/n/10.95 , in order to obtain 
+good estimates and approximations for
+ []
+
+) (elementary.tex [17]
+Overfull \hbox (7.65514pt too wide) in paragraph at lines 3--4
+[]\OT1/txtt/m/n/10.95 In order to explicitly estimate various error terms arising in the proof
+ []
+
+[18]) (initial.tex
+Overfull \hbox (53.645pt too wide) in paragraph at lines 3--5
+[]\OT1/txtt/m/n/10.95 We can now begin the proof of Theorem 1.3[]. The strategy is to use the expansion
+ []
+
+
+Overfull \hbox (26.6655pt too wide) in paragraph at lines 3--5
+[]\OT1/txtt/m/n/10.95 , which turns out to be an effective approximation in the region [], since
+ []
+
+
+Overfull \hbox (8.72026pt too wide) in paragraph at lines 3--5
+[]\OML/txmi/m/it/10.95 []$\OT1/txtt/m/n/10.95 , with $\OML/txmi/m/it/10.95 s \OT1/txr/m/n/10.95 = []$\OT1/txtt/m/n/10.9
+5 , stay away from the real axis where the poles of $\OT1/txr/m/n/10.95  $ \OT1/txtt/m/n/10.95 are
+ []
+
+
+Overfull \hbox (12.90134pt too wide) in paragraph at lines 3--5
+\OT1/txtt/m/n/10.95 located (and also where the error terms in the Riemann-Siegel approximation
+ []
+
+[19]
+Overfull \hbox (48.66829pt too wide) in paragraph at lines 6--7
+[]\OT1/txtt/m/n/10.95 Accordingly, we will need effective estimates on the functions $\OML/txmi/m/it/10.95 r[]; R[]$ \OT
+1/txtt/m/n/10.95 appearing
+ []
+
+
+Overfull \hbox (54.15944pt too wide) in paragraph at lines 10--11
+ \OT1/txr/m/n/10.95 6.1.\OT1/txr/bx/n/10.95 Estimation of $\OML/txmi/m/it/10.95 r[]$\OT1/txr/bx/n/10.95 .[] \OT1/txtt/m/
+n/10.95 We recall the function $\OML/txmi/m/it/10.95 \OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s\OT1/txr/m/n/10.95 )$ \O
+T1/txtt/m/n/10.95 defined in []. From differentiating
+ []
+
+
+Overfull \hbox (66.718pt too wide) in paragraph at lines 23--24
+[]\OT1/txtt/m/n/10.95 We also recall the function $\OML/txmi/m/it/10.95 M[]$ \OT1/txtt/m/n/10.95 and the coefficients $\
+OML/txmi/m/it/10.95 b[]$ \OT1/txtt/m/n/10.95 from [], [] respectively.
+ []
+
+[20]
 Overfull \hbox (38.62108pt too wide) detected at line 54
 []
  []
 
-[20] [21]
-<C0_p.png, id=99, 565.8741pt x 423.5022pt>
+[21]
+Overfull \hbox (9.99937pt too wide) in paragraph at lines 88--89
+ \OT1/txr/m/n/10.95 6.2.\OT1/txr/bx/n/10.95 Estimation of $\OML/txmi/m/it/10.95 R[]$\OT1/txr/bx/n/10.95 .[] \OT1/txtt/m/
+n/10.95 We begin with the following estimates of Arias de Reyna
+ []
+
+[22]
+Overfull \hbox (27.42935pt too wide) in paragraph at lines 129--131
+\OT1/txtt/m/n/10.95 for all $\OML/txmi/m/it/10.95 p \OMS/txsy/m/n/10.95 2 \OT1/txr/m/n/10.95 [\OMS/txsy/m/n/10.95  \OT1/
+txr/m/n/10.95 1\OML/txmi/m/it/10.95 ; \OT1/txr/m/n/10.95 1]$\OT1/txtt/m/n/10.95 ; this follows for instance from the $\O
+ML/txmi/m/it/10.95 n \OT1/txr/m/n/10.95 = 0$ \OT1/txtt/m/n/10.95 case of [[], Theorem
+ []
+
+<C0_p.png, id=103, 565.8741pt x 423.5022pt>
 File: C0_p.png Graphic file (type png)
 <use C0_p.png>
 Package pdftex.def Info: C0_p.png  used on input line 133.
 (pdftex.def)             Requested size: 292.77629pt x 219.12384pt.
 
+Overfull \hbox (4.1731pt too wide) in paragraph at lines 138--139
+[]\OT1/txtt/m/n/10.95 Informally, the above proposition (and [], []) yield the approximation 
+ []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[22] [23 <./C0_p.png>]
+[23 <./C0_p.png>]
 Overfull \hbox (6.45036pt too wide) detected at line 165
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
@@ -588,23 +902,266 @@ xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.
 /10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
-[24] [25] [26] [27] [28] [29] [30]
+[24] [25] [26] [27] [28]
+Overfull \hbox (3.05745pt too wide) in paragraph at lines 330--331
+ \OT1/txr/m/n/10.95 6.3.\OT1/txr/bx/n/10.95 Combining the es-ti-mates.[] \OT1/txtt/m/n/10.95 Combining Propositions 6.1[
+], 6.3[] with [] and the
+ []
+
+
+Overfull \hbox (4.03015pt too wide) in paragraph at lines 330--331
+\OT1/txtt/m/n/10.95 triangle inequality (and noting that $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML/txmi/m/it/1
+0.95 M[]$\OT1/txtt/m/n/10.95 , $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML/txmi/m/it/10.95 M[]$ \OT1/txtt/m/n/10
+.95 and $\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 = \OML/txmi/m/it/10.95 []$\OT1/txtt/m/n/10.95 , and that
+ []
+
+[29]
+Overfull \hbox (18.54948pt too wide) in paragraph at lines 364--365
+[]\OT1/txtt/m/n/10.95 We can now prove Theorem 1.3[]. Dividing by the expression $\OML/txmi/m/it/10.95 B[]$ \OT1/txtt/m/
+n/10.95 from [], and
+ []
+
+[30]
+Overfull \hbox (36.3988pt too wide) in paragraph at lines 381--382
+[]\OT1/txtt/m/n/10.95 To conclude the proof of Theorem 1.3[] it thus suffices to obtain the following
+ []
+
+
+Overfull \hbox (8.65161pt too wide) in paragraph at lines 404--405
+[]\OT1/txtt/m/n/10.95 Note that to obtain the bound [] from Proposition 6.6[](vi) we may simply
+ []
+
+
 Overfull \hbox (16.23422pt too wide) in paragraph at lines 407--408
 []\OT1/txr/m/n/10.95 From the mean value the-o-rem (and not-ing that $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML
 /txmi/m/it/10.95 M[]$\OT1/txr/m/n/10.95 , so that $[] = []$),
  []
 
-[31] [32] [33]) (dirichlet.tex [34] [35] [36] [37]
-<euler_product_approximation.png, id=152, 424.08438pt x 183.68625pt>
+[31] [32] [33] [34]) (dirichlet.tex
+Overfull \hbox (19.1526pt too wide) in paragraph at lines 3--5
+[]\OT1/txtt/m/n/10.95 In view of Corollary 1.4[], it is of interest to obtain lower bounds for the
+ []
+
+
+Overfull \hbox (9.7615pt too wide) in paragraph at lines 3--5
+\OT1/txtt/m/n/10.95 quantity $\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \O
+ML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 defined in [] for $\OML/txmi/m/it/10.95 x; y; t$ \OT1/txt
+t/m/n/10.95 in the region []. By the triangle
+ []
+
+
+Overfull \hbox (15.5248pt too wide) in paragraph at lines 10--12
+\OT1/txtt/m/n/10.95 of magnitudes of Dirichlet series for various coefficients $\OML/txmi/m/it/10.95 []; []$\OT1/txtt/
+m/n/10.95 . Our tools
+ []
+
+[35] [36]
+Overfull \hbox (14.07098pt too wide) in paragraph at lines 57--58
+[]\OT1/txtt/m/n/10.95 Returning to the estimation of $\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x
+ \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )$\OT1/txtt/m/n/10.95 , we conclude from Lemma 7.1[](i) 
+with
+ []
+
+
+Overfull \hbox (12.46323pt too wide) in paragraph at lines 60--62
+\OT1/txtt/m/n/10.95 where $\OML/txmi/m/it/10.95  \U/txsyc/m/n/10.95 B []\OML/txmi/m/it/10.95 s[]$\OT1/txtt/m/n/10.95 . 
+This rather crude bound will suffice when $\OML/txmi/m/it/10.95 x$ \OT1/txtt/m/n/10.95 is very large,
+ []
+
+
+Overfull \hbox (30.14754pt too wide) in paragraph at lines 60--62
+\OT1/txtt/m/n/10.95 particularly when combined with the estimates in Proposition 6.6[]. For smaller
+ []
+
+
+Overfull \hbox (47.08716pt too wide) in paragraph at lines 60--62
+\OT1/txtt/m/n/10.95 values of $\OML/txmi/m/it/10.95 x$\OT1/txtt/m/n/10.95 , we would like to use parts (ii) and (iii) of
+ Lemma 7.1[]. A technical
+ []
+
+
+Overfull \hbox (16.75836pt too wide) in paragraph at lines 60--62
+\OT1/txtt/m/n/10.95 difficulty arises because the quantity $\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.
+95 j\OML/txmi/m/it/10.95 n[]b[]$ \OT1/txtt/m/n/10.95 quantity need not be real, so
+ []
+
+
+Overfull \hbox (12.87447pt too wide) in paragraph at lines 65--67
+\OT1/txtt/m/n/10.95 Assuming for now that $\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.95 j \OML/txmi/m/
+it/10.95 < \OT1/txr/m/n/10.95 1$ \OT1/txtt/m/n/10.95 (which in practice will follow from Proposition
+ []
+
+
+Overfull \hbox (30.14754pt too wide) in paragraph at lines 65--67
+\OT1/txtt/m/n/10.95 6.6[](i)), we can then apply Lemma 7.1[](iii) follows by Lemma 7.1[](ii) to conclude
+ []
+
+
+Overfull \hbox (1.40387pt too wide) in paragraph at lines 74--76
+\OT1/txtt/m/n/10.95 In practice, it has proven convenient to use this estimate with Dirichlet
+ []
+
+[37]
+Overfull \hbox (56.12088pt too wide) in paragraph at lines 78--80
+\OT1/txtt/m/n/10.95 for some small prime $\OML/txmi/m/it/10.95 P$\OT1/txtt/m/n/10.95 , where the product is over primes 
+$\OML/txmi/m/it/10.95 p$ \OT1/txtt/m/n/10.95 up to $\OML/txmi/m/it/10.95 P$\OT1/txtt/m/n/10.95 . For instance,
+ []
+
+
+Overfull \hbox (52.16449pt too wide) in paragraph at lines 78--80
+\OT1/txtt/m/n/10.95 all other $\OML/txmi/m/it/10.95 []$ \OT1/txtt/m/n/10.95 vanishing. This choice achieves a substanti
+al amount of cancellation
+ []
+
+
+Overfull \hbox (6.7142pt too wide) in paragraph at lines 78--80
+\OT1/txtt/m/n/10.95 in the $[]$ coefficients, which we have found to make the lower bound in []
+ []
+
+
+Overfull \hbox (35.89627pt too wide) in paragraph at lines 78--80
+\OT1/txtt/m/n/10.95 the literature one also sees other choices of mollifier than this Euler product
+ []
+
+
+Overfull \hbox (7.1526pt too wide) in paragraph at lines 78--80
+\OT1/txtt/m/n/10.95 used, for instance to control the extreme values of Dirichlet polynomials;
+ []
+
+
+Overfull \hbox (2.40034pt too wide) in paragraph at lines 78--80
+\OT1/txtt/m/n/10.95 however our numerical experimentations with alternative mollifiers to []
+ []
+
+
+Overfull \hbox (2.57352pt too wide) in paragraph at lines 81--82
+[]\OT1/txtt/m/n/10.95 The above calculations also suggest that the quantity $\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 
+(\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 oscillates
+
+ []
+
+
+Overfull \hbox (36.89275pt too wide) in paragraph at lines 81--82
+\OT1/txtt/m/n/10.95 in inverse proportion to the Euler product []. Thus, to minimise the relative
+ []
+
+
+Overfull \hbox (2.58649pt too wide) in paragraph at lines 81--82
+\OT1/txtt/m/n/10.95 size of the right-hand side of [] with respect to the left-hand side, it
+ []
+
+
+Overfull \hbox (7.1526pt too wide) in paragraph at lines 81--82
+\OT1/txtt/m/n/10.95 would therefore seem to be advantageous to try to work as much as possible
+ []
+
+
+Overfull \hbox (7.1526pt too wide) in paragraph at lines 81--82
+\OT1/txtt/m/n/10.95 in regions where this product is small, which heuristically corresponds to
+ []
+
+
+Overfull \hbox (18.34349pt too wide) in paragraph at lines 81--82
+\OT1/txtt/m/n/10.95 to zero). In our subsequent arguments, we will erect a barrier for $\OML/txmi/m/it/10.95 x$ \OT1/txt
+t/m/n/10.95 in the
+ []
+
+
+Overfull \hbox (67.78543pt too wide) in paragraph at lines 81--82
+\OT1/txtt/m/n/10.95 vicinity of $\OT1/txr/m/n/10.95 6 \OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 10[]$ \OT1/txtt/m/n/10.95
+ (this number being largely dictated by the numerical verifications
+ []
+
+
+Overfull \hbox (35.89627pt too wide) in paragraph at lines 81--82
+\OT1/txtt/m/n/10.95 of the Riemann hypothesis in the literature); we will in fact place the barrier
+ []
+
+LaTeX Font Info:    Font shape `OT1/txtt/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/txtt/m/sl' tried instead on input line 91.
+
+Overfull \hbox (1.6338pt too wide) in paragraph at lines 90--92
+\OT1/txtt/m/n/10.95 We found this shift by the following somewhat \OT1/txtt/m/sl/10.95 ad hoc \OT1/txtt/m/n/10.95 proced
+ure. We first
+ []
+
+
+Overfull \hbox (21.84167pt too wide) in paragraph at lines 92--94
+\OT1/txtt/m/n/10.95 which is the exponent corresponding to $\OML/txmi/m/it/10.95 y \OT1/txr/m/n/10.95 = 1$ \OT1/txtt/m/n
+/10.95 (where the minimum value of $\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.9
+5 x \OT1/txr/m/n/10.95 +
+ []
+
+
+Overfull \hbox (49.63849pt too wide) in paragraph at lines 92--94
+\OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )\OMS/txsy/m/n/10.95 j$ \OT1/txtt/m/n/10.95 in the barrier region is expected 
+to occur). We numerically located candidate
+ []
+
+[38]
+Overfull \hbox (11.25888pt too wide) in paragraph at lines 94--96
+\OT1/txtt/m/n/10.95 exceeded a threshold (we chose $\OT1/txr/m/n/10.95 4$\OT1/txtt/m/n/10.95 ), to obtain seven candidat
+es for $\OML/txmi/m/it/10.95 q$\OT1/txtt/m/n/10.95 : $\OT1/txr/m/n/10.95 1046$\OT1/txtt/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (44.93019pt too wide) in paragraph at lines 94--96
+\OT1/txr/m/n/10.95 22402$\OT1/txtt/m/n/10.95 , $\OT1/txr/m/n/10.95 24198$\OT1/txtt/m/n/10.95 , $\OT1/txr/m/n/10.95 52806
+$\OT1/txtt/m/n/10.95 , $\OT1/txr/m/n/10.95 77752$\OT1/txtt/m/n/10.95 , $\OT1/txr/m/n/10.95 83952$\OT1/txtt/m/n/10.95 , a
+nd $\OT1/txr/m/n/10.95 99108$\OT1/txtt/m/n/10.95 . Among these candidates, we selected
+ []
+
+<euler_product_approximation.png, id=157, 424.08438pt x 183.68625pt>
 File: euler_product_approximation.png Graphic file (type png)
 <use euler_product_approximation.png>
 Package pdftex.def Info: euler_product_approximation.png  used on input line 99.
 (pdftex.def)             Requested size: 418.25368pt x 181.16884pt.
+) (estimating.tex
+Overfull \hbox (5.38853pt too wide) in paragraph at lines 3--4
+[]\OT1/txtt/m/n/10.95 In order to use the bound [] for very large values of $\OML/txmi/m/it/10.95 N$\OT1/txtt/m/n/10.95 
+, the following
+ []
+
+[39 <./euler_product_approximation.png>]
+Overfull \hbox (49.26135pt too wide) in paragraph at lines 37--38
+[]\OT1/txtt/m/n/10.95 Let $\OML/txmi/m/it/10.95 N$ \OT1/txtt/m/n/10.95 be a natural number. For any complex numbers $\OM
+L/txmi/m/it/10.95 z; w$\OT1/txtt/m/n/10.95 , we define the quantity 
+ []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (21.32993pt too wide) in paragraph at lines 40--42
+\OT1/txtt/m/n/10.95 It is thus of interest to efficiently evaluate $\OML/txmi/m/it/10.95 F[]\OT1/txr/m/n/10.95 (\OML/txm
+i/m/it/10.95 z; w\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 for multiple different
+ []
 
-) (estimating.tex [38] [39 <./euler_product_approximation.png>]
+
+Overfull \hbox (6.09526pt too wide) in paragraph at lines 40--42
+\OT1/txtt/m/n/10.95 values of $\OML/txmi/m/it/10.95 z; w$\OT1/txtt/m/n/10.95 . We will be particularly interested in the
+ regime where $\OML/txmi/m/it/10.95 w \OT1/txr/m/n/10.95 =
+ []
+
+
+Overfull \hbox (22.88097pt too wide) in paragraph at lines 44--45
+[]\OT1/txtt/m/n/10.95 If one were to naively evaluate $\OML/txmi/m/it/10.95 F[]\OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  
+[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 ; w\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 at $\OML/txmi/m/it/10.95 M$ \
+OT1/txtt/m/n/10.95 different values of $\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 z; w\OT1/txr/m/n/10.95 )$\OT1/txtt/m/n/
+10.95 ,
+ []
+
+
+Overfull \hbox (40.69241pt too wide) in paragraph at lines 44--45
+\OT1/txtt/m/n/10.95 this would require about $\OML/txmi/m/it/10.95 O\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 NM\OT1/txr/
+m/n/10.95 )$ \OT1/txtt/m/n/10.95 operations. We now seek to use fewer operations
+ []
+
+
+Overfull \hbox (1.17937pt too wide) in paragraph at lines 46--47
+[]\OT1/txtt/m/n/10.95 We can partition the interval $\OMS/txsy/m/n/10.95 f\OT1/txr/m/n/10.95 1\OML/txmi/m/it/10.95 ; [] 
+; N\OMS/txsy/m/n/10.95 g$ \OT1/txtt/m/n/10.95 into an initial segment $\OMS/txsy/m/n/10.95 f\OT1/txr/m/n/10.95 1\OML/txm
+i/m/it/10.95 ; [] ; N[]\OMS/txsy/m/n/10.95 g$
+ []
+
+[40]
 Overfull \hbox (27.85515pt too wide) detected at line 61
 \OML/txmi/m/it/10.95 F[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 z[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 ; w\OT1/
 txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 F[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 z[] \OT1/txr/m/n/10.95 + \OML/txmi/m/
@@ -635,12 +1192,65 @@ mi/m/it/10.95 B[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 ; w\OT1/txr/m/n/10.95
 .95 E\OT1/txr/m/n/10.95 )
  []
 
-[40]) (zerofree.tex [41]
+
+Overfull \hbox (17.00049pt too wide) in paragraph at lines 73--75
+\OT1/txtt/m/n/10.95 The point is that it only requires $\OML/txmi/m/it/10.95 O []$ \OT1/txtt/m/n/10.95 calculations to c
+ompute the $\OML/txmi/m/it/10.95 []$\OT1/txtt/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (4.69165pt too wide) in paragraph at lines 73--75
+\OT1/txtt/m/n/10.95 and $\OML/txmi/m/it/10.95 O []$ \OT1/txtt/m/n/10.95 calculations to compute the $\OML/txmi/m/it/10.9
+5 []\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 ; w\OT1/txr/m/n/10.95 )$\OT1/txtt/m/n/10.95 , so the total computation
+ []
+
+[41]
+Overfull \hbox (9.3962pt too wide) in paragraph at lines 78--79
+[]\OT1/txtt/m/n/10.95 Now we control the error term $\OML/txmi/m/it/10.95 E$\OT1/txtt/m/n/10.95 . From the concavity of 
+the logarithm we
+ []
+
+) (zerofree.tex
+Overfull \hbox (7.65514pt too wide) in paragraph at lines 3--4
+[]\OT1/txtt/m/n/10.95 In this section we prove Theorem 1.1[]. As stated in the introduction, it
+ []
+
+
+Overfull \hbox (3.50089pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 suffices to verify the conditions (i), (ii), (iii) of Theorem 1.2[] $\OML/txmi/m/it/10.95 t[] \U/txs
+yc/m/n/10.95 B \OT1/txr/m/n/10.95 0\OML/txmi/m/it/10.95 :\OT1/txr/m/n/10.95 2$\OT1/txtt/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (36.3988pt too wide) in paragraph at lines 5--6
+[]\OT1/txtt/m/n/10.95 Claim (i) is immediate from the result of Platt [[]] that all the non-trivial
+ []
+
+
+Overfull \hbox (5.99477pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 zeroes of $\OML/txmi/m/it/10.95 $ \OT1/txtt/m/n/10.95 with imaginary part between $\OT1/txr/m/n/10.
+95 0$ \OT1/txtt/m/n/10.95 and $\OT1/txr/m/n/10.95 3\OML/txmi/m/it/10.95 :\OT1/txr/m/n/10.95 06 \OMS/txsy/m/n/10.95  \OT
+1/txr/m/n/10.95 10[]$ \OT1/txtt/m/n/10.95 lie on the critical
+ []
+
+
+Overfull \hbox (4.19122pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 line $\OMS/txsy/m/n/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 s\OT1/txr/m/n/10.95 ) = 1\OML/
+txmi/m/it/10.95 =\OT1/txr/m/n/10.95 2\OMS/txsy/m/n/10.95 g$\OT1/txtt/m/n/10.95 . For the remaining claims (ii), (iii), w
+e need to verify
+ []
+
+
+Overfull \hbox (31.41776pt too wide) in paragraph at lines 10--11
+\OT1/txtt/m/n/10.95 Both of these regions lie in []. Enlarging the regions slightly, and applying
+ []
+
+[42]
 Overfull \hbox (20.57095pt too wide) detected at line 68
 []
  []
 
-[42] [43]
+[43] [44]
 Overfull \hbox (31.33856pt too wide) detected at line 116
 []
  []
@@ -650,40 +1260,427 @@ Overfull \hbox (31.33856pt too wide) in alignment at lines 115--116
 [] [] 
  []
 
-[44]
+
+Overfull \hbox (24.90134pt too wide) in paragraph at lines 135--136
+[]\OT1/txtt/m/n/10.95 We begin with claim (i). We need some derivative estimates on the quantity
+ []
+
+
 Overfull \hbox (22.51086pt too wide) detected at line 147
 []
  []
 
-
+[45]
 Overfull \hbox (82.23111pt too wide) detected at line 178
 \OMS/txsy/m/n/10.95 j[]j  [] [] [] \OT1/txr/m/n/10.95 + \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.95 
 j [] [] [] \OML/txmi/m/it/10.95 :
  []
 
-[45]
+[46]
 Overfull \hbox (93.05212pt too wide) detected at line 197
 [] \OT1/txr/m/n/10.95 = [] [] [] + \OML/txmi/m/it/10.95  [] [] [] :
  []
 
-[46] [47] [48]
-<B_vs_N.png, id=187, 425.6703pt x 281.1303pt>
+[47]
+Overfull \hbox (7.65514pt too wide) in paragraph at lines 225--227
+[]\OT1/txtt/m/n/10.95 At time t, df/dz is calculated according to Lemma 9.3, and the number of
+ []
+
+
+Overfull \hbox (7.1526pt too wide) in paragraph at lines 225--227
+\OT1/txtt/m/n/10.95 mesh points is set as ceiling(df/dz). Since the barrier location has been
+ []
+
+
+Overfull \hbox (14.7072pt too wide) in paragraph at lines 225--227
+\OT1/txtt/m/n/10.95 chosen in a way such that the minimum of $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 on any mesh 
+point is expected to
+ []
+
+
+Overfull \hbox (1.40387pt too wide) in paragraph at lines 225--227
+\OT1/txtt/m/n/10.95 be above 1 (normally much above 1), the distance between consecutive mesh
+ []
+
+
+Overfull \hbox (3.20973pt too wide) in paragraph at lines 225--227
+\OT1/txtt/m/n/10.95 points is 1/ceiling(df/dz), hence $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 should not drop to 
+0 between the mesh
+ []
+
+
+Overfull \hbox (3.20973pt too wide) in paragraph at lines 225--227
+\OT1/txtt/m/n/10.95 points. (When $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 on actual calculation on the mesh point
+s turns out to be
+ []
+
+
+Overfull \hbox (24.3988pt too wide) in paragraph at lines 225--227
+\OT1/txtt/m/n/10.95 above 1, this expectation is confirmed). df/dz is calculated using numerical
+ []
+
+
+Overfull \hbox (15.03658pt too wide) in paragraph at lines 225--227
+\OT1/txtt/m/n/10.95 integrals instead of summation : summand[](n=1) + integral[](n=1 to N), which
+ []
+
+
+Overfull \hbox (30.14754pt too wide) in paragraph at lines 225--227
+\OT1/txtt/m/n/10.95 gives a conservative estimate of the sum. The numerical integration is stable
+ []
+
+
+Overfull \hbox (15.20973pt too wide) in paragraph at lines 228--230
+[]\OT1/txtt/m/n/10.95 Again at time t, once $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 is calculated at all the mesh
+ points, the winding
+ []
+
+
+Overfull \hbox (26.20467pt too wide) in paragraph at lines 228--230
+\OT1/txtt/m/n/10.95 number is computed and the actual minimum $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 value obser
+ved on the mesh points
+ []
+
+
+Overfull \hbox (64.63994pt too wide) in paragraph at lines 228--230
+\OT1/txtt/m/n/10.95 is stored. Using Lemma 9.3 and numerical integration as above, df/dt is calculated.
+ []
+
+
+Overfull \hbox (7.65514pt too wide) in paragraph at lines 231--235
+[]\OT1/txtt/m/n/10.95 A storedsum matrix of Taylor coefficients (of a z,t polynomial) has been
+ []
+
+
+Overfull \hbox (8.95847pt too wide) in paragraph at lines 231--235
+\OT1/txtt/m/n/10.95 generated earlier outside loop 1-2 to be supplied for the $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/1
+0.95 evaluations at
+ []
+
+
+Overfull \hbox (20.45593pt too wide) in paragraph at lines 231--235
+\OT1/txtt/m/n/10.95 each time step. For the $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 evaluations, firstly the z co
+ordinates of all the
+ []
+
+
+Overfull \hbox (35.89627pt too wide) in paragraph at lines 231--235
+\OT1/txtt/m/n/10.95 mesh points are generated as a vector. The storedsums matrix is semi evaluated
+ []
+
+
+Overfull \hbox (30.14754pt too wide) in paragraph at lines 231--235
+\OT1/txtt/m/n/10.95 by passing it the t parameter, thus converting it to a z polynomial (generated
+ []
+
+
+Overfull \hbox (24.3988pt too wide) in paragraph at lines 231--235
+\OT1/txtt/m/n/10.95 as a vector of coefficients). Post this, using vector and matrix operations,
+ []
+
+
+Overfull \hbox (30.97856pt too wide) in paragraph at lines 236--237
+[]\OT1/txtt/m/n/10.95 is present as the function abbeff[]multieval[]symmetric[]rectangle in the parigp
+ []
+
+
+Overfull \hbox (53.14247pt too wide) in paragraph at lines 242--243
+\OT1/txtt/m/n/10.95 since the Lemma bound (eqn 78) using the Euler 5 mollifier monotonically increased
+ []
+
+
+Overfull \hbox (6.95349pt too wide) in paragraph at lines 249--250
+[]\OT1/txtt/m/n/10.95 We attempt here to find N dependent positive lower bounds for $\OMS/txsy/m/n/10.95 j\OML/txmi/m/it
+/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )\OM
+S/txsy/m/n/10.95 j$ \OT1/txtt/m/n/10.95 or
+ []
+
+
+Overfull \hbox (1.9064pt too wide) in paragraph at lines 256--257
+[]\OT1/txtt/m/n/10.95 If the incremental bound goes below a positive threshold at N, we reset
+ []
+
+[48]
+Overfull \hbox (1.24817pt too wide) in paragraph at lines 290--291
+[]\OT1/txtt/m/n/10.95 2) $\OML/txmi/m/it/10.95 g\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 n; N; N[]\OT1/txr/m/n/10.95 )$ 
+\OT1/txtt/m/n/10.95 can be seen to have the following properties with n fixed
+ []
+
+
+Overfull \hbox (12.90134pt too wide) in paragraph at lines 290--291
+\OT1/txtt/m/n/10.95 and N varying, resulting in it being constant or decreasing with increasing
+ []
+
+
+Overfull \hbox (13.49875pt too wide) in paragraph at lines 302--303
+[]\OT1/txtt/m/n/10.95 and starting with $\OML/txmi/m/it/10.95 N[] \OT1/txr/m/n/10.95 = 80000$\OT1/txtt/m/n/10.95 , and r
+esetting $\OML/txmi/m/it/10.95 N[]$ \OT1/txtt/m/n/10.95 whenever the incremental
+ []
+
+
+Overfull \hbox (21.64502pt too wide) in paragraph at lines 304--305
+[]\OT1/txtt/m/n/10.95 it was computationally verified that $\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 f[]\OMS/txsy/m/n/1
+0.95 j $ \OT1/txtt/m/n/10.95 0.03 for $\OML/txmi/m/it/10.95 N \OMS/txsy/m/n/10.95 2$ \OT1/txtt/m/n/10.95 [80000,1.5 mil
+lion] 
+ []
+
+[49]
+Overfull \hbox (10.76613pt too wide) in paragraph at lines 334--336
+\OT1/txtt/m/n/10.95 We can then apply Lemma 8.1[] twice to bound the left-hand side of [] by $\OML/txmi/m/it/10.95 A \OT
+1/txr/m/n/10.95 +
+ []
+
+
+Overfull \hbox (6.09897pt too wide) in paragraph at lines 342--344
+\OT1/txtt/m/n/10.95 The quantity $\OML/txmi/m/it/10.95 A$ \OT1/txtt/m/n/10.95 is decreasing in $\OML/txmi/m/it/10.95 N$\
+OT1/txtt/m/n/10.95 , so we may bound it by its value at $\OML/txmi/m/it/10.95 N \OT1/txr/m/n/10.95 =
+ []
+
+
+Overfull \hbox (16.60245pt too wide) in paragraph at lines 344--346
+\OT1/txtt/m/n/10.95 Finally, the quantity $\OML/txmi/m/it/10.95 B$ \OT1/txtt/m/n/10.95 can also be seen to be decreasing
+ in $\OML/txmi/m/it/10.95 N$ \OT1/txtt/m/n/10.95 in the range
+ []
+
+[50]
+<B_vs_N.png, id=196, 425.6703pt x 281.1303pt>
 File: B_vs_N.png Graphic file (type png)
 <use B_vs_N.png>
-Package pdftex.def Info: B_vs_N.png  used on input line 334.
+Package pdftex.def Info: B_vs_N.png  used on input line 350.
 (pdftex.def)             Requested size: 292.77629pt x 193.36668pt.
-) (asymptotic.tex [49 <./B_vs_N.png>] [50] [51] [52]
+) (asymptotic.tex
+Overfull \hbox (13.40387pt too wide) in paragraph at lines 3--4
+[]\OT1/txtt/m/n/10.95 In this section we use the effective estimates from Theorem 1.3[] to obtain
+ []
+
+
+Overfull \hbox (18.20024pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 asymptotic information about the function $\OML/txmi/m/it/10.95 H[]$\OT1/txtt/m/n/10.95 , which impr
+oves (and makes more
+ []
+
+
+Overfull \hbox (18.65007pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 effective) the results of Ki, Kim, and Lee [[]], by establishing Theorem 1.5[]. 
+ []
+
+[51 <./B_vs_N.png>] [52] [53]
+Overfull \hbox (53.54562pt too wide) in paragraph at lines 76--77
+[]\OT1/txtt/m/n/10.95 To understand the behavior of $\OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x 
+\OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 we make the following simple obser
+vations: 
+ []
+
+
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
 
-[53] [54] [55]
-<real_zeros_solid.png, id=212, 365.6862pt x 279.6849pt>
+
+Overfull \hbox (3.32578pt too wide) in paragraph at lines 112--114
+\OT1/txtt/m/n/10.95 suppose that $\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy \OT1/txr/m/n/10.95
+ = \OML/txmi/m/it/10.95 x[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 O\OT1/txr/m/n/10.95 (1)$\OT1/txtt/m/n/10.95 . By P
+roposition 10.1[](i) and Lemma 10.2[] we have 
+ []
+
+[54]
+Overfull \hbox (6.51105pt too wide) in paragraph at lines 125--127
+\OT1/txtt/m/n/10.95 If we now make the further assumption $\OML/txmi/m/it/10.95 y \OT1/txr/m/n/10.95 = \OML/txmi/m/it/10
+.95 O []$\OT1/txtt/m/n/10.95 , we can thus simplify the
+ []
+
+
+Overfull \hbox (16.17456pt too wide) in paragraph at lines 133--135
+\OT1/txtt/m/n/10.95 anti-clockwise and $\OML/txmi/m/it/10.95 c$ \OT1/txtt/m/n/10.95 is small enough, the quantity $\OML/
+txmi/m/it/10.95 H[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/1
+0.95 )$ \OT1/txtt/m/n/10.95 will wind exactly
+ []
+
+
+Overfull \hbox (30.14754pt too wide) in paragraph at lines 133--135
+\OT1/txtt/m/n/10.95 once around the origin, and hence by the argument principle there is precisely
+ []
+
+
+Overfull \hbox (17.75041pt too wide) in paragraph at lines 133--135
+\OT1/txtt/m/n/10.95 one zero of $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/10.95 inside this circle. As the zeroes of $\OM
+L/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/10.95 are symmetric around
+ []
+
+
+Overfull \hbox (4.94592pt too wide) in paragraph at lines 136--138
+[]\OT1/txtt/m/n/10.95 Now we prove (i). Suppose that $\OML/txmi/m/it/10.95 H[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x
+ \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 ) = 0$ \OT1/txtt/m/n/10.95 and $\OML/txmi/m/it/10.95 x \
+OMS/txsy/m/n/10.95  []\OT1/txr/m/n/10.95 ([])$\OT1/txtt/m/n/10.95 . We can assume
+ []
+
+
+Overfull \hbox (23.41931pt too wide) in paragraph at lines 136--138
+\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 y\OMS/txsy/m/n/10.95 j  \OT1/txr/m/n/10.95 1$ \OT1/txtt/m/n/10.95 since it is
+ known (e.g., from [[], Theorem 13]) that there are no zeroes
+ []
+
+
+Overfull \hbox (4.89943pt too wide) in paragraph at lines 139--140
+[]\OT1/txtt/m/n/10.95 Let $\OML/txmi/m/it/10.95 n$ \OT1/txtt/m/n/10.95 be a natural number that minimises $\OMS/txsy/m/n
+/10.95 j\OML/txmi/m/it/10.95 x \OMS/txsy/m/n/10.95   \OML/txmi/m/it/10.95 x[]\OMS/txsy/m/n/10.95 j$\OT1/txtt/m/n/10.95 ,
+ then $\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 = \OML/txmi/m/it/10.95 x[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 O 
+[]$ \OT1/txtt/m/n/10.95 since
+ []
+
+
+Overfull \hbox (32.47539pt too wide) in paragraph at lines 139--140
+\OT1/txtt/m/n/10.95 the derivative of the left-hand side of [] in $\OML/txmi/m/it/10.95 x[]$ \OT1/txtt/m/n/10.95 is comp
+arable to $[] \OML/txmi/m/it/10.95 x[]$\OT1/txtt/m/n/10.95 . From
+ []
+
+
+Overfull \hbox (12.90134pt too wide) in paragraph at lines 143--145
+\OT1/txtt/m/n/10.95 Thus both summands on the right-hand side have the same magnitude, which on
+ []
+
+
+Overfull \hbox (9.45093pt too wide) in paragraph at lines 150--151
+[]\OT1/txtt/m/n/10.95 Next, we prove (iii). In view of parts (i) and (ii), and adjusting $\OML/txmi/m/it/10.95 C$ \OT1/t
+xtt/m/n/10.95 if
+ []
+
+
+Overfull \hbox (11.4408pt too wide) in paragraph at lines 150--151
+[]\OT1/txr/m/n/10.95 ([])$\OT1/txtt/m/n/10.95 . By the argument principle, $\OML/txmi/m/it/10.95 N[]\OT1/txr/m/n/10.95 (
+\OML/txmi/m/it/10.95 X\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 is equal to $[]$ times the variation
+ []
+
+
+Overfull \hbox (2.27994pt too wide) in paragraph at lines 150--151
+\OT1/txtt/m/n/10.95 in the argument of $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/10.95 on the boundary of the rectangle $
+\OMS/txsy/m/n/10.95 f\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy \OT1/txr/m/n/10.95 : 0 \OMS/txs
+y/m/n/10.95  \OML/txmi/m/it/10.95 x \OMS/txsy/m/n/10.95  \OML/txmi/m/it/10.95 X\OT1/txr/m/n/10.95 ; \OMS/txsy/m/n/10.9
+5  \OT1/txr/m/n/10.95 3 \OMS/txsy/m/n/10.95 
+ []
+
+
+Overfull \hbox (1.40387pt too wide) in paragraph at lines 150--151
+\OT1/txtt/m/n/10.95 of magnitude greater than one. By compactness, the variation on the left
+ []
+
+
+Overfull \hbox (8.45074pt too wide) in paragraph at lines 150--151
+\OML/txmi/m/it/10.95 y \OMS/txsy/m/n/10.95  \OML/txmi/m/it/10.95 C\OMS/txsy/m/n/10.95 g$ \OT1/txtt/m/n/10.95 of the upp
+er edge. From Proposition 10.1[] (and []), we see that the
+ []
+
+[55]
+Overfull \hbox (13.97037pt too wide) in paragraph at lines 151--153
+\OT1/txtt/m/n/10.95 where we use a continuous branch of the argument of $\OML/txmi/m/it/10.95 M[] []$ \OT1/txtt/m/n/10.9
+5 that is bounded
+ []
+
+
+Overfull \hbox (5.49802pt too wide) in paragraph at lines 154--155
+[]\OT1/txtt/m/n/10.95 Finally, we prove (iv). From [] and the rapid decrease of $\OT1/txr/m/n/10.95 $ \OT1/txtt/m/n/10.
+95 it is easy
+ []
+
+
+Overfull \hbox (17.9265pt too wide) in paragraph at lines 154--155
+\OT1/txtt/m/n/10.95 to verify that the entire function $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/10.95 has order $\OT1/tx
+r/m/n/10.95 1$\OT1/txtt/m/n/10.95 , while from the positivity
+ []
+
+
+Overfull \hbox (54.94835pt too wide) in paragraph at lines 154--155
+\OT1/txtt/m/n/10.95 of $\OT1/txr/m/n/10.95 $ \OT1/txtt/m/n/10.95 we see that $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/1
+0.95 has no zero at the origin. Thus by the Hadamard factorization
+ []
+
+
+Overfull \hbox (48.22095pt too wide) in paragraph at lines 155--157
+\OT1/txtt/m/n/10.95 for some complex numbers $\OML/txmi/m/it/10.95 a; b$\OT1/txtt/m/n/10.95 , where $\OML/txmi/m/it/10.9
+5 z[]$ \OT1/txtt/m/n/10.95 are the zeroes of $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n/10.95 counting multiplicity;
+ []
+
+
+Overfull \hbox (23.78447pt too wide) in paragraph at lines 161--163
+\OT1/txtt/m/n/10.95 integral formula that the logarithmic derivative of $\OML/txmi/m/it/10.95 H[]\OT1/txr/m/n/10.95 (\OM
+L/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 =M[] []$ \OT1/t
+xtt/m/n/10.95 is equal
+ []
+
+
+Overfull \hbox (25.40627pt too wide) in paragraph at lines 161--163
+\OT1/txtt/m/n/10.95 to $\OML/txmi/m/it/10.95 O\OT1/txr/m/n/10.95 (1)$ \OT1/txtt/m/n/10.95 at $\OML/txmi/m/it/10.95 X \OT
+1/txr/m/n/10.95 + 4\OML/txmi/m/it/10.95 i$ \OT1/txtt/m/n/10.95 for all sufficiently large $\OML/txmi/m/it/10.95 X$\OT1/t
+xtt/m/n/10.95 , and hence for all $\OML/txmi/m/it/10.95 X$ \OT1/txtt/m/n/10.95 by symmetry
+ []
+
+
+Overfull \hbox (41.645pt too wide) in paragraph at lines 161--163
+\OT1/txtt/m/n/10.95 and compactness. On the other hand, from Stirling's formula (or the logarithmic
+ []
+
+
+Overfull \hbox (58.8912pt too wide) in paragraph at lines 161--163
+\OT1/txtt/m/n/10.95 growth of the digamma function) one easily verifies that the logarithmic derivative
+ []
+
+[56]
+Overfull \hbox (24.3988pt too wide) in paragraph at lines 165--167
+\OT1/txtt/m/n/10.95 where the sum now ranges over all zeroes, including any at the origin. Since
+ []
+
+
+Overfull \hbox (12.90134pt too wide) in paragraph at lines 165--167
+\OT1/txtt/m/n/10.95 As the summands are all positive, the first part of claim (iv) follows. To
+ []
+
+
+Overfull \hbox (4.44302pt too wide) in paragraph at lines 165--167
+\OT1/txtt/m/n/10.95 prove the second part, we may assume by compactness that $\OML/txmi/m/it/10.95 x \OMS/txsy/m/n/10.95
+  \OML/txmi/m/it/10.95 C$\OT1/txtt/m/n/10.95 . Repeating
+ []
+
+
+Overfull \hbox (14.74008pt too wide) in paragraph at lines 165--167
+\OT1/txtt/m/n/10.95 the proof of (iii), and reduce to showing that the variation of $[]\OML/txmi/m/it/10.95 H[]$ \OT1/tx
+tt/m/n/10.95 on the
+ []
+
+
+Overfull \hbox (7.89337pt too wide) in paragraph at lines 165--167
+\OT1/txtt/m/n/10.95 phase such that $\OML/txmi/m/it/10.95 e[]H[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 X \OT1/txr/m/n/
+10.95 + 3\OML/txmi/m/it/10.95 i\OT1/txr/m/n/10.95 )$ \OT1/txtt/m/n/10.95 is real and positive, we see that this variatio
+n
+ []
+
+
+Overfull \hbox (1.47433pt too wide) in paragraph at lines 165--167
+\OT1/txtt/m/n/10.95 is at most $\OML/txmi/m/it/10.95 \OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 m \OT1/txr/m/n/10.95 + 1)
+$\OT1/txtt/m/n/10.95 , where $\OML/txmi/m/it/10.95 m$ \OT1/txtt/m/n/10.95 is the number of zeroes of $[]\OML/txmi/m/it/1
+0.95 e[]H[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 X \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 yi\OT1/txr/m/n/10.95 )$ 
+\OT1/txtt/m/n/10.95 for $\OT1/txr/m/n/10.95 0 \OMS/txsy/m/n/10.95 
+ []
+
+
+Overfull \hbox (9.082pt too wide) in paragraph at lines 165--167
+\OML/txmi/m/it/10.95 y \OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 3$\OT1/txtt/m/n/10.95 , since every increment of $\OML/t
+xmi/m/it/10.95 $ \OT1/txtt/m/n/10.95 in $[]\OML/txmi/m/it/10.95 e[]H[]$ \OT1/txtt/m/n/10.95 must be accompanied by at l
+east
+ []
+
+
+Overfull \hbox (5.37508pt too wide) in paragraph at lines 165--167
+\OT1/txtt/m/n/10.95 and Jensen's formula we see that the number of such zeroes is $\OML/txmi/m/it/10.95 O\OT1/txr/m/n/10
+.95 ([] \OML/txmi/m/it/10.95 X\OT1/txr/m/n/10.95 )$\OT1/txtt/m/n/10.95 , and
+ []
+
+[57]
+<real_zeros_solid.png, id=220, 365.6862pt x 279.6849pt>
 File: real_zeros_solid.png Graphic file (type png)
 <use real_zeros_solid.png>
 Package pdftex.def Info: real_zeros_solid.png  used on input line 183.
 (pdftex.def)             Requested size: 376.42575pt x 287.92076pt.
-<Actual_trajectories_zeros.png, id=213, 792.9625pt x 549.05125pt>
+<Actual_trajectories_zeros.png, id=221, 792.9625pt x 549.05125pt>
 File: Actual_trajectories_zeros.png Graphic file (type png)
 <use Actual_trajectories_zeros.png>
 Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 188.
@@ -692,38 +1689,164 @@ Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 188.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (further.tex [56 <./real_zeros_solid.png>]
-Underfull \vbox (badness 1540) has occurred while \output is active []
+) (further.tex
+Overfull \hbox (7.65514pt too wide) in paragraph at lines 3--4
+[]\OT1/txtt/m/n/10.95 By Theorem 1.5[], one can verify the second hypothesis of Theorem 1.2[] when
+ []
 
- [57 <./Actual_trajectories_zeros.png>]
-Overfull \hbox (7.64595pt too wide) in paragraph at lines 13--27
+
+Overfull \hbox (7.1526pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 the third hypothesis of Theorem 1.2[] (which turns out to be relatively easy
+ []
+
+
+Overfull \hbox (24.3988pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 to verify numerically in practice), this suggests that one can obtain a bound
+ []
+
+
+Overfull \hbox (20.96008pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 up to a height $[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 C=t[]\OT1/txr/m/n/10.95 )$\OT1/txtt/m/n/1
+0.95 . In other words, if one has numerically verified the
+ []
+
+
+Overfull \hbox (14.53288pt too wide) in paragraph at lines 3--4
+\OT1/txtt/m/n/10.95 Riemann hypothesis up to a large height $\OML/txmi/m/it/10.95 T$\OT1/txtt/m/n/10.95 , this should so
+on lead to a bound
+ []
+
+
+Overfull \hbox (13.40387pt too wide) in paragraph at lines 5--6
+[]\OT1/txtt/m/n/10.95 Aside from improving the implied constant in this bound, it does not seem
+ []
+
+
+Overfull \hbox (18.65007pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 easy to improve this sort of implication without a major breakthrough on the
+ []
+
+
+Overfull \hbox (30.14754pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 Riemann hypothesis (such as a massive expansion of the known zero-free regions
+ []
+
+
+Overfull \hbox (30.14754pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 for the zeta function inside the critical strip). We shall justify this claim
+ []
+
+
+Overfull \hbox (1.40387pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 heuristically as follows. Suppose that there was a counterexample to the
+ []
+
+
+Overfull \hbox (29.01436pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 Riemann hypothesis at a large height $\OML/txmi/m/it/10.95 T$\OT1/txtt/m/n/10.95 , so that $\OML/txm
+i/m/it/10.95 H[]\OT1/txr/m/n/10.95 (2\OML/txmi/m/it/10.95 T \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.
+95 ) = 0$ \OT1/txtt/m/n/10.95 for some positive
+ []
+
+
+Overfull \hbox (23.23813pt too wide) in paragraph at lines 5--6
+\OML/txmi/m/it/10.95 y$\OT1/txtt/m/n/10.95 , which for this discussion we will take to be comparable to $\OT1/txr/m/n/10
+.95 1$\OT1/txtt/m/n/10.95 . The Riemann
+ []
+
+
+Overfull \hbox (37.07845pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 von Mangoldt formula indicates that the number of zeroes of $\OML/txmi/m/it/10.95 H[]$ \OT1/txtt/m/n
+/10.95 within a bounded
+ []
+
+
+Overfull \hbox (1.60825pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 distance of this zero should be comparable to $[] \OML/txmi/m/it/10.95 T$\OT1/txtt/m/n/10.95 ; the m
+ajority of these
+ []
+
+
+Overfull \hbox (41.645pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 zeroes should obey the Riemann hypothesis and thus stay at roughly unit distance
+ []
+
+
+Overfull \hbox (33.59308pt too wide) in paragraph at lines 5--6
+\OML/txmi/m/it/10.95 t$ \OT1/txtt/m/n/10.95 advances, this zero should move at speed comparable to $[] \OML/txmi/m/it/10
+.95 T$\OT1/txtt/m/n/10.95 . Thus one should
+ []
+
+
+Overfull \hbox (15.00446pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 not expect this zero to reach the real axis until a time comparable to $[]$.
+ []
+
+
+Overfull \hbox (18.65007pt too wide) in paragraph at lines 5--6
+\OT1/txtt/m/n/10.95 This heuristic analysis therefore indicates that it is unlikely that one can
+ []
+
+[58 <./real_zeros_solid.png>]
+Overfull \hbox (19.1526pt too wide) in paragraph at lines 7--8
+[]\OT1/txtt/m/n/10.95 In this section we collect some numerical results verifying the second two
+ []
+
+
+Overfull \hbox (10.6452pt too wide) in paragraph at lines 7--8
+\OT1/txtt/m/n/10.95 hypotheses of Theorem 1.2[] for larger values of $\OML/txmi/m/it/10.95 X$\OT1/txtt/m/n/10.95 , and s
+maller values of $\OML/txmi/m/it/10.95 t[]$\OT1/txtt/m/n/10.95 ,
+ []
+
+
+Overfull \hbox (12.90134pt too wide) in paragraph at lines 7--8
+\OT1/txtt/m/n/10.95 than were considered in Section 9[]. This leads to improvements to the bound
+ []
+
+
+Overfull \hbox (4.44586pt too wide) in paragraph at lines 7--8
+\OT1/txtt/m/n/10.95 numerically verified beyond the height $\OML/txmi/m/it/10.95 T \OMS/txsy/m/n/10.95  \OT1/txr/m/n/10
+.95 1\OML/txmi/m/it/10.95 :\OT1/txr/m/n/10.95 2 \OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 10[]$ \OT1/txtt/m/n/10.95 used 
+in Section 9[]. Our
+ []
+
+LaTeX Font Info:    Font shape `OT1/txtt/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/txtt/b/n' tried instead on input line 14.
+
+Overfull \hbox (23.01949pt too wide) in paragraph at lines 13--27
  [] 
  []
 
-) [58]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 187.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
-File: ot1txtt.fd 2000/12/15 v3.1
-) [59] (debruijn.aux) ) 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+Underfull \vbox (badness 1178) has occurred while \output is active []
+
+ [59 <./Actual_trajectories_zeros.png>]
+Underfull \vbox (badness 1675) has occurred while \output is active []
+
+ [60] [61] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
- 5948 strings out of 493303
- 86139 string characters out of 3138857
- 161965 words of memory out of 3000000
- 9165 multiletter control sequences out of 15000+200000
- 41015 words of font info for 103 fonts, out of 3000000 for 9000
+ 5964 strings out of 493303
+ 86369 string characters out of 3138857
+ 159964 words of memory out of 3000000
+ 9178 multiletter control sequences out of 15000+200000
+ 42984 words of font info for 111 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
  55i,21n,39p,1490b,352s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
-fonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
-w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (59 pages, 1615126 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/txfonts/txbtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/tx
+sya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on debruijn.pdf (61 pages, 1625044 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
+ 288 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,12 +1,16 @@
 \BOOKMARK [1][-]{section.1}{1. Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{2. Notation}{}% 2
-\BOOKMARK [1][-]{section.3}{3. Applying the fundamental solution for the heat equation}{}% 3
-\BOOKMARK [1][-]{section.4}{4. Elementary estimates}{}% 4
-\BOOKMARK [1][-]{section.5}{5. Initial approximations}{}% 5
-\BOOKMARK [1][-]{section.6}{6. Bounding Dirichlet series}{}% 6
-\BOOKMARK [1][-]{section.7}{7. Estimation for small x}{}% 7
-\BOOKMARK [1][-]{section.8}{8. A new upper bound for the de Bruijn-Newman constant}{}% 8
-\BOOKMARK [2][-]{subsection.8.1}{8.1. The case of large N: N 2000}{section.8}% 9
-\BOOKMARK [2][-]{subsection.8.2}{8.2. The case of medium N: 11 N < 2000}{section.8}% 10
-\BOOKMARK [2][-]{subsection.8.3}{8.3. The case of small N: N 10}{section.8}% 11
-\BOOKMARK [1][-]{section*.1}{References}{}% 12
+\BOOKMARK [2][-]{subsection.1.1}{1.1. About this project}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{2. Notation}{}% 3
+\BOOKMARK [1][-]{section.3}{3. Dynamics of zeroes}{}% 4
+\BOOKMARK [1][-]{section.4}{4. Applying the fundamental solution for the heat equation}{}% 5
+\BOOKMARK [1][-]{section.5}{5. Elementary estimates}{}% 6
+\BOOKMARK [1][-]{section.6}{6. Estimates for large x}{}% 7
+\BOOKMARK [2][-]{subsection.6.1}{6.1. Estimation of rt,n}{section.6}% 8
+\BOOKMARK [2][-]{subsection.6.2}{6.2. Estimation of Rt,N}{section.6}% 9
+\BOOKMARK [2][-]{subsection.6.3}{6.3. Combining the estimates}{section.6}% 10
+\BOOKMARK [1][-]{section.7}{7. Bounding Dirichlet series}{}% 11
+\BOOKMARK [1][-]{section.8}{8. Estimating a sum}{}% 12
+\BOOKMARK [1][-]{section.9}{9. A new upper bound for the de Bruijn-Newman constant}{}% 13
+\BOOKMARK [1][-]{section.10}{10. Asymptotic results}{}% 14
+\BOOKMARK [1][-]{section.11}{11. Further numerical results}{}% 15
+\BOOKMARK [1][-]{section*.16}{References}{}% 16

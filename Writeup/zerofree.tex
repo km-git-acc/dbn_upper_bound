@@ -220,6 +220,22 @@ giving the second claim.
 
 ...
 
+{\tt
+
+At time t, df/dz is calculated according to Lemma 9.3, and the number of mesh points is set as ceiling(df/dz). Since the barrier location has been chosen in a way such that the minimum of $f_t$ on any mesh point is expected to be above 1 (normally much above 1), the distance between consecutive mesh points is 1/ceiling(df/dz), hence $f_t$ should not drop to 0 between the mesh points. (When $f_t$ on actual calculation on the mesh points turns out to be above 1, this expectation is confirmed).
+df/dz is calculated using numerical integrals instead of summation : {summand\_(n=1) + integral\_(n=1 to N)}, which gives a conservative estimate of the sum. The numerical integration is stable since df/dz shows non oscillatory behavior with x,y and t.
+
+Again at time t, once $f_t$ is calculated at all the mesh points, the winding number is computed and the actual minimum $f_t$ value observed on the mesh points is stored. Using Lemma 9.3 and numerical integration as above, df/dt is calculated. The next t value is found using
+$t_current + (f_{t\_mesh\_min} - 0.5)/(df/dt)$
+
+A storedsum matrix of Taylor coefficients (of a z,t polynomial) has been generated earlier outside loop 1-2 to be supplied for the $f_t$ evaluations at each time step.
+For the $f_t$ evaluations, firstly the z coordinates of all the mesh points are generated as a vector.
+The storedsums matrix is semi evaluated by passing it the t parameter, thus converting it to a z polynomial (generated as a vector of coefficients).
+Post this, using vector and matrix operations, the $f_t$ values are generated as a vector.
+
+is present as the function {\tt abbeff\_multieval\_symmetric\_rectangle} in the parigp code.
+
+}
 
 Now we prove claim (ii).
 
