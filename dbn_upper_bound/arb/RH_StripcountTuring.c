@@ -15,7 +15,7 @@
 #include "acb_dirichlet.h"
 #include "flint/profiler.h"
 
-//count all zeros on the critical line (for test purposes)
+//count all zeros in the critical strip
 void
 N_count(arb_t rcount, arb_t xa, slong prec)
 {  
@@ -686,7 +686,7 @@ TIMEIT_ONCE_START
         acb_dirichlet_hardy_z(s, t, NULL, NULL, 1, prec);
         acb_get_real(a, s);
 
-        arb_get_ubound_arf(u, a, prec);
+        arb_get_ubound_arf(u, xa, prec);
         slong t5a=arf_get_d(u, ARF_RND_NEAR);
         printf("\n");
         printf("Z(gp_%ld) = ", t5a);
