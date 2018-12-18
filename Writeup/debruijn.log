@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  18 DEC 2018 14:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  18 DEC 2018 15:02
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -553,11 +553,11 @@ File: Extra_RS_term.png Graphic file (type png)
 Package pdftex.def Info: Extra_RS_term.png  used on input line 182.
 (pdftex.def)             Requested size: 250.95476pt x 187.16232pt.
  [9 <./Extra_RS_term.png>]
-<Integerconvergence_t_and_x_direction.png, id=58, 1306.8825pt x 500.87125pt>
+<Integerconvergence_t_and_x_direction.png, id=58, 1291.82625pt x 503.8825pt>
 File: Integerconvergence_t_and_x_direction.png Graphic file (type png)
 <use Integerconvergence_t_and_x_direction.png>
 Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 218.
-(pdftex.def)             Requested size: 418.25368pt x 160.29735pt.
+(pdftex.def)             Requested size: 418.25368pt x 163.13708pt.
  [10 <./Integerconvergence_t_and_x_direction.png>]
 LaTeX Font Info:    Try loading font information for OT1+txtt on input line 237.
 
@@ -1844,7 +1844,7 @@ sya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Pr
 c/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (61 pages, 1628017 bytes).
+Output written on debruijn.pdf (61 pages, 1625044 bytes).
 PDF statistics:
  288 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
