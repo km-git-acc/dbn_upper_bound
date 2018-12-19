@@ -38,7 +38,7 @@ Let $N$ be a natural number.  For any complex numbers $z,w$, we define the quant
 $$ F_N(z,w) \coloneqq \sum_{n=1}^N  n^{-z + w \log n}.$$
 In particular, the function $f_t(x+iy)$ defined in \eqref{ft-def} has the form
 $$ f_t(x+iy) = F_N\left( \frac{1+y-ix}{2} + \frac{t}{2} \alpha(\frac{1+y-ix}{2}), \frac{t}{4} \right) + \gamma \overline{F_N\left( \frac{1-y-ix}{2} + \frac{t}{2} \alpha(\frac{1-y-ix}{2}), \frac{t}{4} \right)}.$$
-It is thus of interest to efficiently evaluate $F_N(z,w)$ for multiple different values of $z,w$.  We will be particularly interested in the regime where $w=O(1)$ and $z = z_0 + \zeta$ for some $\zeta = O(1)$ and some fixed $z_0$ (e.g. $z_0 = \frac{1-iX}{2}$, thus
+It is thus of interest to efficiently evaluate $F_N(z,w)$ for multiple different values of $z,w$.  We will be particularly interested in the regime where $w=O(1)$ and $z = z_0 + \zeta$ for some $\zeta = O(1)$ and some fixed $z_0$ (e.g. $z_0 = \frac{1-iX}{2}$), thus
 $$F_N(z_0+\zeta, w) = \sum_{n=1}^N n^{-z_0} n^{-\zeta + w \log n}.$$
 
 If one were to naively evaluate $F_N(-\frac{iX}{2}+\zeta, w)$ at $M$ different values of $(z,w)$, this would require about $O(NM)$ operations.  We now seek to use fewer operations to perform these evaluations, at the cost of some accuracy.

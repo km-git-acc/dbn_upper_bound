@@ -130,6 +130,10 @@ newton_quot_abc(x,y,t,h=0.000001) = (abceff(x+h,y,t)-abceff(x,y,t))/h;
 newton_quot_abbeff_x(x,y,t,h=0.00001) = return(abs((abbeff(x+h,y,t) - abbeff(x,y,t))/h));
 newton_quot_abbeff_t(x,y,t,h=0.00001) = return(abs((abbeff(x,y,t+h) - abbeff(x,y,t))/h));
 
+\\ abbapproxarr evaluates a Taylor approximation (with expterms many terms) to the sums
+\\ \sum_{n=1}^N \frac{n^b b_n^t}{n^{\frac{1+y-iX}{2}}} + \gamma(s) \sum_{n=1}^N \frac{n^a b_n^t}{n^{\frac{1-y+iX}{2}}}
+\\ for arrays bexpo, aexpo, sarr of choices of b,a,s, by subdividing n=1..N into intervals of length H
+
 abbapproxarr(X,y,t,num,H,expterms,bexpo,aexpo,sarr)={
     N = floor(sqrt((X+Pi*t/4)/(4*Pi)));
     numn0 = (N - H/2)\/H;
