@@ -130,11 +130,28 @@ in the following regions:
 \end{itemize}
 
 
-We begin with claim (i).  We need some derivative estimates on the quantity $f_t(x+iy )$.
+We begin with claim (i).  The function $f_t(x+iy)$ is holomorphic, so by Rouche's theorem, it suffices to show that for each time $0 \leq t \leq 0.2$, as $x+iy$ traverses the boundary $\partial R$ of the rectangle 
+$$ R \coloneqq \{ x+iy: 10^{10} + 83952 - 0.5 \leq x \leq 6 \times 10^{10} + 83952 + 0.5; 0.2 \leq y \leq 1 \},$$
+the function $f_t(x+iy)$ stays outside of the ball $B \coloneqq \{ z: |z| \leq 1.25 \times 10^{-3} \}$, and furthermore has a winding number of zero around the origin.
+
+To verify this claim numerically for a given value of $t$, we subdivide each edge of $\partial R$ into some number $n$ of equally spaced mesh points, thus approximating $\partial R$ by a discrete mesh $x_j+iy_j$, $j=1,\dots,4n$, with any two adjacent points on this mesh separated by a distance at most $1/n$.  Using the techniques in Section \ref{Fast}, we evaluate $f_t(x_j+iy_j)$ numerically for each such value of $j$.  The polygonal path connecting these points then winds around the origin with winding number
+$$ \frac{1}{2\pi} \sum_{j=1}^{4n} \mathrm{arg}( f_t(x_{j+1}+iy_{j+1}) / f_t(x_j + i y_j) )$$
+which can be easily computed (and verified to be zero).  To pass from this polygonal path to the true trajectory $f_t(\partial R)$ of $f_t(x+iy)$ on $\partial R$, we again use Rouche's theorem.  If one has a derivative bound $|\frac{\partial}{\partial z} f_t(z)| \leq D_z$ on the boundary of the rectangle, the polygonal path and the true trajectory $f_t(\partial R)$ differ by a distance of at most $\frac{D_z}{2n}$, and the latter will have the same winding number around the origin (and stay outside of the ball $B$) as long as
+$$ |f_t(x_j + iy_j)| > 1.25 \times 10^{-3} + \frac{D_z}{2n}.$$
+Furthermore, the same is true for nearby times $t \leq t' 0.2$ to $t$, as long as one has the stronger bound
+\begin{equation}\label{cond}
+ |f_t(x_j + iy_j)| > 1.25 \times 10^{-3} + \frac{D_z}{2n} + \frac{D_t |t'-t|}{2n}
+\end{equation}
+and a bound of the form $|\frac{\partial}{\partial t} f_{\tilde t}(z)| \leq D_t$
+for $t \leq \tilde t \leq 0.2$ and $z \in \partial R$.
+
+This gives the following algorithm to verify (i) for the entire range $0 \leq t \leq 0.2$.  We start with $t=0$ and obtain bounds $D_t, D_z$ for the derivatives of $f_{\tilde t}(z)$ in the indicated ranges.  Because of the way the barrier location $X$ was selected, we expect $|f_t(x+iy)|$ to stay well above $1$ in magnitude.  We thus choose $n$ so that $\frac{D_z}{2n} \leq 1$, and evaluate $f_t(x_j+iy_j)$ at all the mesh points (in particular confirming that $|f_t(x_j+iy_j)|$ does stay well above $1$).  Using the minimum value of $|f_t(x_j+iy_j)|$, we can then use the condition \eqref{cond} to establish the claim for times in the interval $[t,t')$ where $t'>t$ is chosen so that \eqref{cond} holds (or $t'=0.2$, if that is also possible); the most aggressive choice of $t'$ would be one in which \eqref{cond} held with equality, but in practice we can afford to take more conservative values of $t'$ and still obtain good runtime performance.  If $t' < 0.2$, we then repeat the process, replacing $t$ by $t'$, until the entire range $0 \leq t \leq 0.2$ is verified.
+
+To run this algorithm, we need bounds on $D_t$ and $D_z$.  This is achieved by the following lemma, which gives bounds which are somewhat complicated but which can be easily upper bounded numerically on $\partial R$:
 
 \begin{lemma} In the region \eqref{region}, and away from the jump discontinuities of $N$, we have
 \begin{align*}
- \left|\frac{\partial f_t}{\partial x}\right| = \left|\frac{\partial f_t}{\partial y}\right| &\leq  \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) \\
+ \left|\frac{\partial f_t}{\partial z}\right| &\leq  \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) \\
 &\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^{y} }{n^{\mathrm{Re}(s_{*})}}
 \left( \frac{t \log n}{4(x-6)} + \left(\log \frac{|1+y+ix|}{4\pi} + \pi + \frac{3}{x}\right) \left(\frac{1}{2} + \frac{t}{4(x-6)}\right)\right)
 \end{align*}
@@ -215,27 +232,12 @@ We conclude from the triangle inequality that
 giving the second claim.
 \end{proof}
 
+{\bf describe the numerical output of this algorithm, for instance discussing the values of $t$ used, the size of the mesh at different points in $t$, bounds for $D_t, D_z$, etc.}
 
-...
-
-{\tt
-
-At time t, df/dz is calculated according to Lemma 9.3, and the number of mesh points is set as ceiling(df/dz). Since the barrier location has been chosen in a way such that the minimum of $f_t$ on any mesh point is expected to be above 1 (normally much above 1), the distance between consecutive mesh points is 1/ceiling(df/dz), hence $f_t$ should not drop to 0 between the mesh points. (When $f_t$ on actual calculation on the mesh points turns out to be above 1, this expectation is confirmed).
-df/dz is calculated using numerical integrals instead of summation : {summand\_(n=1) + integral\_(n=1 to N)}, which gives a conservative estimate of the sum. The numerical integration is stable since df/dz shows non oscillatory behavior with x,y and t.
-
-Again at time t, once $f_t$ is calculated at all the mesh points, the winding number is computed and the actual minimum $f_t$ value observed on the mesh points is stored. Using Lemma 9.3 and numerical integration as above, df/dt is calculated. The next t value is found using
-$t_current + (f_{t\_mesh\_min} - 0.5)/(df/dt)$
-
-A storedsum matrix of Taylor coefficients (of a z,t polynomial) has been generated earlier outside loop 1-2 to be supplied for the $f_t$ evaluations at each time step.
-For the $f_t$ evaluations, firstly the z coordinates of all the mesh points are generated as a vector.
-The storedsums matrix is semi evaluated by passing it the t parameter, thus converting it to a z polynomial (generated as a vector of coefficients).
-Post this, using vector and matrix operations, the $f_t$ values are generated as a vector.
-
-is present as the function {\tt abbeff\_multieval\_symmetric\_rectangle} in the parigp code.
-
-}
 
 Now we prove claim (ii).
+
+{\bf need to detail this more}
 
 For $N \in [69098,80000]$, it was computationally verified that $|f_{N}| > 0.042$, since the Lemma bound (eqn 78) using the Euler 5 mollifier monotonically increased with N, from 0.04278 to 0.08011.
 
@@ -243,6 +245,8 @@ $ $
  
 
 Now we prove claim (iii).
+
+{\bf need to detail this more}
 
 We attempt here to find N dependent positive lower bounds for $|f_{t}(x+iy)|$ or corresponding mollified sums through an incremental approach,
 
