@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  19 DEC 2018 09:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  20 DEC 2018 12:39
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -605,38 +605,7 @@ Package pdftex.def Info: euler_product_approximation.png  used on input line 99.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (estimating.tex [38] [39 <./euler_product_approximation.png>]
-Overfull \hbox (27.85515pt too wide) detected at line 61
-\OML/txmi/m/it/10.95 F[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 z[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 ; w\OT1/
-txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 F[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 z[] \OT1/txr/m/n/10.95 + \OML/txmi/m/
-it/10.95 ; w\OT1/txr/m/n/10.95 ) + [] [](\OML/txmi/m/it/10.95 N[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 h\OT1/txr/m
-/n/10.95 )[] [](\OML/txmi/m/it/10.95 A[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 ; w\OT1/txr/m/n/10.95 )) [] [](\OML/tx
-mi/m/it/10.95 B[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 ; w\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 "[] \OT1/txr/m/n/
-10.95 + \OML/txmi/m/it/10.95 w"[]\OT1/txr/m/n/10.95 )[] + \OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.
-95 E\OT1/txr/m/n/10.95 )
- []
-
-
-Overfull \hbox (5.45436pt too wide) detected at line 63
-\OML/txmi/m/it/10.95 E \U/txsyc/m/n/10.95 B [] []\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 n[] \OT1/txr/m/n/10.95 + \OML/
-txmi/m/it/10.95 h\OT1/txr/m/n/10.95 )[] []([]\OML/txmi/m/it/10.95 A[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 ; w\OT1/t
-xr/m/n/10.95 ))[] [](\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 B[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 ; w\OT1/txr/
-m/n/10.95 )\OML/txmi/m/it/10.95 "[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 w"[]\OMS/txsy/m/n/10.95 j\OT1/txr/m/n/10.9
-5 )\OML/txmi/m/it/10.95 :
- []
-
-
-Overfull \hbox (98.52974pt too wide) detected at line 67
-\OML/txmi/m/it/10.95 F[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 z[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 ; w\OT1/
-txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 F[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 z[] \OT1/txr/m/n/10.95 + \OML/txmi/m/
-it/10.95 ; w\OT1/txr/m/n/10.95 ) + [] [](\OML/txmi/m/it/10.95 N[] \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 h\OT1/txr/m
-/n/10.95 )[] [](\OML/txmi/m/it/10.95 A[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 ; w\OT1/txr/m/n/10.95 )) [] [](\OML/tx
-mi/m/it/10.95 B[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 ; w\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 "[]\OT1/txr/m/n/1
-0.95 )[](\OML/txmi/m/it/10.95 w"[]\OT1/txr/m/n/10.95 )[] + \OML/txmi/m/it/10.95 O[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10
-.95 E\OT1/txr/m/n/10.95 )
- []
-
-[40]) (zerofree.tex [41]
+) (estimating.tex [38] [39 <./euler_product_approximation.png>] [40]) (zerofree.tex [41]
 Overfull \hbox (20.57095pt too wide) detected at line 66
 []
  []
@@ -652,185 +621,76 @@ Overfull \hbox (31.33856pt too wide) in alignment at lines 113--114
  []
 
 [44]
-Overfull \hbox (18.44473pt too wide) detected at line 145
+Overfull \hbox (18.44473pt too wide) detected at line 162
 []
  []
 
-
-Overfull \hbox (82.23111pt too wide) detected at line 176
+[45]
+Overfull \hbox (82.23111pt too wide) detected at line 193
 \OMS/txsy/m/n/10.95 j[]j  [] [] [] \OT1/txr/m/n/10.95 + \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.95 
 j [] [] [] \OML/txmi/m/it/10.95 :
  []
 
-[45]
-Overfull \hbox (93.05212pt too wide) detected at line 195
+[46]
+Overfull \hbox (93.05212pt too wide) detected at line 212
 [] \OT1/txr/m/n/10.95 = [] [] [] + \OML/txmi/m/it/10.95  [] [] [] :
  []
 
-[46]
-Overfull \hbox (7.65514pt too wide) in paragraph at lines 223--225
-[]\OT1/txtt/m/n/10.95 At time t, df/dz is calculated according to Lemma 9.3, and the number of
- []
-
-
-Overfull \hbox (7.1526pt too wide) in paragraph at lines 223--225
-\OT1/txtt/m/n/10.95 mesh points is set as ceiling(df/dz). Since the barrier location has been
- []
-
-
-Overfull \hbox (14.7072pt too wide) in paragraph at lines 223--225
-\OT1/txtt/m/n/10.95 chosen in a way such that the minimum of $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 on any mesh 
-point is expected to
- []
-
-
-Overfull \hbox (1.40387pt too wide) in paragraph at lines 223--225
-\OT1/txtt/m/n/10.95 be above 1 (normally much above 1), the distance between consecutive mesh
- []
-
-
-Overfull \hbox (3.20973pt too wide) in paragraph at lines 223--225
-\OT1/txtt/m/n/10.95 points is 1/ceiling(df/dz), hence $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 should not drop to 
-0 between the mesh
- []
-
-
-Overfull \hbox (3.20973pt too wide) in paragraph at lines 223--225
-\OT1/txtt/m/n/10.95 points. (When $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 on actual calculation on the mesh point
-s turns out to be
- []
-
-
-Overfull \hbox (24.3988pt too wide) in paragraph at lines 223--225
-\OT1/txtt/m/n/10.95 above 1, this expectation is confirmed). df/dz is calculated using numerical
- []
-
-
-Overfull \hbox (15.03658pt too wide) in paragraph at lines 223--225
-\OT1/txtt/m/n/10.95 integrals instead of summation : summand[](n=1) + integral[](n=1 to N), which
- []
-
-
-Overfull \hbox (30.14754pt too wide) in paragraph at lines 223--225
-\OT1/txtt/m/n/10.95 gives a conservative estimate of the sum. The numerical integration is stable
- []
-
-
-Overfull \hbox (15.20973pt too wide) in paragraph at lines 226--228
-[]\OT1/txtt/m/n/10.95 Again at time t, once $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 is calculated at all the mesh
- points, the winding
- []
-
-
-Overfull \hbox (26.20467pt too wide) in paragraph at lines 226--228
-\OT1/txtt/m/n/10.95 number is computed and the actual minimum $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 value obser
-ved on the mesh points
- []
-
-
-Overfull \hbox (64.63994pt too wide) in paragraph at lines 226--228
-\OT1/txtt/m/n/10.95 is stored. Using Lemma 9.3 and numerical integration as above, df/dt is calculated.
- []
-
-
-Overfull \hbox (7.65514pt too wide) in paragraph at lines 229--233
-[]\OT1/txtt/m/n/10.95 A storedsum matrix of Taylor coefficients (of a z,t polynomial) has been
- []
-
-
-Overfull \hbox (8.95847pt too wide) in paragraph at lines 229--233
-\OT1/txtt/m/n/10.95 generated earlier outside loop 1-2 to be supplied for the $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/1
-0.95 evaluations at
- []
-
-
-Overfull \hbox (20.45593pt too wide) in paragraph at lines 229--233
-\OT1/txtt/m/n/10.95 each time step. For the $\OML/txmi/m/it/10.95 f[]$ \OT1/txtt/m/n/10.95 evaluations, firstly the z co
-ordinates of all the
- []
-
-
-Overfull \hbox (35.89627pt too wide) in paragraph at lines 229--233
-\OT1/txtt/m/n/10.95 mesh points are generated as a vector. The storedsums matrix is semi evaluated
- []
-
-
-Overfull \hbox (30.14754pt too wide) in paragraph at lines 229--233
-\OT1/txtt/m/n/10.95 by passing it the t parameter, thus converting it to a z polynomial (generated
- []
-
-
-Overfull \hbox (24.3988pt too wide) in paragraph at lines 229--233
-\OT1/txtt/m/n/10.95 as a vector of coefficients). Post this, using vector and matrix operations,
- []
-
-
-Overfull \hbox (30.97856pt too wide) in paragraph at lines 234--235
-[]\OT1/txtt/m/n/10.95 is present as the function abbeff[]multieval[]symmetric[]rectangle in the parigp
- []
-
-[47] [48]
-<B_vs_N.png, id=188, 425.6703pt x 281.1303pt>
+[47] [48] [49]
+<B_vs_N.png, id=193, 425.6703pt x 281.1303pt>
 File: B_vs_N.png Graphic file (type png)
 <use B_vs_N.png>
-Package pdftex.def Info: B_vs_N.png  used on input line 348.
+Package pdftex.def Info: B_vs_N.png  used on input line 352.
 (pdftex.def)             Requested size: 292.77629pt x 193.36668pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (asymptotic.tex [49] [50 <./B_vs_N.png>] [51] [52]
+) (asymptotic.tex [50 <./B_vs_N.png>] [51] [52] [53]
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
 
-[53] [54] [55]
-<real_zeros_solid.png, id=213, 365.6862pt x 279.6849pt>
+[54] [55] [56]
+<real_zeros_solid.png, id=217, 365.6862pt x 279.6849pt>
 File: real_zeros_solid.png Graphic file (type png)
 <use real_zeros_solid.png>
 Package pdftex.def Info: real_zeros_solid.png  used on input line 183.
 (pdftex.def)             Requested size: 376.42575pt x 287.92076pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Actual_trajectories_zeros.png, id=214, 792.9625pt x 549.05125pt>
+<Actual_trajectories_zeros.png, id=218, 792.9625pt x 549.05125pt>
 File: Actual_trajectories_zeros.png Graphic file (type png)
 <use Actual_trajectories_zeros.png>
 Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 188.
 (pdftex.def)             Requested size: 376.42575pt x 260.64287pt.
 
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (further.tex [56]
+) (further.tex [57 <./real_zeros_solid.png>]
+Underfull \vbox (badness 1540) has occurred while \output is active []
+
+ [58 <./Actual_trajectories_zeros.png>]
 Overfull \hbox (7.64595pt too wide) in paragraph at lines 13--27
  [] 
  []
 
-
-Underfull \vbox (badness 3088) has occurred while \output is active []
-
- [57 <./real_zeros_solid.png>]) [58 <./Actual_trajectories_zeros.png>] [59] (debruijn.aux) ) 
+) [59] [60] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
- 5954 strings out of 493303
- 86232 string characters out of 3138857
- 159965 words of memory out of 3000000
- 9171 multiletter control sequences out of 15000+200000
- 42697 words of font info for 108 fonts, out of 3000000 for 9000
+ 5956 strings out of 493303
+ 86229 string characters out of 3138857
+ 162002 words of memory out of 3000000
+ 9173 multiletter control sequences out of 15000+200000
+ 42145 words of font info for 106 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
  55i,21n,39p,1490b,352s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9
-/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txs
-ya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (59 pages, 1615428 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/txfonts/rtxb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/tx
+sya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/urw/times/utmri8a.pfb>
+Output written on debruijn.pdf (60 pages, 1622114 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
+ 280 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

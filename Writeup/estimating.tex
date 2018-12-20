@@ -33,7 +33,7 @@ $$
 In practice, this upper bound for $\sum_{n=1}^N \frac{b_n^t}{n^\sigma}$ is slightly more accurate than the one in Lemma \ref{largen}, and is a good approximation even for relatively small values of $N_0$ (e.g., $N_0=100$).  However, the cruder bound above suffices for the numerical values of parameters needed to establish the bound $\Lambda \leq 0.22$.
 \end{remark}
 
-\subsection{Fast evaluation of multiple values of $f_t(s)$}
+\subsection{Fast evaluation of multiple values of $f_t(s)$}\label{Fast}
 
 Fix $t \geq 0$.  For the verification of the barrier criterion (Theorem \ref{ubc-0}(iii)) using Corollary \ref{zero-test}, we will need to evaluate the quantity $f_t(s)$ to reasonable accuracy for a large number of values of $s$ in the vicinity of a fixed complex number $X+iy$.  From \eqref{ft-def} we have
 \begin{equation}\label{fts}
@@ -45,39 +45,31 @@ and
 $$ a = a(s) \coloneqq  \frac{1-y-iX}{2} - \overline{s_*} - \kappa$$
 with $s_*, \kappa$ defined by \eqref{sn-def}, \eqref{kappa-def}.  In practice the exponents $a,b$ will be rather small, and $N$ will be fixed (in our main verification we will in fact have $N = 69098$).
 
-A naive computation of $f_t(s)$ for $M$ values of $s$ would take time $O(NM)$, which turns out to be numerically infeasible for the ranges of $N,M$ we will need {\bf do we have a value of $M$?  also $t$ varies}.  However, we were able to speed up this calculation by an acceptable amount by subdividing the summation range $\sum_{n=1}^N$ into short intervals of a given length $H$ (we eventually took $H=10$), and then performing a Taylor expansion in each short sum to factor those sums as a linear combination of further sums that do not depend on the parameters $s,a,b$.  These latter sums can be stored in advance, leading to a computational saving.
+A naive computation of $f_t(s)$ for $M$ values of $s$ would take time $O(NM)$, which turns out to be somewhat impractical for for the ranges of $N,M$ we will need; indeed, for our main theorem, the total number of pairs $(t,s)$ at which we need to perform the evaluation is $785052$ (spread out over $152$ values of $t$), and direct computation of all this data required $78.5$ hours of computer time, which was still feasible at this order of magnitude of $X$ but would not scale to significantly higher magnitudes.  However, one can significantly speed up the computation (to about $0.025$ hours) to extremely high accuracy by using Taylor series expansion to factorise the sums in \eqref{fts} into combinations of sums that do not depend on $s$ and thus can be computed in advance.
 
-We turn to the details.  Let $H$ be a small even number, say $H=10$.  We assume that $N$ is a multiple of $H$; if this is not the case, then one can approximate the sums $\sum_{n=1}^N$ in \eqref{fts} by $\sum_{n=1}^{H \lfloor N/H \rfloor}$ and compute the tail $\sum_{n=H\lfloor N/H \rfloor+1}^N$ separately (the latter only requiring time $O(HM)$).  Once $N$ is a multiple of $H$, we can then subdivide
-$$ \sum_{n=1}^N F(n) = \sum_{v=1}^{N/H} \sum_{h=-H/2+1}^{H/2} F(n_0(v) + h)$$
-for any function $F$, where 
-$$ n_0(v) \coloneqq \frac{H}{2} + (v-1) H.$$
-We thus have
-$$ f_t(s) = \sum_{v=1}^{N/H} B(n_0(v),b) + \gamma(s) \sum_{v=1}^{N/H} A(n_0(v),a)$$
+We turn to the details.  To make the Taylor series converge\footnote{One can obtain even faster speedups here by splitting the summation range $\sum_{n=1}^N$ into shorter intervals and using a Taylor expansion for each interval, although ultimately we did not need to exploit this.} faster, we recenter the sum in $n$, writing
+$$ \sum_{n=1}^N F(n) = \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} F(n_0 + h)$$
+for any function $F$, where $n_0 \coloneqq \lfloor N/2$.  We thus have
+$$ f_t(s) = B(b) + \gamma(s) A(n_0,a)$$
 where
-$$ B(n_0,b) \coloneqq \sum_{h = -H/2+1}^{H/2} \frac{(n_0+h)^b b_{n_0+h}^t}{(n_0+h)^{\frac{1+y-iX}{2}}}$$
+$$ B(b) \coloneqq \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} \frac{(n_0+h)^b b_{n_0+h}^t}{(n_0+h)^{\frac{1+y-iX}{2}}}$$
 and
-$$ A(n_0,a) \coloneqq \sum_{h = -H/2+1}^{H/2} \frac{(n_0+h)^a b_{n_0+h}^t}{(n_0+h)^{\frac{1-y+iX}{2}}}.$$
-We discuss the fast computation of $B(n_0,b)$ for multiple values of $b$; the discussion for $A(n_0,a)$ is analogous.  We can write the numerator $(n_0+h)^b b_{n_0+h}^t$ as
+$$ A(a) \coloneqq \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} \frac{(n_0+h)^a b_{n_0+h}^t}{(n_0+h)^{\frac{1-y+iX}{2}}}.$$
+We discuss the fast computation of $B(b)$ for multiple values of $b$; the discussion for $A(a)$ is analogous.  We can write the numerator $(n_0+h)^b b_{n_0+h}^t$ as
 $$ \exp( b \log(n_0+h) + \frac{t}{4} \log^2(n_0+h) );$$
 writing $\log(n_0+h) = \log n_0 + \log(1+\frac{h}{n_0})$, this becomes
 $$ n_0^{b + \frac{t}{4} \log n_0} \exp( \frac{t}{4} \log^2(1+\frac{h}{n_0}) ) \exp( (b + \frac{t}{2} \log n_0) \log(1+\frac{h}{n_0}) ).$$
-By Taylor expanding\footnote{We also experimented with Taylor expanding the first exponential, but found that this did not lead to significant numerical speedups.} the second exponential, we can write this as
-$$ n_0^{b + \frac{t}{4} \log n_0} \sum_{i=0}^\infty \exp( \frac{t}{4} \log^2(1+\frac{h}{n_0}) ) \log^i(1+\frac{h}{n_0}) \frac{(b+\frac{t}{2} \log n_0)^i}{i!}$$
-and thus the expression $B(n_0,b)$ can be written as
-$$ B(n_0,b) = n_0^{b + \frac{t}{4} \log n_0} \sum_{i=0}^\infty B_i(n_0) \frac{(b+\frac{t}{2} \log n_0)^i}{i!}$$
+By Taylor expanding\footnote{It is also possible to proceed by just performing Taylor expansion on the second exponential and leaving the first exponential untouched; this turns out to lead to a comparable numerical run time.} the exponentials, we can write this as
+$$ n_0^{b + \frac{t}{4} \log n_0} \sum_{i=0}^\infty \sum_{j=0}^\infty \frac{( \frac{t}{4} \log^2(1+\frac{h}{n_0}) )^i}{i!} \log^j(1+\frac{h}{n_0}) \frac{(b+\frac{t}{2} \log n_0)^j}{j!}$$
+and thus the expression $B(b)$ can be written as
+$$ B(b) = n_0^{b + \frac{t}{4} \log n_0} \sum_{i=0}^\infty \sum_{j=0}^\infty B_{i,j} \frac{(b+\frac{t}{2} \log n_0)^j}{j!}$$
 where
-$$ B_i(n_0) \coloneqq \sum_{h = -H/2+1}^{H/2} \frac{\exp( \frac{t}{4} \log^2(1+\frac{h}{n_0}) ) \log^i(1+\frac{h}{n_0})}{(n_0+h)^{\frac{1+y-iX}{2}}}.$$
-If we truncate the $i$ summation at some cutoff $E$, we obtain the approximation
-$$ B(n_0,b) \approx n_0^{b + \frac{t}{4} \log n_0} \sum_{i=0}^{E-1} B_i(n_0) \frac{(b+\frac{t}{2} \log n_0)^i}{i!}.$$
-For each value of $n_0$, the quantities $B_i(n_0), i=0,\dots,{E-1}$ may be evaluated in time $O(HE)$, and then the sums $B(n_0,b)$ for $M$ values of $b$ may be evaluated in time $O(ME)$.  Summing over the $N/H$ values of $n_0$, and treating the $A(n_0,a)$ terms similarly, we then obtain an approximation to the $M$ values of $f_t(s)$ in time $O( NE + \frac{E}{H} NM )$.  In practice we found that setting $H=10$ and $E=4$ leads to an acceptable speedup.
+$$ B_{i,j} \coloneqq \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} \frac{( \frac{t}{4} \log^2(1+\frac{h}{n_0}) )^i}{i!} \frac{\log^j(1+\frac{h}{n_0})}{(n_0+h)^{\frac{1+y-iX}{2}}}.$$
+If we truncate the $i,j$ summations at some cutoff $E$, we obtain the approximation
+$$ B(b) \approx n_0^{b + \frac{t}{4} \log n_0} \sum_{i=0}^{E-1} \sum_{j=0}^{E-1} B_{i,j}(n_0) \frac{(b+\frac{t}{2} \log n_0)^i}{i!}.$$
+The quantities $B_{i,j}, i,j=0,\dots,{E-1}$ may be evaluated in time $O(N E^2)$, and then the sums $B(b)$ for $M$ values of $b$ may be evaluated in time $O(ME^2)$, leading to a total computation time of $O((N+M) E^2)$ which can be significantly faster than $O(NM)$ even for relatively large values of $E$.  We took $E=50$, which is more than adequate to obtain extremely high accuracy for $f_t(s)$; see ???.  The code for implementing this may be found in the file
 
-Of course, to be completely rigorous we also need to estimate the error caused by the cutoff in $i$.
+\centerline{\tt dbn\_upper\_bound/pari/barrier\_multieval\_t\_agnostic.txt}
 
-...
-
-
-
-
-
-
+in the github repository \cite{github}.
 
