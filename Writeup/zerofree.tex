@@ -145,7 +145,7 @@ Furthermore, the same is true for nearby times $t \leq t' 0.2$ to $t$, as long a
 and a bound of the form $|\frac{\partial}{\partial t} f_{\tilde t}(z)| \leq D_t$
 for $t \leq \tilde t \leq 0.2$ and $z \in \partial R$.
 
-This gives the following algorithm to verify (i) for the entire range $0 \leq t \leq 0.2$.  We start with $t=0$ and obtain bounds $D_t, D_z$ for the derivatives of $f_{\tilde t}(z)$ in the indicated ranges.  Because of the way the barrier location $X$ was selected, we expect $|f_t(x+iy)|$ to stay well above $1$ in magnitude.  We thus choose $n$ so that $\frac{D_z}{2n} \leq 1$, and evaluate $f_t(x_j+iy_j)$ at all the mesh points (in particular confirming that $|f_t(x_j+iy_j)|$ does stay well above $1$).  Using the minimum value of $|f_t(x_j+iy_j)|$, we can then use the condition \eqref{cond} to establish the claim for times in the interval $[t,t')$ where $t'>t$ is chosen so that \eqref{cond} holds with equality (or $t'=0.2$, if that is also possible).  If $t' < 0.2$, we then repeat the process, replacing $t$ by $t'$.
+This gives the following algorithm to verify (i) for the entire range $0 \leq t \leq 0.2$.  We start with $t=0$ and obtain bounds $D_t, D_z$ for the derivatives of $f_{\tilde t}(z)$ in the indicated ranges.  Because of the way the barrier location $X$ was selected, we expect $|f_t(x+iy)|$ to stay well above $1$ in magnitude.  We thus choose $n$ so that $\frac{D_z}{2n} \leq 1$, and evaluate $f_t(x_j+iy_j)$ at all the mesh points (in particular confirming that $|f_t(x_j+iy_j)|$ does stay well above $1$).  Using the minimum value of $|f_t(x_j+iy_j)|$, we can then use the condition \eqref{cond} to establish the claim for times in the interval $[t,t')$ where $t'>t$ is chosen so that \eqref{cond} holds (or $t'=0.2$, if that is also possible); the most aggressive choice of $t'$ would be one in which \eqref{cond} held with equality, but in practice we can afford to take more conservative values of $t'$ and still obtain good runtime performance.  If $t' < 0.2$, we then repeat the process, replacing $t$ by $t'$, until the entire range $0 \leq t \leq 0.2$ is verified.
 
 To run this algorithm, we need bounds on $D_t$ and $D_z$.  This is achieved by the following lemma, which gives bounds which are somewhat complicated but which can be easily upper bounded numerically on $\partial R$:
 
@@ -232,7 +232,7 @@ We conclude from the triangle inequality that
 giving the second claim.
 \end{proof}
 
-{\bf describe the numerical output of this algorithm, for instance discussing the values of $t$ used, the size of the mesh at different points in $t$, etc.}
+{\bf describe the numerical output of this algorithm, for instance discussing the values of $t$ used, the size of the mesh at different points in $t$, bounds for $D_t, D_z$, etc.}
 
 
 Now we prove claim (ii).

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  20 DEC 2018 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  20 DEC 2018 12:45
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -482,19 +482,132 @@ Package grfext Info: Graphics extension search list:
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (intro.tex [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+ (intro.tex
+
+LaTeX Warning: Citation `titch' on page 1 undefined on input line 14.
+
+[1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+
+LaTeX Warning: Citation `debr' on page 2 undefined on input line 22.
+
+
+LaTeX Warning: Citation `csv' on page 2 undefined on input line 26.
+
+
+LaTeX Warning: Citation `polya' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `newman' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `brad' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `newman' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `cnv' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `nrv' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `crv' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `cosv' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `odlyzko' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `saouter' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `kkl' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Citation `debr' on page 2 undefined on input line 27.
+
+
+LaTeX Warning: Reference `new-upper' on page 2 undefined on input line 34.
+
+
+LaTeX Warning: Reference `dynamics-sec' on page 2 undefined on input line 34.
+
+
+LaTeX Warning: Reference `barrier-fig' on page 2 undefined on input line 45.
+
+
+LaTeX Warning: Reference `debr-bound' on page 2 undefined on input line 45.
+
+
+LaTeX Warning: Reference `ubc-0' on page 2 undefined on input line 47.
+
+[2]
 <Barrier_approach.png, id=18, 1388.18625pt x 655.44875pt>
 File: Barrier_approach.png Graphic file (type png)
 <use Barrier_approach.png>
 Package pdftex.def Info: Barrier_approach.png  used on input line 51.
 (pdftex.def)             Requested size: 376.42575pt x 177.73363pt.
- [3 <./Barrier_approach.png>]
+
+
+LaTeX Warning: Reference `ubc-0' on page 3 undefined on input line 52.
+
+
+LaTeX Warning: Reference `ubc-0' on page 3 undefined on input line 52.
+
+
+LaTeX Warning: Reference `new-upper' on page 3 undefined on input line 56.
+
+
+LaTeX Warning: Reference `ubc-0' on page 3 undefined on input line 56.
+
+
+LaTeX Warning: Citation `platt' on page 3 undefined on input line 56.
+
+
+LaTeX Warning: Reference `euler' on page 3 undefined on input line 56.
+
+
+LaTeX Warning: Reference `new-upper' on page 3 undefined on input line 56.
+
+
+LaTeX Warning: Citation `platt' on page 3 undefined on input line 56.
+
+
+LaTeX Warning: Reference `further-sec' on page 3 undefined on input line 56.
+
+[3 <./Barrier_approach.png>]
+
+LaTeX Warning: Reference `sas' on page 4 undefined on input line 64.
+
+
+LaTeX Warning: Reference `loghtandlogbt' on page 4 undefined on input line 64.
+
+
+LaTeX Warning: Reference `hoz' on page 4 undefined on input line 68.
+
+
+LaTeX Warning: Reference `sas' on page 4 undefined on input line 68.
+
+
+LaTeX Warning: Reference `region' on page 4 undefined on input line 89.
+
+
+LaTeX Warning: Reference `region' on page 4 undefined on input line 93.
+
+
+LaTeX Warning: Reference `ht-bt' on page 4 undefined on input line 97.
+
+
+LaTeX Warning: Reference `limx' on page 4 undefined on input line 97.
+
 <ftvsht.png, id=24, 1281.78876pt x 483.8075pt>
 File: ftvsht.png Graphic file (type png)
 <use ftvsht.png>
 Package pdftex.def Info: ftvsht.png  used on input line 100.
 (pdftex.def)             Requested size: 418.25368pt x 157.86307pt.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -506,13 +619,34 @@ Package pdftex.def Info: loghtbt.png  used on input line 106.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4] [5 <./ftvsht.png> <./loghtbt.png>]
+[4]
+
+LaTeX Warning: Reference `region' on page 5 undefined on input line 114.
+
+[5 <./ftvsht.png> <./loghtbt.png>]
+
+LaTeX Warning: Reference `ea-def' on page 6 undefined on input line 127.
+
+
+LaTeX Warning: Reference `ec-def' on page 6 undefined on input line 127.
+
+
+LaTeX Warning: Reference `initial-sec' on page 6 undefined on input line 137.
+
+
+LaTeX Warning: Reference `htft' on page 6 undefined on input line 137.
+
+
+LaTeX Warning: Reference `htft-2' on page 6 undefined on input line 137.
+
+
+LaTeX Warning: Reference `heatflow-sec' on page 6 undefined on input line 137.
+
 <ft_vs_HtdivBt_y_09.png, id=34, 1592.95125pt x 601.24625pt>
 File: ft_vs_HtdivBt_y_09.png Graphic file (type png)
 <use ft_vs_HtdivBt_y_09.png>
 Package pdftex.def Info: ft_vs_HtdivBt_y_09.png  used on input line 140.
 (pdftex.def)             Requested size: 418.25368pt x 157.8616pt.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -540,6 +674,15 @@ Package pdftex.def Info: eA_eB_eC_errorbounds.png  used on input line 158.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+LaTeX Warning: Reference `ratio-form-eff' on page 6 undefined on input line 163.
+
+
+LaTeX Warning: Reference `region' on page 6 undefined on input line 165.
+
+
+LaTeX Warning: Reference `eff' on page 6 undefined on input line 165.
+
 [6]
 Underfull \vbox (badness 4686) has occurred while \output is active []
 
@@ -547,40 +690,352 @@ Underfull \vbox (badness 4686) has occurred while \output is active []
 Overfull \vbox (15.12733pt too high) has occurred while \output is active []
 
  [8 <./ft_min_Ht_vs_errorterms.png> <./eA_eB_eC_errorbounds.png>]
+
+LaTeX Warning: Reference `limx' on page 9 undefined on input line 179.
+
+
+LaTeX Warning: Reference `region' on page 9 undefined on input line 179.
+
+
+LaTeX Warning: Reference `ubc-0' on page 9 undefined on input line 179.
+
+
+LaTeX Warning: Reference `ratio-form-refined' on page 9 undefined on input line 179.
+
+
+LaTeX Warning: Reference `htft-c' on page 9 undefined on input line 179.
+
 <Extra_RS_term.png, id=52, 777.90625pt x 580.1675pt>
 File: Extra_RS_term.png Graphic file (type png)
 <use Extra_RS_term.png>
 Package pdftex.def Info: Extra_RS_term.png  used on input line 182.
 (pdftex.def)             Requested size: 250.95476pt x 187.16232pt.
- [9 <./Extra_RS_term.png>]
+
+LaTeX Warning: Reference `new-upper' on page 9 undefined on input line 187.
+
+
+LaTeX Warning: Reference `eff' on page 9 undefined on input line 187.
+
+
+LaTeX Warning: Reference `zero-test' on page 9 undefined on input line 187.
+
+
+LaTeX Warning: Reference `region' on page 9 undefined on input line 187.
+
+
+LaTeX Warning: Citation `kkl' on page 9 undefined on input line 187.
+
+
+LaTeX Warning: Reference `asymptotic-sec' on page 9 undefined on input line 187.
+
+[9 <./Extra_RS_term.png>]
+
+LaTeX Warning: Reference `lip' on page 10 undefined on input line 211.
+
 <Integerconvergence_t_and_x_direction.png, id=58, 1291.82625pt x 503.8825pt>
 File: Integerconvergence_t_and_x_direction.png Graphic file (type png)
 <use Integerconvergence_t_and_x_direction.png>
 Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 218.
 (pdftex.def)             Requested size: 418.25368pt x 163.13708pt.
- [10 <./Integerconvergence_t_and_x_direction.png>]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 237.
 
+LaTeX Warning: Reference `Zero' on page 10 undefined on input line 223.
+
+
+LaTeX Warning: Citation `kkl' on page 10 undefined on input line 223.
+
+
+LaTeX Warning: Citation `arias-lune' on page 10 undefined on input line 223.
+
+[10 <./Integerconvergence_t_and_x_direction.png>]
+
+LaTeX Warning: Reference `Zero' on page 11 undefined on input line 227.
+
+
+LaTeX Warning: Citation `brad' on page 11 undefined on input line 227.
+
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 237.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
-)) (dynamics.tex [11] [12] [13] [14]) (heatflow.tex [15]
-[16]) (elementary.tex [17] [18]) (initial.tex [19]
+)) (dynamics.tex [11]
+
+LaTeX Warning: Reference `ubc-0' on page 12 undefined on input line 3.
+
+
+LaTeX Warning: Reference `htdef' on page 12 undefined on input line 3.
+
+
+LaTeX Warning: Reference `htdef' on page 12 undefined on input line 3.
+
+
+LaTeX Warning: Reference `zjk' on page 12 undefined on input line 25.
+
+
+LaTeX Warning: Citation `csv' on page 12 undefined on input line 25.
+
+[12]
+
+LaTeX Warning: Reference `heform' on page 13 undefined on input line 32.
+
+
+LaTeX Warning: Reference `htdef' on page 13 undefined on input line 39.
+
+
+LaTeX Warning: Reference `tzj' on page 13 undefined on input line 55.
+
+
+LaTeX Warning: Reference `htz-eq' on page 13 undefined on input line 55.
+
+[13]
+
+LaTeX Warning: Reference `back' on page 14 undefined on input line 59.
+
+
+LaTeX Warning: Reference `heform2' on page 14 undefined on input line 61.
+
+
+LaTeX Warning: Citation `debr' on page 14 undefined on input line 73.
+
+
+LaTeX Warning: Reference `ubc-0' on page 14 undefined on input line 76.
+
+
+LaTeX Warning: Reference `debr-bound' on page 14 undefined on input line 87.
+
+
+LaTeX Warning: Reference `dynam' on page 14 undefined on input line 89.
+
+
+LaTeX Warning: Reference `htdef' on page 14 undefined on input line 89.
+
+[14]
+
+LaTeX Warning: Reference `dynam' on page 15 undefined on input line 93.
+
+
+LaTeX Warning: Reference `dynam' on page 15 undefined on input line 93.
+
+
+LaTeX Warning: Reference `zjk' on page 15 undefined on input line 93.
+
+
+LaTeX Warning: Reference `im' on page 15 undefined on input line 99.
+
+
+LaTeX Warning: Reference `dynam' on page 15 undefined on input line 101.
+
+
+LaTeX Warning: Reference `im' on page 15 undefined on input line 101.
+
+
+LaTeX Warning: Reference `debr-bound' on page 15 undefined on input line 107.
+
+
+LaTeX Warning: Reference `ubc' on page 15 undefined on input line 110.
+
+
+LaTeX Warning: Reference `debr-bound' on page 15 undefined on input line 110.
+
+
+LaTeX Warning: Reference `ubc-0' on page 15 undefined on input line 110.
+
+
+LaTeX Warning: Reference `hoz' on page 15 undefined on input line 110.
+
+
+LaTeX Warning: Reference `sas' on page 15 undefined on input line 110.
+
+
+LaTeX Warning: Reference `ubc' on page 15 undefined on input line 110.
+
+
+LaTeX Warning: Reference `debr-bound' on page 15 undefined on input line 110.
+
+) (heatflow.tex
+
+LaTeX Warning: Reference `eff' on page 15 undefined on input line 3.
+
+
+LaTeX Warning: Reference `gaussian' on page 15 undefined on input line 3.
+
+[15]
+
+LaTeX Warning: Reference `hoz' on page 16 undefined on input line 11.
+
+
+LaTeX Warning: Reference `htz' on page 16 undefined on input line 16.
+
+
+LaTeX Warning: Reference `htz' on page 16 undefined on input line 16.
+
+
+LaTeX Warning: Citation `titch' on page 16 undefined on input line 19.
+
+
+LaTeX Warning: Reference `htz' on page 16 undefined on input line 33.
+
+
+LaTeX Warning: Reference `xio' on page 16 undefined on input line 33.
+
+[16]
+
+LaTeX Warning: Reference `rtn-def' on page 17 undefined on input line 52.
+
+
+LaTeX Warning: Reference `RTN-def' on page 17 undefined on input line 52.
+
+) (elementary.tex
+
+LaTeX Warning: Reference `eff' on page 17 undefined on input line 3.
+
+[17]
+
+LaTeX Warning: Citation `boyd' on page 18 undefined on input line 41.
+
+[18]) (initial.tex
+
+LaTeX Warning: Reference `eff' on page 19 undefined on input line 3.
+
+
+LaTeX Warning: Reference `htz-expand' on page 19 undefined on input line 4.
+
+
+LaTeX Warning: Reference `region' on page 19 undefined on input line 4.
+
+
+LaTeX Warning: Reference `heatflow-sec' on page 19 undefined on input line 6.
+
+
+LaTeX Warning: Reference `alpha-def' on page 19 undefined on input line 10.
+
+
+LaTeX Warning: Reference `alpha-form' on page 19 undefined on input line 10.
+
+[19]
+
+LaTeX Warning: Reference `elem-lem' on page 20 undefined on input line 21.
+
+
+LaTeX Warning: Reference `Mt-def' on page 20 undefined on input line 23.
+
+
+LaTeX Warning: Reference `bn-def' on page 20 undefined on input line 23.
+
+
+LaTeX Warning: Reference `ron-def' on page 20 undefined on input line 35.
+
+
+LaTeX Warning: Reference `M-def' on page 20 undefined on input line 35.
+
+
+LaTeX Warning: Reference `elem-lem' on page 20 undefined on input line 35.
+
+
+LaTeX Warning: Reference `alpha-form' on page 20 undefined on input line 44.
+
+
+LaTeX Warning: Reference `rtn-def' on page 20 undefined on input line 49.
+
+
 Overfull \hbox (38.62108pt too wide) detected at line 54
 []
  []
 
-[20] [21]
+
+LaTeX Warning: Reference `iman' on page 20 undefined on input line 55.
+
+
+LaTeX Warning: Reference `alpha-deriv-bound' on page 20 undefined on input line 58.
+
+[20]
+
+LaTeX Warning: Reference `logM' on page 21 undefined on input line 60.
+
+
+LaTeX Warning: Reference `alphan-def' on page 21 undefined on input line 67.
+
+
+LaTeX Warning: Reference `Mt-def' on page 21 undefined on input line 67.
+
+
+LaTeX Warning: Reference `bn-def' on page 21 undefined on input line 67.
+
+
+LaTeX Warning: Reference `elem-lem' on page 21 undefined on input line 71.
+
+
+LaTeX Warning: Reference `gaussian' on page 21 undefined on input line 79.
+
+
+LaTeX Warning: Reference `elem-lem' on page 21 undefined on input line 81.
+
+
+LaTeX Warning: Citation `arias' on page 21 undefined on input line 88.
+
+
+LaTeX Warning: Reference `RON-def' on page 21 undefined on input line 88.
+
+[21]
+
+LaTeX Warning: Citation `arias' on page 22 undefined on input line 123.
+
+
+LaTeX Warning: Citation `arias' on page 22 undefined on input line 123.
+
+
+LaTeX Warning: Citation `arias' on page 22 undefined on input line 123.
+
+
+LaTeX Warning: Citation `arias' on page 22 undefined on input line 123.
+
+
+LaTeX Warning: Citation `arias' on page 22 undefined on input line 130.
+
+
+LaTeX Warning: Reference `c0p' on page 22 undefined on input line 130.
+
 <C0_p.png, id=100, 565.8741pt x 423.5022pt>
 File: C0_p.png Graphic file (type png)
 <use C0_p.png>
 Package pdftex.def Info: C0_p.png  used on input line 133.
 (pdftex.def)             Requested size: 292.77629pt x 219.12384pt.
- [22] [23 <./C0_p.png>]
+[22]
+
+LaTeX Warning: Reference `RON-def' on page 23 undefined on input line 138.
+
+
+LaTeX Warning: Reference `M-def' on page 23 undefined on input line 138.
+
+
+LaTeX Warning: Reference `a-def' on page 23 undefined on input line 151.
+
+
+LaTeX Warning: Reference `N-def' on page 23 undefined on input line 151.
+
+
+LaTeX Warning: Reference `U-def' on page 23 undefined on input line 151.
+
+
+LaTeX Warning: Reference `C0-def' on page 23 undefined on input line 151.
+
+[23 <./C0_p.png>]
+
+LaTeX Warning: Reference `RTN-def' on page 24 undefined on input line 161.
+
+
+LaTeX Warning: Reference `RON-def' on page 24 undefined on input line 163.
+
+
 Overfull \hbox (6.45036pt too wide) detected at line 165
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
 txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] []
  []
+
+
+LaTeX Warning: Reference `M-def' on page 24 undefined on input line 166.
+
+
+LaTeX Warning: Reference `elem-lem' on page 24 undefined on input line 166.
 
 
 Overfull \hbox (49.59889pt too wide) detected at line 168
@@ -589,13 +1044,303 @@ xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.
 /10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
-[24] [25] [26] [27] [28] [29] [30]
+
+LaTeX Warning: Reference `alpha-deriv-bound' on page 24 undefined on input line 169.
+
+
+LaTeX Warning: Reference `logM' on page 24 undefined on input line 169.
+
+
+LaTeX Warning: Reference `alpha-form' on page 24 undefined on input line 171.
+
+
+LaTeX Warning: Reference `a-def' on page 24 undefined on input line 171.
+
+[24]
+
+LaTeX Warning: Reference `elem-lem' on page 25 undefined on input line 189.
+
+
+LaTeX Warning: Reference `gaussian' on page 25 undefined on input line 197.
+
+
+LaTeX Warning: Reference `elem-lem' on page 25 undefined on input line 199.
+
+
+LaTeX Warning: Reference `arias-prop' on page 25 undefined on input line 214.
+
+[25]
+
+LaTeX Warning: Reference `laf' on page 26 undefined on input line 229.
+
+
+LaTeX Warning: Reference `u0' on page 26 undefined on input line 233.
+
+
+LaTeX Warning: Reference `elem-lem' on page 26 undefined on input line 235.
+
+
+LaTeX Warning: Reference `laf' on page 26 undefined on input line 241.
+
+
+LaTeX Warning: Reference `elem-lem' on page 26 undefined on input line 243.
+
+
+LaTeX Warning: Reference `laf' on page 26 undefined on input line 245.
+
+[26]
+
+LaTeX Warning: Reference `gaussian' on page 27 undefined on input line 260.
+
+
+LaTeX Warning: Reference `elem-lem' on page 27 undefined on input line 268.
+
+
+LaTeX Warning: Reference `elem-lem' on page 27 undefined on input line 274.
+
+
+LaTeX Warning: Reference `elem-lem' on page 27 undefined on input line 279.
+
+[27]
+
+LaTeX Warning: Reference `delta1' on page 28 undefined on input line 289.
+
+
+LaTeX Warning: Reference `hit' on page 28 undefined on input line 292.
+
+
+LaTeX Warning: Reference `hit2' on page 28 undefined on input line 292.
+
+
+LaTeX Warning: Reference `delta3-def' on page 28 undefined on input line 308.
+
+[28]
+
+LaTeX Warning: Reference `eep' on page 29 undefined on input line 324.
+
+
+LaTeX Warning: Reference `cop' on page 29 undefined on input line 324.
+
+
+LaTeX Warning: Reference `rtnst' on page 29 undefined on input line 324.
+
+
+LaTeX Warning: Reference `rtn-prop' on page 29 undefined on input line 330.
+
+
+LaTeX Warning: Reference `RTN-prop' on page 29 undefined on input line 330.
+
+
+LaTeX Warning: Reference `htz-expand' on page 29 undefined on input line 330.
+
+
+LaTeX Warning: Reference `region' on page 29 undefined on input line 332.
+
+
+LaTeX Warning: Reference `a-def' on page 29 undefined on input line 336.
+
+
+LaTeX Warning: Reference `N-def' on page 29 undefined on input line 336.
+
+
+LaTeX Warning: Reference `U-def' on page 29 undefined on input line 336.
+
+
+LaTeX Warning: Reference `C0-def' on page 29 undefined on input line 336.
+
+
+LaTeX Warning: Reference `Mt-def' on page 29 undefined on input line 342.
+
+
+LaTeX Warning: Reference `bn-def' on page 29 undefined on input line 342.
+
+[29]
+
+LaTeX Warning: Reference `eps-def' on page 30 undefined on input line 351.
+
+
+LaTeX Warning: Reference `epsp-def' on page 30 undefined on input line 351.
+
+
+LaTeX Warning: Reference `cop' on page 30 undefined on input line 354.
+
+
+LaTeX Warning: Reference `abc-cor' on page 30 undefined on input line 356.
+
+
+LaTeX Warning: Reference `eff' on page 30 undefined on input line 364.
+
+
+LaTeX Warning: Reference `bo-def' on page 30 undefined on input line 364.
+
+
+LaTeX Warning: Reference `ft-def' on page 30 undefined on input line 364.
+
+
+LaTeX Warning: Reference `lambda-def' on page 30 undefined on input line 379.
+
+
+LaTeX Warning: Reference `sn-def' on page 30 undefined on input line 379.
+
+
+LaTeX Warning: Reference `kappa-def' on page 30 undefined on input line 379.
+
+
+LaTeX Warning: Reference `tp-def' on page 30 undefined on input line 379.
+
+
+LaTeX Warning: Reference `a-def' on page 30 undefined on input line 379.
+
+
+LaTeX Warning: Reference `N-def' on page 30 undefined on input line 379.
+
+
+LaTeX Warning: Reference `N-def-main' on page 30 undefined on input line 379.
+
+[30]
+
+LaTeX Warning: Reference `eff' on page 31 undefined on input line 381.
+
+
+LaTeX Warning: Reference `ec-bound' on page 31 undefined on input line 404.
+
+
+LaTeX Warning: Reference `estimates' on page 31 undefined on input line 404.
+
+
 Overfull \hbox (16.23422pt too wide) in paragraph at lines 407--408
 []\OT1/txr/m/n/10.95 From the mean value the-o-rem (and not-ing that $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML
 /txmi/m/it/10.95 M[]$\OT1/txr/m/n/10.95 , so that $[] = []$),
  []
 
-[31] [32] [33]) (dirichlet.tex [34] [35] [36] [37]
+
+LaTeX Warning: Reference `alpha-def' on page 31 undefined on input line 409.
+
+
+LaTeX Warning: Reference `Mt-def' on page 31 undefined on input line 409.
+
+
+LaTeX Warning: Reference `alpha-deriv-bound' on page 31 undefined on input line 411.
+
+[31]
+
+LaTeX Warning: Reference `alpha-form' on page 32 undefined on input line 417.
+
+
+LaTeX Warning: Reference `region' on page 32 undefined on input line 428.
+
+
+LaTeX Warning: Reference `elem-lem' on page 32 undefined on input line 432.
+
+
+LaTeX Warning: Reference `s-def' on page 32 undefined on input line 436.
+
+
+LaTeX Warning: Reference `alpha-form' on page 32 undefined on input line 438.
+
+[32]
+
+LaTeX Warning: Reference `alphap-b' on page 33 undefined on input line 447.
+
+
+LaTeX Warning: Reference `asig' on page 33 undefined on input line 447.
+
+
+LaTeX Warning: Reference `region' on page 33 undefined on input line 456.
+
+
+LaTeX Warning: Reference `region' on page 33 undefined on input line 460.
+
+
+LaTeX Warning: Reference `elem-lem' on page 33 undefined on input line 460.
+
+
+LaTeX Warning: Reference `region' on page 33 undefined on input line 466.
+
+
+LaTeX Warning: Reference `eps-def' on page 33 undefined on input line 468.
+
+
+LaTeX Warning: Reference `ea-def' on page 33 undefined on input line 471.
+
+
+LaTeX Warning: Reference `eb-def' on page 33 undefined on input line 471.
+
+
+LaTeX Warning: Reference `Mt-def' on page 33 undefined on input line 473.
+
+
+LaTeX Warning: Reference `alpha-deriv-bound' on page 33 undefined on input line 476.
+
+[33]
+
+LaTeX Warning: Reference `alpha-form' on page 34 undefined on input line 480.
+
+
+LaTeX Warning: Reference `alphn' on page 34 undefined on input line 493.
+
+
+LaTeX Warning: Reference `region' on page 34 undefined on input line 498.
+
+
+LaTeX Warning: Reference `elem-lem' on page 34 undefined on input line 507.
+
+
+LaTeX Warning: Reference `region' on page 34 undefined on input line 507.
+
+
+LaTeX Warning: Reference `epsp-def' on page 34 undefined on input line 509.
+
+) (dirichlet.tex
+
+LaTeX Warning: Reference `zero-test' on page 34 undefined on input line 3.
+
+
+LaTeX Warning: Reference `ft-def' on page 34 undefined on input line 3.
+
+
+LaTeX Warning: Reference `region' on page 34 undefined on input line 4.
+
+[34]
+
+LaTeX Warning: Reference `Delta-def' on page 35 undefined on input line 13.
+
+[35]
+
+LaTeX Warning: Reference `dirb' on page 36 undefined on input line 57.
+
+
+LaTeX Warning: Reference `estimates' on page 36 undefined on input line 61.
+
+
+LaTeX Warning: Reference `dirb' on page 36 undefined on input line 61.
+
+
+LaTeX Warning: Reference `dirb' on page 36 undefined on input line 61.
+
+[36]
+
+LaTeX Warning: Reference `estimates' on page 37 undefined on input line 66.
+
+
+LaTeX Warning: Reference `dirb' on page 37 undefined on input line 66.
+
+
+LaTeX Warning: Reference `dirb' on page 37 undefined on input line 66.
+
+
+LaTeX Warning: Reference `x-adv' on page 37 undefined on input line 79.
+
+
+LaTeX Warning: Reference `ld' on page 37 undefined on input line 79.
+
+
+LaTeX Warning: Reference `ld' on page 37 undefined on input line 81.
+
+
+LaTeX Warning: Reference `criterion' on page 37 undefined on input line 81.
+
+[37]
 <euler_product_approximation.png, id=153, 424.08438pt x 183.68625pt>
 File: euler_product_approximation.png Graphic file (type png)
 <use euler_product_approximation.png>
@@ -605,12 +1350,125 @@ Package pdftex.def Info: euler_product_approximation.png  used on input line 99.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (estimating.tex [38] [39 <./euler_product_approximation.png>] [40]) (zerofree.tex [41]
+) (estimating.tex
+
+LaTeX Warning: Reference `x-init' on page 38 undefined on input line 3.
+
+[38]
+
+LaTeX Warning: Reference `rado' on page 39 undefined on input line 28.
+
+
+LaTeX Warning: Reference `largen' on page 39 undefined on input line 33.
+
+
+LaTeX Warning: Reference `ubc-0' on page 39 undefined on input line 38.
+
+
+LaTeX Warning: Reference `zero-test' on page 39 undefined on input line 38.
+
+
+LaTeX Warning: Reference `ft-def' on page 39 undefined on input line 38.
+
+
+LaTeX Warning: Reference `bn-def' on page 39 undefined on input line 42.
+
+
+LaTeX Warning: Reference `lambda-def' on page 39 undefined on input line 42.
+
+
+LaTeX Warning: Reference `N-def-main' on page 39 undefined on input line 42.
+
+[39 <./euler_product_approximation.png>]
+
+LaTeX Warning: Reference `sn-def' on page 40 undefined on input line 46.
+
+
+LaTeX Warning: Reference `kappa-def' on page 40 undefined on input line 46.
+
+
+LaTeX Warning: Reference `fts' on page 40 undefined on input line 48.
+
+[40]
+
+LaTeX Warning: Citation `github' on page 41 undefined on input line 74.
+
+) (zerofree.tex
+
+LaTeX Warning: Reference `new-upper' on page 41 undefined on input line 3.
+
+
+LaTeX Warning: Reference `ubc-0' on page 41 undefined on input line 3.
+
+
+LaTeX Warning: Citation `platt' on page 41 undefined on input line 5.
+
+
+LaTeX Warning: Reference `region' on page 41 undefined on input line 10.
+
+
+LaTeX Warning: Reference `zero-test' on page 41 undefined on input line 10.
+
+[41]
+
+LaTeX Warning: Reference `eff' on page 42 undefined on input line 27.
+
+
+LaTeX Warning: Reference `bbb' on page 42 undefined on input line 33.
+
+
+LaTeX Warning: Reference `sweep' on page 42 undefined on input line 35.
+
+
+LaTeX Warning: Reference `eff' on page 42 undefined on input line 40.
+
+
+LaTeX Warning: Reference `elem-lem' on page 42 undefined on input line 52.
+
+
+LaTeX Warning: Reference `region' on page 42 undefined on input line 52.
+
+
+LaTeX Warning: Reference `eff' on page 42 undefined on input line 61.
+
+
+LaTeX Warning: Reference `fnt-def' on page 42 undefined on input line 61.
+
+
 Overfull \hbox (20.57095pt too wide) detected at line 66
 []
  []
 
-[42] [43]
+[42]
+
+LaTeX Warning: Reference `elem-lem' on page 43 undefined on input line 67.
+
+
+LaTeX Warning: Reference `estimates' on page 43 undefined on input line 77.
+
+
+LaTeX Warning: Reference `kappa-bound' on page 43 undefined on input line 77.
+
+
+LaTeX Warning: Reference `bn-def' on page 43 undefined on input line 88.
+
+
+LaTeX Warning: Reference `dela' on page 43 undefined on input line 94.
+
+[43]
+
+LaTeX Warning: Reference `elem-lem' on page 44 undefined on input line 100.
+
+
+LaTeX Warning: Reference `estimates' on page 44 undefined on input line 106.
+
+
+LaTeX Warning: Reference `elem-lem' on page 44 undefined on input line 108.
+
+
+LaTeX Warning: Reference `region' on page 44 undefined on input line 108.
+
+
 Overfull \hbox (31.33856pt too wide) detected at line 114
 []
  []
@@ -620,34 +1478,233 @@ Overfull \hbox (31.33856pt too wide) in alignment at lines 113--114
 [] [] 
  []
 
+
+LaTeX Warning: Reference `Fast' on page 44 undefined on input line 137.
+
 [44]
+
+LaTeX Warning: Reference `cond' on page 45 undefined on input line 148.
+
+
+LaTeX Warning: Reference `cond' on page 45 undefined on input line 148.
+
+
+LaTeX Warning: Reference `cond' on page 45 undefined on input line 148.
+
+
+LaTeX Warning: Reference `region' on page 45 undefined on input line 152.
+
+
 Overfull \hbox (18.44473pt too wide) detected at line 162
 []
  []
 
 [45]
+
+LaTeX Warning: Reference `sn-def' on page 46 undefined on input line 178.
+
+
+LaTeX Warning: Reference `alpha-deriv-bound' on page 46 undefined on input line 178.
+
+
+LaTeX Warning: Reference `lambda-def' on page 46 undefined on input line 185.
+
+
+LaTeX Warning: Reference `Mt-def' on page 46 undefined on input line 185.
+
+
+LaTeX Warning: Reference `alpha-def' on page 46 undefined on input line 187.
+
+
+LaTeX Warning: Reference `alpha-deriv-bound' on page 46 undefined on input line 190.
+
+
 Overfull \hbox (82.23111pt too wide) detected at line 193
 \OMS/txsy/m/n/10.95 j[]j  [] [] [] \OT1/txr/m/n/10.95 + \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.95 
 j [] [] [] \OML/txmi/m/it/10.95 :
  []
 
+
+LaTeX Warning: Reference `alpha-form' on page 46 undefined on input line 194.
+
 [46]
+
+LaTeX Warning: Reference `ftne' on page 47 undefined on input line 209.
+
+
 Overfull \hbox (93.05212pt too wide) detected at line 212
 [] \OT1/txr/m/n/10.95 = [] [] [] + \OML/txmi/m/it/10.95  [] [] [] :
  []
 
-[47] [48] [49]
+
+LaTeX Warning: Reference `alpha-deriv-bound' on page 47 undefined on input line 213.
+
+
+LaTeX Warning: Reference `alpha-form' on page 47 undefined on input line 213.
+
+[47] [48]
+
+LaTeX Warning: Reference `x-init' on page 49 undefined on input line 320.
+
+
+LaTeX Warning: Reference `largen' on page 49 undefined on input line 326.
+
+
+LaTeX Warning: Reference `kappa-bound' on page 49 undefined on input line 326.
+
+
+LaTeX Warning: Reference `gamma-bound' on page 49 undefined on input line 328.
+
+
+LaTeX Warning: Reference `res-bound' on page 49 undefined on input line 331.
+
+[49]
+
+LaTeX Warning: Reference `largen' on page 50 undefined on input line 337.
+
+
+LaTeX Warning: Reference `nan' on page 50 undefined on input line 337.
+
 <B_vs_N.png, id=193, 425.6703pt x 281.1303pt>
 File: B_vs_N.png Graphic file (type png)
 <use B_vs_N.png>
 Package pdftex.def Info: B_vs_N.png  used on input line 352.
 (pdftex.def)             Requested size: 292.77629pt x 193.36668pt.
-) (asymptotic.tex [50 <./B_vs_N.png>] [51] [52] [53]
+) (asymptotic.tex
+
+LaTeX Warning: Reference `eff' on page 50 undefined on input line 3.
+
+
+LaTeX Warning: Citation `kkl' on page 50 undefined on input line 3.
+
+
+LaTeX Warning: Reference `Zero' on page 50 undefined on input line 3.
+
+[50 <./B_vs_N.png>]
+
+LaTeX Warning: Reference `Mt-def' on page 51 undefined on input line 11.
+
+
+LaTeX Warning: Reference `lambda-def' on page 51 undefined on input line 20.
+
+
+LaTeX Warning: Reference `bo-def' on page 51 undefined on input line 20.
+
+
+LaTeX Warning: Reference `eff' on page 51 undefined on input line 22.
+
+
+LaTeX Warning: Reference `initial-sec' on page 51 undefined on input line 22.
+
+[51]
+
+LaTeX Warning: Reference `bn-def' on page 52 undefined on input line 39.
+
+
+LaTeX Warning: Reference `exp' on page 52 undefined on input line 47.
+
+[52]
+
+LaTeX Warning: Reference `exp' on page 53 undefined on input line 69.
+
+
+LaTeX Warning: Reference `Mt-def' on page 53 undefined on input line 71.
+
+
+LaTeX Warning: Reference `M-def' on page 53 undefined on input line 71.
+
+
+LaTeX Warning: Reference `alpha-form' on page 53 undefined on input line 71.
+
+
+LaTeX Warning: Reference `Mt-def' on page 53 undefined on input line 86.
+
+
+LaTeX Warning: Reference `alpha-def' on page 53 undefined on input line 86.
+
+
+LaTeX Warning: Reference `alpha-form' on page 53 undefined on input line 90.
+
+
+LaTeX Warning: Reference `alpha-deriv-bound' on page 53 undefined on input line 94.
+
+[53]
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
 
-[54] [55] [56]
+
+LaTeX Warning: Reference `Zero' on page 54 undefined on input line 112.
+
+
+LaTeX Warning: Reference `asymp' on page 54 undefined on input line 113.
+
+
+LaTeX Warning: Reference `mtform' on page 54 undefined on input line 113.
+
+
+LaTeX Warning: Reference `mtform' on page 54 undefined on input line 120.
+
+
+LaTeX Warning: Reference `lip' on page 54 undefined on input line 120.
+
+
+LaTeX Warning: Citation `debr' on page 54 undefined on input line 137.
+
+
+LaTeX Warning: Reference `lip' on page 54 undefined on input line 139.
+
+
+LaTeX Warning: Reference `htap' on page 54 undefined on input line 139.
+
+[54]
+
+LaTeX Warning: Reference `ht-eff' on page 55 undefined on input line 146.
+
+
+LaTeX Warning: Reference `asymp' on page 55 undefined on input line 150.
+
+
+LaTeX Warning: Reference `htap' on page 55 undefined on input line 150.
+
+
+LaTeX Warning: Reference `mtform' on page 55 undefined on input line 152.
+
+
+LaTeX Warning: Reference `htdef' on page 55 undefined on input line 154.
+
+[55]
+
+LaTeX Warning: Reference `asymp' on page 56 undefined on input line 162.
+
+
+LaTeX Warning: Reference `asymp' on page 56 undefined on input line 166.
+
+
+LaTeX Warning: Reference `Zero' on page 56 undefined on input line 168.
+
+
+LaTeX Warning: Citation `csv' on page 56 undefined on input line 171.
+
+
+LaTeX Warning: Citation `csv' on page 56 undefined on input line 173.
+
+
+LaTeX Warning: Reference `Zero' on page 56 undefined on input line 173.
+
+
+LaTeX Warning: Reference `time-complexity' on page 56 undefined on input line 173.
+
+[56]
+
+LaTeX Warning: Citation `csv' on page 57 undefined on input line 175.
+
+
+LaTeX Warning: Reference `asymp' on page 57 undefined on input line 177.
+
+
+LaTeX Warning: Reference `Zero' on page 57 undefined on input line 177.
+
 <real_zeros_solid.png, id=217, 365.6862pt x 279.6849pt>
 File: real_zeros_solid.png Graphic file (type png)
 <use real_zeros_solid.png>
@@ -659,10 +1716,32 @@ File: Actual_trajectories_zeros.png Graphic file (type png)
 Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 188.
 (pdftex.def)             Requested size: 376.42575pt x 260.64287pt.
 
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (further.tex [57 <./real_zeros_solid.png>]
+) (further.tex
+
+LaTeX Warning: Reference `Zero' on page 57 undefined on input line 3.
+
+
+LaTeX Warning: Reference `ubc-0' on page 57 undefined on input line 3.
+
+
+LaTeX Warning: Reference `ubc-0' on page 57 undefined on input line 3.
+
+[57 <./real_zeros_solid.png>]
+
+LaTeX Warning: Reference `dynam' on page 58 undefined on input line 5.
+
+
+LaTeX Warning: Reference `ubc-0' on page 58 undefined on input line 7.
+
+
+LaTeX Warning: Reference `newup-sec' on page 58 undefined on input line 7.
+
+
+LaTeX Warning: Reference `newup-sec' on page 58 undefined on input line 7.
+
+
 Underfull \vbox (badness 1540) has occurred while \output is active []
 
  [58 <./Actual_trajectories_zeros.png>]
@@ -670,25 +1749,32 @@ Overfull \hbox (7.64595pt too wide) in paragraph at lines 13--27
  [] 
  []
 
-) [59] [60] (debruijn.aux) ) 
+) [59] [60] (debruijn.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  5956 strings out of 493303
  86229 string characters out of 3138857
- 162002 words of memory out of 3000000
+ 161493 words of memory out of 3000000
  9173 multiletter control sequences out of 15000+200000
  42145 words of font info for 106 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,21n,39p,1490b,352s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/txfonts/rtxb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/tx
-sya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (60 pages, 1622114 bytes).
+ 55i,21n,39p,1491b,353s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxb.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txf
+onts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8
+a.pfb>
+Output written on debruijn.pdf (60 pages, 1624010 bytes).
 PDF statistics:
  280 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
