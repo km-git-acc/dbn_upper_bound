@@ -52,7 +52,7 @@ We can now apply \eqref{rtn-def} to obtain
 &\quad \times \exp\left( -\left(\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n \right) \log n + O_{\leq}\left( \frac{1}{6(|\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n|-0.66)} \right) \right)
 \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
 \end{align*}
-From \eqref{iman} we see that $\sigma+iT+\sqrt{t}v+\frac{t}{2}\alpha_n)$ has imaginary part at least $T-0.08$. Thus
+From \eqref{iman} we see that $\sigma+iT+\sqrt{t}v+\frac{t}{2}\alpha_n$ has imaginary part at least $T-0.08$. Thus
 $$ O_{\leq}\left( \frac{1}{6(|\sigma+iT+\sqrt{t} v + \frac{t}{2} \alpha_n|-0.66)} \right)  = 
 O_{\leq}\left( \frac{1}{6(T - 0.74)} \right) = O_{\leq}\left( \frac{1}{6(T - 3.08)} \right).$$
 From \eqref{alpha-deriv-bound} we have
@@ -335,8 +335,10 @@ Combining Propositions \ref{rtn-prop}, \ref{RTN-prop} with \eqref{htz-expand} an
 \end{equation}
 and then define $a,N,p,U,C_0(p)$ using \eqref{a-def}, \eqref{N-def}, \eqref{U-def}, \eqref{C0-def}.  Define the quantities
 \begin{align*}
-A_t(x+iy) &\coloneqq M_t(\frac{1-y+ix}{2}) \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y+ix}{2}  +\frac{t}{2} \alpha(\frac{1-y+ix}{2})}}  \\
-B_t(x+iy) &\coloneqq M_t(\frac{1+y-ix}{2}) \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1+y-ix}{2} +\frac{t}{2} \alpha(\frac{1+y-ix}{2})}}  \\
+s_+ = s_+(x+iy) &\coloneqq \frac{1+y-ix}{2} \\
+s_- = s_-(x+iy) &\coloneqq \frac{1-y+ix}{2} \\
+A_t(x+iy) &\coloneqq M_t(s_-) \sum_{n=1}^N \frac{b_n^t}{n^{s_- +\frac{t}{2} \alpha(s_-)}}  \\
+B_t(x+iy) &\coloneqq M_t(s_+) \sum_{n=1}^N \frac{b_n^t}{n^{s_+ +\frac{t}{2} \alpha(s_+)}}  \\
 C_t(x+iy) &\coloneqq  2 e^{-\pi i y/8} (-1)^{N} \exp\left( \frac{t \pi^2}{64}\right) \mathrm{Re}( M_0(iT') C_0(p) U e^{\pi i/8} )
 \end{align*}
 where $M_0, b_n^t$ were defined in \eqref{Mt-def}, \eqref{bn-def}.
@@ -344,9 +346,9 @@ Then
 $$ H_t(x+iy) = A_t(x+iy) + B_t(x+iy) - C_t(x+iy) + O_{\leq}(E_A(x+iy) + E_B(x+iy) + E_C(x+iy))$$
 where
 \begin{align*}
-E_A(x+iy) &\coloneqq \left|M_t\left(\frac{1-y+ix}{2}\right)\right| \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y}{2}+\frac{t}{2} \mathrm{Re} \alpha(\frac{1-y+ix}{2})}} \eps_{t,n}(\frac{1-y+ix}{2}) \\
-E_B(x+iy) &\coloneqq \left|M_t\left(\frac{1+y+ix}{2}\right)\right|\sum_{n=1}^N  \frac{b_n^t}{n^{\frac{1+y}{2}+\frac{t}{2} \mathrm{Re} \alpha(\frac{1+y+ix}{2})}} \eps_{t,n}(\frac{1+y+ix}{2})  \\
-E_C(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| \left(\tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2})\right)  
+E_A(x+iy) &\coloneqq \left|M_t(s_-)\right| \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y}{2}+\frac{t}{2} \mathrm{Re} \alpha(s_-)}} \eps_{t,n}(s_-) \\
+E_B(x+iy) &\coloneqq \left|M_t(s_+)\right|\sum_{n=1}^N  \frac{b_n^t}{n^{\frac{1+y}{2}+\frac{t}{2} \mathrm{Re} \alpha(s_+)}} \eps_{t,n}(s_+)  \\
+E_C(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| \left(\tilde \eps(s_-) + \tilde \eps(s_+)\right)  
 \end{align*}
 and $\eps_{t,n}, \tilde \eps$ were defined in \eqref{eps-def}, \eqref{epsp-def}. 
 \end{corollary}
@@ -357,7 +359,7 @@ In our applications, we will just use the cruder ``$A+B$'' approximation that is
 $$ H_t(x+iy) = A_t(x+iy) + B_t(x+iy) + O_{\leq}(E_A(x+iy) + E_B(x+iy) + E_{C,0}(x+iy))$$
 where
 \begin{align*}
-E_{C,0}(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| \left(1 + \tilde \eps\left(\frac{1-y+ix}{2}\right) + \tilde \eps\left(\frac{1+y+ix}{2}\right)\right). 
+E_{C,0}(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| \left(1 + \tilde \eps(s_-) + \tilde \eps(s_+)\right). 
 \end{align*}
 \end{corollary}
 
@@ -371,10 +373,10 @@ and
 \end{equation}
 where
 \begin{align}
-e_A \coloneqq e_A(x+iy) &\coloneqq |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\mathrm{Re}(s) + \mathrm{Re}(\kappa)}} \eps_{t,n}\left(\frac{1-y+ix}{2}\right) \label{ea-def}\\
-e_B \coloneqq e_B(x+iy) &\coloneqq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s)}} \eps_{t,n}\left(\frac{1+y+ix}{2}\right) \label{eb-def} \\
-e_{C} \coloneqq e_{C}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} \left(\tilde \eps\left(\frac{1-y+ix}{2}\right) + \tilde \eps\left(\frac{1+y+ix}{2}\right)\right).\label{ecc-def}\\
-e_{C,0} \coloneqq e_{C,0}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{\left|M_t\left(\frac{1+y+ix}{2}\right)\right|} \left(1 + \tilde \eps\left(\frac{1-y+ix}{2}\right) + \tilde \eps\left(\frac{1+y+ix}{2}\right)\right),\label{ec-def}
+e_A \coloneqq e_A(x+iy) &\coloneqq |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\mathrm{Re}(s) + \mathrm{Re}(\kappa)}} \eps_{t,n}(s_-) \label{ea-def}\\
+e_B \coloneqq e_B(x+iy) &\coloneqq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s)}} \eps_{t,n}(s_+) \label{eb-def} \\
+e_{C} \coloneqq e_{C}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(s_+)|} \left(\tilde \eps(s_-) + \tilde \eps(s_+)\right).\label{ecc-def}\\
+e_{C,0} \coloneqq e_{C,0}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(s_+)|} \left(1 + \tilde \eps(s_-) + \tilde \eps(s_+) \right),\label{ec-def}
 \end{align}
 and where $\gamma,s_*,\kappa$ were defined in \eqref{lambda-def}, \eqref{sn-def}, \eqref{kappa-def}.  Note also from \eqref{tp-def}, \eqref{a-def}, \eqref{N-def} that $N$ is given by \eqref{N-def-main}.
 
@@ -434,9 +436,9 @@ $$ y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6} \leq y \frac{\frac{t}{4}
 Claim (i) follows.  We remark that one can improve the $e^{0.02 y}$ factor here by Taylor expanding $\alpha$ to second order rather than first order, but we will not need to do so here.
 
 To prove claim (ii), it suffices by \eqref{s-def} to show that
-$$ \mathrm{Re} \alpha\left(\frac{1+y-ix}{2}\right) \geq \frac{1}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+}{x^2} - \frac{4y(1+y)}{x^4}.$$
+$$ \mathrm{Re} \alpha(s_+) \geq \frac{1}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+}{x^2} - \frac{4y(1+y)}{x^4}.$$
 By \eqref{alpha-form} one has
-$$ \mathrm{Re} \alpha\left(\frac{1+y-ix}{2}\right) = \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} + \frac{1}{2} \log \frac{\sqrt{(1+y)^2+x^2}}{4\pi}.$$
+$$ \mathrm{Re} \alpha(s_+) = \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} + \frac{1}{2} \log \frac{\sqrt{(1+y)^2+x^2}}{4\pi}.$$
 We bound $\sqrt{(1+y)^2+x^2} \geq x$ and calculate
 \begin{align*}
  \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} &= - \frac{1-3y}{(1+y)^2+x^2} -\frac{4y(1+y)}{((1+y)^2+x^2)((1+y)^2+x^2)} \\
@@ -471,21 +473,21 @@ $$
 Inserting this bound into \eqref{ea-def}, \eqref{eb-def}, we obtain claims (iv), (v).
 
 Now we establish (vi).  From \eqref{Mt-def} we have
-$$\frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|}
-= \exp\left( \frac{t \pi^2}{64} - \frac{t}{4} \mathrm{Re} \alpha\left(\frac{1+y+ix}{2}\right)^2\right) \frac{|M_0(iT')|}{|M_0\left(\frac{1+y+ix}{2}\right)|}.$$
-Note that $\frac{1+y+ix}{2} = iT' + \frac{1+y}{2} - \frac{\pi i t}{8}$.  From \eqref{alpha-deriv-bound} we see that $|\alpha'(s)| \leq \frac{1}{x-6}$ for any $s$ on the line segment between $iT'$ and $\frac{1+y+ix}{2}$.  From Taylor's theorem with remainder applied to a branch of $\log M_0$, we conclude that
-$$ \frac{|M_0(iT')|}{|M_0(\frac{1+y+ix}{2})|} = \exp\left( \mathrm{Re}\left( \left(-\frac{1+y}{2}+\frac{\pi i t}{8}\right) \alpha(iT') \right) + O_{\leq}\left( \frac{|-\frac{1+y}{2}+\frac{\pi i t}{8}|^2}{2(x-6)} \right) \right).$$
+$$\frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(s_+)|}
+= \exp\left( \frac{t \pi^2}{64} - \frac{t}{4} \mathrm{Re} \alpha(s_+)^2\right) \frac{|M_0(iT')|}{|M_0(s_+)|}.$$
+Note that $\frac{1+y+ix}{2} = iT' + \frac{1+y}{2} - \frac{\pi i t}{8}$.  From \eqref{alpha-deriv-bound} we see that $|\alpha'(s)| \leq \frac{1}{x-6}$ for any $s$ on the line segment between $iT'$ and $\frac{1+y+ix}{2}$.  From Taylor's theorem with remainder applied to a branch of $\log M_0$, and noting that $|M_0(s_+)| = |M_0(\frac{1+y+ix}{2})|$, we conclude that
+$$ \frac{|M_0(iT')|}{|M_0(s_+)|} = \exp\left( \mathrm{Re}\left( \left(-\frac{1+y}{2}+\frac{\pi i t}{8}\right) \alpha(iT') \right) + O_{\leq}\left( \frac{|-\frac{1+y}{2}+\frac{\pi i t}{8}|^2}{2(x-6)} \right) \right).$$
 For $0 \leq y \leq 1$ and $0 < t \leq \frac{1}{2}$ we have
 $$\frac{|-\frac{1+y}{2}+\frac{\pi i t}{8}|^2}{2} \leq 0.52$$
 and from \eqref{alpha-form} one has
 $$ \alpha(iT') = O_{\leq}\left(\frac{1}{2T'}\right) +  O_{\leq}\left(\frac{1}{T'}\right) + \frac{1}{2} \Log \frac{iT'}{2\pi} = \frac{1}{2} \log \frac{T'}{2\pi} + \frac{i\pi}{4} + O_{\leq}( \frac{3}{2T'} ) $$
 and hence
 $$
-\frac{|M_0(iT')|}{|M_0\left(\frac{1+y+ix}{2}\right)|}
+\frac{|M_0(iT')|}{|M_0(s_+)|}
 = \exp\left( -\frac{1+y}{4} \log \frac{T'}{2\pi} - \frac{t\pi^2}{32} + O_{\leq}\left( \frac{3|-\frac{1+y}{2}+\frac{\pi i t}{8}|}{2T'} + \frac{0.52}{x-6} \right) \right).$$
 Bounding $\frac{1}{2T'} \leq \frac{1}{x-6}$ and $|-\frac{1+y}{2}+\frac{\pi i t}{8}| \leq 1.02$, this becomes
 $$
-\frac{|M_0(iT')|}{|M_0\left(\frac{1+y+ix}{2}\right)|}
+\frac{|M_0(iT')|}{|M_0(s_+)|}
 = \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t\pi^2}{32} + O_{\leq}\left( \frac{3.58}{x-6} \right) \right)$$
 and hence
 $$\frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} 
@@ -500,7 +502,7 @@ $$\frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2} 
 $$
 and thus
 \begin{align*}
-\frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{\left|M_t\left(\frac{1+y+ix}{2}\right)\right|}
+\frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(s_+)|}
 &= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-6} + \frac{9}{(x-6)^2} \right) \right)\\
 &= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \right)
 \end{align*}
@@ -511,6 +513,6 @@ $$
 \tilde \eps(\frac{1 \pm y+ix}{2}) \leq \frac{1.24 \times 3^{\pm y}}{a-0.125} + \frac{1.73}{T'-3.33}.$$
 Hence
 $$
-\tilde \eps(\frac{1-y+ix}{2}) + \tilde \eps(\frac{1+y+ix}{2}) \leq \frac{1.24 \times (3^y+3^{-y})}{a-0.125} + \frac{3.46}{T'-3.33}$$
+\tilde \eps(s_+) + \tilde \eps(s_-) \leq \frac{1.24 \times (3^y+3^{-y})}{a-0.125} + \frac{3.46}{T'-3.33}$$
 giving the claim (substituting $T' = x/2$ and $a \geq N$).
 \end{proof}
