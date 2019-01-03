@@ -232,8 +232,36 @@ We conclude from the triangle inequality that
 giving the second claim.
 \end{proof}
 
-{\bf describe the numerical output of this algorithm, for instance discussing the values of $t$ used, the size of the mesh at different points in $t$, bounds for $D_t, D_z$, etc.}
+The next few graphs summarize the numerical output of the algorithm for the following Barrier parameters: $x=6\times 10^{10}+83925 \pm 0.5, y = 0.2 \dots 1, t=0 \dots 0.2$.  
 
+
+The first step in the Barrier verification process was to precalculate a 'stored sum' of Taylor expansion terms that allows for fast recreation of $f_t(x+iy)$ during the execution of the algortihm. The number of Taylor terms required was determined through an iterative process targeted to achieve a 20 decimal accuracy.  The following plot illustrates that the achieved accuracy for all rectangular mesh points at $t=0$.
+
+\begin{figure}[h!]
+  \includegraphics[width=0.7\linewidth]{BarrieraccuracyTaylor}
+  \caption{Achieved error term in the Taylor expansion at $t=0$. Target was set at 20 decimal places accuracy.}
+\end{figure}
+
+The derivative bounds determine the number of mesh points required on each $xy$-rectangle and in the $t$-direction. The next two plots ilustrate that these bounds have been chosen quite conservatively:
+
+\begin{figure}[h!]
+  \includegraphics[width=1.0\linewidth]{Derivativebounds}
+  \caption{Derivative bounds versus their actual values at all required steps of $t$.}
+\end{figure}
+
+The number of rectangle mesh points varies with $t$ ranging from 11076 at $t=0$ to 56 at $t=0.195$:
+
+\begin{figure}[h!]
+  \includegraphics[width=0.7\linewidth]{Numberofmeshpoints}
+  \caption{The number of mesh points required per rectangle for each step of $t$.}
+\end{figure}
+
+The overall winding number for the Barrier at this specific location came out at $0$. The next graph shows the winding process at $t=0$. Due to the choice of the Barrier location and the small Barrier width compared to the wave length of the $x$ variable, little oscillation is expected to occur in each rectangle:
+
+\begin{figure}[h!]
+  \includegraphics[width=0.7\linewidth]{Windingprocess}
+  \caption{Winding the rectangle at $t=0$.}
+\end{figure}
 
 Now we prove claim (ii).
 
