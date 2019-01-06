@@ -217,12 +217,12 @@ From \eqref{alpha-deriv-bound}, \eqref{alpha-form} we have
 \end{align*}
 and hence (since $\alpha = \alpha^*$)
 $$ \alpha(\frac{1 \pm y-ix}{2}) = \frac{1}{2} \log \frac{x}{4\pi} - \frac{\pi i}{4} + O_{\leq}( \frac{4}{x-6} ) $$
-so in particular
-$$ \alpha(\frac{1-y+ix}{2}) - \alpha(\frac{1+y-ix}{2}) = \frac{\pi i}{2} + O_{\leq}( \frac{8}{x-6} )$$
+so in particular (recalling that $s_+ = \frac{1+y-ix}{2}$ and $s_- = \frac{1-y+ix}{2}$)
+$$ \alpha(s_-) - \alpha(s_+) = \frac{\pi i}{2} + O_{\leq}( \frac{8}{x-6} )$$
 and
-$$ \alpha(\frac{1-y+ix}{2}) + \alpha(\frac{1+y-ix}{2}) = \log \frac{x}{4\pi} + O_{\leq}( \frac{8}{x-6} )$$
+$$ \alpha(s_-) + \alpha(s_+) = \log \frac{x}{4\pi} + O_{\leq}( \frac{8}{x-6} )$$
 so that
-$$ \left|\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))\right| \leq \left(\frac{\pi}{2} + \frac{8}{x-6}\right) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right).$$
+$$ \left|\alpha(s_-)^2 - \alpha(s_+)^2\right| \leq \left(\frac{\pi}{2} + \frac{8}{x-6}\right) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right).$$
 We conclude from the triangle inequality that
 \begin{align*}
  \left|\frac{\partial f_t}{\partial t}\right| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}\right) \\
