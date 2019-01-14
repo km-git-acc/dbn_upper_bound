@@ -52,7 +52,7 @@ On the other hand, as $H_t$ is even, non-zero at the origin, and entire of order
 $$ H_t(z) = H_t(0) \prod_k^{\prime} \left(1 - \frac{z}{z_k}\right),$$
 where the prime indicates that the $k$ and $-k$ factors are multiplied together.  The product is locally uniformly convergent, so we may take logarithmic derivatives and conclude that
 $$ \frac{H'_t}{H_t}(z) = \sum_k^{\prime} \frac{1}{z-z_k}.$$
-Inserting this into \eqref{tzj}, \eqref{htz-eq} and using the dominated convergence theorem (again using the growth in the number of zeroes to justify the interchange of summation and limits), we obtain the claim (i).
+Inserting this into \eqref{tzj}, \eqref{htz-eq} and using the continuity of $z \mapsto \sum_{k: k \neq j}^\prime \frac{1}{z-z_k}$ at $z_j$ (which follows from the growth in the number of zeroes, either from the dominated convergence theorem or the Weierstrass $M$-test), we obtain the claim (i).
 
 Now we prove (ii).  We abbreviate $z_j(t_0)$ as $z_j$.  By Taylor expansion we have
 $$ \frac{\partial^{2k} H_{t_0}}{\partial z^{2k}}(z) = m (m-1) \dots (m-2k+1) a_m (z-z_j)^{m-2k} + O( |z-z_j|^{\max(m-2k+1,0)} )$$
