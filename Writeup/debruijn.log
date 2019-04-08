@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  3 JAN 2019 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  8 APR 2019 14:33
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -606,7 +606,7 @@ Package pdftex.def Info: euler_product_approximation.png  used on input line 99.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) (estimating.tex [38] [39 <./euler_product_approximation.png>] [40]) (zerofree.tex [41]
-Overfull \hbox (20.57095pt too wide) detected at line 66
+Overfull \hbox (23.46901pt too wide) detected at line 66
 []
  []
 
@@ -620,40 +620,55 @@ Overfull \hbox (31.33856pt too wide) in alignment at lines 113--114
 [] [] 
  []
 
-[44]
-Overfull \hbox (18.44473pt too wide) detected at line 162
+[44] [45]
+Overfull \hbox (18.44473pt too wide) detected at line 164
 []
  []
 
-[45]
-Overfull \hbox (82.23111pt too wide) detected at line 193
-\OMS/txsy/m/n/10.95 j[]j  [] [] [] \OT1/txr/m/n/10.95 + \OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 \OMS/txsy/m/n/10.95 
-j [] [] [] \OML/txmi/m/it/10.95 :
- []
+[46] [47]
+<BarrieraccuracyTaylor.png, id=185, 581.0508pt x 422.7795pt>
+File: BarrieraccuracyTaylor.png Graphic file (type png)
+<use BarrieraccuracyTaylor.png>
+Package pdftex.def Info: BarrieraccuracyTaylor.png  used on input line 247.
+(pdftex.def)             Requested size: 292.77629pt x 213.0278pt.
+<Derivativebounds.png, id=186, 1623.06375pt x 623.32875pt>
+File: Derivativebounds.png Graphic file (type png)
+<use Derivativebounds.png>
+Package pdftex.def Info: Derivativebounds.png  used on input line 254.
+(pdftex.def)             Requested size: 418.25368pt x 160.62546pt.
+ [48 <./BarrieraccuracyTaylor.png>]
+<Numberofmeshpoints.png, id=191, 565.1514pt x 424.2249pt>
+File: Numberofmeshpoints.png Graphic file (type png)
+<use Numberofmeshpoints.png>
+Package pdftex.def Info: Numberofmeshpoints.png  used on input line 261.
+(pdftex.def)             Requested size: 292.77629pt x 219.77612pt.
+<Windingprocess.png, id=192, 425.6703pt x 278.2395pt>
+File: Windingprocess.png Graphic file (type png)
+<use Windingprocess.png>
+Package pdftex.def Info: Windingprocess.png  used on input line 268.
+(pdftex.def)             Requested size: 292.77629pt x 191.37834pt.
 
-[46]
-Overfull \hbox (93.05212pt too wide) detected at line 212
-[] \OT1/txr/m/n/10.95 = [] [] [] + \OML/txmi/m/it/10.95  [] [] [] :
- []
 
-[47] [48] [49]
-<B_vs_N.png, id=193, 425.6703pt x 281.1303pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[49 <./Derivativebounds.png> <./Numberofmeshpoints.png>] [50 <./Windingprocess.png>] [51]
+<B_vs_N.png, id=206, 425.6703pt x 281.1303pt>
 File: B_vs_N.png Graphic file (type png)
 <use B_vs_N.png>
-Package pdftex.def Info: B_vs_N.png  used on input line 352.
+Package pdftex.def Info: B_vs_N.png  used on input line 371.
 (pdftex.def)             Requested size: 292.77629pt x 193.36668pt.
-) (asymptotic.tex [50 <./B_vs_N.png>] [51] [52] [53]
+) (asymptotic.tex [52 <./B_vs_N.png>] [53] [54] [55]
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
 
-[54] [55] [56]
-<real_zeros_solid.png, id=217, 365.6862pt x 279.6849pt>
+[56] [57] [58]
+<real_zeros_solid.png, id=230, 365.6862pt x 279.6849pt>
 File: real_zeros_solid.png Graphic file (type png)
 <use real_zeros_solid.png>
 Package pdftex.def Info: real_zeros_solid.png  used on input line 182.
 (pdftex.def)             Requested size: 376.42575pt x 287.92076pt.
-<Actual_trajectories_zeros.png, id=218, 792.9625pt x 549.05125pt>
+<Actual_trajectories_zeros.png, id=231, 792.9625pt x 549.05125pt>
 File: Actual_trajectories_zeros.png Graphic file (type png)
 <use Actual_trajectories_zeros.png>
 Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 187.
@@ -662,35 +677,34 @@ Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 187.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (further.tex [57 <./real_zeros_solid.png>]
+) (further.tex [59 <./real_zeros_solid.png>]
 Underfull \vbox (badness 1540) has occurred while \output is active []
 
- [58 <./Actual_trajectories_zeros.png>]
-Overfull \hbox (7.64595pt too wide) in paragraph at lines 13--27
+ [60 <./Actual_trajectories_zeros.png>]
+Overfull \hbox (18.59593pt too wide) in paragraph at lines 13--29
  [] 
  []
 
-) [59] [60] (debruijn.aux) ) 
+) [61] [62] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
- 5956 strings out of 493303
- 86229 string characters out of 3138857
+ 5976 strings out of 493303
+ 86730 string characters out of 3138857
  162002 words of memory out of 3000000
- 9173 multiletter control sequences out of 15000+200000
+ 9189 multiletter control sequences out of 15000+200000
  42145 words of font info for 106 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
  55i,21n,39p,1490b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/txfonts/rtxb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/tx
-sya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (60 pages, 1620506 bytes).
+type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/t
+xsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on debruijn.pdf (62 pages, 1807681 bytes).
 PDF statistics:
- 280 PDF objects out of 1000 (max. 8388607)
+ 291 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
