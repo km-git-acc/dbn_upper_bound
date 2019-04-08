@@ -61,13 +61,13 @@ $$ e^{\delta_1} - 1 \leq 1.001 \delta_1$$
 Also, from Theorem \ref{eff} and \eqref{fnt-def} we can bound
 \begin{align*}
 |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) &\leq |\gamma| N^y N^{|\kappa|} F_{N,t}( \mathrm{Re}(s_*) ) \\
-&\leq \exp\left( 0.02 y + y (\log N - \frac{1}{2} \log \frac{x}{4\pi}) + \frac{ty}{2(x-6)} \log N \right) F_{N,t}( \mathrm{Re}(s_*) )  \\
-&\leq \exp\left( 0.02 y + (y + \frac{ty}{2(x-6)}) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) + \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \right) F_{N,t}( \mathrm{Re}(s_*) ).
+&\leq \exp\left( 0.02 y + y \left(\log N - \frac{1}{2} \log \frac{x}{4\pi}\right) + \frac{ty}{2(x-6)} \log N \right) F_{N,t}( \mathrm{Re}(s_*) )  \\
+&\leq \exp\left( 0.02 y + \left(y + \frac{ty}{2(x-6)}\right) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) + \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \right) F_{N,t}( \mathrm{Re}(s_*) ).
 \end{align*}
 For $0.2 \leq y \leq 1$, $0 \leq t \leq 0.2$, and $x \geq X_0 - 0.5$ we see from Lemma \ref{elem-lem}(vi) that
 $$ \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \leq \frac{0.2}{4(X_0 - 0.5-6)}\log \frac{X_0 - 0.5}{4\pi} \leq 1.86 \times 10^{-11}$$
 and
-$$ (y + \frac{ty}{2(x-6)}) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) \leq (1 + \frac{0.2}{2(X_0-0.5-6)}) \frac{1}{2} \log(1 + \frac{0.2 \pi}{4(X_0-0.5)}) \leq 1.31 \times 10^{-12}$$
+$$ \left(y + \frac{ty}{2(x-6)}\right) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) \leq \left(1 + \frac{0.2}{2(X_0-0.5-6)}\right) \frac{1}{2} \log\left(1 + \frac{0.2 \pi}{4(X_0-0.5)}\right) \leq 1.31 \times 10^{-12}$$
 and thus
 \begin{equation}\label{gafn}
  |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) \leq 1.021  F_{N,t}( \mathrm{Re}(s_*) ).
@@ -80,7 +80,7 @@ $$ \frac{t}{2x^2} \left(1-3y+\frac{4y(1+y)}{x^2}\right)_+ \leq \frac{0.2}{2 (X_0
 to obtain 
 $$ \mathrm{Re}(s_*) \geq 0.6001 + \frac{t}{4} \log \frac{x}{4\pi}$$
 (say).  Since $F_{N,t}(\sigma)$ is non-increasing in $\sigma$, we conclude
-$$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} ).$$
+$$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}\left( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} \right).$$
 Since
 $$ N = \left\lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \right\rfloor,$$
 $0 \leq t \leq 0.2$, and $x \geq X_0-0.5$, it is easy to see that
@@ -88,13 +88,13 @@ $$ N \leq \frac{x}{4\pi}$$
 and hence by \eqref{bn-def}
 $$ \frac{b_n^t}{n^{\frac{t}{4} \log \frac{x}{\pi}}} \leq 1$$
 for all $1 \leq n \leq N$.  Therefore
-$$ F_{N,t}( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} ) \leq \sum_{n=1}^N \frac{1}{n^{0.6001}}$$
+$$ F_{N,t}\left( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} \right) \leq \sum_{n=1}^N \frac{1}{n^{0.6001}}$$
 and hence by the integral test
-$$ F_{N,t}( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} ) \leq \int_1^{N+1} \frac{ds}{s^{0.6001}} = \frac{1}{0.3999} (N+1)^{0.3999} $$
+$$ F_{N,t}\left( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} \right) \leq \int_1^{N+1} \frac{ds}{s^{0.6001}} = \frac{1}{0.3999} (N+1)^{0.3999} $$
 so that (by \eqref{dela})
 $$ e_A + e_B \leq 1.023 \frac{\frac{(0.2)^2}{16} \log^2 \frac{x}{4\pi} + 0.626}{x-6.66} \frac{1}{0.3999} (N+1)^{0.3999}.$$
 We have
-$$ N+1 \leq (1.001) (\frac{x-6.66}{4\pi})^{1/2} $$
+$$ N+1 \leq (1.001) \left(\frac{x-6.66}{4\pi}\right)^{1/2} $$
 (say), and hence
 $$ e_A + e_B \leq 0.7220 \frac{0.0025 \log^2 \frac{x}{4\pi} + 0.626}{(x-6.66)^{0.79995}}$$
 From Lemma \ref{elem-lem}(vi), the right-hand side is monotone decreasing in the region $x \geq X_0-0.5$, thus
@@ -130,7 +130,9 @@ in the following regions:
 \end{itemize}
 
 
-We begin with claim (i).  The function $f_t(x+iy)$ is holomorphic, so by Rouche's theorem, it suffices to show that for each time $0 \leq t \leq 0.2$, as $x+iy$ traverses the boundary $\partial R$ of the rectangle 
+\subsection{Proof of claim (i)}
+
+The function $f_t(x+iy)$ is holomorphic, so by Rouche's theorem, it suffices to show that for each time $0 \leq t \leq 0.2$, as $x+iy$ traverses the boundary $\partial R$ of the rectangle 
 $$ R \coloneqq \{ x+iy: 10^{10} + 83952 - 0.5 \leq x \leq 6 \times 10^{10} + 83952 + 0.5; 0.2 \leq y \leq 1 \},$$
 the function $f_t(x+iy)$ stays outside of the ball $B \coloneqq \{ z: |z| \leq 1.25 \times 10^{-3} \}$, and furthermore has a winding number of zero around the origin.
 
@@ -138,7 +140,7 @@ To verify this claim numerically for a given value of $t$, we subdivide each edg
 $$ \frac{1}{2\pi} \sum_{j=1}^{4n} \mathrm{arg}( f_t(x_{j+1}+iy_{j+1}) / f_t(x_j + i y_j) )$$
 which can be easily computed (and verified to be zero).  To pass from this polygonal path to the true trajectory $f_t(\partial R)$ of $f_t(x+iy)$ on $\partial R$, we again use Rouche's theorem.  If one has a derivative bound $|\frac{\partial}{\partial z} f_t(z)| \leq D_z$ on the boundary of the rectangle, the polygonal path and the true trajectory $f_t(\partial R)$ differ by a distance of at most $\frac{D_z}{2n}$, and the latter will have the same winding number around the origin (and stay outside of the ball $B$) as long as
 $$ |f_t(x_j + iy_j)| > 1.25 \times 10^{-3} + \frac{D_z}{2n}.$$
-Furthermore, the same is true for nearby times $t \leq t' 0.2$ to $t$, as long as one has the stronger bound
+Furthermore, the same is true for nearby times $t \leq t' \leq 0.2$ to $t$, as long as one has the stronger bound
 \begin{equation}\label{cond}
  |f_t(x_j + iy_j)| > 1.25 \times 10^{-3} + \frac{D_z}{2n} + \frac{D_t |t'-t|}{2n}
 \end{equation}
@@ -188,9 +190,11 @@ and hence by \eqref{alpha-def}
 $$ \frac{\partial \gamma}{\partial x} = \frac{it}{4} (\alpha(s) \alpha'(s) + \alpha(1-s) \alpha'(1-s))
 + \frac{i}{2} \alpha(s) + \frac{i}{2} \alpha(1-s).$$
 From the triangle inequality and \eqref{alpha-deriv-bound}, we thus have
-$$ 
-|\frac{\partial f_t}{\partial x}| \leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) + |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
-\left( \frac{t \log n}{4(x-6)} + \frac{|\alpha(s) + \alpha(1-s) - \log n|}{2} + \frac{t (|\alpha(s)| + |\alpha(1-s)|)}{4(x-6)}\right).$$
+\begin{align*}
+|\frac{\partial f_t}{\partial x}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) \\
+&\quad + |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
+\left( \frac{t \log n}{4(x-6)} + \frac{|\alpha(s) + \alpha(1-s) - \log n|}{2} + \frac{t (|\alpha(s)| + |\alpha(1-s)|)}{4(x-6)}\right).
+\end{align*}
 We have from \eqref{alpha-form} that
 $$ |\alpha(s)|, |\alpha(s) - \frac{1}{2} \log n| \leq \frac{1}{2} \log \frac{|1-y+ix|}{4\pi} + \frac{\pi}{2} + \frac{3}{2x} $$
 since $n \leq N \leq \frac{x}{4\pi} \leq \frac{|1-y+ix|}{4\pi}$.  Similarly
@@ -202,44 +206,46 @@ Writing $\mathrm{Re}(s_{**}) = \mathrm{Re}(s_*) - y + \mathrm{Re}(\kappa)$, we t
 Now we estimate the time derivative.  Since
 \begin{align*}
  \frac{\partial}{\partial t} \log b_n^t &= \frac{1}{4} \log^2 n \\
- \frac{\partial}{\partial t} s_* &= \frac{1}{2} \alpha(\frac{1+y-ix}{2}) \\
- \frac{\partial}{\partial t} s_{**} &= \frac{1}{2} \alpha(\frac{1-y+ix}{2}) \\
- \frac{\partial}{\partial t} \log \gamma &= \frac{1}{4} \left(\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2})\right)
+ \frac{\partial}{\partial t} s_* &= \frac{1}{2} \alpha(1-s) \\
+ \frac{\partial}{\partial t} s_{**} &= \frac{1}{2} \alpha(s) \\
+ \frac{\partial}{\partial t} \log \gamma &= \frac{1}{4} \left(\alpha(s)^2 - \alpha^2(1-s)\right)
 \end{align*}
 we see from differentiating \eqref{ftne} that, we obtain
-$$ \frac{\partial f_t}{\partial t} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} \left(\frac{\log^2 n}{4} - \frac{\alpha(\frac{1+y-ix}{2})}{2} \log n\right) 
-+ \gamma \sum_{n=1}^N \frac{b_n^t}{n^{s_{**}}}
-\left(\frac{\log^2 n}{4} - \frac{\alpha(\frac{1-y+ix}{2})}{2} \log n + \frac{1}{4} (\alpha(\frac{1-y+ix}{2})^2 - \alpha^2(\frac{1+y-ix}{2}))\right).$$
+\begin{align*}
+ \frac{\partial f_t}{\partial t} &= \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} \left(\frac{\log^2 n}{4} - \frac{\alpha(1-s)}{2} \log n\right) \\
+&+ \gamma \sum_{n=1}^N \frac{b_n^t}{n^{s_{**}}}
+\left(\frac{\log^2 n}{4} - \frac{\alpha(s)}{2} \log n + \frac{1}{4} (\alpha(s)^2 - \alpha^2(1-s))\right).
+\end{align*}
 From \eqref{alpha-deriv-bound}, \eqref{alpha-form} we have
 \begin{align*}
- \alpha(\frac{1 \pm y+ix}{2}) &= \alpha(\frac{ix}{2}) + O_{\leq}( \frac{1}{x-6} ) \\
-&= \frac{1}{2} \log \frac{x}{4\pi} + \frac{\pi i}{4} + O_{\leq}( \frac{4}{x-6} ) 
+ \alpha\left(\frac{1 \pm y+ix}{2}\right) &= \alpha\left(\frac{ix}{2}\right) + O_{\leq}\left( \frac{1}{x-6} \right) \\
+&= \frac{1}{2} \log \frac{x}{4\pi} + \frac{\pi i}{4} + O_{\leq}\left( \frac{4}{x-6} \right) 
 \end{align*}
 and hence (since $\alpha = \alpha^*$)
-$$ \alpha(\frac{1 \pm y-ix}{2}) = \frac{1}{2} \log \frac{x}{4\pi} - \frac{\pi i}{4} + O_{\leq}( \frac{4}{x-6} ) $$
-so in particular (recalling that $s_+ = \frac{1+y-ix}{2}$ and $s_- = \frac{1-y+ix}{2}$)
-$$ \alpha(s_-) - \alpha(s_+) = \frac{\pi i}{2} + O_{\leq}( \frac{8}{x-6} )$$
+$$ \alpha\left(\frac{1 \pm y-ix}{2}\right) = \frac{1}{2} \log \frac{x}{4\pi} - \frac{\pi i}{4} + O_{\leq}\left( \frac{4}{x-6} \right) $$
+so in particular (recalling that $1-s = \frac{1+y-ix}{2}$ and $s = \frac{1-y+ix}{2}$)
+$$ \alpha(s) - \alpha(1-s) = \frac{\pi i}{2} + O_{\leq}\left( \frac{8}{x-6} \right)$$
 and
-$$ \alpha(s_-) + \alpha(s_+) = \log \frac{x}{4\pi} + O_{\leq}( \frac{8}{x-6} )$$
+$$ \alpha(s) + \alpha(1-s) = \log \frac{x}{4\pi} + O_{\leq}\left( \frac{8}{x-6} \right)$$
 so that
-$$ \left|\alpha(s_-)^2 - \alpha(s_+)^2\right| \leq \left(\frac{\pi}{2} + \frac{8}{x-6}\right) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right).$$
+$$ \left|\alpha(s)^2 - \alpha(1-s)^2\right| \leq \left(\frac{\pi}{2} + \frac{8}{x-6}\right) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right).$$
 We conclude from the triangle inequality that
 \begin{align*}
  \left|\frac{\partial f_t}{\partial t}\right| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}\right) \\
 &+ |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
-\left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6} + \frac{1}{4} (\frac{\pi}{2} + \frac{8}{x-6}) (\log \frac{x}{4\pi} + \frac{8}{x-6})\right)
+\left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6} + \frac{1}{4} \left(\frac{\pi}{2} + \frac{8}{x-6}\right) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right)\right)
 \end{align*}
 giving the second claim.
 \end{proof}
 
-The next few graphs summarize the numerical output of the algorithm for the following Barrier parameters: $x=6\times 10^{10}+83925 \pm 0.5, y = 0.2 \dots 1, t=0 \dots 0.2$.  
+The next few graphs summarize the numerical output of the algorithm for the following barrier parameters: $x=6\times 10^{10}+83925 \pm 0.5, y = 0.2 \dots 1, t=0 \dots 0.2$.  
 
 
-The first step in the Barrier verification process was to precalculate a 'stored sum' of Taylor expansion terms that allows for fast recreation of $f_t(x+iy)$ during the execution of the algortihm. The number of Taylor terms required was determined through an iterative process targeted to achieve a 20 decimal accuracy.  The following plot illustrates that the achieved accuracy for all rectangular mesh points at $t=0$.
+The first step in the Barrier verification process was to precalculate a `stored sum' of Taylor expansion terms that allows for fast recreation of $f_t(x+iy)$ during the execution of the algortihm. The number of Taylor terms required was determined through an iterative process targeted to achieve a $20$ decimal accuracy.  The following plot illustrates that the achieved accuracy for all rectangular mesh points at $t=0$.
 
 \begin{figure}[h!]
   \includegraphics[width=0.7\linewidth]{BarrieraccuracyTaylor}
-  \caption{Achieved error term in the Taylor expansion at $t=0$. Target was set at 20 decimal places accuracy.}
+  \caption{Achieved error term in the Taylor expansion at $t=0$. Target was set at $20$ decimal places accuracy.}
 \end{figure}
 
 The derivative bounds determine the number of mesh points required on each $xy$-rectangle and in the $t$-direction. The next two plots ilustrate that these bounds have been chosen quite conservatively:
@@ -249,96 +255,81 @@ The derivative bounds determine the number of mesh points required on each $xy$-
   \caption{Derivative bounds versus their actual values at all required steps of $t$.}
 \end{figure}
 
-The number of rectangle mesh points varies with $t$ ranging from 11076 at $t=0$ to 56 at $t=0.195$:
+The number of rectangle mesh points varies with $t$ ranging from $11076$ at $t=0$ to $56$ at $t=0.195$:
 
 \begin{figure}[h!]
   \includegraphics[width=0.7\linewidth]{Numberofmeshpoints}
   \caption{The number of mesh points required per rectangle for each step of $t$.}
 \end{figure}
 
-The overall winding number for the Barrier at this specific location came out at $0$. The next graph shows the winding process at $t=0$. Due to the choice of the Barrier location and the small Barrier width compared to the wave length of the $x$ variable, little oscillation is expected to occur in each rectangle:
+The overall winding number for the barrier at this specific location came out at $0$. The next graph shows the winding process at $t=0$. Due to the choice of the barrier location and the small barrier width compared to the wave length of the $x$ variable, little oscillation is expected to occur in each rectangle:
 
 \begin{figure}[h!]
   \includegraphics[width=0.7\linewidth]{Windingprocess}
   \caption{Winding the rectangle at $t=0$.}
 \end{figure}
 
-Now we prove claim (ii).
+\subsection{Proof of claim (ii)}
 
-{\bf need to detail this more}
+For $N \in [69098,80000]$, the bound \eqref{x-adv} with the Euler $5$ mollifier (\eqref{ld} with $P=5$) gives a lower bound for $|f_t(x+iy)|$ by a quantity $F_N$ (the right-hand side of \eqref{x-adv}), which only depends on $N$.  A direct calculation then shows that $F_N > 0.042$; in fact $F_N$ monotonically increased with $N$ in this range, from $0.04278$ to $0.08011$.
 
-For $N \in [69098,80000]$, it was computationally verified that $|f_{N}| > 0.042$, since the Lemma bound (eqn 78) using the Euler 5 mollifier monotonically increased with N, from 0.04278 to 0.08011.
+\subsection{Proof of claim (iii)}
 
-$ $
- 
+If $F_N$ is the quantity in claim (ii), one can easily compute $F_N$ for any given $N$ in the range $80000 \leq N \leq 1.5 \times 10^6$ to obtain a satisfactory lower bound.  However, the number of $N$ here is prohibitively large to permit a direct computation of each value of $F_N$.  To reduce the number of values of $N$, we establish upper bounds on the difference
+$$ F_N - F_{N+1}$$
+to prevent $F_N$ from decreasing too rapidly as $N$ advances.
 
-Now we prove claim (iii).
+We attempt here to find $N$-dependent positive lower bounds for $|f_{t}(x+iy)|$ or corresponding mollified sums through an incremental approach,
 
-{\bf need to detail this more}
+$$ |f_{N+1}| \geq |f_{N}| - \sum \textrm{(additional terms corresponding to N+1)}$$
+with the bound for $|f_{N_{\mathrm{min}}}|$ computed similarly to (77) or (78).
 
-We attempt here to find N dependent positive lower bounds for $|f_{t}(x+iy)|$ or corresponding mollified sums through an incremental approach,
 
-$$ |f_{N+1}| >= |f_{N}| - \sum \textrm{(additional terms corresponding to N+1)}$$
-with the bound for $|f_{N_{min}}|$ computed similarly to (77) or (78).
+If the incremental bound goes below a positive threshold at $N$, we reset $N_{\mathrm{min}}$ to $N$ and restart the process, generating a sawtooth pattern.
 
-$ $
 
-If the incremental bound goes below a positive threshold at N, we reset $N_{min}$ to N and restart the process, generating a sawtooth pattern.
-
-$ $
-
-For verifying the lower bounds for $[N_{min},N_{max}]$, and with
+For verifying the lower bounds for $[N_{\mathrm{min}},N_{\mathrm{max}}]$, and with
 
 $\beta_{n,N} = \sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} b_{n/d}^{t}$, 
 
 $\alpha_{n,N} = \sum\limits_{1 \leq d \leq D:d|n:n \leq dN} \lambda_{d} a_{n/d}^{t}$,
 
-$g(n,N,N_{max}) = \max(\frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} |\beta_{n,N} + \alpha_{n,N}|, |\beta_{n,N} - \alpha_{n,N}|,  |\beta_{n,N} - |\frac{\gamma_{N_{max}}}{\gamma_{N}}| \alpha_{n,N}|)$,
-
-$ $
+$g(n,N,N_{\mathrm{max}}) = \max(\frac{1-|\gamma|_{N_{\mathrm{max}}}}{1+|\gamma|_{N_{\mathrm{max}}}} |\beta_{n,N} + \alpha_{n,N}|, |\beta_{n,N} - \alpha_{n,N}|,  |\beta_{n,N} - |\frac{\gamma_{N_{\mathrm{max}}}}{\gamma_{N}}| \alpha_{n,N}|)$,
 
 For the Triangle inequality bound,
 
-$$|f_{N_{min}}| \geq \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N_{min}}}}} (1 - |\gamma_{N_{min}}| - \sum\limits_{n=2}^{DN_{min}} \frac{|\beta_{n,N_{min}}| + |\alpha_{n,N_{min}}|}{n^{\sigma_{N_{min}}}}) - |\gamma_{N_{min}}| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma_{N_{min}}-y}}$$
+$$|f_{N_{\mathrm{min}}}| \geq \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N_{\mathrm{min}}}}}} (1 - |\gamma_{N_{\mathrm{min}}}| - \sum\limits_{n=2}^{DN_{\mathrm{min}}} \frac{|\beta_{n,N_{\mathrm{min}}}| + |\alpha_{n,N_{\mathrm{min}}}|}{n^{\sigma_{N_{\mathrm{min}}}}}) - |\gamma_{N_{\mathrm{min}}}| \sum_{n=1}^{N_{\mathrm{min}}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma_{N_{\mathrm{min}}}-y}}$$
 
 
 $$|f_{N+1}| \geq |f_{N}| - \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N+1}}}} \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{|\beta_{n,N+1}| + |\alpha_{n,N+1}|}{n^{\sigma_{N+1}}}) - |\gamma_{N+1}| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma_{N+1}-y}}$$
 
-$ $
-
 For the Lemma inequality bound,
 
-$$|f_{N_{min}}| \geq \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N_{min}}}}} (1 - |\gamma_{N_{min}}| - \sum\limits_{n=2}^{DN_{min}}  \frac{g(n,N_{min},N_{max})}{n^{\sigma_{N_{min}}}} ) - |\gamma_{N_{min}}| \sum_{n=1}^{N_{min}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma_{N_{min}}-y}}$$
+$$|f_{N_{\mathrm{min}}}| \geq \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N_{\mathrm{min}}}}}} (1 - |\gamma_{N_{\mathrm{min}}}| - \sum\limits_{n=2}^{DN_{\mathrm{min}}}  \frac{g(n,N_{\mathrm{min}},N_{\mathrm{max}})}{n^{\sigma_{N_{\mathrm{min}}}}} ) - |\gamma_{N_{\mathrm{min}}}| \sum_{n=1}^{N_{\mathrm{min}}} \frac{b_n^t (n^{|\kappa|} - 1)}{n^{\sigma_{N_{\mathrm{min}}}-y}}$$
 
 
-$$|f_{N+1}| >= |f_{N}| - \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N+1}}}} \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{g(n,N_{min},N_{max})}{n^{\sigma_{N+1}}})  - |\gamma_{N+1}| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma_{N+1}-y}}$$
+$$|f_{N+1}| >= |f_{N}| - \frac{1}{\sum_{d=1}^D \frac{|\lambda_d|}{d^{\sigma_{N+1}}}} \sum\limits_{1 \leq d \leq D:d|D}(\sum\limits_{n=dN+1}^{dN+d} \frac{g(n,N_{\mathrm{min}},N_{\mathrm{max}})}{n^{\sigma_{N+1}}})  - |\gamma_{N+1}| \frac{b_{N+1}^t ({(N+1)}^{|\kappa|} - 1)}{(N+1)^{\sigma_{N+1}-y}}$$
 
 Note: The incremental bounds work since,
 
 1) $\beta_{n,N}=\beta_{n,N+1} \textrm{ and } \frac{\alpha_{n,N}}{\gamma_N} = \frac{\alpha_{n,N+1}}{\gamma_{N+1}} \textrm{ when } n \notin [dN,dN+d] \textrm{ for } d:d|D$  
 
-2) $g(n,N,N_{max})$ can be seen to have the following properties with n fixed and N varying, resulting in it being constant or decreasing with increasing N,
+2) $g(n,N,N_{\mathrm{max}})$ can be seen to have the following properties with n fixed and N varying, resulting in it being constant or decreasing with increasing N,
 
-$\bullet g(n,N,N_{max}) =  |\beta_{n,N} - \alpha_{n,N}| \textrm{ when } \beta_{n,N} \alpha_{n,N} \leq 0$
+$\bullet g(n,N,N_{\mathrm{max}}) =  |\beta_{n,N} - \alpha_{n,N}| \textrm{ when } \beta_{n,N} \alpha_{n,N} \leq 0$
 
-$\bullet g(n,N,N_{max}) =  \max(\frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} |\beta_{n,N} + \alpha_{n,N}|,  |\beta_{n,N} - |\frac{\gamma_{N_{max}}}{\gamma_{N}}| \alpha_{n,N}|)) \textrm{ when } \beta_{n,N} \alpha_{n,N} > 0 \textrm{ and } |\beta_{n,N}| \geq |\alpha_{n,N}|$
+$\bullet g(n,N,N_{\mathrm{max}}) =  \max(\frac{1-|\gamma|_{N_{\mathrm{max}}}}{1+|\gamma|_{N_{\mathrm{max}}}} |\beta_{n,N} + \alpha_{n,N}|,  |\beta_{n,N} - |\frac{\gamma_{N_{\mathrm{max}}}}{\gamma_{N}}| \alpha_{n,N}|)) \textrm{ when } \beta_{n,N} \alpha_{n,N} > 0 \textrm{ and } |\beta_{n,N}| \geq |\alpha_{n,N}|$
 
-$\bullet g(n,N,N_{max}) =  \max(\frac{1-|\gamma|_{N_{max}}}{1+|\gamma|_{N_{max}}} |\beta_{n,N} + \alpha_{n,N}|, |\beta_{n,N} - \alpha_{n,N}|,  |\beta_{n,N} - |\frac{\gamma_{N_{max}}}{\gamma_{N}}| \alpha_{n,N}|)) \textrm{ when } \beta_{n,N} \alpha_{n,N} > 0 \textrm{ and } |\alpha_{n,N}| > |\beta_{n,N}|$
+$\bullet g(n,N,N_{\mathrm{max}}) =  \max(\frac{1-|\gamma|_{N_{\mathrm{max}}}}{1+|\gamma|_{N_{\mathrm{max}}}} |\beta_{n,N} + \alpha_{n,N}|, |\beta_{n,N} - \alpha_{n,N}|,  |\beta_{n,N} - |\frac{\gamma_{N_{\mathrm{max}}}}{\gamma_{N}}| \alpha_{n,N}|)) \textrm{ when } \beta_{n,N} \alpha_{n,N} > 0 \textrm{ and } |\alpha_{n,N}| > |\beta_{n,N}|$
 
 $ $
 
-Now, with $N_{max} = 1.5 million, y =0.2, t=0.2, \textrm{ Euler 5 mollifier, and threshold } = 0.03$
+Now, with $N_{\mathrm{max}} = 1.5 \times 10^6, y =0.2, t=0.2, \textrm{ Euler 5 mollifier, and threshold } = 0.03$
 
-and starting with $N_{min} = 80000$, and resetting $N_{min}$ whenever the incremental lemma bound goes below 0.03, 
+and starting with $N_{\mathrm{min}} = 80000$, and resetting $N_{\mathrm{min}}$ whenever the incremental lemma bound goes below 0.03, 
 
-it was computationally verified that $|f_{N}| \geq$ 0.03 for $N \in$ [80000,1.5 million]  
+it was computationally verified that $|f_{N}| \geq 0.03$ for $N \in [80000,1.5 \times 10^6]$.  
 
-
-$$..$$
-$$..$$
-$$..$$
-
-...
 
 
 Finally, we prove claim (iv).  In this regime we have
@@ -352,14 +343,14 @@ In view of \eqref{x-init}, it suffices to show that
 \end{equation}
 where $\sigma \coloneqq \mathrm{Re} s_*$.
 Our main tool here will be Lemma \ref{largen} (with $N_0 = 69098$).  First observe from \eqref{kappa-bound} that
-$$ |\kappa| \leq \frac{0.2 \times 0.2}{2(2.82 \times 10^{13}-6)} \leq 7.08 * 10^{-16}$$
+$$ |\kappa| \leq \frac{0.2 \times 0.2}{2(2.82 \times 10^{13}-6)} \leq 7.08 \times 10^{-16}$$
 while from \eqref{gamma-bound} one has
 $$
 |\gamma| \leq 1.005 \left( \frac{x_N}{4\pi} \right)^{-0.1}$$
 and from \eqref{res-bound} one has
 \begin{align*}
-\sigma &\geq 0.6 + \frac{0.2}{4} \log \frac{x_N}{4\pi} - \frac{0.2}{2x_{1.5*10^6}^2} \left(0.4+\frac{0.96}{x_{1.5*10^6}^2}\right)_+ \\
-&\geq 0.6 + 0.1 \log N + 0.05 \log \left(1 - \frac{t}{16 (1.5*10^6)^2}\right) - \frac{0.2}{2x_{1.5*10^6}^2} \left(0.4+\frac{0.96}{x_{1.5*10^6}^2}\right)_+ \\
+\sigma &\geq 0.6 + \frac{0.2}{4} \log \frac{x_N}{4\pi} - \frac{0.2}{2x_{1.5 \times 10^6}^2} \left(0.4+\frac{0.96}{x_{1.5 \times 10^6}^2}\right)_+ \\
+&\geq 0.6 + 0.1 \log N + 0.05 \log \left(1 - \frac{t}{16 (1.5 \times 10^6)^2}\right) - \frac{0.2}{2x_{1.5 \times 10^6}^2} \left(0.4+\frac{0.96}{x_{1.5\times 10^6}^2}\right)_+ \\
 &\geq 0.6 + 0.1 \log N - 5.1 \times 10^{-29}.
 \end{align*}
 We can then apply Lemma \ref{largen} twice to bound the left-hand side of \eqref{nan} by $A+B$, where
