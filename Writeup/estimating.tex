@@ -1,6 +1,6 @@
 \section{Estimating a sum}
 
-In order to use the bound \eqref{x-init} for very large values of $N$, the following estimate will be used.
+In order to estimate sums of the form $\sum_{n=1}^N \frac{b_n^t}{n^\sigma}$ for very large values of $N$, the following estimate will be used.
 
 \begin{lemma}\label{largen}
 Let $N \geq N_0 \geq 1$ be natural numbers, and let $\sigma,t > 0$ be such that
@@ -67,7 +67,7 @@ where
 $$ B_{i,j} \coloneqq \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} \frac{( \frac{t}{4} \log^2(1+\frac{h}{n_0}) )^i}{i!} \frac{\log^j(1+\frac{h}{n_0})}{(n_0+h)^{\frac{1+y-iX}{2}}}.$$
 If we truncate the $i,j$ summations at some cutoff $E$, we obtain the approximation
 $$ B(b) \approx n_0^{b + \frac{t}{4} \log n_0} \sum_{i=0}^{E-1} \sum_{j=0}^{E-1} B_{i,j}(n_0) \frac{(b+\frac{t}{2} \log n_0)^i}{i!}.$$
-The quantities $B_{i,j}, i,j=0,\dots,{E-1}$ may be evaluated in time $O(N E^2)$, and then the sums $B(b)$ for $M$ values of $b$ may be evaluated in time $O(ME^2)$, leading to a total computation time of $O((N+M) E^2)$ which can be significantly faster than $O(NM)$ even for relatively large values of $E$.  We took $E=50$, which is more than adequate to obtain extremely high accuracy for $f_t(s)$; see ???.  The code for implementing this may be found in the file
+The quantities $B_{i,j}, i,j=0,\dots,{E-1}$ may be evaluated in time $O(N E^2)$, and then the sums $B(b)$ for $M$ values of $b$ may be evaluated in time $O(ME^2)$, leading to a total computation time of $O((N+M) E^2)$ which can be significantly faster than $O(NM)$ even for relatively large values of $E$.  We took $E=50$, which is more than adequate to obtain extremely high accuracy for $f_t(s)$; see Figure \ref{fig1}.  The code for implementing this may be found in the file
 
 \centerline{\tt dbn\_upper\_bound/pari/barrier\_multieval\_t\_agnostic.txt}
 

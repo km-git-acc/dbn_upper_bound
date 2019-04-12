@@ -134,7 +134,7 @@ e_{C,0} &\leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}
 \end{align}
 \end{theorem}
 
-This theorem will be proven in Section \ref{initial-sec}; see Figures \ref{htft}, \ref{htft-2} for a numerical illustration of the approximation.  The strategy is to express $H_t$ as a convolution of $H_0$ with a gaussian heat kernel, then apply an effective Riemann-Siegel expansion to $H_0$ to rewrite $H_t$ as the sum of various contour integrals; see Section \ref{heatflow-sec} for details.  One then uses the saddle point method to shift each such contour to a location that is suitable for effective estimation. 
+This theorem will be proven in Section \ref{initial-sec}; see Figures \ref{htft}, \ref{htft-2} for a numerical illustration of the approximation.  The strategy is to express $H_t$ as a convolution of $H_0$ with a gaussian heat kernel, then apply an effective Riemann-Siegel expansion to $H_0$ to rewrite $H_t$ as the sum of various contour integrals; see Section \ref{heatflow-sec} for details.  One then uses the saddle point method to shift each such contour to a location that is suitable for effective estimation.   We remark that $f_t(x+iy)$ is a holomorphic function of $x+iy$ in the region \eqref{region} as long as $N$ is constant, but has jump discontinuities when $N$ is incremented.
 
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{ft_vs_HtdivBt_y_09.png}
@@ -166,9 +166,10 @@ From \eqref{ratio-form-eff} and the triangle inequality, we have a numerically v
 \begin{equation}\label{criterion}
 |f_t(x+iy)| > e_A + e_B + e_{C,0} 
 \end{equation}
-then $H_t(x+iy) \neq 0$.
+then $H_t(x+iy) \neq 0$.  
 \end{corollary}
 
+Actually, for some regions of $x,y,t$ we will use a more complicated criterion than \eqref{criterion}, in order to exploit the argument principle.
 
 In the asymptotic limit $x \to \infty$, one easily sees that 
 \begin{align*}
