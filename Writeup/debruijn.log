@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  12 APR 2019 17:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  13 APR 2019 16:00
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -541,7 +541,7 @@ Package pdftex.def Info: eA_eB_eC_errorbounds.png  used on input line 158.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [6] [7 <./ft_vs_HtdivBt_y_09.png> <./ft_vs_HtdivBt_y_0.png>]
-Overfull \vbox (15.12733pt too high) has occurred while \output is active []
+Underfull \vbox (badness 3158) has occurred while \output is active []
 
  [8 <./ft_min_Ht_vs_errorterms.png> <./eA_eB_eC_errorbounds.png>]
 <Extra_RS_term.png, id=52, 777.90625pt x 580.1675pt>
@@ -555,24 +555,27 @@ File: Integerconvergence_t_and_x_direction.png Graphic file (type png)
 <use Integerconvergence_t_and_x_direction.png>
 Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 219.
 (pdftex.def)             Requested size: 418.25368pt x 163.13708pt.
- [10 <./Integerconvergence_t_and_x_direction.png>]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 238.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10]
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 238.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
-)) (dynamics.tex [11] [12] [13] [14]) (heatflow.tex [15]
-[16]) (elementary.tex [17] [18]) (initial.tex [19]
+) [11 <./Integerconvergence_t_and_x_direction.png>])
+(dynamics.tex [12] [13] [14] [15]) (heatflow.tex [16]) (elementary.tex [17] [18]) (initial.tex [19]
 Overfull \hbox (38.62108pt too wide) detected at line 54
 []
  []
 
-[20] [21]
-<C0_p.png, id=100, 565.8741pt x 423.5022pt>
+[20] [21] [22]
+<C0_p.png, id=103, 565.8741pt x 423.5022pt>
 File: C0_p.png Graphic file (type png)
 <use C0_p.png>
 Package pdftex.def Info: C0_p.png  used on input line 133.
 (pdftex.def)             Requested size: 292.77629pt x 219.12384pt.
- [22] [23 <./C0_p.png>]
+ [23 <./C0_p.png>]
 Overfull \hbox (6.45036pt too wide) detected at line 165
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
@@ -592,21 +595,18 @@ Overfull \hbox (16.23422pt too wide) in paragraph at lines 409--410
 /txmi/m/it/10.95 M[]$\OT1/txr/m/n/10.95 , so that $[] = []$),
  []
 
-[31] [32] [33] [34]) (estimating.tex [35]
-Overfull \vbox (1.40562pt too high) has occurred while \output is active []
-
- [36]) (zerofree.tex [37] [38]
-<euler_product_approximation.png, id=156, 424.08438pt x 183.68625pt>
+[31] [32] [33] [34]) (estimating.tex [35]) (zerofree.tex [36] [37]
+<euler_product_approximation.png, id=153, 424.08438pt x 183.68625pt>
 File: euler_product_approximation.png Graphic file (type png)
 <use euler_product_approximation.png>
 Package pdftex.def Info: euler_product_approximation.png  used on input line 42.
 (pdftex.def)             Requested size: 418.25368pt x 181.16884pt.
- [39 <./euler_product_approximation.png>] [40]
+ [38 <./euler_product_approximation.png>] [39]
 Overfull \hbox (23.46901pt too wide) detected at line 122
 []
  []
 
-[41]
+[40]
 Overfull \hbox (31.33856pt too wide) detected at line 170
 []
  []
@@ -616,14 +616,14 @@ Overfull \hbox (31.33856pt too wide) in alignment at lines 169--170
 [] [] 
  []
 
-[42] [43]
+[41] [42] [43]
 <B_vs_N.png, id=173, 425.6703pt x 281.1303pt>
 File: B_vs_N.png Graphic file (type png)
 <use B_vs_N.png>
-Package pdftex.def Info: B_vs_N.png  used on input line 229.
+Package pdftex.def Info: B_vs_N.png  used on input line 262.
 (pdftex.def)             Requested size: 292.77629pt x 193.36668pt.
  [44 <./B_vs_N.png>]
-Overfull \hbox (18.44473pt too wide) detected at line 266
+Overfull \hbox (18.44473pt too wide) detected at line 299
 []
  []
 
@@ -631,38 +631,35 @@ Overfull \hbox (18.44473pt too wide) detected at line 266
 <BarrieraccuracyTaylor.png, id=187, 581.0508pt x 422.7795pt>
 File: BarrieraccuracyTaylor.png Graphic file (type png)
 <use BarrieraccuracyTaylor.png>
-Package pdftex.def Info: BarrieraccuracyTaylor.png  used on input line 348.
+Package pdftex.def Info: BarrieraccuracyTaylor.png  used on input line 381.
 (pdftex.def)             Requested size: 292.77629pt x 213.0278pt.
 <Derivativebounds.png, id=188, 1623.06375pt x 623.32875pt>
 File: Derivativebounds.png Graphic file (type png)
 <use Derivativebounds.png>
-Package pdftex.def Info: Derivativebounds.png  used on input line 355.
+Package pdftex.def Info: Derivativebounds.png  used on input line 388.
 (pdftex.def)             Requested size: 418.25368pt x 160.62546pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 <Numberofmeshpoints.png, id=189, 565.1514pt x 424.2249pt>
 File: Numberofmeshpoints.png Graphic file (type png)
 <use Numberofmeshpoints.png>
-Package pdftex.def Info: Numberofmeshpoints.png  used on input line 362.
+Package pdftex.def Info: Numberofmeshpoints.png  used on input line 395.
 (pdftex.def)             Requested size: 292.77629pt x 219.77612pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Windingprocess.png, id=190, 425.6703pt x 278.2395pt>
+ [48 <./BarrieraccuracyTaylor.png> <./Derivativebounds.png>]
+<Windingprocess.png, id=195, 425.6703pt x 278.2395pt>
 File: Windingprocess.png Graphic file (type png)
 <use Windingprocess.png>
-Package pdftex.def Info: Windingprocess.png  used on input line 369.
+Package pdftex.def Info: Windingprocess.png  used on input line 402.
 (pdftex.def)             Requested size: 292.77629pt x 191.37834pt.
+<Windingprocess_t02.png, id=196, 387.3672pt x 278.2395pt>
+File: Windingprocess_t02.png Graphic file (type png)
+<use Windingprocess_t02.png>
+Package pdftex.def Info: Windingprocess_t02.png  used on input line 407.
+(pdftex.def)             Requested size: 292.77629pt x 210.30516pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48 <./BarrieraccuracyTaylor.png>]
-Underfull \vbox (badness 2027) has occurred while \output is active []
-
- [49 <./Derivativebounds.png> <./Numberofmeshpoints.png>] [50 <./Windingprocess.png>] [51] [52]
-Overfull \hbox (14.10667pt too wide) detected at line 476
+[49 <./Numberofmeshpoints.png> <./Windingprocess.png>] [50 <./Windingprocess_t02.png>] [51] [52]
+Overfull \hbox (14.10667pt too wide) detected at line 519
 []\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 E[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/
 m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 +
  \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 ; \OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  1\OML/txmi/m
@@ -670,54 +667,64 @@ m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OM
  N[][] \OMS/txsy/m/n/10.95   [] []   \OML/txmi/m/it/10.95 Z:
  []
 
-[53] [54]) (asymptotic.tex [55] [56] [57] [58]
+[53]
+Underfull \vbox (badness 2073) has occurred while \output is active []
+
+ [54] [55]) (asymptotic.tex [56] [57] [58]
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
 
 [59] [60] [61]
-<real_zeros_solid.png, id=240, 365.6862pt x 279.6849pt>
+<real_zeros_solid.png, id=242, 365.6862pt x 279.6849pt>
 File: real_zeros_solid.png Graphic file (type png)
 <use real_zeros_solid.png>
 Package pdftex.def Info: real_zeros_solid.png  used on input line 182.
 (pdftex.def)             Requested size: 376.42575pt x 287.92076pt.
-<Actual_trajectories_zeros.png, id=241, 792.9625pt x 549.05125pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Actual_trajectories_zeros.png, id=243, 792.9625pt x 549.05125pt>
 File: Actual_trajectories_zeros.png Graphic file (type png)
 <use Actual_trajectories_zeros.png>
 Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 187.
 (pdftex.def)             Requested size: 376.42575pt x 260.64287pt.
 
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (further.tex [62 <./real_zeros_solid.png>]
-Underfull \vbox (badness 1540) has occurred while \output is active []
+) (further.tex [62]
+Underfull \vbox (badness 2189) has occurred while \output is active []
 
- [63 <./Actual_trajectories_zeros.png>]
+ [63 <./real_zeros_solid.png>]
 Overfull \hbox (18.59593pt too wide) in paragraph at lines 13--29
  [] 
  []
 
-) [64] [65] (debruijn.aux) ) 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [64 <./Actual_trajectories_zeros.png>] [65] [66] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
- 5974 strings out of 493303
- 86625 string characters out of 3138857
- 163005 words of memory out of 3000000
- 9190 multiletter control sequences out of 15000+200000
- 42145 words of font info for 106 fonts, out of 3000000 for 9000
+ 5985 strings out of 493303
+ 86813 string characters out of 3138857
+ 160046 words of memory out of 3000000
+ 9198 multiletter control sequences out of 15000+200000
+ 43521 words of font info for 108 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,21n,39p,1490b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/t
-xsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (65 pages, 1815475 bytes).
+ 55i,21n,39p,1490b,350s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.
+enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txf
+onts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8
+a.pfb>
+Output written on debruijn.pdf (66 pages, 1842091 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
+ 305 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

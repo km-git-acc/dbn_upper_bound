@@ -1,39 +1,4 @@
-\section{Estimating a sum}
-
-In order to estimate sums of the form $\sum_{n=1}^N \frac{b_n^t}{n^\sigma}$ for very large values of $N$, the following estimate will be used.
-
-\begin{lemma}\label{largen}
-Let $N \geq N_0 \geq 1$ be natural numbers, and let $\sigma,t > 0$ be such that
-$$ \sigma > \frac{t}{2} \log N.$$
-Then
-$$ \sum_{n=1}^N \frac{b_n^t}{n^\sigma} \leq \sum_{n=1}^{N_0}
-\frac{b_n^t}{n^\sigma}  + 
-\max( N_0^{1-\sigma} b_{N_0}^t, N^{1-\sigma} b_N^t ) \log \frac{N}{N_0}.$$
-\end{lemma}
-
-\begin{proof}  From the identity
-$$ \frac{b_n^t}{n^\sigma} = \frac{\exp\left( \frac{t}{4} (\log N - \log n)^2 - \frac{t}{4} (\log N)^2\right) }{n^{\sigma - \frac{t}{2} \log N}}$$
-we see that the summands $\frac{b_n^t}{n^\sigma}$ are decreasing for $1 \leq n \leq N$, hence by the integral test one has
-\begin{equation}\label{rado}
- \sum_{n=1}^N \frac{b_n^t}{n^\sigma} \leq \sum_{n=1}^{N_0}
-\frac{b_n^t}{n^\sigma}  + \int_{N_0}^N \frac{b_a^t}{a^\sigma}\ da.
-\end{equation}
-Making the change of variables $a = e^u$, the right-hand side becomes
-$$\sum_{n=1}^{N_0} \frac{b_n^t}{n^\sigma} \exp( (1-\sigma) u + \frac{t}{4} u^2 )\ du.$$
-The expression $(1-\sigma) u + \frac{t}{4} u^2$ is convex in $u$, and is thus bounded by the maximum of its values at the endpoints $u = \log N_0, \log N$; thus
-$$\exp( (1-\sigma) u + \frac{t}{4} u^2) \leq N_0^{1-\sigma} b_{N_0}^t, N^{1-\sigma} b_N^t.$$
-The claim follows. 
-\end{proof}
-
-\begin{remark}  The right-hand side of \eqref{rado} can be evaluated exactly as
-$$
-\sum_{n=1}^{N_0}
-\frac{b_n^t}{n^\sigma}  + \frac{\sqrt \pi}{\sqrt t} \exp(\frac{-(\sigma - 1)^2}{t}) \left( \operatorname{erfi}\left(\frac{\frac{t}{2} \log N  - \sigma + 1}{\sqrt t} \right) - \operatorname{erfi}\left(\frac{\frac{t}{2} \log N_0  - \sigma + 1}{\sqrt t}\right) \right).$$
-
-In practice, this upper bound for $\sum_{n=1}^N \frac{b_n^t}{n^\sigma}$ is slightly more accurate than the one in Lemma \ref{largen}, and is a good approximation even for relatively small values of $N_0$ (e.g., $N_0=100$).  However, the cruder bound above suffices for the numerical values of parameters needed to establish the bound $\Lambda \leq 0.22$.
-\end{remark}
-
-\subsection{Fast evaluation of multiple values of $f_t(s)$}\label{Fast}
+\section{Fast evaluation of multiple sums}\label{multiple-sec}
 
 Fix $t \geq 0$.  For the verification of the barrier criterion (Theorem \ref{ubc-0}(iii)) using Corollary \ref{zero-test}, we will need to evaluate the quantity $f_t(s)$ to reasonable accuracy for a large number of values of $s$ in the vicinity of a fixed complex number $X+iy$.  From \eqref{ft-def} we have
 \begin{equation}\label{fts}

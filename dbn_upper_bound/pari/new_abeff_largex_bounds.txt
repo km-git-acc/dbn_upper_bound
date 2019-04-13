@@ -34,12 +34,25 @@ return(List([D,ndivs,d,moll]));\
 );
 }
 
-// lower bound for N in the range [N1,N2]
+// lower bound for F_{N_1,N_2}, which essentially lower bounds the magnitude of E_{t,mtype}(x+iy) H_t(x+iy)/B_t(x+iy) when N is in the range [N1,N2].  One wishes to choose parameters so that the output is positive.  For instance abbeff_largex_ep_bound2(5,69098,80000,0.2,0.2) = 0.026... clears the region where N is between 69098 and 80000.
+
+abbeff_largex_ep_bound2(mtype,N1,N2,y,t) = {
+	[D,ndivs,d,moll] = mollifier(mtype,t);
+	sig = (1+y)/2 + log(N1)*t / 2 - 0.001;
+	modgamma = 1.005 * N1^(-y);
+	fac = (1-modgamma)/(1+modgamma);
+	lemma = 1 - modgamma;
+	for (n=2, D*N2, b = sum(nd=1,ndivs,if(combdelta(n,d[nd],N2)>0,moll[nd]*bt(n/d[nd],t))); a = modgamma*sum(nd=1,ndivs,if(combdelta(n,d[nd],N2)>0,moll[nd]*at(n/d[nd],t,y))); lemma -= max( abs(b-a), fac*abs(b+a)) / n^sig;);
+	return(lemma);
+}
+
+// older version of abbeff_largex_ep_bound that is now deprecated due to excessive memory use.
 
 abbeff_largex_ep_bound(mtype,N1,N2,y,t) = {
 	[D,ndivs,d,moll] = mollifier(mtype,t);
 	sig = (1+y)/2 + log(N1)*t / 2 - 0.001;
 	modgamma = 1.005 * N1^(-y);
+	
 	b = vector(D*N2,n,sum(nd=1,ndivs,if(combdelta(n,d[nd],N2)>0,moll[nd]*bt(n/d[nd],t))));
     a = modgamma*vector(D*N2,n,sum(nd=1,ndivs,if(combdelta(n,d[nd],N2)>0,moll[nd]*at(n/d[nd],t,y))));
 	bsum = sum(n=1,D*N2,abs(b[n])/n^sig);
