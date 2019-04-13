@@ -57,7 +57,7 @@ Claim (i) of Theorem \ref{ubc-0} is immediate from the result of Platt \cite{pla
 Here we have enlarged the region (iii) for simplicity.  Both of these regions lie in \eqref{region}.  We can of course replace $H_t(x+iy)$ by $H_t(x+iy)/B_t(x+iy)$.  
 
 Set
-$$ N \coloneqq \left\lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \right\rfloor \leq \left(\frac{x}{4\pi} (1 + \frac{\pi t}{4x})\right)^{1/2},$$
+$$ N \coloneqq \left\lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \right\rfloor $$ % \leq \left(\frac{x}{4\pi} (1 + \frac{\pi t}{4x})\right)^{1/2},$$
 so in particular
 %\begin{equation}\label{logx}
  %\log \frac{x}{4\pi} \geq 2 \log N - \log(1 + \frac{\pi t}{4x}).
@@ -84,7 +84,7 @@ Define
 f_t(x+iy) &\coloneqq \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}\\
 b_n^t &\coloneqq \exp( \frac{t}{4} \log^2 n),\\
 \end{align*}
-and let $\kappa, s_*, \gamma$ be as in Theorem \ref{eff}.  Then
+where $\kappa, s_*, \gamma$ are as in Theorem \ref{eff}.  Then
 \begin{equation}\label{bbb}
 \frac{H_t(x+iy)}{B_t(x+iy)} = f_t(x+iy) + O_{\leq}( 1.25 \times 10^{-3} ).
 \end{equation}
@@ -191,13 +191,46 @@ Our main tool here is the triangle inequality.  From \eqref{ft-def} one has
 $$
 f_t(x+iy) = 1 + \sum_{n=2}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}$$
 and hence
-$$ f_t(x+y) = 1 + O_{\leq}( \sum_{n=2}^N \frac{b_n^t}{n^{\sigma}} + |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\sigma + |\kappa|}} )$$
+$$ f_t(x+y) = 1 + O_{\leq}\left( \sum_{n=2}^N \frac{b_n^t}{n^{\sigma}} + |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\sigma + |\kappa|}} \right)$$
 where $\sigma \coloneqq \mathrm{Re} s_*$.  Restoring the $n=1$ term in the first sum and recalling that $t=0.2$, it thus suffices to show that
 \begin{equation}\label{nan}
  \sum_{n=1}^N \frac{b_n^{0.2}}{n^\sigma} + |\gamma| \sum_{n=1}^N n^y \frac{b_n^{0.2}}{n^{\sigma-|\kappa|}}
 < 1.955.
 \end{equation}
-Our main tool here will be Lemma \ref{largen}.  First observe from \eqref{kappa-bound} that
+Our main tool here will be 
+
+\begin{lemma}\label{largen}
+Let $N \geq N_0 \geq 1$ be natural numbers, and let $\sigma,t > 0$ be such that
+$$ \sigma > \frac{t}{2} \log N.$$
+Then
+$$ \sum_{n=1}^N \frac{b_n^t}{n^\sigma} \leq \sum_{n=1}^{N_0}
+\frac{b_n^t}{n^\sigma}  + 
+\max( N_0^{1-\sigma} b_{N_0}^t, N^{1-\sigma} b_N^t ) \log \frac{N}{N_0}.$$
+\end{lemma}
+
+\begin{proof}  From the identity
+$$ \frac{b_n^t}{n^\sigma} = \frac{\exp\left( \frac{t}{4} (\log N - \log n)^2 - \frac{t}{4} (\log N)^2\right) }{n^{\sigma - \frac{t}{2} \log N}}$$
+we see that the summands $\frac{b_n^t}{n^\sigma}$ are decreasing for $1 \leq n \leq N$, hence by the integral test one has
+\begin{equation}\label{rado}
+ \sum_{n=1}^N \frac{b_n^t}{n^\sigma} \leq \sum_{n=1}^{N_0}
+\frac{b_n^t}{n^\sigma}  + \int_{N_0}^N \frac{b_a^t}{a^\sigma}\ da.
+\end{equation}
+Making the change of variables $a = e^u$, the right-hand side becomes
+$$\sum_{n=1}^{N_0} \frac{b_n^t}{n^\sigma} \exp( (1-\sigma) u + \frac{t}{4} u^2 )\ du.$$
+The expression $(1-\sigma) u + \frac{t}{4} u^2$ is convex in $u$, and is thus bounded by the maximum of its values at the endpoints $u = \log N_0, \log N$; thus
+$$\exp( (1-\sigma) u + \frac{t}{4} u^2) \leq N_0^{1-\sigma} b_{N_0}^t, N^{1-\sigma} b_N^t.$$
+The claim follows. 
+\end{proof}
+
+\begin{remark}  The right-hand side of \eqref{rado} can be evaluated exactly as
+$$
+\sum_{n=1}^{N_0}
+\frac{b_n^t}{n^\sigma}  + \frac{\sqrt \pi}{\sqrt t} \exp(\frac{-(\sigma - 1)^2}{t}) \left( \operatorname{erfi}\left(\frac{\frac{t}{2} \log N  - \sigma + 1}{\sqrt t} \right) - \operatorname{erfi}\left(\frac{\frac{t}{2} \log N_0  - \sigma + 1}{\sqrt t}\right) \right).$$
+
+In practice, this upper bound for $\sum_{n=1}^N \frac{b_n^t}{n^\sigma}$ is slightly more accurate than the one in Lemma \ref{largen}, and is a good approximation even for relatively small values of $N_0$ (e.g., $N_0=100$).  However, the cruder bound above suffices for the numerical values of parameters needed to establish the bound $\Lambda \leq 0.22$.
+\end{remark}
+
+Observe from \eqref{kappa-bound} that
 $$ |\kappa| \leq \frac{0.2 \times 0.2}{2(2.82 \times 10^{13}-6)} \leq 7.08 \times 10^{-16}$$
 while from \eqref{gamma-bound} one has
 $$
@@ -238,7 +271,7 @@ As $N = N_0$ is constant in this region, the function $f_t(x+iy)$ is holomorphic
 $$ R \coloneqq \{ x+iy: X_0 - 0.5 \leq x \leq X_0 + 0.5; 0.2 \leq y \leq 1 \},$$
 the function $f_t(x+iy)$ stays outside of the ball $B \coloneqq \{ z: |z| \leq 1.25 \times 10^{-3} \}$, and furthermore has a winding number of zero around the origin.
 
-To verify this claim numerically for a given value of $t$, we subdivide each edge of $\partial R$ into some number $n$ of equally spaced mesh points, thus approximating $\partial R$ by a discrete mesh $x_j+iy_j$, $j=1,\dots,4n$, with any two adjacent points on this mesh separated by a distance at most $1/n$.  Using the techniques in Section \ref{Fast}, we evaluate $f_t(x_j+iy_j)$ numerically for each such value of $j$.  The polygonal path connecting these points then winds around the origin with winding number
+To verify this claim numerically for a given value of $t$, we subdivide each edge of $\partial R$ into some number $n$ of equally spaced mesh points, thus approximating $\partial R$ by a discrete mesh $x_j+iy_j$, $j=1,\dots,4n$, with any two adjacent points on this mesh separated by a distance at most $1/n$.  Using the techniques in Section \ref{multiple-sec}, we evaluate $f_t(x_j+iy_j)$ numerically for each such value of $j$.  The polygonal path connecting these points then winds around the origin with winding number
 $$ \frac{1}{2\pi} \sum_{j=1}^{4n} \mathrm{arg}( f_t(x_{j+1}+iy_{j+1}) / f_t(x_j + i y_j) )$$
 which can be easily computed (and verified to be zero).  To pass from this polygonal path to the true trajectory $f_t(\partial R)$ of $f_t(x+iy)$ on $\partial R$, we again use Rouche's theorem.  If one has a derivative bound $|\frac{\partial}{\partial z} f_t(z)| \leq D_z$ on the boundary of the rectangle, the polygonal path and the true trajectory $f_t(\partial R)$ differ by a distance of at most $\frac{D_z}{2n}$, and the latter will have the same winding number around the origin (and stay outside of the ball $B$) as long as
 $$ |f_t(x_j + iy_j)| > 1.25 \times 10^{-3} + \frac{D_z}{2n}.$$
@@ -342,7 +375,7 @@ giving the second claim.
 
 The next few graphs summarize the numerical output of the algorithm for the following barrier parameters: $x=6\times 10^{10}+83925 \pm 0.5, y = 0.2 \dots 1, t=0 \dots 0.2$.  
 
-The first step in the barrier verification process was to precalculate a `stored sum' of Taylor expansion terms that allows for fast recreation of $f_t(x+iy)$ during the execution of the algortihm. The number of Taylor terms required was determined through an iterative process targeted to achieve a $20$ decimal accuracy.  Figure \ref{fig1} illustrates that the achieved accuracy for all rectangular mesh points at $t=0$.
+The first step in the barrier verification process was to precalculate a `stored sum' of Taylor expansion terms that allows for fast recreation of $f_t(x+iy)$ during the execution of the algorithm as per Section \ref{multiple-sec}. The number of Taylor terms required was determined through an iterative process targeted to achieve a $20$ decimal accuracy.  Figure \ref{fig1} illustrates that the achieved accuracy for all rectangular mesh points at $t=0$.
 
 \begin{figure}[h!]
   \includegraphics[width=0.7\linewidth]{BarrieraccuracyTaylor}
@@ -363,17 +396,25 @@ The number of rectangle mesh points varies with $t$ ranging from $11076$ at $t=0
   \caption{The number of mesh points required per rectangle for each step of $t$.}\label{fig3}
 \end{figure}
 
-The overall winding number for the barrier at this specific location came out at $0$. The next graph shows the winding process at $t=0$. Due to the choice of the barrier location and the small barrier width compared to the wave length of the $x$ variable, little oscillation is expected to occur in each rectangle; see Figure \ref{fig4}.
+The overall winding number for the barrier at this specific location came out at $0$. Figures \ref{fig4}, \ref{fig4a} show the winding process at $t=0, 0.2$ respectively. Due to the choice of the barrier location and the small barrier width compared to the wave length of the $x$ variable, little oscillation is expected to occur in each rectangle.
 
 \begin{figure}[h!]
   \includegraphics[width=0.7\linewidth]{Windingprocess}
   \caption{Winding the rectangle at $t=0$.}\label{fig4}
 \end{figure}
 
-{\bf add link to code?}
+\begin{figure}[h!]
+  \includegraphics[width=0.7\linewidth]{Windingprocess_t02}
+  \caption{Winding the rectangle at $t=0.2$.}\label{fig4a}
+\end{figure}
 
+The code for implementing these computations may be found in the directory
 
-\subsection{Proof of claim (b)}
+\centerline{\tt dbn\_upper\_bound/arb}
+
+in the github repository \cite{github}.
+
+\subsection{Proof of claim (b)}\label{b-bound}
 
 Fix $t=0.2$, and let $R$ denote the rectangle
 $$ R \coloneqq \{ x+iy: 0.2 \leq y \leq 1; x \geq X_0 - 0.5; N \leq N_1 \}.$$
@@ -396,24 +437,26 @@ The left-hand side remains holomorphic in $x+iy$ (even though $f_t(x+iy)$ has ju
 for $x+iy \in\partial R$.
 For future reference we also observe that for any $x+iy \in R$,
 the magnitude of $E_{t,5}(x+iy)$ can be bounded below by
-$$ |E_{t,5}(x+iy)| \geq \prod_{p \leq 5} \left(1 - \frac{b_p^t}{p^{\mathrm{Re} s_*}} \right) \geq 0.534 $$ %  0.512 when p=7
+\begin{equation}\label{et5-lower}
+ |E_{t,5}(x+iy)| \geq \prod_{p \leq 5} \left(1 - \frac{b_p^t}{p^{\mathrm{Re} s_*}} \right) \geq 0.534 
+\end{equation} %  0.512 when p=7
 and the argument has magnitude at most
-$$ \sum_{p \leq 5} \sin^{-1} \frac{b_p^t}{p^{\mathrm{Re} s_*}} \leq 0.553. $$ % 0.595 when p=7
+\begin{equation}\label{et5-phase}
+|\mathrm{arg}(E_{t,5}(x+iy))| \leq \sum_{p \leq 5} \sin^{-1} \frac{b_p^t}{p^{\mathrm{Re} s_*}} \leq 0.553. 
+\end{equation} % 0.595 when p=7
 
-We first attend to the right edge of $\partial R$, in which $N = N_1$.  
+Of the four sides of the rectangle $\partial R$, the required estimate \eqref{star} will hold with significant room to spare, and we can proceed using rather crude estimates.  We first attend to the right edge of $\partial R$, in which $N = N_1$.  
 From \eqref{ft0} we have
 $$
 f_t(x+iy) = 1 + O_{\leq}( 0.955 )$$
-in this region.  In particular $f_t(x+iy)$ has argument of magnitude at most $\sin^{-1} 0.955 \leq 1.27$.  Combining this with the magnitude and argument control on $E_{t,5}(x+iy)$, we conclude that $E_{t,5}(x+iy) f_t(x+iy)$ has magnitude at least $0.024$ and argument at most $1.823$ in magnitude, giving the claim from elementary trigonometry.
+in this region.  In particular $f_t(x+iy)$ has argument of magnitude at most $\sin^{-1} 0.955 \leq 1.27$.  Combining this with \eqref{et5-lower}, \eqref{et5-phase}, we conclude that $E_{t,5}(x+iy) f_t(x+iy)$ has magnitude at least $0.024$ and argument at most $1.823$ in magnitude, giving the claim \eqref{star} on this side from elementary trigonometry.
 
-Now we attend to the left edge of $\partial R$, in which $x = X_0 - 0.5$.
+Now we attend to the left edge of $\partial R$, in which $x = X_0 - 0.5$ and $0.2 \leq y \leq 1$.  From the calculations for part (a) (see in particular Figure \ref{fig4a}) one can verify that (for instance) $|f_t(x+iy)| \geq 1$ and $|\mathrm{arg} f_t(x+iy)| \leq \frac{\pi}{2}$ in this region.  Combining this with \eqref{et5-lower}, \eqref{et5-phase}, we conclude that $E_{t,5}(x+iy) f_t(x+iy)$ has magnitude at least $0.534$ and argument at most $2.13$ in magnitude, again giving the claim \eqref{star} on this side from elementary trigonometry.
 
-????
-
-Now we attend to the upper edge of $\partial R$, in which $N_0 \leq N \leq N_1$ and $y=1$.  Here we have a lot of room in the estimates and we shall be rather crude.  From \eqref{res-bound} one now has
+Now we attend to the upper edge of $\partial R$, in which $N_0 \leq N \leq N_1$ and $y=1$.  From \eqref{res-bound} one now has
 $$ \mathrm{Re} s_* \geq 2.1143.$$
-In particular
-$$ \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} = 1 + O_{\leq}( \sum_{n=2}^{N_1} \frac{b_n^t}{n^{2.1143}} ) = 1 + O_{\leq}( 0.7 ).$$
+In particular\footnote{The sum $\sum_{n=2}^{N_1} \frac{b_n^t}{n^{2.1143}}$ can be numerically computed directly, but one could also use Lemma \ref{largen} (using for instance $N_0 = 69098$) to obtain a usable upper bound as well.  Similarly for the other sums of this type that appear in this argument.}
+$$ \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} = 1 + O_{\leq}\left( \sum_{n=2}^{N_1} \frac{b_n^t}{n^{2.1143}} \right) = 1 + O_{\leq}( 0.7 ).$$
 Meanwhile, from \eqref{gamma-bound} one has
 $$ |\gamma| \leq e^{0.02} \left( \frac{x}{4\pi} \right)^{-1/2} \leq 1.03 N^{-1}$$
 and from \eqref{kappa-bound} one has
@@ -421,28 +464,28 @@ $$ |\kappa| \leq \frac{ty}{2(x-6)} \leq 4 \times 10^{-13}$$
 and hence
 $$ |\gamma| \frac{n^y}{n^{s_* + \kappa}} = O_{\leq}( \frac{1.03}{N n^{1.1142}} )$$
 and
-$$   \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} = O_{\leq}( \sum_{n=2}^{N_0} \frac{1.03 b_n^t}{N_0 n^{1.1142}} + \sum_{n=N_0+1}^{N_1} \frac{1.03 b_n^t}{n^{2.1142}} ) = O_{\leq}( 0.1 )$$
+$$   \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} = O_{\leq}\left( \sum_{n=2}^{N_0} \frac{1.03 b_n^t}{N_0 n^{1.1142}} + \sum_{n=N_0+1}^{N_1} \frac{1.03 b_n^t}{n^{2.1142}} \right) = O_{\leq}( 0.1 )$$
 and hence
 $$ f_t(x+iy) = 1 + O_{\leq}(0.8).$$
 In particular $f_t(x+iy)$ has magnitude at least $0.2$ and argument at most $0.928$ in magnitude, hence $E_t(x+iy) f_t(x+iy)$ has magnitude at least $0.1068$ and argument at most $1.481$, at which point the claim follows from elementary trigonometry.
 
-It remains to attend to the lower edge of $\partial R$, in which $N_0 \leq N \leq N_1$ and $y=0.2$.  We will split the range $[N_0,N_1]$ into a number of subintervals $[N_-,N_+]$ and obtain a uniform lower bound for $\mathrm{dist}( E_{t,5}(x+iy) f_t(x+iy), (-\infty,0])$ when $N$ is in one of these subintervals $[N_-,N_+]$.
+It remains to attend to the lower edge of $\partial R$, in which $N_0 \leq N \leq N_1$ and $y=0.2$.  This is by far the most delicate side of the rectangle for the purposes of verifying \eqref{star}.  We will split the range $[N_0,N_1]$ into a number of subintervals $[N_-,N_+]$ and obtain a uniform lower bound for $\mathrm{dist}( E_{t,5}(x+iy) f_t(x+iy), (-\infty,0])$ when $N$ is in one of these subintervals $[N_-,N_+]$.
 
 Fix $[N_-,N_+] \subset [N_0,N_1]$, suppose that $N \in [N_-,N_+]$, and write $s_* = \sigma + iT$.  We first deal with the $\kappa$ term in the definition of $f_t(x+iy)$ by writing
 $$ n^{-\kappa} = 1 + O_{\leq}( n^{|\kappa|}-1)$$
 and hence
 $$ f_t(x+iy) = \sum_{n=1}^N \frac{b_n^t}{n^{\sigma+iT}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\sigma-iT}}
-+ O_{\leq}( |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^\sigma} (n^{|\kappa|}-1) ).$$
++ O_{\leq}\left( |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^\sigma} (n^{|\kappa|}-1) \right).$$
 In particular, using \eqref{gamma-bound} to bound
 \begin{align*}
 |\gamma| &\leq e^{0.02y} (x_N/4\pi)^{-y/2} \\
-&\leq e^{0.004} (N^2 - \frac{1}{80}  )^{-0.1} \\
+&\leq e^{0.004} \left(N^2 - \frac{1}{80}  \right)^{-0.1} \\
 &\leq 1.005 N^{-0.2} \\
 &\leq 1.005 N_-^{-0.2}.
 \end{align*}
 we have
-$$ E_{t,5}(x+iy) f_t(x+iy) = E_{t,5}(x+iy) \sum_{n=1}^N \frac{b_n^t}{n^{\sigma+iT}} + O_{\leq}( 1.005 |E_{t,5}(x+iy)| |
-|\sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma-iT}}| )
+$$ E_{t,5}(x+iy) f_t(x+iy) = E_{t,5}(x+iy) \sum_{n=1}^N \frac{b_n^t}{n^{\sigma+iT}} + O_{\leq}\left( 1.005 |E_{t,5}(x+iy)| 
+\left|\sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma-iT}}\right| \right)
 + O_{\leq}( Z )$$
 where
 $$ Z \coloneqq 1.644 \sum_{n=1}^N (n/N)^{0.2} \frac{b_n^t}{n^\sigma} (n^{|\kappa|}-1).$$
@@ -458,15 +501,15 @@ Thus for instance $\beta_1 = 1$ and $\beta_p = 0$ for $p=2,3,5$, so that the Dir
 
 The product of $E_{t,5}(x+iy)$ and $\sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma-iT}}$ is not favorable due to the negative sign in the $\sigma-iT$ exponent.  But since $|z| |w| = |z \overline{w}|$, we have
 \begin{align*}
-1.005 |E_{t,5}(x+iy)| |\sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma-iT}}|  &=
-1.005 |E_{t,5}(x+iy) \sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma+iT}}|  \\
-&= |\sum_{n=1}^{DN} \frac{N_-^{-0.2} \alpha_{n}}{n^{\sigma+iT}}|
+1.005 |E_{t,5}(x+iy)| \left|\sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma-iT}}\right|  &=
+1.005 \left|E_{t,5}(x+iy) \sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma+iT}}\right|  \\
+&= \left|\sum_{n=1}^{DN} \frac{N_-^{-0.2} \alpha_{n}}{n^{\sigma+iT}}\right|
 \end{align*}
 where
 $$ \alpha_{n} \coloneqq 1.005 \sum_{d|n,D} \lambda_d (n/d)^{0.2} b_{n/d}^t.$$
 Note that the coefficients $\alpha_{n}, \beta_n$ are both real.  We now have
 \begin{equation}\label{ets}
- E_{t,5}(x+iy) f_t(x+iy) = \sum_{n=1}^{DN} \frac{\beta_n}{n^{\sigma+iT}} + O_{\leq}( |\sum_{n=1}^{DN} \frac{N_-^{-0.2} \alpha_{n}}{n^{\sigma+iT}}| ) + O_{\leq}(Z).
+ E_{t,5}(x+iy) f_t(x+iy) = \sum_{n=1}^{DN} \frac{\beta_n}{n^{\sigma+iT}} + O_{\leq}\left( \left|\sum_{n=1}^{DN} \frac{N_-^{-0.2} \alpha_{n}}{n^{\sigma+iT}}\right| \right) + O_{\leq}(Z).
 \end{equation}
 A naive application of the triangle inequality (using $\beta_1=1$) would give the lower bound
 $$ \mathrm{dist}(E_{t,5}(x+iy) f_t(x+iy), (-\infty,0]) \geq 1 - N_-^{-0.2} \alpha_{1} - \sum_{n=2}^{DN} \frac{|\beta_n| + |N_-^{-0.2} \alpha_{n}|}{n^{\sigma}} - Z.$$
@@ -484,11 +527,11 @@ $$
 \mathrm{dist}( \sum_{n=1}^{DN} \frac{\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n}{n^{\sigma+iT}}, (-\infty,0]) \geq 1 - N_-^{-0.2} \alpha_1 - Y$$
 for all phases $\theta \in \R$.  We may write
 \begin{align*}
-\sum_{n=1}^{DN} \frac{\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n}{n^{\sigma+iT}} &= 1 + e^{i\theta} N_-^{-0.2} \alpha_1 + O_{\leq}( \sum_{n=2}^{DN}
-\frac{|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n|}{n^{\sigma}} ) \\
+\sum_{n=1}^{DN} \frac{\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n}{n^{\sigma+iT}} &= 1 + e^{i\theta} N_-^{-0.2} \alpha_1 + O_{\leq}\left( \sum_{n=2}^{DN}
+\frac{|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n|}{n^{\sigma}} \right) \\
 &=
-(1 + e^{i\theta} N_-^{-0.2} \alpha_1) (1 + O_{\leq}( \sum_{n=2}^{DN}
-\frac{|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n|/|1+e^{i\theta} N_-^{-0.2} \alpha_1|}{n^{\sigma}} ) ).
+(1 + e^{i\theta} N_-^{-0.2} \alpha_1) \left(1 + O_{\leq}\left( \sum_{n=2}^{DN}
+\frac{|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n|/|1+e^{i\theta} N_-^{-0.2} \alpha_1|}{n^{\sigma}} \right) \right).
 \end{align*}
 By the cosine rule, we have
 $$ \left(|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n| / |1 + e^{i\theta} N_-^{-0.2} \alpha_1|\right)^2 = \frac{\beta_n^2 + N_-^{-0.2} \alpha_n^2 + 2 N_-^{-0.2} \alpha_n \beta_n \cos \theta}{1 + N_-^{-0.2} \alpha_1^2 + 2 N_-^{-0.2} \alpha_1 \cos \theta}.$$
@@ -497,13 +540,13 @@ $$ \frac{|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n|}{|1 + e^{i\theta} N_-^{-0.2
 and thus
 $$ \sum_{n=2}^{DN} \frac{|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n|/|1+e^{i\theta} N_-^{-0.2} \alpha_1|}{n^{\sigma}} \leq \frac{1}{1-N_-^{-0.2} \alpha_1} Y.$$
 We conclude from the triangle inequality that
-$$ \sum_{n=1}^{DN} \frac{\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n}{n^{\sigma+iT}} = 1 + e^{i\theta} N_-^{-0.2} \alpha_1 + O_{\leq}( \frac{|1+e^{i\theta} N_-^{-0.2} \alpha_1|}{1-N_-^{-0.2} \alpha_1} Y ).$$
+$$ \sum_{n=1}^{DN} \frac{\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n}{n^{\sigma+iT}} = 1 + e^{i\theta} N_-^{-0.2} \alpha_1 + O_{\leq}\left( \frac{|1+e^{i\theta} N_-^{-0.2} \alpha_1|}{1-N_-^{-0.2} \alpha_1} Y \right).$$
 By further application of the triangle inequality
 \begin{align*}
 \mathrm{dist}( \sum_{n=1}^{DN} \frac{\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n}{n^{\sigma+iT}}, (-\infty,0]) &\geq \mathrm{dist}( 1 + e^{i\theta} N_-^{-0.2} \alpha_1, (-\infty,0]) - \frac{|1+e^{i\theta} N_-^{-0.2} \alpha_1|}{1-N_-^{-0.2} \alpha_1} Y \\
 &= |1 + e^{i\theta} N_-^{-0.2} \alpha_1| - \frac{|1+e^{i\theta} N_-^{-0.2} \alpha_1|}{1-N_-^{-0.2} \alpha_1} Y  \\
-&= |1 + e^{i\theta} N_-^{-0.2} \alpha_1| (1 - \frac{Y}{1-N_-^{-0.2} \alpha_1} ) \\
-&\geq (1-N_-^{-0.2} \alpha_1) (1 - \frac{Y}{1-N_-^{-0.2} \alpha_1} ) \\
+&= |1 + e^{i\theta} N_-^{-0.2} \alpha_1| \left(1 - \frac{Y}{1-N_-^{-0.2} \alpha_1} \right) \\
+&\geq (1-N_-^{-0.2} \alpha_1) \left(1 - \frac{Y}{1-N_-^{-0.2} \alpha_1} \right) \\
 &= 1 - N_-^{-0.2} \alpha_1 - Y
 \end{align*}
 as desired, where we have used the fact that $1+e^{i\theta} N_-^{-0.2} \alpha_1$ lies to the right of the imaginary axis (so that the closest element of $(-\infty,0]$ is the origin).
@@ -515,8 +558,8 @@ $$ 1 - N_-^{-0.2} \alpha_1 - \sum_{n=2}^{DN_+} \frac{\max(|\beta_n-N_-^{-0.2} \a
 From \eqref{res-bound}, \eqref{xnn} one has 
 \begin{align*}
  \sigma &\geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x_N}{4\pi} - \frac{t}{2x_N^2} \left(1-3y+\frac{4y(1+y)}{x_N^2}\right)_+ \\
-&= 0.6 + \frac{1}{20} \log \frac{x_N}{4\pi} - \frac{1}{10 x_N^2} ( 0.4 + \frac{0.96}{x_N^2} ) \\
-&= 0.6 + \frac{1}{20} \log (N^2 - \frac{1}{80}) - \frac{1}{10 x_{N_0}^2} ( 0.4 + \frac{0.96}{x_{N_0}^2} ) \\
+&= 0.6 + \frac{1}{20} \log \frac{x_N}{4\pi} - \frac{1}{10 x_N^2} \left( 0.4 + \frac{0.96}{x_N^2} \right) \\
+&= 0.6 + \frac{1}{20} \log (N^2 - \frac{1}{80}) - \frac{1}{10 x_{N_0}^2} \left( 0.4 + \frac{0.96}{x_{N_0}^2} \right) \\
 &\geq \sigma_{N_-}
 \end{align*}
 where

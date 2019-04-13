@@ -2,9 +2,9 @@
 
 In this section we use the effective estimates from Theorem \ref{eff} to obtain asymptotic information about the function $H_t$, which improves (and makes more effective) the results of Ki, Kim, and Lee \cite{kkl}, by establishing Theorem \ref{Zero}.
 
-We begin with an asymptotic
+We begin with 
 
-\begin{proposition}\label{asymp}  Let $0 < t \leq 1/2$, $x \geq 200$, and $-10 \leq y \leq 10$.
+\begin{proposition}[Preliminary asymptotics]\label{asymp}  Let $0 < t \leq 1/2$, $x \geq 200$, and $-10 \leq y \leq 10$.
 \begin{itemize}
 \item[(i)]  If $x \geq \exp(\frac{C}{t})$ for a sufficiently large absolute constant $C$, then
 $$ H_t(x+iy) = (1 + O(x^{-ct})) M_t\left(\frac{1+y-ix}{2}\right) + (1 + O(x^{-ct})) M_t\left(\frac{1-y+ix}{2} \right) $$
@@ -12,7 +12,7 @@ for an absolute constant $c>0$, where $M_t$ is defined in \eqref{Mt-def}.
 \item[(ii)]  If instead we have $3 \leq y \leq 4$ and $x \geq C$ for a sufficiently large absolute constant $C$, then
 $$ H_t(x+iy) = (1 + O_{\leq}(0.7)) M_t\left(\frac{1+y-ix}{2}\right).$$
 \item[(iii)]  If $x = x_0 + O(1)$ for some $x_0 \geq 200$, then
-$$ H_t(x+iy) = O( x_0^{O(1)} |M_t(\frac{1+y-ix}{2})| ) = O( x_0^{O(1)} |M_t(\frac{ix_0}{2})| ).$$
+$$ H_t(x+iy) = O\left( x_0^{O(1)} \left|M_t\left(\frac{1+y-ix}{2}\right)\right| \right) = O\left( x_0^{O(1)} \left|M_t\left(\frac{ix_0}{2}\right)\right| \right).$$
 \end{itemize}
 \end{proposition}
 
@@ -66,17 +66,17 @@ We conclude that
 \end{align*}
 as claimed, if $x \geq C$ for $C$ large enough.
 
-Finally we prove (iii).  Again our starting point is \eqref{exp}.  The right-hand side can be bounded crudely by $O( x^{O(1)}) = O(x_0^{O(1)})$, hence
-$$ H_t(x+iy) = O( x_0^{O(1)} |M_t( \frac{1+y+ix}{2} )| ).$$
+Finally, we prove (iii).  Again our starting point is \eqref{exp}.  The right-hand side can be bounded crudely by $O( x^{O(1)}) = O(x_0^{O(1)})$, hence
+$$ H_t(x+iy) = O\left( x_0^{O(1)} \left|M_t\left( \frac{1+y+ix}{2} \right)\right| \right).$$
 However, from \eqref{Mt-def}, \eqref{M-def}, \eqref{alpha-form} it is not hard to see that the log-derivative of $M_t(s)$ is of size $O( \log x_0 )$ in the region $s = \frac{ix_0}{2} + O(1)$.  Thus
-$$ |M_t( \frac{1+y+ix}{2} )| = O( x_0^{O(1)} |M_t( \frac{ix_0}{2} )| ),$$
+$$ \left|M_t\left( \frac{1+y+ix}{2} \right)\right| = O\left( x_0^{O(1)} \left|M_t\left( \frac{ix_0}{2} \right)\right| \right),$$
 giving the claim.
 \end{proof}
 
-To understand the behavior of $M_t(x+iy)$ we make the following simple observations:
+To understand the behavior of $M_t(x+iy)$, we make the following simple observations:
 
-\begin{lemma}\label{mtform}  Let $0 < t \leq 1/2$, let $x_* > 0$ be sufficiently large, and let $x+iy = x_* + O(1)$.  Then
-$$ M_t(\frac{1+y+ix}{2}) = M_t(\frac{1+ix_*}{2}) \exp\left( (i(x-x_*)+y) \left(\frac{1}{4} \log \frac{x_*}{4\pi} + \frac{\pi i}{8}\right) + O\left( \frac{\log x_*}{x_*}\right) \right).$$
+\begin{lemma}[Behavior of $M_t$]\label{mtform}  Let $0 < t \leq 1/2$, let $x_* > 0$ be sufficiently large, and let $x+iy = x_* + O(1)$.  Then
+$$ M_t\left(\frac{1+y+ix}{2}\right) = M_t\left(\frac{1+ix_*}{2}\right) \exp\left( (i(x-x_*)+y) \left(\frac{1}{4} \log \frac{x_*}{4\pi} + \frac{\pi i}{8}\right) + O\left( \frac{\log x_*}{x_*}\right) \right).$$
 Also, there is a continuous branch of $\mathrm{arg} M_t\left(\frac{1+ix_*}{2}\right)$ for all large real $x_*$ such that
 $$ \mathrm{arg} M_t\left(\frac{1+ix_*}{2}\right) = \frac{t \pi}{16} \log \frac{x_*}{4\pi} + \frac{7\pi}{8} 
 + \frac{x_*}{4} \log \frac{x_*}{4\pi} - \frac{x_*}{4} + O( \frac{\log x_*}{x_*} ).$$
