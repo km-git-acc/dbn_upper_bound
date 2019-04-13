@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  12 APR 2019 17:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  13 APR 2019 08:44
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -702,7 +702,7 @@ Overfull \hbox (18.59593pt too wide) in paragraph at lines 13--29
 Here is how much of TeX's memory you used:
  5974 strings out of 493303
  86625 string characters out of 3138857
- 163005 words of memory out of 3000000
+ 162005 words of memory out of 3000000
  9190 multiletter control sequences out of 15000+200000
  42145 words of font info for 106 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -715,7 +715,7 @@ iles/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9
 xsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (65 pages, 1815475 bytes).
+Output written on debruijn.pdf (65 pages, 1815656 bytes).
 PDF statistics:
  300 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

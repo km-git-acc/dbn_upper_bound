@@ -18,10 +18,10 @@ $$ H_t(x+iy) = O( x_0^{O(1)} |M_t(\frac{1+y-ix}{2})| ) = O( x_0^{O(1)} |M_t(\fra
 
 \begin{proof}  We begin with (i).  Since $H_t = H_t^*$ and $M_t = M_t^*$, we may assume without loss of generality that $y \geq 0$.
 Using \eqref{lambda-def}, \eqref{bo-def} we may write the desired estimate as
-$$ \frac{H_t(x+iy)}{B_0(x+iy)} = 1 + O(x^{-ct}) + \gamma.$$
+$$ \frac{H_t(x+iy)}{B_t(x+iy)} = 1 + O(x^{-ct}) + \gamma.$$
 We apply Theorem \ref{eff}.  (Strictly speaking, the estimates there required $y \leq 1$ rather than $y \leq 10$; however, as remarked at the beginning of Section \ref{initial-sec}, all the estimates in that section would continue to hold under this weaker hypothesis if one adjusted all the numerical constants appropriately.)  This gives
 \begin{equation}\label{exp}
-\frac{H_t(x+iy)}{B_0(x+iy)} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
+\frac{H_t(x+iy)}{B_t(x+iy)} = \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} + O_{\leq}\left( e_A + e_B + e_{C,0} \right)
 \end{equation}
 where
 \begin{align*}
@@ -33,7 +33,7 @@ e_B &= O\left( \sum_{n=1}^N b_n^t n^{-\frac{1+y}{2} - \frac{t}{2} \log \frac{x}{
 e_{C,0} &= O\left( x^{-\frac{1+y}{4}} \right)
 \end{align*}
 Since $N = O(x^{1/2})$, we have $x^{-y/2} n^{y} = O(1)$ and $n^{O(x^{-1})} = O(1)$ for all $1 \leq n \leq N$.  We conclude that
-$$\frac{H_t(x+iy)}{B_0(x+iy)} = 1 + \gamma + O\left( \frac{\log^2 x}{x} + \sum_{n=2}^N \frac{b_n^t}{n^{\frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi}}} + x^{-\frac{1+y}{4}} \right) $$
+$$\frac{H_t(x+iy)}{B_t(x+iy)} = 1 + \gamma + O\left( \frac{\log^2 x}{x} + \sum_{n=2}^N \frac{b_n^t}{n^{\frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi}}} + x^{-\frac{1+y}{4}} \right) $$
 so it will suffice (for $c$ small enough) to show that
 $$ \sum_{n=2}^N \frac{b_n^t}{n^{\frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi}}} = O( x^{-ct} ).$$
 By \eqref{bn-def} we can write the left-hand side as
@@ -58,7 +58,7 @@ e_B &= O\left( \frac{\log^2 x}{x} \sum_{n=1}^N b_n^t n^{-\frac{1+y}{2}-\frac{t}{
 \end{align*}
 We conclude that
 \begin{align*}
-\frac{H_t(x+yi)}{B_0(x+yi)} &= \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + O( x^{-\frac{y-1}{4}} ) \\
+\frac{H_t(x+yi)}{B_t(x+yi)} &= \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + O( x^{-\frac{y-1}{4}} ) \\
 &= 1 + O_{\leq}\left( \sum_{n=2}^N n^{-\frac{1+y}{2} - \frac{t}{2} \log \frac{x}{4\pi} - O(x^{-1})} \right) + O( x^{\frac{y-1}{4}} ) \\
 &= 1 + O_{\leq}\left( \sum_{n=2}^N n^{-2} \right) + O( x^{-1/2}) \\
 &= 1 + O_{\leq}\left( \frac{\pi^2}{6} - 1 \right) + O( x^{-1/2} ) \\
