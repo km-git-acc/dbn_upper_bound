@@ -1,0 +1,49 @@
+default(parisize,120000000)
+
+\\ vector of all k-element subsets of A
+
+subsets(A, k) = {
+   my (lst = List());
+   forvec(v = vector(k, i, [1, #A]), listput(lst, vecextract(A, v)), 2);
+   return(Vec(lst));
+};
+
+position = (elt, array) -> select((x) -> x == elt, array, 1)[1];
+
+bt(n,t) = n^((t/4)*log(n));
+at(n,t,y) = n^(y+(t/4)*log(n));
+
+divdelta(n,d) = if(n%d==0,1,0);
+threshdelta(n,dN) = if(n<=dN,1,0);
+combdelta(n,divisor,N) = divdelta(n,divisor)*threshdelta(n,divisor*N);
+
+\\ mollifier coefficients coming from primes up to mtype
+
+mollifier(mtype,t,mvariety="normal")={
+if(mtype==1, return(List([1,1,[1],[1]])));
+if(mtype>=2,\
+np = position(mtype,primes(200));\
+p = primes(np); mollp = vector(np,i,bt(p[i],t));\
+divsubs = subsets(p,1); mollsubs=subsets(mollp,1);\
+if(mvariety!="prime",for(i=2,np,divsubs=concat(divsubs,subsets(p,i)); mollsubs=concat(mollsubs,subsets(mollp,i))));\
+d = vector(length(divsubs),j,prod(k=1,length(divsubs[j]),divsubs[j][k]));\
+moll = vector(length(mollsubs),j,(-1)^length(mollsubs[j])*prod(k=1,length(mollsubs[j]),mollsubs[j][k]));\
+d=concat([1],d); moll=concat([1],moll);\
+ndivs = length(d); D = d[ndivs];\
+return(List([D,ndivs,d,moll]));\
+);
+}
+
+// lower bound for N in the range [N1,N2]
+
+abbeff_largex_ep_bound(mtype,N1,N2,y,t) = {
+	[D,ndivs,d,moll] = mollifier(mtype,t);
+	sig = (1+y)/2 + log(N1)*t / 2 - 0.001;
+	modgamma = 1.005 * N1^(-y);
+	b = vector(D*N2,n,sum(nd=1,ndivs,if(combdelta(n,d[nd],N2)>0,moll[nd]*bt(n/d[nd],t))));
+    a = modgamma*vector(D*N2,n,sum(nd=1,ndivs,if(combdelta(n,d[nd],N2)>0,moll[nd]*at(n/d[nd],t,y))));
+	bsum = sum(n=1,D*N2,abs(b[n])/n^sig);
+	asum = sum(n=1,D*N2,abs(a[n])/n^sig);
+	lemma = 1 - a[1] - sum(n=2,D*N2, max( abs(b[n]-a[n]), ((1-a[1])/(1+a[1]))*abs(b[n]+a[n]))/n^sig);
+	return(List([2-bsum-asum,lemma]));
+}

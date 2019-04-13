@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  12 APR 2019 12:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  12 APR 2019 17:10
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -662,7 +662,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 2027) has occurred while \output is active []
 
  [49 <./Derivativebounds.png> <./Numberofmeshpoints.png>] [50 <./Windingprocess.png>] [51] [52]
-Overfull \hbox (14.10667pt too wide) detected at line 472
+Overfull \hbox (14.10667pt too wide) detected at line 476
 []\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 E[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/
 m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 +
  \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 ; \OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  1\OML/txmi/m
@@ -670,13 +670,7 @@ m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OM
  N[][] \OMS/txsy/m/n/10.95   [] []   \OML/txmi/m/it/10.95 Z:
  []
 
-[53]
-Underfull \vbox (badness 1158) has occurred while \output is active []
-
- [54]) (asymptotic.tex [55] [56]
-Underfull \vbox (badness 1460) has occurred while \output is active []
-
- [57] [58]
+[53] [54]) (asymptotic.tex [55] [56] [57] [58]
 Overfull \hbox (65.74248pt too wide) detected at line 108
 []
  []
@@ -704,28 +698,24 @@ Overfull \hbox (18.59593pt too wide) in paragraph at lines 13--29
  [] 
  []
 
-) [64] [65] (debruijn.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) [64] [65] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
- 5973 strings out of 493303
- 86619 string characters out of 3138857
- 161994 words of memory out of 3000000
- 9189 multiletter control sequences out of 15000+200000
+ 5974 strings out of 493303
+ 86625 string characters out of 3138857
+ 163005 words of memory out of 3000000
+ 9190 multiletter control sequences out of 15000+200000
  42145 words of font info for 106 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
  55i,21n,39p,1490b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxi.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/tx
-fonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (65 pages, 1814440 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/t
+xsyb.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on debruijn.pdf (65 pages, 1815475 bytes).
 PDF statistics:
  300 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
