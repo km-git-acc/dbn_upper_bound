@@ -6,7 +6,7 @@
     by the Free Software Foundation; either version 2.1 of the License, or
     (at your option) any later version.  See <http://www.gnu.org/licenses/>.
 */
- 
+  
 #include "arb_poly.h"
 #include "acb_poly.h"
 #include "arb_hypgeom.h"
