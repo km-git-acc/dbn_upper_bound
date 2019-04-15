@@ -2,7 +2,7 @@
 
 In this section we prove Theorem \ref{new-upper}. 
 
-\subsection{Selection of parameters}
+\subsection{Selection of parameters}\label{select}
 
 As stated in the introduction, it suffices to verify the conditions (i), (ii), (iii) of Theorem \ref{ubc-0} $t_0 \coloneqq 0.2$, $X \coloneqq X_0-0.5$, and $y_0 \coloneqq 0.2$, where $X_0 \coloneqq 6 \times 10^{10} + 83952$.  
 
@@ -174,7 +174,7 @@ where we have discarded the negative term $- \frac{t}{16} \log^2 \frac{X_0-0.5}{
 Now we attend to the three claims.
 
 
-\subsection{Proof of claim (c)}  
+\subsection{Proof of claim (c)}\label{c-bound}  
 
 We begin with claim (c), which is the easiest.  
 By Proposition \ref{sweep}, it suffices to establish the bound
@@ -264,7 +264,7 @@ The claim follows.
 \end{figure}
 
 
-\subsection{Proof of claim (a)}
+\subsection{Proof of claim (a)}\label{barrier-sec}
 
 For region (a) we again verify \eqref{ft0}.
 As $N = N_0$ is constant in this region, the function $f_t(x+iy)$ is holomorphic, so by Rouche's theorem, it suffices to show that for each time $0 \leq t \leq 0.2$, as $x+iy$ traverses the boundary $\partial R$ of the rectangle 
@@ -396,14 +396,14 @@ The number of rectangle mesh points varies with $t$ ranging from $11076$ at $t=0
   \caption{The number of mesh points required per rectangle for each step of $t$.}\label{fig3}
 \end{figure}
 
-The overall winding number for the barrier at this specific location came out at $0$. Figures \ref{fig4}, \ref{fig4a} show the winding process at $t=0, 0.2$ respectively. Due to the choice of the barrier location and the small barrier width compared to the wave length of the $x$ variable, little oscillation is expected to occur in each rectangle.
+The overall winding number for the barrier at this specific location came out at $0$. Figures \ref{fig4}, \ref{fig4a} show the winding process at $t=0, 0.2$ respectively. Due to the choice of the barrier location and the small barrier width compared to the wavelength in the $x$ variable, little oscillation is expected to occur in each rectangle.
 
 \begin{figure}[h!]
   \includegraphics[width=0.7\linewidth]{Windingprocess}
   \caption{Winding the rectangle at $t=0$.}\label{fig4}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=0.7\linewidth]{Windingprocess_t02}
   \caption{Winding the rectangle at $t=0.2$.}\label{fig4a}
 \end{figure}
@@ -422,7 +422,7 @@ We wish to show that the holomorphic function $H_t(x+iy)/B_t(x+iy)$ does not van
 $$ E_{t,5}(x+iy) \coloneqq \prod_{p \leq 5} \left( 1 - \frac{b_p^t}{p^{s_*}}\right),$$
 where $s_*$ is given by \eqref{sn-def} the choice to use the first three primes $2,3,5$ was obtained after significant trial and error as giving the best numerical results in this range of $t,x,y$.  We have the upper bound
 $$
-|E_{t,5}(x+iy)| `\leq \prod_{p \leq 5} \left(1 + \frac{b_p^t}{p^{\mathrm{Re} s_*}} \right).
+|E_{t,5}(x+iy)| \leq \prod_{p \leq 5} \left(1 + \frac{b_p^t}{p^{\mathrm{Re} s_*}} \right).
 $$
 When $N \geq N_0$, $0.2 \leq y \leq 1$ and $t = 0.2$, one easily verifies from \eqref{res-bound} that
 $$ \mathrm{Re} s_* \geq 1.7143 $$
@@ -474,8 +474,10 @@ It remains to attend to the lower edge of $\partial R$, in which $N_0 \leq N \le
 Fix $[N_-,N_+] \subset [N_0,N_1]$, suppose that $N \in [N_-,N_+]$, and write $s_* = \sigma + iT$.  We first deal with the $\kappa$ term in the definition of $f_t(x+iy)$ by writing
 $$ n^{-\kappa} = 1 + O_{\leq}( n^{|\kappa|}-1)$$
 and hence
-$$ f_t(x+iy) = \sum_{n=1}^N \frac{b_n^t}{n^{\sigma+iT}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\sigma-iT}}
-+ O_{\leq}\left( |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^\sigma} (n^{|\kappa|}-1) \right).$$
+\begin{equation}\label{ftxy}
+ f_t(x+iy) = \sum_{n=1}^N \frac{b_n^t}{n^{\sigma+iT}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\sigma-iT}}
++ O_{\leq}\left( |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^\sigma} (n^{|\kappa|}-1) \right).
+\end{equation}
 In particular, using \eqref{gamma-bound} to bound
 \begin{align*}
 |\gamma| &\leq e^{0.02y} (x_N/4\pi)^{-y/2} \\
@@ -512,7 +514,9 @@ Note that the coefficients $\alpha_{n}, \beta_n$ are both real.  We now have
  E_{t,5}(x+iy) f_t(x+iy) = \sum_{n=1}^{DN} \frac{\beta_n}{n^{\sigma+iT}} + O_{\leq}\left( \left|\sum_{n=1}^{DN} \frac{N_-^{-0.2} \alpha_{n}}{n^{\sigma+iT}}\right| \right) + O_{\leq}(Z).
 \end{equation}
 A naive application of the triangle inequality (using $\beta_1=1$) would give the lower bound
-$$ \mathrm{dist}(E_{t,5}(x+iy) f_t(x+iy), (-\infty,0]) \geq 1 - N_-^{-0.2} \alpha_{1} - \sum_{n=2}^{DN} \frac{|\beta_n| + |N_-^{-0.2} \alpha_{n}|}{n^{\sigma}} - Z.$$
+\begin{equation}\label{eft}
+ \mathrm{dist}(E_{t,5}(x+iy) f_t(x+iy), (-\infty,0]) \geq 1 - N_-^{-0.2} \alpha_{1} - \sum_{n=2}^{DN} \frac{|\beta_n| + |N_-^{-0.2} \alpha_{n}|}{n^{\sigma}} - Z.
+\end{equation}
 As it turns out, this bound is not quite strong enough to be satisfactory for the numerical ranges of parameters we need.  To do better we need to exploit the fact that when the sum $\sum_{n=1}^{DN} \frac{\beta_n}{n^{\sigma+iT}}$ exhibits significant cancellation, then the sum $\sum_{n=1}^{DN} \frac{N^{-0.2} \alpha_{n}}{n^{\sigma+iT}}$ will also. The key tool here is
 
 \begin{lemma}[Improved triangle inequality]  We have
@@ -576,6 +580,10 @@ Since $\sigma_{N_-} \geq 1.714$, we may crudely bound
 $$ Z_{N_-,N} \leq 1.644 \sum_{n=1}^{N_1} \frac{b_n^t}{n^{1.714}} (n^{4 \times 10^{-13}}-1) \leq 10^{-10}$$
 so it will suffice to show that
 $$ F_{N_-,N_+} \geq 2.15 \times 10^{-3}$$
-for a collection of intervals $[N_-,N_+]$ covering $[N_0, N_1]$.  This can be done by \emph{ad hoc} numerical experimentation; for instance, the intervals
-$$ [69098, 8 \times 10^4], [8 \times 10^4, 1 \times 10^5], [1 \times 10^5, 2 \times 10^5], [2 \times 10^5, 1 \times 10^6], [1 \times 10^6, 1.5 \times 10^6]$$
-will suffice (with $F_{N_-, N_+} \geq 0.02$ in all such intervals; for instance, $F_{69098, 8 \times 10^4} = 0.0263\dots$).
+for a collection of intervals $[N_-,N_+]$ covering $[N_0, N_1]$.  This can be done by \emph{ad hoc} numerical experimentation; for instance, one can calculate that
+\begin{align*}
+F_{69098, 8 \times 10^4} &= 0.0263\dots \\
+F_{8 \times 10^4, 1.1 \times 10^5} &= .0470\dots \\
+F_{1.1 \times 10^5, 2.2 \times 10^5} &= 0.093\dots \\
+F_{2.2 \times 10^5, 1.5 \times 10^6} &= 0.060\dots .
+\end{align*}
