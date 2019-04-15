@@ -47,13 +47,13 @@ Informally, hypothesis (i) implies that at time $t=0$, there are no zeroes $H_t(
 In practice, we have found it convenient numerically to replace the barrier region in Theorem \ref{ubc-0} with the larger and simpler region
 $$ X \leq x \leq X+1; \quad y_0 \leq y \leq 1; \quad 0 \leq t \leq t_0.$$
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=0.9\linewidth]{Barrier_approach.png}
   \caption{A visualization of Theorem \ref{ubc-0}.  If at time $t_0$ one can show that there are no zeroes $H_t(x+iy)=0$ in the ``canopy'' $0 \leq x <\infty$, $y_0 \leq y \leq 1$, then a theorem of de Bruijn allows one to conclude the desired bound $\Lambda \leq t_0 + \frac{1}{2} y_0^2$.  The hypothesis (i) prevents zeroes hitting this canopy from an initial position to the left of the barrier; the hypothesis (iii) prevents zeroes from lying in the canopy to the right of the barrier; and the hypothesis (ii) prevents zeroes from starting to the right of the barrier and reaching the canopy to the left of the barrier.}
 \label{barrier-fig}
 \end{figure}
 
-We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} \left(1 - \frac{1}{p^{\frac{1-iX}{2}}}\right)^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii); see also Figure \ref{euler}.  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done relatively quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)  Further upper bounds to $\Lambda$ can be obtained if one assumes the Riemann hypothesis to hold up to larger heights than that in \cite{platt}: see Section \ref{further-sec}.
+We will obtain Theorem \ref{new-upper} by applying Theorem \ref{ubc-0} with the specific numerical choices $t_0 = 0.2$, $X = 6 \times 10^{10} + 83952 - 0.5$, and $y_0 = 0.2$.  The reason we choose $X$ close to $6 \times 10^{10}$ is that this is near the limit of known numerical verifications of the Riemann hypothesis such as \cite{platt}, which we need for the hypothesis (i) of the above theorem; the shift $83952 - 0.5$ is in place to make the partial Euler product $\prod_{p \leq 11} \left(1 - \frac{1}{p^{\frac{1-iX}{2}}}\right)^{-1}$ large, which helps in keeping the functions $H_t(x+iy), H_{t_0}(x+iy)$ large in magnitude, which in turn is helpful for numerical verifications of (ii) and (iii); see also Figure \ref{euler}.  The choices $t_0=0.2, y_0=0.2$ are then close to the limit of our ability to numerically verify hypothesis (ii) for this choice of $X$.  (The hypothesis (iii) is also verified numerically, but can be done quite quickly compared to (ii), and so does not present the main bottleneck to further improvements to Theorem \ref{new-upper}.)  Further upper bounds to $\Lambda$ can be obtained if one assumes the Riemann hypothesis to hold up to larger heights than that in \cite{platt}: see Section \ref{further-sec}.
 
 To verify (ii) and (iii), we need efficient approximations (of Riemann-Siegel type) for $H_t(x+iy)$ in the regime where $t,y$ are bounded and $x$ is large.  For sake of numerically explicit constants, we will focus attention on the region
 \begin{equation}\label{region}
@@ -96,13 +96,13 @@ For fixed $t \geq 0$ and $y>0$, $B_t(x+iy)$ is non-vanishing, and it is easy to 
 \end{equation}
 for any fixed $t>0$ and $y>0$; see Figure \ref{ht-bt}.  (However, the convergence of \eqref{limx} is \emph{not} uniform as $t$ approaches zero.)
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=1.0\linewidth]{ftvsht.png}
   \caption{The quantity $|H_t(x+iy)/B_t(x+iy) - 1|$ when $y=t=0.4$ and $\log_{10} x \leq 12$ (left) and when for $1000 \leq x \leq 1030$ and various choices of $(y,t)$ (right).}
 \label{ht-bt}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=0.8\linewidth]{loghtbt.png}
   \caption{The quantities $\log|H_t(x+iy)|$ and $\log|B_t(x+iy)|$ when $y=t=0.4$ and $\log_{10} x \leq 7$.   Both quantities decay like $- \frac{\pi}{8} x \approx -0.393 x$.}
 \label{loghtandlogbt}
@@ -136,25 +136,25 @@ e_{C,0} &\leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}
 
 This theorem will be proven in Section \ref{initial-sec}; see Figures \ref{htft}, \ref{htft-2} for a numerical illustration of the approximation.  The strategy is to express $H_t$ as a convolution of $H_0$ with a gaussian heat kernel, then apply an effective Riemann-Siegel expansion to $H_0$ to rewrite $H_t$ as the sum of various contour integrals; see Section \ref{heatflow-sec} for details.  One then uses the saddle point method to shift each such contour to a location that is suitable for effective estimation.   We remark that $f_t(x+iy)$ is a holomorphic function of $x+iy$ in the region \eqref{region} as long as $N$ is constant, but has jump discontinuities when $N$ is incremented.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=\linewidth]{ft_vs_HtdivBt_y_09.png}
   \caption{Comparison of $|f_t(x+iy)|$ and $|H_t(x+iy)|/|B_t(x+iy)|$ for $y=0.9$, $t=0.1$, $1000 \leq x \leq 1030$, (left) and when $10^6 \leq x \leq 10^6 + 30$ (right). The approximation improves as $x$ gets larger.}
 	\label{htft}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=\linewidth]{ft_vs_HtdivBt_y_0.png}
   \caption{Comparison of $|f_t(x+iy)|$ and $|H_t(x+iy)|/|B_t(x+iy)|$ for $y=0$, $t=0.3$, $1000 \leq x \leq 1030$ (left), and when $10^6 \leq x \leq 10^6 + 30$ (right). Again notice the improving approximation with $x$.}
 	\label{htft-2}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=0.8\linewidth]{ft_min_Ht_vs_errorterms.png}
   \caption{The error upper bound $|e_A+e_B+e_{C,0}|$ versus $|f_t - H_t/B_t|$ when $y=t=0.2$ and $2 \leq \log_{10} x \leq 5$.}
 \label{errorboundtot}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=1.0\linewidth]{eA_eB_eC_errorbounds.png}
   \caption{The individual error upper bounds $|e_A|$, $|e_B|$ and $|e_{C,0}|$ with $y=t=0.2$ and $2 \leq \log_{10} x \leq 5$. The $e_{C,0}$-term clearly dominates.}
 \label{ind_errorbounds}
@@ -179,7 +179,7 @@ f_t(x+iy) &= 1 + O\left( x^{-\frac{t}{4}\log 2} \right),
 \end{align*}
 thus giving the crude asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term $-\frac{C_t}{B_t}$ is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$; see \eqref{ratio-form-refined} and Figure \ref{htft-c}.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=0.6\linewidth]{Extra_RS_term.png}
   \caption{Comparison of $|f_t(x+iy)|$, $|f_t(x+iy)-\frac{C_t(x+iy)}{B_t(x+iy)}|$ and $|H_t(x+iy)|/|B_t(x+iy)|$ for $y=0$, $t=0.3$, $1000 \leq x \leq 1012$.}
 	\label{htft-c}
@@ -215,7 +215,7 @@ when $X \geq \exp(C/t)$; in particular (since the sawtooth function $x - \lfloor
 $$ N_t(X) \approx \frac{X}{4\pi} \log \frac{X}{4\pi} - \frac{X}{4\pi} + \frac{7}{8} + \frac{t}{16} \log \frac{X}{4\pi} $$
  after performing some averaging in $X$, thus recovering the familiar $\frac{7}{8}$ term in the usual averaged asymptotics for $N_0(X)$.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=1.0\linewidth]{Integerconvergence_t_and_x_direction.png}
   \caption{The real zeroes $x_i$ of $H_t$ will converge to integer values of $g(x_i,t)$ when $t$ (left) and/or $x$ (right) increases.}
 \label{integer_conv_zeros}
