@@ -14,7 +14,7 @@ A naive computation of $f_t(s)$ for $M$ values of $s$ would take time $O(NM)$, w
 
 We turn to the details.  To make the Taylor series converge\footnote{One can obtain even faster speedups here by splitting the summation range $\sum_{n=1}^N$ into shorter intervals and using a Taylor expansion for each interval, although ultimately we did not need to exploit this.} faster, we recenter the sum in $n$, writing
 $$ \sum_{n=1}^N F(n) = \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} F(n_0 + h)$$
-for any function $F$, where $n_0 \coloneqq \lfloor N/2$.  We thus have
+for any function $F$, where $n_0 \coloneqq \lfloor N/2 \rfloor$.  We thus have
 $$ f_t(s) = B(b) + \gamma(s) A(n_0,a)$$
 where
 $$ B(b) \coloneqq \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} \frac{(n_0+h)^b b_{n_0+h}^t}{(n_0+h)^{\frac{1+y-iX}{2}}}$$
@@ -32,7 +32,7 @@ where
 $$ B_{i,j} \coloneqq \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} \frac{( \frac{t}{4} \log^2(1+\frac{h}{n_0}) )^i}{i!} \frac{\log^j(1+\frac{h}{n_0})}{(n_0+h)^{\frac{1+y-iX}{2}}}.$$
 If we truncate the $i,j$ summations at some cutoff $E$, we obtain the approximation
 $$ B(b) \approx n_0^{b + \frac{t}{4} \log n_0} \sum_{i=0}^{E-1} \sum_{j=0}^{E-1} B_{i,j}(n_0) \frac{(b+\frac{t}{2} \log n_0)^i}{i!}.$$
-The quantities $B_{i,j}, i,j=0,\dots,{E-1}$ may be evaluated in time $O(N E^2)$, and then the sums $B(b)$ for $M$ values of $b$ may be evaluated in time $O(ME^2)$, leading to a total computation time of $O((N+M) E^2)$ which can be significantly faster than $O(NM)$ even for relatively large values of $E$.  We took $E=50$, which is more than adequate to obtain extremely high accuracy for $f_t(s)$; see Figure \ref{fig1}.  The code for implementing this may be found in the file
+The quantities $B_{i,j}, i,j=0,\dots,{E-1}$ may be evaluated in time $O(N E^2)$, and then the sums $B(b)$ for $M$ values of $b$ may be evaluated in time $O(ME^2)$, leading to a total computation time of $O((N+M) E^2)$ which can be significantly faster than $O(NM)$ even for relatively large values of $E$.  We took $E=50$, which is more than adequate to obtain extremely high accuracy\footnote{One can obtain more than adequate analytic bounds for the error (which are several orders of magnitude more than necessary) for the parameter ranges of interest by very crude bounds, e.g., bounding $b$ and $\log(1+\frac{h}{n_0})$ by (say) $O_{\leq}(2)$, and relying primarily on the $i!$ and $j!$ terms in the denominator to make the tail terms small.  We omit the details as they are somewhat tedious.}; for $f_t(s)$; see Figure \ref{fig1}.  The code for implementing this may be found in the file
 
 \centerline{\tt dbn\_upper\_bound/pari/barrier\_multieval\_t\_agnostic.txt}
 
