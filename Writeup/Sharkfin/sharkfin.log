@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  13 JAN 2019 09:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  22 APR 2019 15:45
 entering extended mode
 **./sharkfin.tex
 (sharkfin.tex
@@ -482,8 +482,20 @@ Package grfext Info: Graphics extension search list:
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
-Overfull \hbox (105.96788pt too wide) detected at line 213
+ [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<traj_realzeros.png, id=15, 963.6pt x 542.025pt>
+File: traj_realzeros.png Graphic file (type png)
+<use traj_realzeros.png>
+Package pdftex.def Info: traj_realzeros.png  used on input line 152.
+(pdftex.def)             Requested size: 334.60422pt x 188.2146pt.
+ [2]
+<traj_complexzeros.png, id=19, 963.6pt x 542.025pt>
+File: traj_complexzeros.png Graphic file (type png)
+<use traj_complexzeros.png>
+Package pdftex.def Info: traj_complexzeros.png  used on input line 158.
+(pdftex.def)             Requested size: 334.60422pt x 188.2146pt.
+ [3 <./traj_realzeros.png> <./traj_complexzeros.png>] [4]
+Overfull \hbox (105.96788pt too wide) detected at line 228
 \OML/txmi/m/it/10.95 H[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/
 m/n/10.95 ) \OMS/txsy/m/n/10.95  []\OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 ([] \OMS/txsy/m/n/10.95   \OT1/txr/m/n/10
 .95 2\OML/txmi/m/it/10.95 iN[]\OT1/txr/m/n/10.95 ) [][] [](\OMS/txsy/m/n/10.95  \OML/txmi/m/it/10.95 i\OMS/txsy/m/n/10.
@@ -494,7 +506,7 @@ m/it/10.95 v\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 e[] dv:
  []
 
 
-Overfull \hbox (6.42564pt too wide) detected at line 215
+Overfull \hbox (6.42564pt too wide) detected at line 230
 \OML/txmi/m/it/10.95 H[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iy\OT1/txr/
 m/n/10.95 ) \OMS/txsy/m/n/10.95  []\OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 ([] \OMS/txsy/m/n/10.95   \OT1/txr/m/n/10
 .95 2\OML/txmi/m/it/10.95 iN[]\OT1/txr/m/n/10.95 ) [][] [](\OMS/txsy/m/n/10.95  \OML/txmi/m/it/10.95 i\OMS/txsy/m/n/10.
@@ -504,26 +516,26 @@ i/m/it/10.95 i\OMS/txsy/m/n/10.95 j\OML/txmi/m/it/10.95 t\OMS/txsy/m/n/10.95 j[]
  )\OML/txmi/m/it/10.95 e[] dv:
  []
 
-[4] [5] [6] [7]
-Overfull \hbox (2.96072pt too wide) in paragraph at lines 337--339
+[5] [6] [7] [8]
+Overfull \hbox (2.96072pt too wide) in paragraph at lines 352--354
 \OT1/txr/m/it/10.95 where $\OML/txmi/m/it/10.95 N[] \OT1/txr/m/n/10.95 := []$\OT1/txr/m/it/10.95 . On the other hand, by
  in-spect-ing the vari-a-tion in phase of $\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 N; y; t\OT1/
 txr/m/n/10.95 )\OML/txmi/m/it/10.95 =f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 N; y; t\OT1/txr/m/n/10.95 )$\OT1/txr/m/
 it/10.95 ,
  []
 
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 411.
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 426.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
-) [8] (sharkfin.aux) ) 
+) [9] (sharkfin.aux) ) 
 Here is how much of TeX's memory you used:
- 5712 strings out of 493303
- 82153 string characters out of 3138857
- 152714 words of memory out of 3000000
- 8972 multiletter control sequences out of 15000+200000
+ 5729 strings out of 493303
+ 82492 string characters out of 3138857
+ 152730 words of memory out of 3000000
+ 8986 multiletter control sequences out of 15000+200000
  42954 words of font info for 106 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,13n,38p,1306b,299s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,13n,39p,1306b,276s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/M
@@ -532,9 +544,9 @@ am Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyb.pfb><C:/Program Files/MiKTe
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on sharkfin.pdf (8 pages, 113788 bytes).
+Output written on sharkfin.pdf (9 pages, 283777 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
+ 83 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
