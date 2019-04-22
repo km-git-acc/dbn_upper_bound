@@ -38,7 +38,7 @@ $$ \min_{x - 6 \times 10^{10} - q \in \{-0.5,0,0.5\}} |\mathrm{eulerprod}(x,29)|
 exceeded a threshold (we chose $4$), to obtain seven candidates for $q$: $1046$, $22402$, $24198$, $52806$, $77752$, $83952$, and $99108$.  Among these candidates, we selected the value of $q$ which maximised the quantity
 $$ \min_{x - 6 \times 10^{10} - q \in \{-0.5,0,0.5\}} |f_0(x+i)|,$$
 namely $q = 83952$ (this quantity being $\approx 4.32$ for this value of $q$).
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=\linewidth]{euler_product_approximation.png}
   \caption{Improving approximation of $\mathrm{ep}_n(x)$ w.r.t. $|f_0(x+iy)|$ as $n$ is increased, where $\mathrm{ep}_n(x)=\mathrm{eulerprod}(x,p_n)$, shown near $X=6 \times 10^{10} + 83951.5$, which was chosen as a barrier location.}
 	\label{euler}
@@ -258,7 +258,7 @@ Finally, the quantity $B$ can also be seen to be decreasing\footnote{This is vis
 $$ B \leq 0.075.$$
 The claim \eqref{ft0} follows.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=0.7\linewidth]{B_vs_N.png}
   \caption{Plot of $B$ vs $N$}\label{bnp}
 \end{figure}
@@ -377,28 +377,28 @@ The next few graphs summarize the numerical output of the algorithm for the foll
 
 The first step in the barrier verification process was to precalculate a `stored sum' of Taylor expansion terms that allows for fast recreation of $f_t(x+iy)$ during the execution of the algorithm as per Section \ref{multiple-sec}. The number of Taylor terms required was determined through an iterative process targeted to achieve a $20$ decimal accuracy.  Figure \ref{fig1} illustrates that the achieved accuracy for all rectangular mesh points at $t=0$.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=0.7\linewidth]{BarrieraccuracyTaylor}
   \caption{Achieved error term in the Taylor expansion at $t=0$. Target was set at $20$ decimal places accuracy.}\label{fig1}
 \end{figure}
 
 The derivative bounds determine the number of mesh points required on each $xy$-rectangle and in the $t$-direction. Figure \ref{fig2} ilustrates that these bounds have been chosen quite conservatively:
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=1.0\linewidth]{Derivativebounds}
   \caption{Derivative bounds versus their actual values at all required steps of $t$.}\label{fig2}
 \end{figure}
 
 The number of rectangle mesh points varies with $t$ ranging from $11076$ at $t=0$ to $56$ at $t=0.195$; see Figure \ref{fig3}.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=0.7\linewidth]{Numberofmeshpoints}
   \caption{The number of mesh points required per rectangle for each step of $t$.}\label{fig3}
 \end{figure}
 
 The overall winding number for the barrier at this specific location came out at $0$. Figures \ref{fig4}, \ref{fig4a} show the winding process at $t=0, 0.2$ respectively. Due to the choice of the barrier location and the small barrier width compared to the wavelength in the $x$ variable, little oscillation is expected to occur in each rectangle.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
   \includegraphics[width=0.7\linewidth]{Windingprocess}
   \caption{Winding the rectangle at $t=0$.}\label{fig4}
 \end{figure}

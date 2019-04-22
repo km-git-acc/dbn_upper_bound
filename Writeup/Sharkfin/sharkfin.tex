@@ -144,8 +144,6 @@ H_t(x+iy) = \int_{\R} \frac{1}{8} \xi(\frac{1+ix-y}{2} + i |t|^{1/2} v) \frac{1}
 \end{equation}
 valid whenever $t<0$; see \cite[(15)]{brad} (as well as \cite[(35)]{polymath15} for the analogous formula for $t>0$).
 
-{\bf describe numerical experiments of $H_t$}
-
 The heat kernal exact formula proved to be effective for numerical computations of $H_t(x+iy)$ up to $x<1000$ and $t > -100$, however for larger values it quickly became unstable. The integral was then approximated by a finite Riemann sum running from $-k..k$ with a rectangle width $r$. For the highest values $x, y, -t$ in a specific search domain, the parameters $k$ and $r$ were established subsequently through an iterative process targeted at 6 digits accuracy. This approach provided much stronger control over $H_t$ and brought larger $x, -t$ values within reach of computation.
 
 Rootfinding of real zeros was done through the location of sign changes with $x$ being incremented in steps of $1$. The bisection method was then used to establish a root at 5 digits accuracy. For finding the complex zeros,  both $x$ and $y$ were incremented in steps of $1$ for a certain value $-t$. Then the Newton-Raphson method was applied to find the complex roots at 5 digits acuracy (note: this 'brute force' method is not very efficient and yielded redundant roots that had to be filtered out. With hindsight, contour integration could have been used to firstly isolate the complex roots and then use the Newton-Raphson method). The observed patterns in the trajectories of the real and complex zeros are shown in figures \ref{fig:realzeros}  and  \ref{fig:complexzeros}.
