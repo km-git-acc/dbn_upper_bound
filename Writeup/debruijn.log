@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  22 APR 2019 15:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  26 APR 2019 14:50
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -527,16 +527,16 @@ Underfull \vbox (badness 3158) has occurred while \output is active []
 <Extra_RS_term.png, id=52, 777.90625pt x 580.1675pt>
 File: Extra_RS_term.png Graphic file (type png)
 <use Extra_RS_term.png>
-Package pdftex.def Info: Extra_RS_term.png  used on input line 183.
+Package pdftex.def Info: Extra_RS_term.png  used on input line 182.
 (pdftex.def)             Requested size: 250.95476pt x 187.16232pt.
  [9 <./Extra_RS_term.png>]
 <Integerconvergence_t_and_x_direction.png, id=58, 1291.82625pt x 503.8825pt>
 File: Integerconvergence_t_and_x_direction.png Graphic file (type png)
 <use Integerconvergence_t_and_x_direction.png>
-Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 219.
+Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 218.
 (pdftex.def)             Requested size: 418.25368pt x 163.13708pt.
  [10]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 238.
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 237.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
 ) [11 <./Integerconvergence_t_and_x_direction.png>]) (dynamics.tex [12] [13] [14] [15]) (heatflow.tex [16]) (elementary.
@@ -708,7 +708,7 @@ m Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKTeX
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfo
 nts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
 times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (68 pages, 1959865 bytes).
+Output written on debruijn.pdf (68 pages, 1959631 bytes).
 PDF statistics:
  316 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

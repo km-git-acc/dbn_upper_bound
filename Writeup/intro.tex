@@ -171,13 +171,12 @@ then $H_t(x+iy) \neq 0$.
 
 Actually, for some regions of $x,y,t$ we will use a more complicated criterion than \eqref{criterion}, in order to exploit the argument principle.  To numerically estimate $f_t(x+iy)$ in a feasible amount of time, we will use Taylor expansion to be able to efficiently compute many values of $f_t(x+iy)$ simultaneously (see Section \ref{multiple-sec}), and for some ranges of the parameters $t,x,y$ we will also use an Euler product mollifier to reduce the amount of oscillation in the sum $f_t(x+iy)$ (see Section \ref{b-bound}).
 
-In the asymptotic limit $x \to \infty$, one easily sees that 
+For $y,t$ fixed and $x$ sufficiently large, we have the asymptotics
 \begin{align*}
-e_A+e_B &= O\left( \frac{\log^2 x}{x} \right)\\
-e_{C,0} &= O\left( x^{-\frac{3+y}{4}} \exp\left(-\frac{t}{16} \log^2 x \right) \right)\\
-f_t(x+iy) &= 1 + O\left( x^{-\frac{t}{4}\log 2} \right),
+e_A,e_B, e_{C,0} &= O( x^{-ct} )\\
+f_t(x+iy) &= 1 + O(x^{-ct} )
 \end{align*}
-thus giving the crude asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term $-\frac{C_t}{B_t}$ is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$; see \eqref{ratio-form-refined} and Figure \ref{htft-c}.
+for some absolute constant $c>0$; see Proposition \ref{asymp}(i) and its proof.  This gives the crude asymptotic \eqref{limx} in the region \eqref{region} at least.   In practice, the $e_{C,0}$ term numerically dominates the $e_A+e_B$ term, although both errors will be quite small in the ranges of $x$ under consideration; in particular, for the ranges needed to verify conditions (ii) and (iii) of Theorem \ref{ubc-0}, we can make $e_A+e_B$ and $e_{C,0}$ both significantly smaller than $|f_t(x+iy)|$.  In the spirit of expanding the Riemann-Siegel approximation to higher order, we also obtain an even more accurate explicit approximation in which a correction term $-\frac{C_t}{B_t}$ is added to $f_t$, and the error term $e_{C,0}$ is replaced by a smaller quantity $e_C$; see \eqref{ratio-form-refined} and Figure \ref{htft-c}.
 
 \begin{figure}[ht!]
   \includegraphics[width=0.6\linewidth]{Extra_RS_term.png}
