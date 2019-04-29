@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  26 APR 2019 14:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  28 APR 2019 20:24
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -482,43 +482,43 @@ Package grfext Info: Graphics extension search list:
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (intro.tex [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+ [1{C:/Users/teort/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
 <Barrier_approach.png, id=18, 1388.18625pt x 655.44875pt>
 File: Barrier_approach.png Graphic file (type png)
 <use Barrier_approach.png>
-Package pdftex.def Info: Barrier_approach.png  used on input line 51.
+Package pdftex.def Info: Barrier_approach.png  used on input line 161.
 (pdftex.def)             Requested size: 376.42575pt x 177.73363pt.
  [3 <./Barrier_approach.png>]
 <ftvsht.png, id=24, 1281.78876pt x 483.8075pt>
 File: ftvsht.png Graphic file (type png)
 <use ftvsht.png>
-Package pdftex.def Info: ftvsht.png  used on input line 100.
+Package pdftex.def Info: ftvsht.png  used on input line 210.
 (pdftex.def)             Requested size: 418.25368pt x 157.86307pt.
 <loghtbt.png, id=25, 564.4287pt x 424.2249pt>
 File: loghtbt.png Graphic file (type png)
 <use loghtbt.png>
-Package pdftex.def Info: loghtbt.png  used on input line 106.
+Package pdftex.def Info: loghtbt.png  used on input line 216.
 (pdftex.def)             Requested size: 334.60422pt x 251.4945pt.
  [4] [5 <./ftvsht.png> <./loghtbt.png>]
 <ft_vs_HtdivBt_y_09.png, id=34, 1592.95125pt x 601.24625pt>
 File: ft_vs_HtdivBt_y_09.png Graphic file (type png)
 <use ft_vs_HtdivBt_y_09.png>
-Package pdftex.def Info: ft_vs_HtdivBt_y_09.png  used on input line 140.
+Package pdftex.def Info: ft_vs_HtdivBt_y_09.png  used on input line 250.
 (pdftex.def)             Requested size: 418.25368pt x 157.8616pt.
 <ft_vs_HtdivBt_y_0.png, id=35, 1599.9775pt x 624.3325pt>
 File: ft_vs_HtdivBt_y_0.png Graphic file (type png)
 <use ft_vs_HtdivBt_y_0.png>
-Package pdftex.def Info: ft_vs_HtdivBt_y_0.png  used on input line 146.
+Package pdftex.def Info: ft_vs_HtdivBt_y_0.png  used on input line 256.
 (pdftex.def)             Requested size: 418.25368pt x 163.20859pt.
 <ft_min_Ht_vs_errorterms.png, id=36, 565.8741pt x 422.7795pt>
 File: ft_min_Ht_vs_errorterms.png Graphic file (type png)
 <use ft_min_Ht_vs_errorterms.png>
-Package pdftex.def Info: ft_min_Ht_vs_errorterms.png  used on input line 152.
+Package pdftex.def Info: ft_min_Ht_vs_errorterms.png  used on input line 262.
 (pdftex.def)             Requested size: 334.60422pt x 249.99898pt.
 <eA_eB_eC_errorbounds.png, id=37, 1590.94376pt x 651.43375pt>
 File: eA_eB_eC_errorbounds.png Graphic file (type png)
 <use eA_eB_eC_errorbounds.png>
-Package pdftex.def Info: eA_eB_eC_errorbounds.png  used on input line 158.
+Package pdftex.def Info: eA_eB_eC_errorbounds.png  used on input line 268.
 (pdftex.def)             Requested size: 418.25368pt x 171.25739pt.
  [6] [7 <./ft_vs_HtdivBt_y_09.png> <./ft_vs_HtdivBt_y_0.png>]
 Underfull \vbox (badness 3158) has occurred while \output is active []
@@ -527,22 +527,20 @@ Underfull \vbox (badness 3158) has occurred while \output is active []
 <Extra_RS_term.png, id=52, 777.90625pt x 580.1675pt>
 File: Extra_RS_term.png Graphic file (type png)
 <use Extra_RS_term.png>
-Package pdftex.def Info: Extra_RS_term.png  used on input line 182.
+Package pdftex.def Info: Extra_RS_term.png  used on input line 292.
 (pdftex.def)             Requested size: 250.95476pt x 187.16232pt.
  [9 <./Extra_RS_term.png>]
 <Integerconvergence_t_and_x_direction.png, id=58, 1291.82625pt x 503.8825pt>
 File: Integerconvergence_t_and_x_direction.png Graphic file (type png)
 <use Integerconvergence_t_and_x_direction.png>
-Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 218.
+Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 328.
 (pdftex.def)             Requested size: 418.25368pt x 163.13708pt.
  [10]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 237.
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 347.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
-) [11 <./Integerconvergence_t_and_x_direction.png>]) (dynamics.tex [12] [13] [14] [15]) (heatflow.tex [16]) (elementary.
-tex [17] [18])
-(initial.tex [19]
-Overfull \hbox (38.62108pt too wide) detected at line 54
+) [11 <./Integerconvergence_t_and_x_direction.png>] [12] [13] [14] [15] [16] [17] [18] [19]
+Overfull \hbox (38.62108pt too wide) detected at line 647
 []
  []
 
@@ -550,49 +548,49 @@ Overfull \hbox (38.62108pt too wide) detected at line 54
 <C0_p.png, id=103, 565.8741pt x 423.5022pt>
 File: C0_p.png Graphic file (type png)
 <use C0_p.png>
-Package pdftex.def Info: C0_p.png  used on input line 133.
+Package pdftex.def Info: C0_p.png  used on input line 726.
 (pdftex.def)             Requested size: 292.77629pt x 219.12384pt.
  [23 <./C0_p.png>]
-Overfull \hbox (6.45036pt too wide) detected at line 165
+Overfull \hbox (6.45036pt too wide) detected at line 758
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
 txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] []
  []
 
 
-Overfull \hbox (49.59889pt too wide) detected at line 168
+Overfull \hbox (49.59889pt too wide) detected at line 761
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it
 /10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
 [24] [25] [26] [27] [28] [29] [30]
-Overfull \hbox (16.23422pt too wide) in paragraph at lines 409--410
+Overfull \hbox (16.23422pt too wide) in paragraph at lines 1002--1003
 []\OT1/txr/m/n/10.95 From the mean value the-o-rem (and not-ing that $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML
 /txmi/m/it/10.95 M[]$\OT1/txr/m/n/10.95 , so that $[] = []$),
  []
 
-[31] [32] [33] [34]) (estimating.tex [35]) (zerofree.tex [36]
+[31] [32] [33] [34] [35] [36]
 Underfull \vbox (badness 1281) has occurred while \output is active []
 
  [37]
 <euler_product_approximation.png, id=153, 424.08438pt x 183.68625pt>
 File: euler_product_approximation.png Graphic file (type png)
 <use euler_product_approximation.png>
-Package pdftex.def Info: euler_product_approximation.png  used on input line 42.
+Package pdftex.def Info: euler_product_approximation.png  used on input line 1194.
 (pdftex.def)             Requested size: 418.25368pt x 181.16884pt.
  [38] [39 <./euler_product_approximation.png>]
-Overfull \hbox (23.46901pt too wide) detected at line 122
+Overfull \hbox (23.46901pt too wide) detected at line 1274
 []
  []
 
 [40]
-Overfull \hbox (31.33856pt too wide) detected at line 170
+Overfull \hbox (31.33856pt too wide) detected at line 1322
 []
  []
 
 
-Overfull \hbox (31.33856pt too wide) in alignment at lines 169--170
+Overfull \hbox (31.33856pt too wide) in alignment at lines 1321--1322
 [] [] 
  []
 
@@ -600,10 +598,10 @@ Overfull \hbox (31.33856pt too wide) in alignment at lines 169--170
 <B_vs_N.png, id=173, 425.6703pt x 281.1303pt>
 File: B_vs_N.png Graphic file (type png)
 <use B_vs_N.png>
-Package pdftex.def Info: B_vs_N.png  used on input line 262.
+Package pdftex.def Info: B_vs_N.png  used on input line 1414.
 (pdftex.def)             Requested size: 292.77629pt x 193.36668pt.
  [44 <./B_vs_N.png>] [45]
-Overfull \hbox (18.44473pt too wide) detected at line 299
+Overfull \hbox (18.44473pt too wide) detected at line 1451
 []
  []
 
@@ -611,32 +609,32 @@ Overfull \hbox (18.44473pt too wide) detected at line 299
 <BarrieraccuracyTaylor.png, id=187, 581.0508pt x 422.7795pt>
 File: BarrieraccuracyTaylor.png Graphic file (type png)
 <use BarrieraccuracyTaylor.png>
-Package pdftex.def Info: BarrieraccuracyTaylor.png  used on input line 381.
+Package pdftex.def Info: BarrieraccuracyTaylor.png  used on input line 1533.
 (pdftex.def)             Requested size: 292.77629pt x 213.0278pt.
 <Derivativebounds.png, id=188, 1623.06375pt x 623.32875pt>
 File: Derivativebounds.png Graphic file (type png)
 <use Derivativebounds.png>
-Package pdftex.def Info: Derivativebounds.png  used on input line 388.
+Package pdftex.def Info: Derivativebounds.png  used on input line 1540.
 (pdftex.def)             Requested size: 418.25368pt x 160.62546pt.
  [48 <./BarrieraccuracyTaylor.png>]
 <Numberofmeshpoints.png, id=193, 565.1514pt x 424.2249pt>
 File: Numberofmeshpoints.png Graphic file (type png)
 <use Numberofmeshpoints.png>
-Package pdftex.def Info: Numberofmeshpoints.png  used on input line 395.
+Package pdftex.def Info: Numberofmeshpoints.png  used on input line 1547.
 (pdftex.def)             Requested size: 292.77629pt x 219.77612pt.
 <Windingprocess.png, id=194, 425.6703pt x 278.2395pt>
 File: Windingprocess.png Graphic file (type png)
 <use Windingprocess.png>
-Package pdftex.def Info: Windingprocess.png  used on input line 402.
+Package pdftex.def Info: Windingprocess.png  used on input line 1554.
 (pdftex.def)             Requested size: 292.77629pt x 191.37834pt.
 <Windingprocess_t02.png, id=195, 387.3672pt x 278.2395pt>
 File: Windingprocess_t02.png Graphic file (type png)
 <use Windingprocess_t02.png>
-Package pdftex.def Info: Windingprocess_t02.png  used on input line 407.
+Package pdftex.def Info: Windingprocess_t02.png  used on input line 1559.
 (pdftex.def)             Requested size: 292.77629pt x 210.30516pt.
  [49 <./Derivativebounds.png> <./Numberofmeshpoints.png>] [50 <./Windingprocess.png> <./Windingprocess_t02.png>] [51] [5
 2] [53]
-Overfull \hbox (14.10667pt too wide) detected at line 523
+Overfull \hbox (14.10667pt too wide) detected at line 1675
 []\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 E[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/
 m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 +
  \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 ; \OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  1\OML/txmi/m
@@ -644,8 +642,8 @@ m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OM
  N[][] \OMS/txsy/m/n/10.95   [] []   \OML/txmi/m/it/10.95 Z:
  []
 
-[54] [55]) (asymptotic.tex [56] [57] [58]
-Overfull \hbox (65.74248pt too wide) detected at line 108
+[54] [55] [56] [57] [58]
+Overfull \hbox (65.74248pt too wide) detected at line 1850
 []
  []
 
@@ -653,18 +651,18 @@ Overfull \hbox (65.74248pt too wide) detected at line 108
 <real_zeros_solid.png, id=242, 365.6862pt x 279.6849pt>
 File: real_zeros_solid.png Graphic file (type png)
 <use real_zeros_solid.png>
-Package pdftex.def Info: real_zeros_solid.png  used on input line 182.
+Package pdftex.def Info: real_zeros_solid.png  used on input line 1924.
 (pdftex.def)             Requested size: 376.42575pt x 287.92076pt.
 <Actual_trajectories_zeros.png, id=243, 792.9625pt x 549.05125pt>
 File: Actual_trajectories_zeros.png Graphic file (type png)
 <use Actual_trajectories_zeros.png>
-Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 187.
+Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 1929.
 (pdftex.def)             Requested size: 376.42575pt x 260.64287pt.
-) (further.tex [62]
+ [62]
 Underfull \vbox (badness 2189) has occurred while \output is active []
 
  [63 <./real_zeros_solid.png>]
-Overfull \hbox (59.3557pt too wide) in paragraph at lines 13--29
+Overfull \hbox (59.3557pt too wide) in paragraph at lines 1948--1964
  [] 
  []
 
@@ -672,34 +670,34 @@ Overfull \hbox (59.3557pt too wide) in paragraph at lines 13--29
 <tradeoff.png, id=258, 565.8741pt x 423.5022pt>
 File: tradeoff.png Graphic file (type png)
 <use tradeoff.png>
-Package pdftex.def Info: tradeoff.png  used on input line 64.
+Package pdftex.def Info: tradeoff.png  used on input line 1999.
 (pdftex.def)             Requested size: 418.25368pt x 313.03775pt.
  [66 <./tradeoff.png>]
 <mesh_rectangles_at_barrierlocs.png, id=263, 1639.12375pt x 627.34375pt>
 File: mesh_rectangles_at_barrierlocs.png Graphic file (type png)
 <use mesh_rectangles_at_barrierlocs.png>
-Package pdftex.def Info: mesh_rectangles_at_barrierlocs.png  used on input line 72.
+Package pdftex.def Info: mesh_rectangles_at_barrierlocs.png  used on input line 2007.
 (pdftex.def)             Requested size: 418.25368pt x 160.08061pt.
-) [67 <./mesh_rectangles_at_barrierlocs.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+ [67 <./mesh_rectangles_at_barrierlocs.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2087--2088
 []\OT1/txr/m/n/9 D. H. J. Poly-math, \OT1/txr/m/it/9 Ze-roes of the heat flow evo-lu-tion of the Rie-mann $\OML/txmi/m/i
 t/9 $ \OT1/txr/m/it/9 func-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 2087--2088
 \OT1/txr/m/it/9 tion at neg-a-tive times: nu-mer-i-cal ex-per-i-ments and heuris-tic jus-ti-fi-ca-tions\OT1/txr/m/n/9 ,
  []
 
 [68] (debruijn.aux) ) 
 Here is how much of TeX's memory you used:
- 6007 strings out of 493303
- 87189 string characters out of 3138857
+ 5980 strings out of 493303
+ 86268 string characters out of 3138857
  160162 words of memory out of 3000000
  9218 multiletter control sequences out of 15000+200000
  43521 words of font info for 108 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,21n,39p,1490b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,21n,39p,1472b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxsc.pfb><C:/Program Files/Mi
