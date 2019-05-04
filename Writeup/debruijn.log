@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  28 APR 2019 20:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  3 MAY 2019 17:19
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -316,56 +316,56 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 (debruijn.aux)
 \openout1 = `debruijn.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 90.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 90.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 89.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omltxmi.fd"
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 90.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 90.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 89.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 89.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omstxsy.fd"
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 90.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 90.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 89.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\omxtxex.fd"
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 90.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 90.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 89.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxexa.fd"
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 90.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txr.fd"
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 90.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxsya.fd"
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 90.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxsyb.fd"
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 90.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 90.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 89.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxmia.fd"
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 90.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 89.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\utxsyc.fd"
 File: utxsyc.fd 2000/12/15 v3.1
@@ -486,39 +486,39 @@ Package caption Info: End \AtBeginDocument code.
 <Barrier_approach.png, id=18, 1388.18625pt x 655.44875pt>
 File: Barrier_approach.png Graphic file (type png)
 <use Barrier_approach.png>
-Package pdftex.def Info: Barrier_approach.png  used on input line 161.
+Package pdftex.def Info: Barrier_approach.png  used on input line 160.
 (pdftex.def)             Requested size: 376.42575pt x 177.73363pt.
  [3 <./Barrier_approach.png>]
 <ftvsht.png, id=24, 1281.78876pt x 483.8075pt>
 File: ftvsht.png Graphic file (type png)
 <use ftvsht.png>
-Package pdftex.def Info: ftvsht.png  used on input line 210.
+Package pdftex.def Info: ftvsht.png  used on input line 209.
 (pdftex.def)             Requested size: 418.25368pt x 157.86307pt.
 <loghtbt.png, id=25, 564.4287pt x 424.2249pt>
 File: loghtbt.png Graphic file (type png)
 <use loghtbt.png>
-Package pdftex.def Info: loghtbt.png  used on input line 216.
+Package pdftex.def Info: loghtbt.png  used on input line 215.
 (pdftex.def)             Requested size: 334.60422pt x 251.4945pt.
  [4] [5 <./ftvsht.png> <./loghtbt.png>]
 <ft_vs_HtdivBt_y_09.png, id=34, 1592.95125pt x 601.24625pt>
 File: ft_vs_HtdivBt_y_09.png Graphic file (type png)
 <use ft_vs_HtdivBt_y_09.png>
-Package pdftex.def Info: ft_vs_HtdivBt_y_09.png  used on input line 250.
+Package pdftex.def Info: ft_vs_HtdivBt_y_09.png  used on input line 249.
 (pdftex.def)             Requested size: 418.25368pt x 157.8616pt.
 <ft_vs_HtdivBt_y_0.png, id=35, 1599.9775pt x 624.3325pt>
 File: ft_vs_HtdivBt_y_0.png Graphic file (type png)
 <use ft_vs_HtdivBt_y_0.png>
-Package pdftex.def Info: ft_vs_HtdivBt_y_0.png  used on input line 256.
+Package pdftex.def Info: ft_vs_HtdivBt_y_0.png  used on input line 255.
 (pdftex.def)             Requested size: 418.25368pt x 163.20859pt.
 <ft_min_Ht_vs_errorterms.png, id=36, 565.8741pt x 422.7795pt>
 File: ft_min_Ht_vs_errorterms.png Graphic file (type png)
 <use ft_min_Ht_vs_errorterms.png>
-Package pdftex.def Info: ft_min_Ht_vs_errorterms.png  used on input line 262.
+Package pdftex.def Info: ft_min_Ht_vs_errorterms.png  used on input line 261.
 (pdftex.def)             Requested size: 334.60422pt x 249.99898pt.
 <eA_eB_eC_errorbounds.png, id=37, 1590.94376pt x 651.43375pt>
 File: eA_eB_eC_errorbounds.png Graphic file (type png)
 <use eA_eB_eC_errorbounds.png>
-Package pdftex.def Info: eA_eB_eC_errorbounds.png  used on input line 268.
+Package pdftex.def Info: eA_eB_eC_errorbounds.png  used on input line 267.
 (pdftex.def)             Requested size: 418.25368pt x 171.25739pt.
  [6] [7 <./ft_vs_HtdivBt_y_09.png> <./ft_vs_HtdivBt_y_0.png>]
 Underfull \vbox (badness 3158) has occurred while \output is active []
@@ -527,20 +527,20 @@ Underfull \vbox (badness 3158) has occurred while \output is active []
 <Extra_RS_term.png, id=52, 777.90625pt x 580.1675pt>
 File: Extra_RS_term.png Graphic file (type png)
 <use Extra_RS_term.png>
-Package pdftex.def Info: Extra_RS_term.png  used on input line 292.
+Package pdftex.def Info: Extra_RS_term.png  used on input line 291.
 (pdftex.def)             Requested size: 250.95476pt x 187.16232pt.
  [9 <./Extra_RS_term.png>]
 <Integerconvergence_t_and_x_direction.png, id=58, 1291.82625pt x 503.8825pt>
 File: Integerconvergence_t_and_x_direction.png Graphic file (type png)
 <use Integerconvergence_t_and_x_direction.png>
-Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 328.
+Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input line 327.
 (pdftex.def)             Requested size: 418.25368pt x 163.13708pt.
  [10]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 347.
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 346.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
 ) [11 <./Integerconvergence_t_and_x_direction.png>] [12] [13] [14] [15] [16] [17] [18] [19]
-Overfull \hbox (38.62108pt too wide) detected at line 647
+Overfull \hbox (38.62108pt too wide) detected at line 646
 []
  []
 
@@ -548,24 +548,24 @@ Overfull \hbox (38.62108pt too wide) detected at line 647
 <C0_p.png, id=103, 565.8741pt x 423.5022pt>
 File: C0_p.png Graphic file (type png)
 <use C0_p.png>
-Package pdftex.def Info: C0_p.png  used on input line 726.
+Package pdftex.def Info: C0_p.png  used on input line 725.
 (pdftex.def)             Requested size: 292.77629pt x 219.12384pt.
  [23 <./C0_p.png>]
-Overfull \hbox (6.45036pt too wide) detected at line 758
+Overfull \hbox (6.45036pt too wide) detected at line 757
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
 txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] []
  []
 
 
-Overfull \hbox (49.59889pt too wide) detected at line 761
+Overfull \hbox (49.59889pt too wide) detected at line 760
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it
 /10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
 [24] [25] [26] [27] [28] [29] [30]
-Overfull \hbox (16.23422pt too wide) in paragraph at lines 1002--1003
+Overfull \hbox (16.23422pt too wide) in paragraph at lines 1001--1002
 []\OT1/txr/m/n/10.95 From the mean value the-o-rem (and not-ing that $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML
 /txmi/m/it/10.95 M[]$\OT1/txr/m/n/10.95 , so that $[] = []$),
  []
@@ -577,20 +577,20 @@ Underfull \vbox (badness 1281) has occurred while \output is active []
 <euler_product_approximation.png, id=153, 424.08438pt x 183.68625pt>
 File: euler_product_approximation.png Graphic file (type png)
 <use euler_product_approximation.png>
-Package pdftex.def Info: euler_product_approximation.png  used on input line 1194.
+Package pdftex.def Info: euler_product_approximation.png  used on input line 1193.
 (pdftex.def)             Requested size: 418.25368pt x 181.16884pt.
  [38] [39 <./euler_product_approximation.png>]
-Overfull \hbox (23.46901pt too wide) detected at line 1274
+Overfull \hbox (23.46901pt too wide) detected at line 1273
 []
  []
 
 [40]
-Overfull \hbox (31.33856pt too wide) detected at line 1322
+Overfull \hbox (31.33856pt too wide) detected at line 1321
 []
  []
 
 
-Overfull \hbox (31.33856pt too wide) in alignment at lines 1321--1322
+Overfull \hbox (31.33856pt too wide) in alignment at lines 1320--1321
 [] [] 
  []
 
@@ -600,7 +600,7 @@ File: B_vs_N.png Graphic file (type png)
 <use B_vs_N.png>
 Package pdftex.def Info: B_vs_N.png  used on input line 1414.
 (pdftex.def)             Requested size: 292.77629pt x 193.36668pt.
- [44 <./B_vs_N.png>] [45]
+ [44] [45 <./B_vs_N.png>]
 Overfull \hbox (18.44473pt too wide) detected at line 1451
 []
  []
@@ -648,10 +648,10 @@ Overfull \hbox (65.74248pt too wide) detected at line 1850
  []
 
 [59] [60] [61]
-<real_zeros_solid.png, id=242, 365.6862pt x 279.6849pt>
-File: real_zeros_solid.png Graphic file (type png)
-<use real_zeros_solid.png>
-Package pdftex.def Info: real_zeros_solid.png  used on input line 1924.
+<Real_zeros_solid.png, id=242, 365.6862pt x 279.6849pt>
+File: Real_zeros_solid.png Graphic file (type png)
+<use Real_zeros_solid.png>
+Package pdftex.def Info: Real_zeros_solid.png  used on input line 1924.
 (pdftex.def)             Requested size: 376.42575pt x 287.92076pt.
 <Actual_trajectories_zeros.png, id=243, 792.9625pt x 549.05125pt>
 File: Actual_trajectories_zeros.png Graphic file (type png)
@@ -661,7 +661,7 @@ Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 1929.
  [62]
 Underfull \vbox (badness 2189) has occurred while \output is active []
 
- [63 <./real_zeros_solid.png>]
+ [63 <./Real_zeros_solid.png>]
 Overfull \hbox (59.3557pt too wide) in paragraph at lines 1948--1964
  [] 
  []
@@ -679,13 +679,13 @@ File: mesh_rectangles_at_barrierlocs.png Graphic file (type png)
 Package pdftex.def Info: mesh_rectangles_at_barrierlocs.png  used on input line 2007.
 (pdftex.def)             Requested size: 418.25368pt x 160.08061pt.
  [67 <./mesh_rectangles_at_barrierlocs.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 2087--2088
+Underfull \hbox (badness 10000) in paragraph at lines 2090--2091
 []\OT1/txr/m/n/9 D. H. J. Poly-math, \OT1/txr/m/it/9 Ze-roes of the heat flow evo-lu-tion of the Rie-mann $\OML/txmi/m/i
 t/9 $ \OT1/txr/m/it/9 func-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2087--2088
+Underfull \hbox (badness 10000) in paragraph at lines 2090--2091
 \OT1/txr/m/it/9 tion at neg-a-tive times: nu-mer-i-cal ex-per-i-ments and heuris-tic jus-ti-fi-ca-tions\OT1/txr/m/n/9 ,
  []
 
@@ -706,7 +706,7 @@ m Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKTeX
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfo
 nts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
 times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (68 pages, 1959631 bytes).
+Output written on debruijn.pdf (68 pages, 1960174 bytes).
 PDF statistics:
  316 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -1,4 +1,3 @@
-                                                                                                              
 %\pdfoutput=1
 %\documentclass[fms,times]{cuparticle}
 \documentclass[a4paper,11pt,twoside]{amsart}
@@ -88,7 +87,7 @@
 %\setlength{\parindent}{0cm}
 
 \begin{document}
-%\title[Upper bound for de Bruijn-Newman constant]{Effective approximation of heat flow evolution of the Riemann $\xi$ function, and a new upper bound for the de Bruijn-Newman constant}
+\title[Upper bound for de Bruijn-Newman constant]{Effective approximation of heat flow evolution of the Riemann $\xi$ function, and a new upper bound for the de Bruijn-Newman constant}
 
 \author{D.H.J. Polymath}
 \address{\tt{http://michaelnielsen.org/polymath1/index.php}}
@@ -114,11 +113,11 @@ Let $H_0 \colon \C \to \C$ denote the function
 \begin{equation}\label{hoz}
  H_0(z) \coloneqq \frac{1}{8} \xi\left(\frac{1}{2} + \frac{iz}{2}\right),
 \end{equation}
-where $\xi$ denotes the Riemann $\xi$ function
+where $\xi \colon \C \to \C$ denotes the Riemann $\xi$ function
 \begin{equation}\label{sas}
  \xi(s) \coloneqq \frac{s(s-1)}{2} \pi^{-s/2} \Gamma\left(\frac{s}{2}\right) \zeta(s)
 \end{equation}
-(after removing all singularities) and $\zeta$ is the Riemann $\zeta$ function.
+(which is an entire function after removing all singularities) and $\zeta$ is the Riemann $\zeta$ function.
 Then $H_0$ is an entire even function with functional equation $H_0(\overline{z}) = \overline{H_0(z)}$, and the Riemann hypothesis (RH) is equivalent to the assertion that all the zeroes of $H_0$ are real.
 
 It is a classical fact (see \cite[p. 255]{titch}) that $H_0$ has the Fourier representation
@@ -1377,7 +1376,8 @@ The claim follows.
 \begin{remark}  The right-hand side of \eqref{rado} can be evaluated exactly as
 $$
 \sum_{n=1}^{N_0}
-\frac{b_n^t}{n^\sigma}  + \frac{\sqrt \pi}{\sqrt t} \exp(\frac{-(\sigma - 1)^2}{t}) \left( \operatorname{erfi}\left(\frac{\frac{t}{2} \log N  - \sigma + 1}{\sqrt t} \right) - \operatorname{erfi}\left(\frac{\frac{t}{2} \log N_0  - \sigma + 1}{\sqrt t}\right) \right).$$
+\frac{b_n^t}{n^\sigma}  + \frac{\sqrt \pi}{\sqrt t} \exp(\frac{-(\sigma - 1)^2}{t}) \left( \operatorname{erfi}\left(\frac{\frac{t}{2} \log N  - \sigma + 1}{\sqrt t} \right) - \operatorname{erfi}\left(\frac{\frac{t}{2} \log N_0  - \sigma + 1}{\sqrt t}\right) \right)$$
+where $\operatorname{erfi}(z) = -i \operatorname{erf}(iz)$ is the imaginary error function, with $\operatorname{erf}(z) \coloneqq \frac{2}{\sqrt{\pi}} \int_0^z e^{-t^2}\ dt$.
 
 In practice, this upper bound for $\sum_{n=1}^N \frac{b_n^t}{n^\sigma}$ is slightly more accurate than the one in Lemma \ref{largen}, and is a good approximation even for relatively small values of $N_0$ (e.g., $N_0=100$).  However, the cruder bound above suffices for the numerical values of parameters needed to establish the bound $\Lambda \leq 0.22$.
 \end{remark}
@@ -2013,6 +2013,9 @@ All barrier runs generated a winding number of zero for each rectangle and the s
 
 The computations for $X=2 \times 10^{20} + 66447$ and $X=9 \times 10^{21} + 70686$ in the above table were massive, and performed using a Boinc \cite{anderson} based grid computing setup, in which a few hundred volunteers participated. Their contributions can be tracked at {\tt anthgrid.com/dbnupperbound}.
 
+\section{Conflict of interest statement}
+
+There are no conflicts of interest for this paper.
 
 \begin{thebibliography}{99} 
 
