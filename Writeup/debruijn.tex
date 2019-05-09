@@ -379,7 +379,7 @@ We begin with the analysis of the dynamics of a single zero of $H_t$:
 \begin{itemize}
 \item[(i)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a simple zero of $H_{t_0}$, then there exists a neighbourhood $U$ of $z_j(t_0)$, a neighbourhood $I$ of $t_0$ in $\R$, and a smooth map $z_j: I \to U$ such that for every $t \in I$, $z_j(t)$ is the unique zero of $H_t$ in $U$.  Furthermore one has the equation
 \begin{equation}\label{zjk}
- \frac{\partial z_j}{\partial t}(t_0) = 2 \sum^{\prime}_{k \neq j} \frac{1}{z_j(t_0) - z_k(t_0)} 
+ \frac{d z_j}{d t}(t_0) = 2 \sum^{\prime}_{k \neq j} \frac{1}{z_j(t_0) - z_k(t_0)} 
 \end{equation}
 where the sum is over those $k \in \Z \backslash \{0\}$ with $k \neq j$, and the prime means that the $k$ and $-k$ terms are summed together (except for the $k=-j$ term, which is summed separately) in order to make the sum convergent.
 \item[(ii)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a repeated zero of $H_{t_0}$ of order $m \geq 2$, then there is a neighbourhood $U$ of $z_j(t_0)$ such that for $t$ sufficiently close to $t_0$, there are precisely $m$ zeroes of $H_t$ in $U$, and they take the form
@@ -405,7 +405,7 @@ when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all t
 \begin{proof}  First suppose we are in the situation of (i).  As $z_j(t_0)$ is simple, $\frac{\partial}{\partial z} H_t$ is non-zero at $z_j(t_0)$; since $H_t(z)$ is a smooth function of both $t$ and $z$, we conclude from the implicit function theorem that there is a unique solution $z_j(t) \in U$ to the equation
 $$ H_t( z_j(t) ) = 0$$
 with $z_j(t)$ in a sufficiently small neighbourhood $U$ of $z_j(t_0)$, if $t$ is in a sufficiently small neighbourhood $I$ of $t_0$; furthermore, $z_j(t)$ depends smoothly on $t$, and agrees with $z_j(t_0)$ when $t=t_0$.  Differentiating the above equation at $t_0$, we obtain
-$$ \frac{\partial H_t}{\partial t}|_{t=t_0}( z_j(t_0) ) + \frac{\partial z_j}{\partial t}(t_0) H'_{t_0}(z_j(t_0)) = 0,$$
+$$ \frac{\partial H_t}{\partial t}|_{t=t_0}( z_j(t_0) ) + \frac{d z_j}{d t}(t_0) H'_{t_0}(z_j(t_0)) = 0,$$
 where the primes denote differentiation in the $z$ variable.
 On the other hand, from \eqref{htdef} and differentiation under the integral sign (which can be justified using the rapid decrease of $\Phi$) we have the backwards heat equation
 \begin{equation}\label{back}
@@ -413,7 +413,7 @@ On the other hand, from \eqref{htdef} and differentiation under the integral sig
 \end{equation}
 for all $t \geq 0$.  Inserting this into the previous equation, we conclude that
 \begin{equation}\label{tzj}
-\frac{\partial z_j}{\partial t}(t_0)  = \frac{H''_t}{H'_t}( z_j(t_0) ),
+\frac{d z_j}{d t}(t_0)  = \frac{H''_t}{H'_t}( z_j(t_0) ),
 \end{equation}
 noting that the denominator $H'_t(z_j(t_0))$ is non-vanishing by the hypothesis that the zero at $z_j(t_0)$ is simple.  Henceforth we omit the dependence on $t_0$ for brevity.  From Taylor expansion of $H_t$, $H'_t$, and $H''_t$ around the simple zero $z_j$ we see that
 \begin{equation}\label{htz-eq}
@@ -463,12 +463,12 @@ for some $0 < x < X$.
 
 Suppose first that $H_{t_1}$ has a repeated zero at $x+iy_0$.  Using Proposition \ref{dynam}(ii) and observing (from the symmetry of $\operatorname{He}_m$) that at least one of the roots $x_1,\dots,x_m$ is positive, we then see that for $t<t_1$ sufficiently close to $t_1$, $H_t$ has a zero in the region $\{ x+iy: 0 \leq x \leq X, y \geq Y(t) \}$, contradicting the minimality of $t_1$.  Thus the zero $x+i Y(t_1)$ of $H_{t_1}$ must be simple.  In particular, by Proposition \ref{dynam}(i) we can write $x+i Y(t_1) = z_j(t_1)$ for some smooth function $z_j$ in a neighbourhood of $t_1$ obeying \eqref{zjk}, such that $z_j(t)$ is a zero of $H_t$ for all $t$ close to $t_1$.  We will prove that
 \begin{equation}\label{im}
-\mathrm{Im} \frac{\partial}{\partial t} z_j( t_1 ) < \frac{\partial}{\partial t} Y(t_1),
+\mathrm{Im} \frac{d}{d t} z_j( t_1 ) < \frac{d}{dt} Y(t_1),
 \end{equation}
 which implies that there is a zero of $H_t$ in the region $\{ x+iy: 0 \leq x \leq X, y \geq Y(t) \}$  for $t<t_1$ sufficiently close to $t_1$, giving the required contradiction.  
 
 The right-hand side of \eqref{im} is
-$$ \frac{\partial}{\partial t} Y(t_1) = -\frac{1}{Y(t_1)}.$$
+$$ \frac{d}{d t} Y(t_1) = -\frac{1}{Y(t_1)}.$$
 By Proposition \ref{dynam}(i), the left-hand side of \eqref{im} is
 $$ 2 \sum_{k \neq j}^{\prime} \frac{Y(t_1) - y_k}{(x-x_k)^2 + (Y(t_1)-y_k)^2}$$
 where we write $z_k = x_k + i y_k$.  Clearly any zero $x_k+iy_k$ with imaginary part $y_k$ in $[-Y(t_1),Y(t_1)]$ gives a non-positive contribution to this sum, the contribution of the zero $x- iY(t_1)$ is $-\frac{1}{Y(t_1)}$, the contribution of the zero $-x+iY(t_1)$ vanishes, and the contribution of $-x-iY(t_1)$ is negative.  Grouping the remaining zeroes with their complex conjugates, it then suffices to show that
@@ -1911,13 +1911,13 @@ where the sum now ranges over all zeroes, including any at the origin. Since $|y
 \end{remark}
 
 \begin{remark} Our discussion here will be informal.  In view of the results of \cite{csv}, it is expected that the zeroes $z_j(t)$ of $H_t(x+iy)$ should evolve according to the system of ordinary differential equations
-$$ \partial_t z_k(t) = 2 \sum_{j \neq k}^{\prime} \frac{1}{z_k(t) - z_j(t)}$$
+$$ \frac{d}{dt} z_k(t) = 2 \sum_{j \neq k}^{\prime} \frac{1}{z_k(t) - z_j(t)}$$
 where the sum is evaluated in a suitable principal value sense, and one avoids those times where the zero $z_k(t)$ fails to be simple; see \cite[Lemma 2.4]{csv} for a verification of this in the regime $t > \Lambda$.  In view of the Riemann-von Mangoldt formula (as well as variants such Corollary \ref{Zero}, it is expected that the number of zeroes in any region of the form $\{ x+iy: x+iy = x_* + O(1) \}$ for large $x_*$ should be of the order of $\log x_*$.  As a consequence, we expect a typical zero $z_k(t)$ to move with speed $O( \log |z_k(t)| )$, although one may occasionally move much faster than this if two zeroes are exceptionally close together, or less than this if the zeroes are close to being evenly spaced.  As a consequence, if the Riemann hypothesis fails and there is a zero $x+iy$ of $H_0$ with $y$ comparable to $1$, it should take time comparable to $\frac{1}{\log x}$ for this zero to move towards the real axis, leading to the heuristic lower bound $\Lambda \gg \frac{1}{\log x}$.  Thus, in order to obtain an upper bound $\Lambda \leq \Lambda_0$, it will probably be necessary to verify that there are no zeroes $x+iy$ of $H_0$ with $y$ comparable to $1$ and $|x| \leq c \log \frac{1}{\Lambda}$ for some small absolute constant $c>0$.  This suggests that the time complexity bound in Remark \ref{time-complexity} is likely to be best possible (unless one is able to prove the Riemann hypothesis, of course).
 
 In \cite[Lemma 2.1]{csv} it is also shown that the velocity of a given zero $z(t)$ is given by the formula
-$$ \partial_t z(t) = \frac{H''_t(z(t))}{H'_t(z(t))}$$
+$$ \frac{d}{dt} z(t) = \frac{H''_t(z(t))}{H'_t(z(t))}$$
 assuming that the zero is simple.  By using the asymptotics in Proposition \ref{asymp} and Corollary \ref{Zero} together with the generalized Cauchy integral formula to then obtain asymptotics for $H'_t$ and $H''_t$, it is possible to show that for the zeroes $x(t)$ that are real and larger than $\exp(C/t)$, and move leftwards with velocity
-$$ \partial_t x(t) = - \frac{\pi}{4} + O( x^{-ct} );$$
+$$ \frac{d}{dt} x(t) = - \frac{\pi}{4} + O( x^{-ct} );$$
 we leave the details to the interested reader.  
 
 \begin{figure}[ht!]
