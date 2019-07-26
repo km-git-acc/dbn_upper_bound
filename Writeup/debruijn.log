@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  9 MAY 2019 08:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  26 JUL 2019 14:21
 entering extended mode
 **./debruijn.tex
 (debruijn.tex
@@ -539,58 +539,58 @@ Package pdftex.def Info: Integerconvergence_t_and_x_direction.png  used on input
 LaTeX Font Info:    Try loading font information for OT1+txtt on input line 346.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txtt.fd"
 File: ot1txtt.fd 2000/12/15 v3.1
-) [11 <./Integerconvergence_t_and_x_direction.png>] [12] [13] [14] [15] [16] [17] [18] [19]
-Overfull \hbox (38.62108pt too wide) detected at line 646
+) [11 <./Integerconvergence_t_and_x_direction.png>] [12] [13] [14] [15] [16] [17] [18] [19] [20]
+Overfull \hbox (38.62108pt too wide) detected at line 648
 []
  []
 
-[20] [21] [22]
+[21] [22]
 <C0_p.png, id=103, 565.8741pt x 423.5022pt>
 File: C0_p.png Graphic file (type png)
 <use C0_p.png>
-Package pdftex.def Info: C0_p.png  used on input line 725.
+Package pdftex.def Info: C0_p.png  used on input line 727.
 (pdftex.def)             Requested size: 292.77629pt x 219.12384pt.
  [23 <./C0_p.png>]
-Overfull \hbox (6.45036pt too wide) detected at line 757
+Overfull \hbox (6.45036pt too wide) detected at line 759
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = [][]\OML/txmi/m/it/10.95 []\OT1/txr/m/n/10.95   [] (\OMS/
 txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] []
  []
 
 
-Overfull \hbox (49.59889pt too wide) detected at line 760
+Overfull \hbox (50.105pt too wide) detected at line 762
 \OML/txmi/m/it/10.95 R[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95  \OT1/txr/m/n/10.95 + \OML/txmi/m/it/10.95 iT[] \OT1/t
 xr/m/n/10.95 + []\OML/txmi/m/it/10.95 v\OT1/txr/m/n/10.95 ) = \OML/txmi/m/it/10.95 M[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it
 /10.95 s[]\OT1/txr/m/n/10.95 ) [] [] (\OMS/txsy/m/n/10.95  \OT1/txr/m/n/10.95 1)[]\OML/txmi/m/it/10.95 Ua[] [] :
  []
 
 [24] [25] [26] [27] [28] [29] [30]
-Overfull \hbox (16.23422pt too wide) in paragraph at lines 1001--1002
+Overfull \hbox (16.23422pt too wide) in paragraph at lines 1003--1004
 []\OT1/txr/m/n/10.95 From the mean value the-o-rem (and not-ing that $\OML/txmi/m/it/10.95 M[] \OT1/txr/m/n/10.95 = \OML
 /txmi/m/it/10.95 M[]$\OT1/txr/m/n/10.95 , so that $[] = []$),
  []
 
 [31] [32] [33] [34] [35] [36]
-Underfull \vbox (badness 1281) has occurred while \output is active []
+Underfull \vbox (badness 1194) has occurred while \output is active []
 
  [37]
 <euler_product_approximation.png, id=153, 424.08438pt x 183.68625pt>
 File: euler_product_approximation.png Graphic file (type png)
 <use euler_product_approximation.png>
-Package pdftex.def Info: euler_product_approximation.png  used on input line 1193.
+Package pdftex.def Info: euler_product_approximation.png  used on input line 1195.
 (pdftex.def)             Requested size: 418.25368pt x 181.16884pt.
  [38] [39 <./euler_product_approximation.png>]
-Overfull \hbox (23.46901pt too wide) detected at line 1273
+Overfull \hbox (12.53355pt too wide) detected at line 1275
 []
  []
 
 [40]
-Overfull \hbox (31.33856pt too wide) detected at line 1321
+Overfull \hbox (31.33856pt too wide) detected at line 1323
 []
  []
 
 
-Overfull \hbox (31.33856pt too wide) in alignment at lines 1320--1321
+Overfull \hbox (31.33856pt too wide) in alignment at lines 1322--1323
 [] [] 
  []
 
@@ -598,10 +598,10 @@ Overfull \hbox (31.33856pt too wide) in alignment at lines 1320--1321
 <B_vs_N.png, id=173, 425.6703pt x 281.1303pt>
 File: B_vs_N.png Graphic file (type png)
 <use B_vs_N.png>
-Package pdftex.def Info: B_vs_N.png  used on input line 1414.
+Package pdftex.def Info: B_vs_N.png  used on input line 1416.
 (pdftex.def)             Requested size: 292.77629pt x 193.36668pt.
  [44] [45 <./B_vs_N.png>]
-Overfull \hbox (18.44473pt too wide) detected at line 1451
+Overfull \hbox (14.45006pt too wide) detected at line 1452
 []
  []
 
@@ -609,32 +609,32 @@ Overfull \hbox (18.44473pt too wide) detected at line 1451
 <BarrieraccuracyTaylor.png, id=187, 581.0508pt x 422.7795pt>
 File: BarrieraccuracyTaylor.png Graphic file (type png)
 <use BarrieraccuracyTaylor.png>
-Package pdftex.def Info: BarrieraccuracyTaylor.png  used on input line 1533.
+Package pdftex.def Info: BarrieraccuracyTaylor.png  used on input line 1534.
 (pdftex.def)             Requested size: 292.77629pt x 213.0278pt.
 <Derivativebounds.png, id=188, 1623.06375pt x 623.32875pt>
 File: Derivativebounds.png Graphic file (type png)
 <use Derivativebounds.png>
-Package pdftex.def Info: Derivativebounds.png  used on input line 1540.
+Package pdftex.def Info: Derivativebounds.png  used on input line 1541.
 (pdftex.def)             Requested size: 418.25368pt x 160.62546pt.
  [48 <./BarrieraccuracyTaylor.png>]
 <Numberofmeshpoints.png, id=193, 565.1514pt x 424.2249pt>
 File: Numberofmeshpoints.png Graphic file (type png)
 <use Numberofmeshpoints.png>
-Package pdftex.def Info: Numberofmeshpoints.png  used on input line 1547.
+Package pdftex.def Info: Numberofmeshpoints.png  used on input line 1548.
 (pdftex.def)             Requested size: 292.77629pt x 219.77612pt.
 <Windingprocess.png, id=194, 425.6703pt x 278.2395pt>
 File: Windingprocess.png Graphic file (type png)
 <use Windingprocess.png>
-Package pdftex.def Info: Windingprocess.png  used on input line 1554.
+Package pdftex.def Info: Windingprocess.png  used on input line 1555.
 (pdftex.def)             Requested size: 292.77629pt x 191.37834pt.
 <Windingprocess_t02.png, id=195, 387.3672pt x 278.2395pt>
 File: Windingprocess_t02.png Graphic file (type png)
 <use Windingprocess_t02.png>
-Package pdftex.def Info: Windingprocess_t02.png  used on input line 1559.
+Package pdftex.def Info: Windingprocess_t02.png  used on input line 1560.
 (pdftex.def)             Requested size: 292.77629pt x 210.30516pt.
  [49 <./Derivativebounds.png> <./Numberofmeshpoints.png>] [50 <./Windingprocess.png> <./Windingprocess_t02.png>] [51] [5
 2] [53]
-Overfull \hbox (14.10667pt too wide) detected at line 1675
+Overfull \hbox (14.10667pt too wide) detected at line 1676
 []\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 E[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 + \OML/txmi/
 m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OML/txmi/m/it/10.95 x \OT1/txr/m/n/10.95 +
  \OML/txmi/m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 ; \OT1/txr/m/n/10.95 (\OMS/txsy/m/n/10.95  1\OML/txmi/m
@@ -643,7 +643,7 @@ m/it/10.95 iy\OT1/txr/m/n/10.95 )\OML/txmi/m/it/10.95 f[]\OT1/txr/m/n/10.95 (\OM
  []
 
 [54] [55] [56] [57] [58]
-Overfull \hbox (65.74248pt too wide) detected at line 1850
+Overfull \hbox (67.56744pt too wide) detected at line 1851
 []
  []
 
@@ -651,41 +651,38 @@ Overfull \hbox (65.74248pt too wide) detected at line 1850
 <Real_zeros_solid.png, id=242, 365.6862pt x 279.6849pt>
 File: Real_zeros_solid.png Graphic file (type png)
 <use Real_zeros_solid.png>
-Package pdftex.def Info: Real_zeros_solid.png  used on input line 1924.
+Package pdftex.def Info: Real_zeros_solid.png  used on input line 1922.
 (pdftex.def)             Requested size: 376.42575pt x 287.92076pt.
 <Actual_trajectories_zeros.png, id=243, 792.9625pt x 549.05125pt>
 File: Actual_trajectories_zeros.png Graphic file (type png)
 <use Actual_trajectories_zeros.png>
-Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 1929.
+Package pdftex.def Info: Actual_trajectories_zeros.png  used on input line 1927.
 (pdftex.def)             Requested size: 376.42575pt x 260.64287pt.
  [62]
-Underfull \vbox (badness 2189) has occurred while \output is active []
-
- [63 <./Real_zeros_solid.png>]
-Overfull \hbox (59.3557pt too wide) in paragraph at lines 1948--1964
+Overfull \hbox (59.3557pt too wide) in paragraph at lines 1946--1962
  [] 
  []
 
-[64 <./Actual_trajectories_zeros.png>] [65]
-<tradeoff.png, id=258, 565.8741pt x 423.5022pt>
+[63 <./Real_zeros_solid.png>] [64 <./Actual_trajectories_zeros.png>]
+<tradeoff.png, id=255, 565.8741pt x 423.5022pt>
 File: tradeoff.png Graphic file (type png)
 <use tradeoff.png>
-Package pdftex.def Info: tradeoff.png  used on input line 1999.
+Package pdftex.def Info: tradeoff.png  used on input line 1997.
 (pdftex.def)             Requested size: 418.25368pt x 313.03775pt.
- [66 <./tradeoff.png>]
-<mesh_rectangles_at_barrierlocs.png, id=263, 1639.12375pt x 627.34375pt>
+ [65]
+<mesh_rectangles_at_barrierlocs.png, id=259, 1639.12375pt x 627.34375pt>
 File: mesh_rectangles_at_barrierlocs.png Graphic file (type png)
 <use mesh_rectangles_at_barrierlocs.png>
-Package pdftex.def Info: mesh_rectangles_at_barrierlocs.png  used on input line 2007.
+Package pdftex.def Info: mesh_rectangles_at_barrierlocs.png  used on input line 2005.
 (pdftex.def)             Requested size: 418.25368pt x 160.08061pt.
- [67 <./mesh_rectangles_at_barrierlocs.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 2090--2091
+ [66 <./tradeoff.png>] [67 <./mesh_rectangles_at_barrierlocs.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2088--2089
 []\OT1/txr/m/n/9 D. H. J. Poly-math, \OT1/txr/m/it/9 Ze-roes of the heat flow evo-lu-tion of the Rie-mann $\OML/txmi/m/i
 t/9 $ \OT1/txr/m/it/9 func-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2090--2091
+Underfull \hbox (badness 10000) in paragraph at lines 2088--2089
 \OT1/txr/m/it/9 tion at neg-a-tive times: nu-mer-i-cal ex-per-i-ments and heuris-tic jus-ti-fi-ca-tions\OT1/txr/m/n/9 ,
  []
 
@@ -706,7 +703,7 @@ m Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsya.pfb><C:/Program Files/MiKTeX
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsyc.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfo
 nts/txtt.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
 times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on debruijn.pdf (68 pages, 1960234 bytes).
+Output written on debruijn.pdf (68 pages, 1960027 bytes).
 PDF statistics:
  316 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

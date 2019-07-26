@@ -236,10 +236,10 @@ N &\coloneqq \left\lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \right\rfloor \la
 and $e_A, e_B, e_{C,0}$ are certain explicitly computable positive quantities\footnote{See \eqref{ea-def}-\eqref{ec-def} for the precise definition of these quantities.} depending on $t$ and $x+iy$.  Furthermore, we have the following bounds:
 \begin{align}
 |\gamma| &\leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2}  \label{gamma-bound} \\
-\mathrm{Re} s_* &\geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{t}{2x^2} \left(1-3y+\frac{4y(1+y)}{x^2}\right)_+  \label{res-bound} \\
+\Re s_* &\geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{t}{2x^2} \left(1-3y+\frac{4y(1+y)}{x^2}\right)_+  \label{res-bound} \\
 |\kappa| &\leq  \frac{ty}{2(x-6)} \label{kappa-bound} \\
-e_A + e_B &\leq \sum_{n=1}^N (1 + |\gamma| N^{|\kappa|} n^y) \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi n^2} + 0.626}{x-6.66} \right)-1 \right) \label{eab-bound} \\
-e_{C,0} &\leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+10.44}{x-8.52} \right) \label{ec-bound}
+e_A + e_B &\leq \sum_{n=1}^N (1 + |\gamma| N^{|\kappa|} n^y) \frac{b_n^t}{n^{\Re s_*}} \left( \exp\left( \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi n^2} + 0.626}{x-6.66} \right)-1 \right) \label{eab-bound} \\
+e_{C,0} &\leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+10.44}{x-12} \right) \label{ec-bound}
 \end{align}
 \end{theorem}
 
@@ -297,7 +297,7 @@ In addition to establishing upper bounds such as Theorem \ref{new-upper}, one ca
 
 \begin{theorem}[Distribution of zeroes of $H_t$]\label{Zero}  Let $0 < t \leq 1/2$, let $C>0$ be a sufficiently large absolute constant, and let $c>0$ be a sufficiently small absolute constant.  For $x \geq 4\pi$, define
 $$ g(x,t) \coloneqq  \frac{x}{4\pi} \log \frac{x}{4\pi} - \frac{x}{4\pi} + \frac{11}{8} + \frac{t}{16} \log \frac{x}{4\pi} $$
-and all $n \geq C$, let $x_n$ be the unique real number greater than $4\pi$ such that
+and for all $n \geq C$, let $x_n$ be the unique real number greater than $4\pi$ such that
 \begin{equation}\label{lip}
  g(x_n,t) = n.
 \end{equation}
@@ -354,13 +354,15 @@ found at
 \small{{\tt michaelnielsen.org/polymath1/index.php?title=Polymath15\_grant\_acknowledgments}}
 \end{center}
 
+We thank the anonymous referees for their careful reading of the paper and for several useful corrections and suggestions.
+
 \section{Notation}
 
 We use the standard branch $\Log$ of the logarithm to define the standard complex powers $z^w \coloneqq \exp( w \Log z)$, and in particular define the standard square root $\sqrt{z} \coloneqq z^{1/2} = \exp( \frac{1}{2} \Log z)$.  We record the familiar gaussian identity
 \begin{equation}\label{gaussian}
  \int_\R \exp\left(-(au^2+bu+c)\right)\ du = \sqrt{\frac{\pi}{a}} \exp\left( \frac{b^2}{4a} - c\right)
 \end{equation}
-for any complex numbers $a,b,c$ with $\mathrm{Re} a > 0$.
+for any complex numbers $a,b,c$ with $\Re a > 0$.
 
 When using order of magnitude notation such as $O_{\leq}(X)$, any expression of the form $A=B$ using this notation should be interpreted as the assertion that any quantity of the form $A$ is also of the form $B$, thus for instance $O_{\leq}(1) + O_{\leq}(1) = O_{\leq}(3)$.  (In particular, the equality relation is no longer symmetric with this notation.)
 
@@ -383,8 +385,8 @@ We begin with the analysis of the dynamics of a single zero of $H_t$:
 \end{equation}
 where the sum is over those $k \in \Z \backslash \{0\}$ with $k \neq j$, and the prime means that the $k$ and $-k$ terms are summed together (except for the $k=-j$ term, which is summed separately) in order to make the sum convergent.
 \item[(ii)]  If $j \in \Z \backslash \{0\}$ is such that $z_j(t_0)$ is a repeated zero of $H_{t_0}$ of order $m \geq 2$, then there is a neighbourhood $U$ of $z_j(t_0)$ such that for $t$ sufficiently close to $t_0$, there are precisely $m$ zeroes of $H_t$ in $U$, and they take the form
-$$ z_j(t_0) + \sqrt{2} (t-t_0)^{1/2} x_j + O( |t-t_0|)$$
-for $j=1,\dots,m$ as $t \to t_0$, where $x_1 < \dots < x_m$ are the roots of the $m^{\operatorname{th}}$ Hermite polynomial
+$$ z_j(t_0) + \sqrt{2} (t-t_0)^{1/2} \lambda_j + O( |t-t_0|)$$
+for $j=1,\dots,m$ as $t \to t_0$, where $\lambda_1 < \dots < \lambda_m$ are the roots of the $m^{\operatorname{th}}$ Hermite polynomial
 \begin{align}
 \operatorname{He}_m(z) &\coloneqq (-1)^m \exp\left(\frac{z^2}{2}\right) \frac{d^m}{dz^m} \exp\left(-\frac{z^2}{2}\right)\label{heform}\\
 &= \sum_{0 \leq l \leq m/2} \frac{m!}{l! (m-2l)!} (-1)^l \frac{z^{m-2l}}{2^l}\label{heform2}
@@ -394,13 +396,13 @@ and the implied constant in the $O()$ notation can depend on $t_0$, $j$, and $m$
 \end{proposition}
 
 The differential equation \eqref{zjk} was previously derived in \cite[Lemma 2.4]{csv} in the case $t > \Lambda$ (in which all zeroes are real and simple); however, in our applications we also need to consider the regime $t \leq \Lambda$ in which the zeroes are permitted to be complex or repeated.
-The roots $x_1,\dots,x_m$ appearing in Proposition \ref{heform}(ii) can be given explicitly for small values of $m$ as
-$$ x_1 = -1; \quad x_2 = +1$$
+The roots $\lambda_1,\dots,\lambda_m$ appearing in Proposition \ref{dynam}(ii) can be given explicitly for small values of $m$ as
+$$ \lambda_1 = -1; \quad \lambda_2 = +1$$
 when $m=2$,
-$$ x_1 = -\sqrt{3}; \quad x_2 = 0; \quad x_3 = +\sqrt{3}$$
+$$ \lambda_1 = -\sqrt{3}; \quad x_2 = 0; \quad \lambda_3 = +\sqrt{3}$$
 when $m=3$, and
-$$ x_1 = -\sqrt{3+\sqrt{6}}; \quad x_2 = -\sqrt{3-\sqrt{6}}; \quad x_3 = \sqrt{3 - \sqrt{6}}; \quad  x_4 = \sqrt{3 + \sqrt{6}}$$
-when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all the roots $x_1,\dots,x_m$ of $\operatorname{He}_m$ are real; from the Hermite equation $\left(\frac{d^2}{dz^2} - z \frac{d}{dz} + m\right) \operatorname{He}_m(z) = 0$ and the Picard uniqueness theorem for ODE we see that the zeroes are all simple.
+$$ x\lambda1 = -\sqrt{3+\sqrt{6}}; \quad \lambda_2 = -\sqrt{3-\sqrt{6}}; \quad \lambda_3 = \sqrt{3 - \sqrt{6}}; \quad  \lambda_4 = \sqrt{3 + \sqrt{6}}$$
+when $m=4$.  From \eqref{heform} and iterating Rolle's theorem we see that all the roots $\lambda_1,\dots,\lambda_m$ of $\operatorname{He}_m$ are real; from the Hermite equation $\left(\frac{d^2}{dz^2} - z \frac{d}{dz} + m\right) \operatorname{He}_m(z) = 0$ and the Picard uniqueness theorem for ODE we see that the zeroes are all simple.
 
 \begin{proof}  First suppose we are in the situation of (i).  As $z_j(t_0)$ is simple, $\frac{\partial}{\partial z} H_t$ is non-zero at $z_j(t_0)$; since $H_t(z)$ is a smooth function of both $t$ and $z$, we conclude from the implicit function theorem that there is a unique solution $z_j(t) \in U$ to the equation
 $$ H_t( z_j(t) ) = 0$$
@@ -430,9 +432,9 @@ $$ \frac{\partial^{2k} H_{t_0}}{\partial z^{2k}}(z) = m (m-1) \dots (m-2k+1) a_m
 as $z \to z_j$ for any fixed integer $k \geq 0$ and some non-zero complex number $a_m = a_m(z_j, t_0)$ (with the implied constant in the $O()$ notation allowed to depend on $k$, $z_j$, $t_0$); applying the backwards heat equation \eqref{back} we thus have
 $$ \frac{\partial^k H_t}{\partial t^k}|_{t=t_0}(z) = (-1)^k m (m-1) \dots (m-2k+1) a_m (z-z_j)^{m-2k} + O( |z-z_j|^{\max(m-2k+1,0)} ).$$
 Performing Taylor expansion in time and using \eqref{heform2}, we conclude that in the regime $z - z_j = O( |t-t_0|^{1/2} )$, one has the bound
-$$ H_t(z) = a_m ((t-t_0)^{1/2})^m \left( \operatorname{He}_m\left( \sqrt{2} \frac{z-z_j}{(t-t_0)^{1/2}} \right) + O\left( |t-t_0|^{1/2} \right) \right)$$
-as $t \to t_0$, using (say) the standard branch of the square root.  By the inverse function theorem (and the simple nature of the zeroes of $\operatorname{He}_m$), we conclude that for $t$ sufficiently close but not equal to to $t_0$, we have $m$ zeroes of $H_t$ of the form
-$$ z_j + (t-t_0)^{1/2} x_j + O( |t-t_0| ).$$
+$$ H_t(z) = 2^{\frac{m}{2}} a_m ((t-t_0)^{1/2})^m \left( \operatorname{He}_m\left( \frac{z-z_j}{\sqrt{2} (t-t_0)^{1/2}} \right) + O\left( |t-t_0|^{1/2} \right) \right)$$
+as $t \to t_0$, using (say) the standard branch of the square root.  By the inverse function theorem (and the simple nature of the zeroes of $\operatorname{He}_m$), we conclude that for $t$ sufficiently close but not equal to $t_0$, we have $m$ zeroes of $H_t$ of the form
+$$ z_j + \sqrt{2} (t-t_0)^{1/2} \lambda_j + O( |t-t_0| ).$$
 By Rouche's theorem, if $U$ is a sufficiently small neighborhood of $z_j$ then these are the only zeroes of $H_t$ in $U$ for $t$ sufficiently close to $t_0$.  The claim follows.
 \end{proof}
 
@@ -455,30 +457,30 @@ We are now ready to prove Theorem \ref{ubc-0}.  The main step is to establish
 Then there are no zeroes $H_{t_0}(x+iy) = 0$ with $x \in \R$ and $y \geq y_0$.
 \end{proposition}
 
-\begin{proof}  It is well known that the Riemann $\xi$ function has no zeroes outside of the strip $\{ 0 \leq \mathrm{Re}(s) \leq 1 \}$, hence there are no zeroes $H_0(x+iy)=0$ with $y > 1$.  By Theorem \ref{debr-bound}, we may thus remove the upper bound constraints $y \leq 1$, $y \leq \sqrt{1-2t_0}$, and $y \leq \sqrt{1-2t}$ from (i), (ii), and (iii) respectively.
+\begin{proof}  It is well known that the Riemann $\xi$ function has no zeroes outside of the strip $\{ 0 \leq \Re s \leq 1 \}$, hence there are no zeroes $H_0(x+iy)=0$ with $y > 1$.  By Theorem \ref{debr-bound}, we may thus remove the upper bound constraints $y \leq 1$, $y \leq \sqrt{1-2t_0}$, and $y \leq \sqrt{1-2t}$ from (i), (ii), and (iii) respectively.
 
-By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $0 \leq x \leq X$ and $y \geq Y(t)$, where $Y(t) \coloneqq \sqrt{y_0^2 + 2(t_0-t)}$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred (such a time exists because $H_t$ varies continuously in $t$, and there are no zeroes $H_t(x+iy)=0$ with (say) $y>1$).  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: 0 \leq	 x \leq X, y \geq Y(t_1) \}$.  The right side $x=X$ of this boundary is ruled out by hypothesis (ii), and (as mentioned at the start of the section) the left side $x=0$ is ruled out by \eqref{htdef} and the positivity of $\Phi$.  Thus by the symmetry properties of $H_{t_1}$ we must have
+By hypotheses (ii), (iii) and the symmetry properties of $H_t$, it suffices to show that for every $0 \leq t \leq t_0$, there are no zeroes $H_t(x+iy) = 0$ with $0 \leq x \leq X$ and $y \geq Y(t)$, where $Y(t) \coloneqq \sqrt{y_0^2 + 2(t_0-t)}$.  By hypothesis (i), this is true at time $t=0$.  Suppose the claim failed for some time $0 < t \leq t_0$.  Let $t_1 \in (0,t_0]$ be the minimal time in which this occurred (such a time exists because $H_t$ varies continuously in $t$, and there are no zeroes $H_t(x+iy)=0$ with (say) $y>1$).  From Rouche's theorem (or Proposition \ref{dynam}) we conclude that there is a zero $H_{t_1}(x+iy)=0$ with $x+iy$ on the boundary of the region $\{ x+iy: 0 \leq	 x \leq X, y \geq Y(t_1) \}$.  The right side $x=X$ of this boundary is ruled out by hypothesis (iii), and (as mentioned at the start of the section) the left side $x=0$ is ruled out by \eqref{htdef} and the positivity of $\Phi$.  Thus by the symmetry properties of $H_{t_1}$ we must have
 $$ H_{t_1}(x+iY(t_1)) = 0$$
 for some $0 < x < X$.
 
 Suppose first that $H_{t_1}$ has a repeated zero at $x+iy_0$.  Using Proposition \ref{dynam}(ii) and observing (from the symmetry of $\operatorname{He}_m$) that at least one of the roots $x_1,\dots,x_m$ is positive, we then see that for $t<t_1$ sufficiently close to $t_1$, $H_t$ has a zero in the region $\{ x+iy: 0 \leq x \leq X, y \geq Y(t) \}$, contradicting the minimality of $t_1$.  Thus the zero $x+i Y(t_1)$ of $H_{t_1}$ must be simple.  In particular, by Proposition \ref{dynam}(i) we can write $x+i Y(t_1) = z_j(t_1)$ for some smooth function $z_j$ in a neighbourhood of $t_1$ obeying \eqref{zjk}, such that $z_j(t)$ is a zero of $H_t$ for all $t$ close to $t_1$.  We will prove that
 \begin{equation}\label{im}
-\mathrm{Im} \frac{d}{d t} z_j( t_1 ) < \frac{d}{dt} Y(t_1),
+\Im \frac{d}{d t} z_j( t_1 ) < \frac{d}{dt} Y(t_1),
 \end{equation}
 which implies that there is a zero of $H_t$ in the region $\{ x+iy: 0 \leq x \leq X, y \geq Y(t) \}$  for $t<t_1$ sufficiently close to $t_1$, giving the required contradiction.  
 
 The right-hand side of \eqref{im} is
 $$ \frac{d}{d t} Y(t_1) = -\frac{1}{Y(t_1)}.$$
 By Proposition \ref{dynam}(i), the left-hand side of \eqref{im} is
-$$ 2 \sum_{k \neq j}^{\prime} \frac{Y(t_1) - y_k}{(x-x_k)^2 + (Y(t_1)-y_k)^2}$$
+$$ -2 \sum_{k \neq j}^{\prime} \frac{Y(t_1) - y_k}{(x-x_k)^2 + (Y(t_1)-y_k)^2}$$
 where we write $z_k = x_k + i y_k$.  Clearly any zero $x_k+iy_k$ with imaginary part $y_k$ in $[-Y(t_1),Y(t_1)]$ gives a non-positive contribution to this sum, the contribution of the zero $x- iY(t_1)$ is $-\frac{1}{Y(t_1)}$, the contribution of the zero $-x+iY(t_1)$ vanishes, and the contribution of $-x-iY(t_1)$ is negative.  Grouping the remaining zeroes with their complex conjugates, it then suffices to show that
-$$ \frac{Y(t_1) - y_k}{(x-x_k)^2 + (y_j-y_k)^2} + \frac{Y(t_1) + y_k}{(x-x_k)^2 + (Y(t_1)+y_k)^2} \leq 0$$
+$$ \frac{Y(t_1) - y_k}{(x-x_k)^2 + (Y(t_1)-y_k)^2} - \frac{Y(t_1) + y_k}{(x-x_k)^2 + (Y(t_1)+y_k)^2} \leq 0$$
 whenever $y_k > Y(t_1)$.  Cross-multiplying and canceling like terms, this inequality eventually simplifies to
 $$ y_k^2 \leq (x-x_k)^2 + Y(t_1)^2.$$
 But from the hypothesis (iii) and the assumption $y_k > Y(t_1)$, we have $|x_k| \geq X+\sqrt{1-Y(t_1)^2}$, so $(x-x_k)^2 \geq 1-Y(t_1)^2$.  On the other hand from Theorem \ref{debr-bound} one has $y_k < 1$, giving the required contradiction.
 \end{proof}
 
-By combining Proposition \ref{ubc} with Theorem \ref{debr-bound}, we obtain Theorem \ref{ubc-0}, noting from \eqref{hoz}, \eqref{sas} that condition (i) of Proposition \ref{ubc} is equivalent to condition (i) of Theorem \ref{debr-bound}.
+By combining Proposition \ref{ubc} with Theorem \ref{debr-bound}, we obtain Theorem \ref{ubc-0}, noting from \eqref{hoz}, \eqref{sas} that condition (i) of Proposition \ref{ubc} is implied by condition (i) of Theorem \ref{ubc-0}.
 
 \section{Applying the fundamental solution for the heat equation}\label{heatflow-sec}
 
@@ -527,11 +529,11 @@ The functions $r_{0,n}(s), R_{0,N}(s)$ grow slower than gaussian as long as the 
 \begin{equation}\label{rtn-def}
  r_{t,n}(s) = \exp\left( - \frac{t}{4} \alpha_n^2\right) \int_\R \exp\left( - \sqrt{t} v \alpha_n\right) r_{0,n}\left( s + \sqrt{t} v + \frac{t}{2} \alpha_n\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv
 \end{equation}
-for any complex number $\alpha_n$ with $\mathrm{Im}(s), \mathrm{Im}(s + \frac{t}{2} \alpha_n)$ having the same sign.  Similarly we may write
+for any complex number $\alpha_n$ with $\Im(s), \Im(s + \frac{t}{2} \alpha_n)$ having the same sign.  Similarly we may write
 \begin{equation}\label{RTN-def}
  R_{t,N}(s) = \exp\left( - \frac{t}{4} \beta_N^2\right) \int_\R \exp\left( - \sqrt{t} v \beta_N\right) R_{0,N}\left( s + \sqrt{t} v + \frac{t}{2} \beta_N\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv
 \end{equation}
-for any complex number $\beta_N$ with $\mathrm{Im}(s), \mathrm{Im}(s + \frac{t}{2} \beta_N)$ having the same sign.  In the spirit of the saddle point method, we will select the parameters $\alpha_n, \beta_N$ later in the paper in order to make the integrands in \eqref{rtn-def}, \eqref{RTN-def} close to stationary in phase at $v=0$, in order to obtain good estimates and approximations for these terms.
+for any complex number $\beta_N$ with $\Im s, \Im(s + \frac{t}{2} \beta_N)$ having the same sign.  In the spirit of the saddle point method, we will select the parameters $\alpha_n, \beta_N$ later in the paper in order to make the integrands in \eqref{rtn-def}, \eqref{RTN-def} close to stationary in phase at $v=0$, in order to obtain good estimates and approximations for these terms.
 
 \section{Elementary estimates}
 
@@ -551,7 +553,7 @@ $$1 + O_{\leq}\left(\frac{1}{x}\right) = \exp\left( O_{\leq}\left(\frac{1}{x-1}\
 $$\exp\left( O_{\leq}\left(\frac{1}{x}\right) \right) = 1 + O_{\leq}\left( \frac{1}{x-0.5} \right).$$
 \item[(iv)]  We have
 $$ \exp\left(O_{\leq}(x)\right) = 1 + O_{\leq}(e^x-1).$$
-\item[(v)] If $z$ is a complex number with $|\mathrm{Im}(z)| \geq 1$ or $\mathrm{Re} z \geq 1$, then
+\item[(v)] If $z$ is a complex number with $|\Im z| \geq 1$ or $\Re z \geq 1$, then
 $$ \Gamma(z) = \sqrt{2\pi} \exp\left( \left(z-\frac{1}{2}\right) \log z - z + O_{\leq}\left( \frac{1}{12(|z| - 0.33)} \right)\right).$$
 \item[(vi)] If $a,b > 0, y \geq 0$ and $x \geq x_0 \geq \exp(a/b)$ and $x_0 > c \geq 0$, then
 $$\frac{\log^a|x+iy|}{(x-c)^b} \leq \frac{\log^a |x_0+iy|}{(x_0-c)^b}.$$
@@ -573,15 +575,15 @@ $$ \frac{1}{x-0.5} = \frac{1}{x} + \frac{1}{2x^2} + \frac{1}{2^2 x^3} + \dots$$
 and note that $k! \geq 2^k$ for all $k \geq 2$.
 
 Claim (iv) follows from the trivial identity $e^x = 1 + (e^x-1)$ and the elementary inequality $e^{-x} \geq 1 - (e^x-1)$.
-For Claim (v), we may use the functional equation $\Gamma = \Gamma^*$ to assume that $\mathrm{Im}(z) \geq 0$.  From the work of Boyd \cite[(1.13), (3.1), (3.14), (3.15)]{boyd} we have the effective Stirling approximation
+For Claim (v), we may use the functional equation $\Gamma = \Gamma^*$ to assume that $\Im z \geq 0$.  From the work of Boyd \cite[(1.13), (3.1), (3.14), (3.15)]{boyd} we have the effective Stirling approximation
 $$ \Gamma(z) = \sqrt{2\pi} \exp\left( \left(z-\frac{1}{2}\right) \log z - z \right) \left(1 + \frac{1}{12 z} + R_2(z) \right)$$
 where the remainder $R_2(z)$ obeys the bound
 $$ |R_2(z)| \leq (2 \sqrt{2}+1) \frac{C_2 \Gamma(2)}{(2\pi)^3 |z|^2} $$
-for $\mathrm{Re}(z) \geq 0$ and
+for $\Re z \geq 0$ and
 $$|R_2(z)| \leq (2 \sqrt{2}+1) \frac{C_2 \Gamma(2)}{(2\pi)^3 |z|^2 |1 - e^{2\pi i z}|} $$
-for $\mathrm{Re}(z) \leq 0$, where $C_2$ is the constant
+for $\Re z \leq 0$, where $C_2$ is the constant
 $$ C_2 := \frac{1}{2} (1 + \zeta(2)) = \frac{1}{2} \left(1 + \frac{\pi^2}{6}\right).$$
-In the latter case, we have $\mathrm{Im}(z) \geq 1$ by hypothesis, and hence $|1 - e^{2\pi i z}| \geq 1 - e^{-2\pi}$.  We conclude that in all ranges of $z$ of interest, we have
+In the latter case, we have $\Im z \geq 1$ by hypothesis, and hence $|1 - e^{2\pi i z}| \geq 1 - e^{-2\pi}$.  We conclude that in all ranges of $z$ of interest, we have
 $$|R_2(z)| \leq (2 \sqrt{2}+1) \frac{C_2 \Gamma(2)}{(2\pi)^3 |z|^2 (1 - e^{-2\pi})} \leq \frac{0.0205}{|z|^2}$$
 and hence by Claim (i)
 $$ \Gamma(z) = \sqrt{2\pi} \exp\left( \left(z-\frac{1}{2}\right) \log z - z \right) \left(1 + O_{\leq}\left( \frac{1}{12(|z| - 0.246)} \right)\right) $$
@@ -603,7 +605,7 @@ We recall the function $\alpha(s)$ defined in \eqref{alpha-def}.  From different
 \begin{equation}\label{alpha-deriv}
  \alpha'(s) = -\frac{1}{2s^2} - \frac{1}{(s-1)^2} + \frac{1}{2 s}
 \end{equation}
-whenever $s \in \C \backslash (-\infty,1]$.  If $\mathrm{Im}(s) > 3$, we conclude in particular the useful bound
+whenever $s \in \C \backslash (-\infty,1]$.  If $\Im s > 3$, we conclude in particular the useful bound
 \begin{equation}\label{alpha-deriv-bound}
 \begin{split}
  \alpha'(s) &= O_{\leq}\left( \frac{1}{2\Im(s)^2} \right) + O_{\leq}\left( \frac{1}{\Im(s)^2} \right) + O_{\leq}\left( \frac{1}{2\Im(s)} \right) \\
@@ -628,14 +630,14 @@ where
 $$ 
 r_{0,n}(s) = M_0(s) n^{-s} \exp\left( O_{\leq}\left( \frac{1}{6(|s|-0.66)} \right) \right)
 $$
-whenever $\mathrm{Im}(s) > 2$.  Let $\alpha_n$ denote the quantity
+whenever $\Im s > 2$.  Let $\alpha_n$ denote the quantity
 \begin{equation}\label{alphan-def}
 \alpha_n \coloneqq \alpha(\sigma+iT) - \log n;
 \end{equation}
 this is the logarithmic derivative of $M(s) n^{-s}$ at $s=\sigma+iT$.  
 By \eqref{alpha-form} and the hypothesis $T \geq 10$, the imaginary part of $\alpha_n$ may be lower bounded by
 \begin{equation}\label{iman}
- \mathrm{Im}(\alpha_n) \geq -\frac{1}{2T} - \frac{1}{T} \geq -0.15;
+ \Im \alpha_n \geq -\frac{1}{2T} - \frac{1}{T} \geq -0.15;
 \end{equation}
 in particular, $\sigma+iT$ and $\sigma+iT+\frac{t}{2}\alpha_n$ have imaginary parts of the same sign.
 We can now apply \eqref{rtn-def} to obtain
@@ -662,7 +664,7 @@ and so it suffices to show that
 $$  \int_\R \exp\left( O_{\leq}\left( \frac{\frac{t}{2}v^2 + \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}}{T-3.08} \right) \right)\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv = 1 + O\left(\exp\left( \frac{\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right)-1\right).$$
 Since $\frac{1}{\sqrt{\pi}} e^{-v^2}\ dv $ integrates to one, it suffices by Lemma \ref{elem-lem}(iv) to show that
 $$
-  \int_\R \exp\left( \frac{t v^2+ \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}}{2(T-3.08)} \right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv \leq \exp\left( \frac{\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right).
+  \int_\R \exp\left( \frac{\frac{t}{2} v^2+ \frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}}{T-3.08} \right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv \leq \exp\left( \frac{\frac{t^2}{8} |\alpha_n|^2 + \frac{t}{4} + \frac{1}{6}}{T-3.33} \right).
 $$
 Since $\frac{1}{T-3.08} < \frac{1}{T-3.33}$, we can remove the $\frac{t^2}{8} |\alpha_n|^2 + \frac{1}{6}$ terms from both sides and reduce to showing that
 \begin{equation}\label{ax}
@@ -688,7 +690,7 @@ p &\coloneqq 1 - 2(a-N) \label{p-def}\\
 U &\coloneqq \exp\left( -i\left(\frac{T'}{2} \log \frac{T'}{2\pi} - \frac{T'}{2} - \frac{\pi}{8}\right) \right)\label{U-def}.
 \end{align}
 Let $K$ be a positive integer.  Then we have the expansion
-$$ \int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}} = (-1)^{N-1} U a^{-\sigma} \left(\sum_{k=0}^K \frac{C_k(p,\sigma)}{a^k} + RS_K(s)\right) $$
+$$ \int_{N \swarrow N+1} \frac{w^{-s} e^{i\pi w^2}}{e^{\pi i w} - e^{-\pi i w}}\ dw = (-1)^{N-1} U a^{-\sigma} \left(\sum_{k=0}^K \frac{C_k(p,\sigma)}{a^k} + RS_K(s)\right) $$
 where $C_0(p,\sigma) = C_0(p)$ is independent of $\sigma$ and is given explicitly by the formula
 \begin{equation}\label{C0-def}
 C_0(p) \coloneqq \frac{e^{\pi i (\frac{p^2}{2} +\frac{3}{8})} - i \sqrt{2} \cos \frac{\pi p}{2}}{2 \cos(\pi p)}
@@ -733,9 +735,9 @@ Informally, the above proposition (and \eqref{RON-def}, \eqref{M-def}) yield the
 &\approx (-1)^{N-1} U M_0(s) a^{-\sigma} C_0(p).
 \end{align*}
 If one writes $s = \sigma+iT$, then by using the approximation $\alpha(s) \approx \frac{1}{2} \log \frac{iT}{2\pi}$ for the log-derivative of $M_0$, one can then obtain the approximate formula
-$$ R_{0,N}(s) \approx (-1)^{N-1} U e^{\pi i \sigma/4} M_0(iT) C_p(p).$$
+$$ R_{0,N}(s) \approx (-1)^{N-1} U e^{\pi i \sigma/4} M_0(iT) C_0(p).$$
 In fact we have the more general approximation
-$$ R_{t,N}(s) \approx (-1)^{N-1} U e^{\pi i \sigma/4} \exp\left( \frac{t \pi^2}{64}\right) M_0(iT') C_p(p)$$
+$$ R_{t,N}(s) \approx (-1)^{N-1} U e^{\pi i \sigma/4} \exp\left( \frac{t \pi^2}{64}\right) M_0(iT') C_0(p)$$
 where $T' \coloneqq T + \frac{\pi t}{8}$.  More precisely, we have
 
 \begin{proposition}[Estimate for $R_{t,N}$]\label{RTN-prop}  Let $0 \leq \sigma \leq 1$, let $T \geq 100$, and let $0 < t \leq 1/2$.  Set
@@ -746,7 +748,7 @@ $$
  R_{t,N}(\sigma+iT) = (-1)^{N-1} U e^{\pi i \sigma/4} \exp\left( \frac{t \pi^2}{64}\right) M_0(iT') \left( C_0(p) + O_{\leq}( \tilde \eps(\sigma+iT))\right)$$
 where
 \begin{equation}\label{epsp-def}
- \tilde \eps(\sigma+iT) \coloneqq \left(\frac{0.397 \times 9^\sigma}{a-0.125} + \frac{5}{3(T'-3.33)}\right) \exp\left( \frac{3.49}{T'-3.33} \right).
+ \tilde \eps(\sigma+iT) \coloneqq \left(\frac{0.397 \times 9^\sigma}{a-0.865} + \frac{5}{3(T-6)}\right) \exp\left( \frac{3.49}{T-4} \right).
 \end{equation}
 \end{proposition}
 
@@ -756,26 +758,26 @@ From \eqref{RON-def} we have
 $$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = \frac{1}{8} \frac{s_v(s_v-1)}{2} \pi^{-s_v/2} \Gamma\left(\frac{s_v}{2}\right) (-1)^{N-1} U a^{-\sigma-\sqrt{t} v}
 \left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right) $$
 for any positive integer $K_v$ that we permit to depend (in a measurable fashion) on $v$, where $s_v \coloneqq \sigma + iT' + \sqrt{t} v$. From \eqref{M-def} and Lemma \ref{elem-lem}(v) we thus have
-$$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = M_0(s_v) \exp\left( O_{\leq}\left(\frac{1}{12(T'-0.33)}\right) \right) (-1)^{N-1} U a^{-\sigma-\sqrt{t} v}
+$$ R_{0,N}( \sigma+iT' + \sqrt{t} v) = M_0(s_v) \exp\left( O_{\leq}\left(\frac{1}{12(\frac{T'}{2}-0.33)}\right) \right) (-1)^{N-1} U a^{-\sigma-\sqrt{t} v}
 \left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right).$$
 From \eqref{alpha-deriv-bound} and Taylor expansion of the logarithm $\log M_0$ defined in \eqref{logM}, we have
-$$ M_0(s_v) = M_0(iT') \exp\left( \alpha(iT') (\sigma + \sqrt{t} v) + O_{\leq}\left( \frac{(\sigma + \sqrt{t} v)^2}{4(T'-0.33)} \right) \right).$$
+$$ M_0(s_v) = M_0(iT') \exp\left( \alpha(iT') (\sigma + \sqrt{t} v) + O_{\leq}\left( \frac{(\sigma + \sqrt{t} v)^2}{4(T-3)} \right) \right).$$
 From \eqref{alpha-form}, \eqref{a-def} one has
 $$ \alpha(iT') = O_{\leq}\left( \frac{1}{2T'}\right) + O_{\leq}\left( \frac{1}{T'}\right) + \frac{1}{2} \Log \frac{iT'}{2\pi} = \log a + \frac{i\pi}{4} + O_{\leq}\left( \frac{3}{2T'}\right)$$
-and hence (bounding $\frac{3}{2T'}$ by $\frac{6}{4(T'-0.33)}$)
-$$ \alpha(iT') (\sigma + \sqrt{t} v)  = (\sigma + \sqrt{t} v)  \log a + \frac{\pi i \sigma}{4} + \frac{\sqrt{t} v \pi i}{4} + O_{\leq}\left( \frac{6 |\sigma+\sqrt{t} v|}{4(T'-0.33)} \right).$$ 
-We conclude that
+and hence (bounding $\frac{3}{2T'}$ by $\frac{6}{4(T-3)}$)
+$$ \alpha(iT') (\sigma + \sqrt{t} v)  = (\sigma + \sqrt{t} v)  \log a + \frac{\pi i \sigma}{4} + \frac{\sqrt{t} v \pi i}{4} + O_{\leq}\left( \frac{6 |\sigma+\sqrt{t} v|}{4(T-3)} \right).$$ 
+We conclude (bounding $\frac{1}{12(\frac{T'}{2}-0.33)} \leq \frac{1/3}{4(T-3)}$) that
 \begin{align*}
 \exp\left( - \frac{\sqrt{t} v \pi i}{4}\right) R_{0,N}( \sigma+iT' + \sqrt{t} v) &= 
-M_0(iT') \exp\left( O_{\leq}\left(\frac{(\sigma + \sqrt{t} v)^2+6|\sigma+\sqrt{t} v|+\frac{1}{3}}{4(T'-0.33)} \right)\right) \times \\
+M_0(iT') \exp\left( O_{\leq}\left(\frac{(\sigma + \sqrt{t} v)^2+6|\sigma+\sqrt{t} v|+\frac{1}{3}}{4(T-3)} \right)\right) \times \\
 &\quad \times (-1)^{N-1} U  e^{\pi i \sigma/4} \left(\sum_{k=0}^{K_v} \frac{C_k(p, \sigma+\sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right).
 \end{align*}
 Bounding $6|\sigma+\sqrt{t} v| \leq 3 (\sigma + \sqrt{t} v)^2 + 3$, we have
-$$ \frac{(\sigma + \sqrt{t} v)^2+6|\sigma+\sqrt{t} v|+\frac{1}{3}}{4(T'-0.33)}  \leq \frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6}}{T'-0.33}.$$
+$$ \frac{(\sigma + \sqrt{t} v)^2+6|\sigma+\sqrt{t} v|+\frac{1}{3}}{4(T'-0.33)}  \leq \frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6}}{T-3}.$$
 Putting all this together, we obtain
 \begin{align*}
  R_{t,N}(\sigma+iT) &= (-1)^{N-1} U e^{\pi i \sigma/4} \exp\left( \frac{t \pi^2}{64}\right) M_0(iT') \times \\
-&\quad \times \int_\R \exp\left( O_{\leq}\left(\frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6}}{T'-0.33} \right) \right) \left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
+&\quad \times \int_\R \exp\left( O_{\leq}\left(\frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6}}{T-3} \right) \right) \left(\sum_{k=0}^{K_v} \frac{C_k(p,\sigma + \sqrt{t} v)}{a^k} + RS_{K_v}(s_v)\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.
 \end{align*}
 We separate the $k=0$ term from the rest.
 By Lemma \ref{elem-lem}(iv) and the fact that $\frac{1}{\sqrt{\pi}} e^{-v^2}$ integrates to one, we can write the above expression as
@@ -783,27 +785,27 @@ By Lemma \ref{elem-lem}(iv) and the fact that $\frac{1}{\sqrt{\pi}} e^{-v^2}$ in
  R_{t,N}(\sigma+iT) = (-1)^{N-1} U e^{\pi i \sigma/4} \exp\left( \frac{t \pi^2}{64}\right) M_0(iT') \left( C_0(p) (1 + O_{\leq}(\epsilon)) + O_{\leq}(\delta) \right)
 \end{equation}
 where
-$$ \epsilon := \int_\R \left( \exp\left( \frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6} }{T'-0.33} \right)  - 1\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv$$
+$$ \epsilon := \int_\R \left( \exp\left( \frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6} }{T-3} \right)  - 1\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv$$
 and
-$$ \delta := \int_\R \exp\left( \frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6}}{T'-0.33} \right) \left(\sum_{k=1}^{K_v} \frac{|C_k(p,\sigma+\sqrt{t}v)|}{a^k} + |RS_{K_v}(s_v)|\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.$$
+$$ \delta := \int_\R \exp\left( \frac{(\sigma + \sqrt{t} v)^2 + \frac{5}{6}}{T-3} \right) \left(\sum_{k=1}^{K_v} \frac{|C_k(p,\sigma+\sqrt{t}v)|}{a^k} + |RS_{K_v}(s_v)|\right) \frac{1}{\sqrt{\pi}} e^{-v^2}\ dv.$$
 Bounding $(\sigma + \sqrt{t} v)^2 \leq 2 \sigma^2 + 2 t v^2$ and using \eqref{gaussian} we obtain
-$$ \epsilon \leq \exp\left( \frac{2\sigma^2 + \frac{5}{6}}{T'-0.33} \right) \left(1 - \frac{2t}{T'-0.33}\right)^{-1/2} - 1.$$
+$$ \epsilon \leq \exp\left( \frac{2\sigma^2 + \frac{5}{6}}{T-3} \right) \left(1 - \frac{2t}{T'-0.33}\right)^{-1/2} - 1.$$
 Applying Lemma \ref{elem-lem}(ii) and using the hypotheses $t \leq 1/2$, $T \geq 100$, one has
-$$ 1 - \frac{2t}{T'-0.33} = \exp\left( O_{\leq}\left( \frac{2t}{T'-3.33} \right)\right)$$
+$$ 1 - \frac{2t}{T-3} = \exp\left( O_{\leq}\left( \frac{2t}{T-6} \right)\right)$$
 and hence
 $$
- \epsilon \leq \exp\left( \frac{2\sigma^2 + t + \frac{5}{6}}{T'-3.33} \right) - 1.
+ \epsilon \leq \exp\left( \frac{2\sigma^2 + t + \frac{5}{6}}{T-6} \right) - 1.
 $$
 With $t \leq 1/2$ and $0 \leq \sigma \leq 1$, one has $2\sigma^2 + t + \frac{5}{6} \leq \frac{10}{3}$.  By the mean value theorem we then have
 \begin{equation}\label{eep}
- \epsilon \leq \frac{10}{3(T'-3.33)} \exp\left( \frac{10}{3(T'-3.33)}\right).
+ \epsilon \leq \frac{10}{3(T-6)} \exp\left( \frac{10}{3(T-6)}\right).
 \end{equation}
 
 Now we work on $\delta$.  Making the change of variables $u \coloneqq \sigma + \sqrt{t} v$, we have
-$$ \delta = \int_\R \exp\left( \frac{u^2 + \frac{5}{6}}{T'-0.33} \right) \left(\sum_{k=1}^{\tilde K_u} \frac{|C_k(p,u)|}{a^k} + |RS_{\tilde K_u}(u + iT')|\right) \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du,$$
+$$ \delta = \int_\R \exp\left( \frac{u^2 + \frac{5}{6}}{T-3} \right) \left(\sum_{k=1}^{\tilde K_u} \frac{|C_k(p,u)|}{a^k} + |RS_{\tilde K_u}(u + iT')|\right) \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du,$$
 where $\tilde K_u$ is a positive integer parameter that can depend arbitrarily on $u$ (as long as it is measurable, of course).  
 
-We choose $\tilde K_u$ to equal $1$ when $u \geq 0$ and $\max( \lfloor -\sigma \rfloor + 3, \lfloor \frac{T'}{\pi} \rfloor )$ when $u < 0$, so that Proposition \ref{arias-prop} applies.  The expression
+We choose $\tilde K_u$ to equal $1$ when $u \geq 0$ and $\max( \lfloor -u \rfloor + 3, \lfloor \frac{T'}{\pi} \rfloor )$ when $u < 0$, so that Proposition \ref{arias-prop} applies.  The expression
 $$ \sum_{k=1}^{\tilde K_u} \frac{|C_k(p,u)|}{a^k} + |RS_{\tilde K_u}(u + iT')| $$
 is then bounded by
 \begin{equation}\label{u0}
@@ -819,19 +821,19 @@ $$ \frac{2^{\frac{1}{2}}}{2\pi} \frac{1}{2\pi} \leq 0.036 \leq \frac{1}{2}$$
 and
 $$ \frac{1}{((3-2\log 2)\pi)^{1/2}} \leq 0.445 \leq 1.1$$
 and hence we can bound \eqref{laf} by
-$$  0.036 2^{-u} \sum_{1 \leq k \leq \frac{T'}{\pi}} (0.445)^k \frac{\Gamma(k/2)}{a^k} 
-\frac{1}{2} 2^{-u} \sum_{\frac{T'}{\pi} \leq k \leq -u+4} \frac{\Gamma(k/2)}{(a/1.1)^k}.$$
+$$  (0.036) 2^{-u} \sum_{1 \leq k \leq \frac{T'}{\pi}} (0.445)^k \frac{\Gamma(k/2)}{a^k} 
++ \frac{1}{2} 2^{-u} \sum_{\frac{T'}{\pi} \leq k \leq -u+4} \frac{\Gamma(k/2)}{(a/1.1)^k}.$$
 
 For $u \geq 0$, we can estimate \eqref{u0} by
 $$ 0.2 \times 9^u \left(\frac{1}{a} + \frac{0.865}{a^2}\right) \leq \frac{0.2 \times 9^u}{a - 0.865}$$
 thanks to Lemma \ref{elem-lem}(i).  For $u<0$, we observe that if $k \leq 2 a^2 = \frac{T'}{\pi}$ then
-$$ \frac{\Gamma(k+2/2)}{a^{k+2}} = \frac{k}{2 a^2} \frac{\Gamma(k/2)}{a^k} \leq \frac{\Gamma(k/2)}{a^k}$$
+$$ \frac{\Gamma(\frac{k+2}{2})}{a^{k+2}} = \frac{k}{2 a^2} \frac{\Gamma(k/2)}{a^k} \leq \frac{\Gamma(k/2)}{a^k}$$
 and hence by the geometric series formula
-$$ \sum_{2 \leq k \leq \frac{T'}{\pi}, k\ \mathrm{even}} (0.445)^k \frac{\Gamma(k/2)}{a^k}  \leq \frac{(0.445)^2}{1-(0.445)^2} \frac{\Gamma(2/2)}{a} \leq \frac{0.247}{a^2}$$
+$$ \sum_{2 \leq k \leq \frac{T'}{\pi}, k\ \mathrm{even}} (0.445)^k \frac{\Gamma(k/2)}{a^k}  \leq \frac{(0.445)^2}{1-(0.445)^2} \frac{\Gamma(2/2)}{a^2} \leq \frac{0.247}{a^2}$$
 and similarly
-$$ \sum_{3 \leq k \leq \frac{T'}{\pi}, k\ \mathrm{odd}} (0.445)^k \frac{\Gamma(k/2)}{a^k}  \leq \frac{(0.445)^3}{1-(0.445)^2} \frac{\Gamma(3/2)}{(a/1.1)^3} \leq \frac{0.098}{a^3}$$
+$$ \sum_{3 \leq k \leq \frac{T'}{\pi}, k\ \mathrm{odd}} (0.445)^k \frac{\Gamma(k/2)}{a^k}  \leq \frac{(0.445)^3}{1-(0.445)^2} \frac{\Gamma(3/2)}{a^3} \leq \frac{0.098}{a^3}$$
 and hence we can bound \eqref{laf} by
-$$ 0.036 2^{-u} \left(\frac{0.445 \sqrt{\pi}}{a} + \frac{0.247}{a^2} + \frac{0.098}{a^3}\right) + \frac{1}{2} 2^{-u}  \sum_{\frac{T'}{\pi} \leq k \leq -u+4} \frac{\Gamma(k/2)}{(a/1.1)^k}.$$
+$$ (0.036) 2^{-u} \left(\frac{0.445 \sqrt{\pi}}{a} + \frac{0.247}{a^2} + \frac{0.098}{a^3}\right) + \frac{1}{2} 2^{-u}  \sum_{\frac{T'}{\pi} \leq k \leq -u+4} \frac{\Gamma(k/2)}{(a/1.1)^k}.$$
 By Lemma \ref{elem-lem}(i) we have
 $$ 0.036 \left(\frac{0.445 \sqrt{\pi}}{a} + \frac{0.247}{a^2} + \frac{0.098}{a^3}\right) \leq \frac{0.029}{a - 0.353}$$
 and thus we can bound \eqref{laf} by
@@ -840,62 +842,62 @@ $$ \frac{0.029 \times 2^{-u}}{a - 0.353} + \frac{1}{2} 2^{-u} \sum_{\frac{T'}{\p
 Putting this together, we conclude that
 $$
 \sum_{k=1}^{\tilde K_u} \frac{|C_k(p,u)|}{a^k} + |RS_{\tilde K_u}(u + iT')| \leq 
-\frac{0.2 \times 9^u}{a-0.865} + \frac{0.029 \times 2^{-u}}{a - 0.353)} + \frac{2^{-u}}{2} \sum_{\frac{T'}{\pi} \leq k \leq -u+4} (1.1)^{k} \frac{\Gamma(k/2)}{a^k}$$
+\frac{0.2 \times 9^u}{a-0.865} + \frac{0.029 \times 2^{-u}}{a - 0.353} + \frac{2^{-u}}{2} \sum_{\frac{T'}{\pi} \leq k \leq -u+4} (1.1)^{k} \frac{\Gamma(k/2)}{a^k}$$
 for all $u$ (positive or negative).  We conclude that $\delta \leq \delta_1 + \delta_2 + \delta_3$, where
 \begin{align}
-\delta_1 &\coloneqq \int_\R \exp\left( \frac{u^2 + \frac{5}{6}}{T'-0.33} \right) \frac{0.2 \times 9^u}{a-0.865} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du \nonumber\\
-\delta_2 &\coloneqq \int_\R \exp\left( \frac{u^2 + \frac{5}{6}}{T'-0.33} \right) \frac{0.029 \times 2^{-u}}{a - 1.25} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du \nonumber\\
-\delta_3 &\coloneqq \int_\R \exp\left( \frac{u^2 + \frac{5}{6}}{T'-0.33} \right) \frac{2^{-u}}{2} \sum_{\frac{T'}{\pi} \leq k \leq -u+4} (1.1)^{k} \frac{\Gamma(k/2)}{a^k} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du.\label{delta3-def}
+\delta_1 &\coloneqq \int_\R \exp\left( \frac{u^2 + \frac{5}{6}}{T-3} \right) \frac{0.2 \times 9^u}{a-0.865} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du \nonumber\\
+\delta_2 &\coloneqq \int_\R \exp\left( \frac{u^2 + \frac{5}{6}}{T-3} \right) \frac{0.029 \times 2^{-u}}{a - 0.353} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du \nonumber\\
+\delta_3 &\coloneqq \int_\R \exp\left( \frac{u^2 + \frac{5}{6}}{T-3} \right) \frac{2^{-u}}{2} \sum_{\frac{T'}{\pi} \leq k \leq -u+4} (1.1)^{k} \frac{\Gamma(k/2)}{a^k} \frac{1}{\sqrt{\pi t}} e^{-(u-\sigma)^2/t}\ du.\label{delta3-def}
 \end{align}
 For $\delta_1$, we translate $u$ by $\sigma$ to obtain
 $$ \delta_1 = \frac{0.2 \times 9^\sigma}{a-0.865} \int_\R \exp\left( \frac{u^2 + 2 \sigma u + \sigma^2 + \frac{5}{6}}{T'-0.33}  + 2 u \log 3 \right) \frac{1}{\sqrt{\pi t}} e^{-u^2/t}\ du$$
 and hence by \eqref{gaussian}
 \begin{equation}\label{delta1}
- \delta_1 = \frac{0.2 \times 9^\sigma}{a-0.865} \exp\left( \frac{\sigma^2 + \frac{5}{6}}{T'-0.33} + \frac{t(\log 3 + \frac{\sigma}{T'-0.33})^2}{1 - \frac{t}{T'-0.33}} \right) \left(1 - \frac{t}{T'-0.33}\right)^{-1/2}.
+ \delta_1 = \frac{0.2 \times 9^\sigma}{a-0.865} \exp\left( \frac{\sigma^2 + \frac{5}{6}}{T'-0.33} + \frac{t(\log 3 + \frac{\sigma}{T'-0.33})^2}{1 - \frac{t}{T-3}} \right) \left(1 - \frac{t}{T-3}\right)^{-1/2}.
 \end{equation}
 One can write
 \begin{equation}\label{hit}
- \frac{1}{1 - \frac{t}{T'-0.33}} = 1 + \frac{t}{T'-0.33-t} \leq 1 + \frac{t}{T'-0.83}
+ \frac{1}{1 - \frac{t}{T-3}} = 1 + \frac{t}{T-3-t} \leq 1 + \frac{t}{T-3.5}
 \end{equation}
 while by Lemma \ref{elem-lem}(ii) we have
 \begin{equation}\label{hit2}
- 1 - \frac{t}{T'-0.33} = \exp\left( O_{\leq}\left( \frac{t}{T'-0.33-t} \right) \right) = \exp\left( O_{\leq}\left( \frac{t}{T'-0.83} \right) \right).
+ 1 - \frac{t}{T-3} = \exp\left( O_{\leq}\left( \frac{t}{T-3-t} \right) \right) = \exp\left( O_{\leq}\left( \frac{t}{T-3.5} \right) \right).
 \end{equation}
 We conclude that
-$$ \delta_1 \leq \frac{0.2 \times 9^\sigma}{a-0.865} \exp\left( \frac{5+3t+6\sigma^2}{6(T'-0.83)} + t\left(\log 3 + \frac{\sigma}{T'-0.33}\right)^2 \left(1 + \frac{t}{T'-0.83}\right) \right).$$
+$$ \delta_1 \leq \frac{0.2 \times 9^\sigma}{a-0.865} \exp\left( \frac{5+3t+6\sigma^2}{6(T-3.5)} + t\left(\log 3 + \frac{\sigma}{T-3}\right)^2 \left(1 + \frac{t}{T-3.5}\right) \right).$$
 From Lemma \ref{elem-lem}(i) and the hypothesis $0 \leq \sigma \leq 1$, we have
 \begin{align*}
-\left(\log 3 + \frac{\sigma}{T'-0.33}\right)^2 &\leq (\log^2 3) \left(1 + \frac{2 \sigma / \log 3}{T' - 0.33 - \frac{\sigma}{2\log 3}}\right) \\
-&\leq  (\log^2 3) \left(1 + \frac{2 \sigma / \log 3}{T' - 0.83}\right)
+\left(\log 3 + \frac{\sigma}{T-3}\right)^2 &\leq (\log^2 3) \left(1 + \frac{2 \sigma / \log 3}{T - 3 - \frac{\sigma}{2\log 3}}\right) \\
+&\leq  (\log^2 3) \left(1 + \frac{2 \sigma / \log 3}{T - 3.5}\right)
 \end{align*}
 and therefore by a further application of Lemma \ref{elem-lem}(i)
 \begin{align*}
-\left(\log 3 + \frac{\sigma}{T'-0.33}\right)^2 \left(1 + \frac{t}{T'-0.83}\right) 
-&\leq \log^2 3 \left(1 + \frac{\frac{2 \sigma}{\log 3} + t}{T' - 0.83 - \frac{2\sigma t/\log 3}{2\sigma/\log 3 + t}}\right) \\
-&\leq \log^2 3 \left(1 + \frac{\frac{2 \sigma}{\log 3} + t}{T' - 0.83 - t}\right) \\
-&\leq \log^2 3 \left(1 + \frac{\frac{2 \sigma}{\log 3} + t}{T' - 1.33}\right) 
+\left(\log 3 + \frac{\sigma}{T-3}\right)^2 \left(1 + \frac{t}{T-3.5}\right) 
+&\leq \log^2 3 \left(1 + \frac{\frac{2 \sigma}{\log 3} + t}{T - 3.5 - \frac{2\sigma t/\log 3}{2\sigma/\log 3 + t}}\right) \\
+&\leq \log^2 3 \left(1 + \frac{\frac{2 \sigma}{\log 3} + t}{T - 3.5 - t}\right) \\
+&\leq \log^2 3 \left(1 + \frac{\frac{2 \sigma}{\log 3} + t}{T - 4}\right) 
 \end{align*}
 and thus
-$$ \delta_1 \leq \frac{0.2 \times 9^\sigma \exp( t \log^2 3 )}{a-0.865} \exp\left( \frac{5+3t+6\sigma^2 + 12 t \sigma \log 3 + 6t^2 \log^2 3}{6(T'-1.33)} \right).$$
+$$ \delta_1 \leq \frac{0.2 \times 9^\sigma \exp( t \log^2 3 )}{a-0.865} \exp\left( \frac{5+3t+6\sigma^2 + 12 t \sigma \log 3 + 6t^2 \log^2 3}{6(T-4)} \right).$$
 
 By repeating the proof of \eqref{delta1}, we have
 $$
- \delta_2 = \frac{0.029 \times 2^{-\sigma}}{a - 0.353} \exp\left( \frac{\sigma^2 + \frac{5}{6}}{T'-0.33} + \frac{t\left(-\log \sqrt{2} + \frac{\sigma}{T'-0.33}\right)^2}{1 - \frac{t}{T'-0.33}} \right) \left(1 - \frac{t}{T'-0.33}\right)^{-1/2}.$$
-We can bound $(-\log \sqrt{2} + \frac{\sigma}{T'-0.33})^2$ by $\log^2 \sqrt{2}$.  Using \eqref{hit}, \eqref{hit2} we thus have
+ \delta_2 = \frac{0.029 \times 2^{-\sigma}}{a - 0.353} \exp\left( \frac{\sigma^2 + \frac{5}{6}}{T-3} + \frac{t\left(-\log \sqrt{2} + \frac{\sigma}{T-3}\right)^2}{1 - \frac{t}{T-3}} \right) \left(1 - \frac{t}{T-3}\right)^{-1/2}.$$
+We can bound $(-\log \sqrt{2} + \frac{\sigma}{T-3})^2$ by $\log^2 \sqrt{2}$.  Using \eqref{hit}, \eqref{hit2} we thus have
 $$
- \delta_2 \leq \frac{0.029 \times 2^{-\sigma} \exp( t \log^2 \sqrt{2})}{a - 0.353} \exp\left( \frac{5 + 3t + 6\sigma^2}{6(T'-1.33)} \right).
+ \delta_2 \leq \frac{0.029 \times 2^{-\sigma} \exp( t \log^2 \sqrt{2})}{a - 0.353} \exp\left( \frac{5 + 3t + 6\sigma^2 + 6t^2 \log^2 \sqrt{2}}{6(T-4)} \right).
 $$
 
 With $t \leq 1/2$ and $0 \leq \sigma \leq 1$ one has
 \begin{align*}
  0.2 \exp(t \log^2 3) &\leq 0.366 \\
 0.029 \exp( t \log^2 \sqrt{2}) &\leq 0.031 \\
-\frac{5 + 3t + 6\sigma^2}{6} \leq \frac{5 + 3t + 6\sigma^2 + 12 t \sigma \log 3 + 6t^2 \log^2 3}{6} &\leq 3.49
+\frac{5 + 3t + 6\sigma^2 + 6t^2 \log^2 \sqrt{2}}{6} \leq \frac{5 + 3t + 6\sigma^2 + 12 t \sigma \log 3 + 6t^2 \log^2 3}{6} &\leq 3.49
 \end{align*}
 and hence
-$$ \delta_1 \leq \frac{0.366 \times 9^\sigma}{a-0.865} \exp\left( \frac{3.49}{T'-1.33} \right)$$
+$$ \delta_1 \leq \frac{0.366 \times 9^\sigma}{a-0.865} \exp\left( \frac{3.49}{T-4} \right)$$
 and
-$$ \delta_2 \leq \frac{0.031 \times 2^{-\sigma}}{a-0.353} \exp\left( \frac{3.49}{T'-1.33} \right).$$
+$$ \delta_2 \leq \frac{0.031 \times 2^{-\sigma}}{a-0.353} \exp\left( \frac{3.49}{T-4} \right).$$
 
 Now we turn to $\delta_3$, which will end up being extremely small compared to $\delta_1$ or $\delta_2$. By \eqref{delta3-def} and the Fubini-Tonelli theorem, we have
 $$ \delta_3 = \frac{1}{2 \sqrt{\pi t}} \sum_{k \geq \frac{T'}{2.2 \pi}} (1.1)^{k} \frac{\Gamma(k/2)}{a^k} \int_{-\infty}^{4-k} \exp\left( \frac{u^2 + \frac{5}{6}}{T'-0.33}  - \frac{(u-\sigma)^2}{t} - u \log 2\right)\ du.$$
@@ -912,7 +914,7 @@ $$ \delta_3 \leq \sum_{k \geq 14} \frac{10^{-30}}{a^k} \leq \frac{2 \times 10^{-
 (say).   Since
 $$ \frac{0.031 \times 2^{-\sigma}}{a-0.353} + \frac{2 \times 10^{-30}}{a^{14}} \leq \frac{0.031 \times 2^{-\sigma}}{a-0.865}$$
 we thus have
-$$ \delta \leq \delta_1+\delta_2+\delta_3 \leq \frac{0.366 \times 9^\sigma + 0.031 \times 2^{-\sigma}}{a-0.865} \exp\left( \frac{3.49}{T'-1.33} \right).$$
+$$ \delta \leq \delta_1+\delta_2+\delta_3 \leq \frac{0.366 \times 9^\sigma + 0.031 \times 2^{-\sigma}}{a-0.865} \exp\left( \frac{3.49}{T-4} \right).$$
 Inserting this and \eqref{eep}, \eqref{cop} into \eqref{rtnst}, and crudely bounding $2^{-\sigma}$ by $9^\sigma$, we obtain the claim.
 \end{proof}
 
@@ -929,17 +931,17 @@ and then define $a,N,p,U,C_0(p)$ using \eqref{a-def}, \eqref{N-def}, \eqref{U-de
 \begin{align*}
 s_+ = s_+(x+iy) &\coloneqq \frac{1+y-ix}{2} \\
 s_- = s_-(x+iy) &\coloneqq \frac{1-y+ix}{2} \\
-A_t(x+iy) &\coloneqq M_t(s_-) \sum_{n=1}^N \frac{b_n^t}{n^{s_- +\frac{t}{2} \alpha(s_-)}}  \\
-B_t(x+iy) &\coloneqq M_t(s_+) \sum_{n=1}^N \frac{b_n^t}{n^{s_+ +\frac{t}{2} \alpha(s_+)}}  \\
-C_t(x+iy) &\coloneqq  2 e^{-\pi i y/8} (-1)^{N} \exp\left( \frac{t \pi^2}{64}\right) \mathrm{Re}( M_0(iT') C_0(p) U e^{\pi i/8} )
+A_{t,N}(x+iy) &\coloneqq M_t(s_-) \sum_{n=1}^N \frac{b_n^t}{n^{s_- +\frac{t}{2} \alpha(s_-)}}  \\
+B_{t,N}(x+iy) &\coloneqq M_t(s_+) \sum_{n=1}^N \frac{b_n^t}{n^{s_+ +\frac{t}{2} \alpha(s_+)}}  \\
+C_t(x+iy) &\coloneqq  2 e^{-\pi i y/8} (-1)^{N} \exp\left( \frac{t \pi^2}{64}\right) \Re ( M_0(iT') C_0(p) U e^{\pi i/8} )
 \end{align*}
 where $M_0, b_n^t$ were defined in \eqref{Mt-def}, \eqref{bn-def}.
 Then
-$$ H_t(x+iy) = A_t(x+iy) + B_t(x+iy) - C_t(x+iy) + O_{\leq}(E_A(x+iy) + E_B(x+iy) + E_C(x+iy))$$
+$$ H_t(x+iy) = A_{t,N}(x+iy) + B_{t,N}(x+iy) - C_t(x+iy) + O_{\leq}(E_A(x+iy) + E_B(x+iy) + E_C(x+iy))$$
 where
 \begin{align*}
-E_A(x+iy) &\coloneqq \left|M_t(s_-)\right| \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y}{2}+\frac{t}{2} \mathrm{Re} \alpha(s_-)}} \eps_{t,n}(s_-) \\
-E_B(x+iy) &\coloneqq \left|M_t(s_+)\right|\sum_{n=1}^N  \frac{b_n^t}{n^{\frac{1+y}{2}+\frac{t}{2} \mathrm{Re} \alpha(s_+)}} \eps_{t,n}(s_+)  \\
+E_A(x+iy) &\coloneqq \left|M_t(s_-)\right| \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y}{2}+\frac{t}{2} \Re \alpha(s_-)}} \eps_{t,n}(s_-) \\
+E_B(x+iy) &\coloneqq \left|M_t(s_+)\right|\sum_{n=1}^N  \frac{b_n^t}{n^{\frac{1+y}{2}+\frac{t}{2} \Re \alpha(s_+)}} \eps_{t,n}(s_+)  \\
 E_C(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| \left(\tilde \eps(s_-) + \tilde \eps(s_+)\right)  
 \end{align*}
 and $\eps_{t,n}, \tilde \eps$ were defined in \eqref{eps-def}, \eqref{epsp-def}. 
@@ -948,7 +950,7 @@ and $\eps_{t,n}, \tilde \eps$ were defined in \eqref{eps-def}, \eqref{epsp-def}.
 In our applications, we will just use the cruder ``$A+B$'' approximation that is immediate from the above corollary and \eqref{cop}:
 
 \begin{corollary}[$A+B$ approximation]\label{ab-cor} With the notation and hypotheses as in Corollary \ref{abc-cor}, we have
-$$ H_t(x+iy) = A_t(x+iy) + B_t(x+iy) + O_{\leq}(E_A(x+iy) + E_B(x+iy) + E_{C,0}(x+iy))$$
+$$ H_t(x+iy) = A_{t,N}(x+iy) + B_{t,N}(x+iy) + O_{\leq}(E_A(x+iy) + E_B(x+iy) + E_{C,0}(x+iy))$$
 where
 \begin{align*}
 E_{C,0}(x+iy) &\coloneqq \exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')| \left(1 + \tilde \eps(s_-) + \tilde \eps(s_+)\right). 
@@ -965,8 +967,8 @@ and
 \end{equation}
 where
 \begin{align}
-e_A \coloneqq e_A(x+iy) &\coloneqq |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\mathrm{Re}(s) + \mathrm{Re}(\kappa)}} \eps_{t,n}(s_-) \label{ea-def}\\
-e_B \coloneqq e_B(x+iy) &\coloneqq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s)}} \eps_{t,n}(s_+) \label{eb-def} \\
+e_A \coloneqq e_A(x+iy) &\coloneqq |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\Re s + \Re \kappa}} \eps_{t,n}(s_-) \label{ea-def}\\
+e_B \coloneqq e_B(x+iy) &\coloneqq \sum_{n=1}^N  \frac{b_n^t}{n^{\Re s}} \eps_{t,n}(s_+) \label{eb-def} \\
 e_{C} \coloneqq e_{C}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(s_+)|} \left(\tilde \eps(s_-) + \tilde \eps(s_+)\right).\label{ecc-def}\\
 e_{C,0} \coloneqq e_{C,0}(x+iy) &\coloneqq \frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(s_+)|} \left(1 + \tilde \eps(s_-) + \tilde \eps(s_+) \right),\label{ec-def}
 \end{align}
@@ -979,29 +981,29 @@ To conclude the proof of Theorem \ref{eff} it thus suffices to obtain the follow
 \item[(i)]  One has
 $$ |\gamma| \leq e^{0.02 y} \left( \frac{x}{4\pi} \right)^{-y/2} $$
 \item[(ii)] One has
-$$ \mathrm{Re} s_* \geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{(1-3y+\frac{4y(1+y)}{x^2})_+ t}{2x^2}.$$
+$$ \Re s_* \geq \frac{1+y}{2} +\frac{t}{4} \log \frac{x}{4\pi} - \frac{(1-3y+\frac{8y(1-y)}{x^2})_+ t}{2x^2}.$$
 \item[(iii)]  One has
 $$ \kappa = O_{\leq} \left( \frac{ty}{2(x-6)} \right).$$
 \item[(iv)]  One has
-$$ e_A \leq |\gamma| N^{|\kappa|} \sum_{n=1}^N n^{y} \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi n^2} + 0.626}{\frac{x}{2}-6.66} \right)-1 \right).$$
+$$ e_A \leq |\gamma| N^{|\kappa|} \sum_{n=1}^N n^{y} \frac{b_n^t}{n^{\Re s_*}} \left( \exp\left( \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi n^2} + 0.626}{x-6.66} \right)-1 \right).$$
 \item[(v)]  One has
-$$ e_B \leq \sum_{n=1}^N  \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left( \exp\left( \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi n^2} + 0.626}{x-6.66} \right)-1 \right).$$
+$$ e_B \leq \sum_{n=1}^N  \frac{b_n^t}{n^{\Re s_*}} \left( \exp\left( \frac{\frac{t^2}{16} \log^2 \frac{x}{4\pi n^2} + 0.626}{x-6.66} \right)-1 \right).$$
 \item[(vi)] One has
-$$ e_{C} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(\frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.92}{x-6.66}\right).
+$$ e_{C} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(\frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.92}{x-12}\right).
 $$
 and
-$$ e_{C,0} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(1 + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.92}{x-6.66}\right).
+$$ e_{C,0} \leq \left(\frac{x}{4\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \left(1 + \frac{1.24 \times (3^y+3^{-y})}{N-0.125} + \frac{6.92}{x-12}\right).
 $$
 \end{itemize}
 \end{proposition}
 
-Note that to obtain the bound \eqref{ec-bound} from Proposition \ref{estimates}(vi) we may simply use the inequality $1+u \leq \exp(u)$ for any $u \in \R$, and then bound $\frac{1}{x-6.66} \leq \frac{1}{x-8.52}$.
+Note that to obtain the bound \eqref{ec-bound} from Proposition \ref{estimates}(vi) we may simply use the inequality $1+u \leq \exp(u)$ for any $u \in \R$, and then bound $\frac{1}{x-8.52} \leq \frac{1}{x-12}$.
 
 \begin{proof}
 From the mean value theorem (and noting that $M_t = M_t^*$, so that $\left|M_t\left(\frac{1+y-ix}{2}\right)\right| = \left|M_t\left(\frac{1+y+ix}{2}\right)\right|$), we have
 $$ \log|\gamma| = -y \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| $$
 for some $\frac{1-y}{2} \leq \sigma \leq \frac{1+y}{2}$.  From \eqref{alpha-def}, \eqref{Mt-def} we have
-$$ \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| = \mathrm{Re}\left( \frac{t}{2} \alpha\left(\sigma+\frac{ix}{2}\right) \alpha'\left(\sigma+\frac{ix}{2}\right) + \alpha\left(\sigma+\frac{ix}{2}\right) \right).$$
+$$ \frac{d}{d\sigma} \log \left|M_t\left( \sigma + \frac{ix}{2}\right)\right| = \Re \left( \frac{t}{2} \alpha\left(\sigma+\frac{ix}{2}\right) \alpha'\left(\sigma+\frac{ix}{2}\right) + \alpha\left(\sigma+\frac{ix}{2}\right) \right).$$
 From \eqref{alpha-deriv-bound} one has
 \begin{equation}\label{alphap-b}
  \alpha'\left(\sigma+\frac{ix}{2}\right) = O_{\leq}\left( \frac{1}{x-6} \right)
@@ -1016,7 +1018,7 @@ and hence
  \alpha(\sigma+\frac{ix}{2}) = \frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right).
 \end{equation}
 Inserting these bounds, we conclude that
-$$ \log|\gamma| = -y \mathrm{Re} \left( \left(\frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right)\right) \left(1 + O_{\leq}\left(\frac{t}{2(x-6)}\right)\right) \right).$$
+$$ \log|\gamma| = -y \Re \left( \left(\frac{1}{2} \log \frac{x}{4\pi} + i \frac{\pi}{4} + O_{\leq}\left( \frac{2+\sigma}{x-6} \right)\right) \left(1 + O_{\leq}\left(\frac{t}{2(x-6)}\right)\right) \right).$$
 Expanding this out, we have
 $$ \log|\gamma| = -y \left(\frac{1}{2} \log \frac{x}{4\pi} + O_{\leq}\left( \frac{2+\sigma + \frac{t}{4} \log \frac{x}{4\pi} + \frac{t\pi}{8} + \frac{t(2+\sigma)}{2(x-6)}}{x-6} \right)\right).$$
 In the region \eqref{region}, which implies that $0 \leq \sigma \leq 1$, we have
@@ -1027,14 +1029,14 @@ The function $x \mapsto \frac{\log \frac{x}{4\pi}}{x-6}$ is decreasing for $x \g
 $$ y \frac{\frac{t}{4} \log \frac{x}{4\pi} + 3.21}{x-6} \leq y \frac{\frac{t}{4} \log \frac{200}{4\pi} + 3.21}{200-6} \leq 0.02 y.$$
 Claim (i) follows.  We remark that one can improve the $e^{0.02 y}$ factor here by Taylor expanding $\alpha$ to second order rather than first order, but we will not need to do so here.
 
-To prove claim (ii), it suffices by \eqref{s-def} to show that
-$$ \mathrm{Re} \alpha(s_+) \geq \frac{1}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+}{x^2} - \frac{4y(1+y)}{x^4}.$$
+To prove claim (ii), it suffices by \eqref{res-bound} to show that
+$$ \Re \alpha(s_+) \geq \frac{1}{2} \log \frac{x}{4\pi} - \frac{(1-3y)_+}{x^2} - \frac{4y(1+y)}{x^4}.$$
 By \eqref{alpha-form} one has
-$$ \mathrm{Re} \alpha(s_+) = \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} + \frac{1}{2} \log \frac{\sqrt{(1+y)^2+x^2}}{4\pi}.$$
+$$ \Re \alpha(s_+) = \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} + \frac{1}{2} \log \frac{\sqrt{(1+y)^2+x^2}}{4\pi}.$$
 We bound $\sqrt{(1+y)^2+x^2} \geq x$ and calculate
 \begin{align*}
- \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} &= - \frac{1-3y}{(1+y)^2+x^2} -\frac{4y(1+y)}{((1+y)^2+x^2)((1+y)^2+x^2)} \\
-&\geq - \frac{1-3y+\frac{4y(1+y)}{x^2}}{(1+y)^2+x^2}.
+ \frac{1+y}{(1+y)^2+x^2} - \frac{2(1-y)}{(1-y)^2+x^2} &= - \frac{1-3y}{(1+y)^2+x^2} -\frac{8y(1-y)}{((1+y)^2+x^2)((1-y)^2+x^2)} \\
+&\geq - \frac{1-3y+\frac{8y(1-y)}{x^2}}{(1+y)^2+x^2}.
 \end{align*}
 Lower bounding the numerator by its nonnegative part and then lower bounding $(1+y)^2+x^2$ by $x^2$, we obtain the claim.
 
@@ -1046,7 +1048,7 @@ for either choice of sign $\pm$.  In particular, we have
 O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi n^2} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}\right).
 \end{equation}
 For any $1 \leq n \leq N$, we have
-$$ 1 \leq n^2 \leq N^2 \leq a^2 = \frac{x+\frac{\pi t}{16}}{4\pi};$$
+$$ 1 \leq n^2 \leq N^2 \leq a^2 = \frac{x+\frac{\pi t}{4}}{4\pi};$$
 in the region \eqref{region}, the right-hand side is certainly bounded by $(\frac{x}{4\pi})^2$, so that
 $$ \frac{4\pi}{x} \leq \frac{x}{4\pi n^2} \leq \frac{x}{4\pi}$$
 and hence
@@ -1066,9 +1068,9 @@ Inserting this bound into \eqref{ea-def}, \eqref{eb-def}, we obtain claims (iv),
 
 Now we establish (vi).  From \eqref{Mt-def} we have
 $$\frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(s_+)|}
-= \exp\left( \frac{t \pi^2}{64} - \frac{t}{4} \mathrm{Re} \alpha(s_+)^2\right) \frac{|M_0(iT')|}{|M_0(s_+)|}.$$
+= \exp\left( \frac{t \pi^2}{64} - \frac{t}{4} \Re(\alpha(s_+)^2)\right) \frac{|M_0(iT')|}{|M_0(s_+)|}.$$
 Note that $\frac{1+y+ix}{2} = iT' + \frac{1+y}{2} - \frac{\pi i t}{8}$.  From \eqref{alpha-deriv-bound} we see that $|\alpha'(s)| \leq \frac{1}{x-6}$ for any $s$ on the line segment between $iT'$ and $\frac{1+y+ix}{2}$.  From Taylor's theorem with remainder applied to a branch of $\log M_0$, and noting that $|M_0(s_+)| = |M_0(\frac{1+y+ix}{2})|$, we conclude that
-$$ \frac{|M_0(iT')|}{|M_0(s_+)|} = \exp\left( \mathrm{Re}\left( \left(-\frac{1+y}{2}+\frac{\pi i t}{8}\right) \alpha(iT') \right) + O_{\leq}\left( \frac{|-\frac{1+y}{2}+\frac{\pi i t}{8}|^2}{2(x-6)} \right) \right).$$
+$$ \frac{|M_0(iT')|}{|M_0(s_+)|} = \exp\left( \Re\left( \left(-\frac{1+y}{2}+\frac{\pi i t}{8}\right) \alpha(iT') \right) + O_{\leq}\left( \frac{|-\frac{1+y}{2}+\frac{\pi i t}{8}|^2}{2(x-6)} \right) \right).$$
 For $0 \leq y \leq 1$ and $0 < t \leq \frac{1}{2}$ we have
 $$\frac{|-\frac{1+y}{2}+\frac{\pi i t}{8}|^2}{2} \leq 0.52$$
 and from \eqref{alpha-form} one has
@@ -1083,10 +1085,10 @@ $$
 = \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t\pi^2}{32} + O_{\leq}\left( \frac{3.58}{x-6} \right) \right)$$
 and hence
 $$\frac{\exp\left( \frac{t \pi^2}{64}\right) |M_0(iT')|}{|M_t(\frac{1+y+ix}{2})|} 
-= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t \pi^2}{64} - \frac{t}{4} \mathrm{Re} \alpha\left(\frac{1+y+ix}{2}\right)^2 + O_{\leq}\left( \frac{3.58}{x-6} \right) \right).$$
+= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t \pi^2}{64} - \frac{t}{4} \Re (\alpha\left(\frac{1+y+ix}{2}\right)^2) + O_{\leq}\left( \frac{3.58}{x-6} \right) \right).$$
 By repeating the proof of \eqref{alphn} we have
 $$
-\mathrm{Re} \alpha(\frac{1 \pm y + ix}{2})^2 = \frac{1}{4} \log^2 \frac{x}{4\pi} - \frac{\pi^2}{16} + 
+\Re (\alpha(\frac{1 \pm y + ix}{2})^2) = \frac{1}{4} \log^2 \frac{x}{4\pi} - \frac{\pi^2}{16} + 
 O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|}{x-6} + \frac{9}{(x-6)^2}\right).
 $$
 As before, in the region \eqref{region} we have
@@ -1099,13 +1101,13 @@ and thus
 &= \left(\frac{T'}{2\pi}\right)^{-\frac{1+y}{4}} \exp\left( - \frac{t}{16} \log^2 \frac{x}{4\pi} + O_{\leq}\left( \frac{3 |\log \frac{x}{4\pi} + i \frac{\pi}{2}|+3.58}{x-8.52} \right) \right)
 \end{align*}
 thanks to Lemma \ref{elem-lem}(i).  Finally, since $T' \geq \frac{x}{2} \geq 100$ in \eqref{region}, one has 
-$$\exp\left(\frac{3.49}{T'-3.33}\right) \leq 1.037$$
+$$\exp\left(\frac{3.49}{T-4}\right) \leq 1.037$$
 and hence by \eqref{epsp-def}
 $$ 
-\tilde \eps\left(\frac{1 \pm y+ix}{2}\right) \leq \frac{1.24 \times 3^{\pm y}}{a-0.125} + \frac{1.73}{T'-3.33}.$$
+\tilde \eps\left(\frac{1 \pm y+ix}{2}\right) \leq \frac{1.24 \times 3^{\pm y}}{a-0.125} + \frac{1.73}{T-6}.$$
 Hence
 $$
-\tilde \eps(s_+) + \tilde \eps(s_-) \leq \frac{1.24 \times (3^y+3^{-y})}{a-0.125} + \frac{3.46}{T'-3.33}$$
+\tilde \eps(s_+) + \tilde \eps(s_-) \leq \frac{1.24 \times (3^y+3^{-y})}{a-0.125} + \frac{3.46}{T-6}$$
 giving the claim (substituting $T' = x/2$ and $a \geq N$).
 \end{proof}
 
@@ -1126,7 +1128,7 @@ A naive computation of $f_t(s)$ for $M$ values of $s$ would take time $O(NM)$, w
 We turn to the details.  To make the Taylor series converge\footnote{One can obtain even faster speedups here by splitting the summation range $\sum_{n=1}^N$ into shorter intervals and using a Taylor expansion for each interval, although ultimately we did not need to exploit this.} faster, we recenter the sum in $n$, writing
 $$ \sum_{n=1}^N F(n) = \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} F(n_0 + h)$$
 for any function $F$, where $n_0 \coloneqq \lfloor N/2 \rfloor$.  We thus have
-$$ f_t(s) = B(b) + \gamma(s) A(n_0,a)$$
+$$ f_t(s) = B(b) + \gamma(s) A(a)$$
 where
 $$ B(b) \coloneqq \sum_{h=-\lfloor N/2\rfloor+1}^{\lfloor (N+1)/2\rfloor} \frac{(n_0+h)^b b_{n_0+h}^t}{(n_0+h)^{\frac{1+y-iX}{2}}}$$
 and
@@ -1162,10 +1164,10 @@ $$ \zeta(s) = \prod_p \left(1 - \frac{1}{p^s}\right)^{-1}$$
 for the Riemann zeta function.  This leads to the heuristic
 $$ H_0(x+iy) \propto \prod_{p \leq P} \left(1 - \frac{1}{p^s}\right)^{-1}$$
 for some small prime cutoff $P$, where $s = \frac{1+y+ix}{2}$ and we are extremely vague as to what the proportionality symbol $\propto$ means.  This heuristic extends to non-zero times $t$ as
-$$ H_t(x+iy) \propto \prod_{p \leq P} \left(1 - \frac{b_n^t}{p^s}\right)^{-1}$$
+$$ H_t(x+iy) \propto \prod_{p \leq P} \left(1 - \frac{b_p^t}{p^s}\right)^{-1}$$
 and we also have
 \begin{equation}\label{oscil}
- f_t(x+iy) \propto \prod_{p \leq P} \left(1 - \frac{b_n^t}{p^s}\right)^{-1}.
+ f_t(x+iy) \propto \prod_{p \leq P} \left(1 - \frac{b_p^t}{p^s}\right)^{-1}.
 \end{equation}
 One can non-rigorously justify the latter assertion by by inspecting the first series of $f_t(x+iy)$ in \eqref{ft-def} and ignoring the fact that the sequence $n \mapsto b_n^t$ is not multiplicative when $t \neq 0$.  
 
@@ -1200,7 +1202,7 @@ namely $q = 83952$ (this quantity being $\approx 4.32$ for this value of $q$).
 
 \subsection{Verifications of claims}
 
-Claim (i) of Theorem \ref{ubc-0} is immediate from the result of Platt \cite{platt} that all the non-trivial zeroes of $\zeta$ with imaginary part between $0$ and $3.06 \times 10^{10}$ lie on the critical line $\{ \mathrm{Re}(s) = 1/2\}$.  For the remaining claims (ii), (iii) of Theorem \ref{ubc-0}, it will suffice to verify that $H_t(x+iy) \neq 0$ for the following three regions of $(x,y,t)$:
+Claim (i) of Theorem \ref{ubc-0} is immediate from the result of Platt \cite{platt} that all the non-trivial zeroes of $\zeta$ with imaginary part between $0$ and $3.06 \times 10^{10}$ lie on the critical line $\{ \Re s = 1/2\}$.  For the remaining claims (ii), (iii) of Theorem \ref{ubc-0}, it will suffice to verify that $H_t(x+iy) \neq 0$ for the following three regions of $(x,y,t)$:
 \begin{itemize}
 \item[(ii)]  $x \geq X_0 - 0.5 + \sqrt{0.96}$, $0.2 \leq y \leq \sqrt{0.6}$, and $t = 0.2$. 
 \item[(iii)]  $X_0 - 0.5 \leq x \leq X_0 + 0.5$, $0.2 \leq y \leq \sqrt{0.6}$, and $0 \leq t \leq 0.2$.
@@ -1220,7 +1222,7 @@ so in particular
 where
 $$ x_N \coloneqq 4 \pi N^2 - \frac{\pi t}{4}.$$
 Write $N_0 \coloneqq 69098$ and $N_1 \coloneqq 1.5 \times 10^6$.
-In region (ii) we then have $N = N_0$, while in region (iii) we have $N \geq N_0$.  It will now suffice to verify $\frac{H_t(x+iy)}{B_t(x+iy)} \neq 0$ in the following three regions:
+In region (ii) we then have $N \geq N_0$, while in region (iii) we have $N = N_0$.  It will now suffice to verify $\frac{H_t(x+iy)}{B_t(x+iy)} \neq 0$ in the following three regions:
 \begin{itemize}
 \item[(a)]  When $X_0 - 0.5 \leq x \leq X_0 + 0.5$, $N = N_0$, $0 \leq t \leq 0.2$, and $0.2 \leq y \leq 1$.
 \item[(b)]  When $x \geq X_0 - 0.5$, $N_0 \leq N \leq N_1$, $t = 0.2$, and $0.2 \leq y \leq 1$.
@@ -1246,7 +1248,7 @@ By Theorem \ref{eff} it suffices to show that
 $$ e_A + e_B + e_{C,0} \leq 1.25 \times 10^{-3}.$$
 From Theorem \ref{eff} again, we have
 \begin{equation}\label{eaeb-bound}
- e_A + e_B \leq (e^{\delta_1}-1) (F_{N,t}(\mathrm{Re}(s_*)) + |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) )
+ e_A + e_B \leq (e^{\delta_1}-1) (F_{N,t}(\Re s_*) + |\gamma| N^{|\kappa|} F_{N,t}( \Re s_* - y ) )
 \end{equation}
 where
 \begin{equation}\label{fnt-def}
@@ -1267,9 +1269,9 @@ $$ e^{\delta_1} - 1 \leq 1.001 \delta_1$$
 (say).
 Also, from Theorem \ref{eff} and \eqref{fnt-def} we can bound
 \begin{align*}
-|\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) &\leq |\gamma| N^y N^{|\kappa|} F_{N,t}( \mathrm{Re}(s_*) ) \\
-&\leq \exp\left( 0.02 y + y \left(\log N - \frac{1}{2} \log \frac{x}{4\pi}\right) + \frac{ty}{2(x-6)} \log N \right) F_{N,t}( \mathrm{Re}(s_*) )  \\
-&\leq \exp\left( 0.02 y + \left(y + \frac{ty}{2(x-6)}\right) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) + \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \right) F_{N,t}( \mathrm{Re}(s_*) ).
+|\gamma| F_{N,t}( \Re s_* - y - |\kappa| ) &\leq |\gamma| N^y N^{|\kappa|} F_{N,t}( \Re s_* ) \\
+&\leq \exp\left( 0.02 y + y \left(\log N - \frac{1}{2} \log \frac{x}{4\pi}\right) + \frac{ty}{2(x-6)} \log N \right) F_{N,t}( \Re s_* )  \\
+&\leq \exp\left( 0.02 y + \left(y + \frac{ty}{2(x-6)}\right) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) + \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \right) F_{N,t}( \Re s_* ).
 \end{align*}
 For $0.2 \leq y \leq 1$, $0 \leq t \leq 0.2$, and $x \geq X_0 - 0.5$ we see from Lemma \ref{elem-lem}(vi) that
 $$ \frac{ty}{4(x-6)} \log \frac{x}{4\pi} \leq \frac{0.2}{4(X_0 - 0.5-6)}\log \frac{X_0 - 0.5}{4\pi} \leq 1.86 \times 10^{-11}$$
@@ -1277,36 +1279,36 @@ and
 $$ \left(y + \frac{ty}{2(x-6)}\right) \frac{1}{2} \log(1 + \frac{\pi t}{4x}) \leq \left(1 + \frac{0.2}{2(X_0-0.5-6)}\right) \frac{1}{2} \log\left(1 + \frac{0.2 \pi}{4(X_0-0.5)}\right) \leq 1.31 \times 10^{-12}$$
 and thus
 \begin{equation}\label{gafn}
- |\gamma| F_{N,t}( \mathrm{Re}(s_*) - y - |\kappa| ) \leq 1.021  F_{N,t}( \mathrm{Re}(s_*) ).
+ |\gamma| F_{N,t}( \Re s_* - y - |\kappa| ) \leq 1.021  F_{N,t}( \Re s_* ).
 \end{equation}
 Thus
-$$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}( \mathrm{Re}(s_*) ).$$
-To estimate $\mathrm{Re}(s_*)$, we use Proposition \ref{estimates}(ii) or \eqref{kappa-bound}, together with the inequality
-$$ \frac{t}{2x^2} \left(1-3y+\frac{4y(1+y)}{x^2}\right)_+ \leq \frac{0.2}{2 (X_0-0.5)^2} \left(1 - 3 \times 0.2 + \frac{8}{(X_0-0.5)^2}\right)_+
+$$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}( \Re s_* ).$$
+To estimate $\Re s_*$, we use Proposition \ref{estimates}(ii) or \eqref{kappa-bound}, together with the inequality
+$$ \frac{t}{2x^2} \left(1-3y+\frac{8y(1-y)}{x^2}\right)_+ \leq \frac{0.2}{2 (X_0-0.5)^2} \left(1 - 3 \times 0.2 + \frac{8}{(X_0-0.5)^2}\right)_+
 \leq 1.2 \times 10^{-23}$$
 to obtain 
-$$ \mathrm{Re}(s_*) \geq 0.6001 + \frac{t}{4} \log \frac{x}{4\pi}$$
+$$ \Re s_* \geq 0.5999 + \frac{t}{4} \log \frac{x}{4\pi}$$
 (say).  Since $F_{N,t}(\sigma)$ is non-increasing in $\sigma$, we conclude
-$$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}\left( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} \right).$$
+$$  e_A + e_B \leq 1.023 \delta_1 F_{N,t}\left( 0.5999 + \frac{t}{4} \log \frac{x}{4\pi} \right).$$
 Since
 $$ N = \left\lfloor \sqrt{\frac{x}{4\pi} + \frac{t}{16}} \right\rfloor,$$
 $0 \leq t \leq 0.2$, and $x \geq X_0-0.5$, it is easy to see that
 $$ N \leq \frac{x}{4\pi}$$
 and hence by \eqref{bn-def}
-$$ \frac{b_n^t}{n^{\frac{t}{4} \log \frac{x}{\pi}}} \leq 1$$
+$$ \frac{b_n^t}{n^{\frac{t}{4} \log \frac{x}{4\pi}}} \leq 1$$
 for all $1 \leq n \leq N$.  Therefore
-$$ F_{N,t}\left( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} \right) \leq \sum_{n=1}^N \frac{1}{n^{0.6001}}$$
+$$ F_{N,t}\left( 0.5999 + \frac{t}{4} \log \frac{x}{4\pi} \right) \leq \sum_{n=1}^N \frac{1}{n^{0.6001}}$$
 and hence by the integral test
-$$ F_{N,t}\left( 0.6001 + \frac{t}{4} \log \frac{x}{4\pi} \right) \leq \int_1^{N+1} \frac{ds}{s^{0.6001}} = \frac{1}{0.3999} (N+1)^{0.3999} $$
+$$ F_{N,t}\left( 0.5999 + \frac{t}{4} \log \frac{x}{4\pi} \right) \leq \int_1^{N+1} \frac{ds}{s^{0.5999}} = \frac{1}{0.4001} (N+1)^{0.4001} $$
 so that (by \eqref{dela})
-$$ e_A + e_B \leq 1.023 \frac{\frac{(0.2)^2}{16} \log^2 \frac{x}{4\pi} + 0.626}{x-6.66} \frac{1}{0.3999} (N+1)^{0.3999}.$$
+$$ e_A + e_B \leq 1.023 \frac{\frac{(0.2)^2}{16} \log^2 \frac{x}{4\pi} + 0.626}{x-6.66} \frac{1}{0.5999} (N+1)^{0.5999}.$$
 We have
 $$ N+1 \leq (1.001) \left(\frac{x-6.66}{4\pi}\right)^{1/2} $$
 (say), and hence
-$$ e_A + e_B \leq 0.7220 \frac{0.0025 \log^2 \frac{x}{4\pi} + 0.626}{(x-6.66)^{0.79995}}$$
+$$ e_A + e_B \leq 0.7220 \frac{0.0025 \log^2 \frac{x}{4\pi} + 0.626}{(x-6.66)^{0.80005}}$$
 From Lemma \ref{elem-lem}(vi), the right-hand side is monotone decreasing in the region $x \geq X_0-0.5$, thus
 \begin{align*}
- e_A + e_B &\leq 0.7220 \frac{0.0025 \log^2 \frac{X_0-0.5}{4\pi} + 0.626}{(X_0-0.5-6.66)^{0.79995}} \\
+ e_A + e_B &\leq 0.7220 \frac{0.0025 \log^2 \frac{X_0-0.5}{4\pi} + 0.626}{(X_0-0.5-6.66)^{0.80005}} \\
 &\leq 3.444 \times 10^{-9}.
 \end{align*}
 
@@ -1342,8 +1344,8 @@ Our main tool here is the triangle inequality.  From \eqref{ft-def} one has
 $$
 f_t(x+iy) = 1 + \sum_{n=2}^N \frac{b_n^t}{n^{s_*}} + \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}}$$
 and hence
-$$ f_t(x+y) = 1 + O_{\leq}\left( \sum_{n=2}^N \frac{b_n^t}{n^{\sigma}} + |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\sigma + |\kappa|}} \right)$$
-where $\sigma \coloneqq \mathrm{Re} s_*$.  Restoring the $n=1$ term in the first sum and recalling that $t=0.2$, it thus suffices to show that
+$$ f_t(x+y) = 1 + O_{\leq}\left( \sum_{n=2}^N \frac{b_n^t}{n^{\sigma}} + |\gamma| \sum_{n=1}^N n^y \frac{b_n^t}{n^{\sigma - |\kappa|}} \right)$$
+where $\sigma \coloneqq \Re s_*$.  Restoring the $n=1$ term in the first sum and recalling that $t=0.2$, it thus suffices to show that
 \begin{equation}\label{nan}
  \sum_{n=1}^N \frac{b_n^{0.2}}{n^\sigma} + |\gamma| \sum_{n=1}^N n^y \frac{b_n^{0.2}}{n^{\sigma-|\kappa|}}
 < 1.955.
@@ -1367,7 +1369,7 @@ we see that the summands $\frac{b_n^t}{n^\sigma}$ are decreasing for $1 \leq n \
 \frac{b_n^t}{n^\sigma}  + \int_{N_0}^N \frac{b_a^t}{a^\sigma}\ da.
 \end{equation}
 Making the change of variables $a = e^u$, the right-hand side becomes
-$$\sum_{n=1}^{N_0} \frac{b_n^t}{n^\sigma} \exp( (1-\sigma) u + \frac{t}{4} u^2 )\ du.$$
+$$\sum_{n=1}^{N_0} \frac{b_n^t}{n^\sigma} \int_{N_0}^N \exp( (1-\sigma) u + \frac{t}{4} u^2 )\ du.$$
 The expression $(1-\sigma) u + \frac{t}{4} u^2$ is convex in $u$, and is thus bounded by the maximum of its values at the endpoints $u = \log N_0, \log N$; thus
 $$\exp( (1-\sigma) u + \frac{t}{4} u^2) \leq N_0^{1-\sigma} b_{N_0}^t, N^{1-\sigma} b_N^t.$$
 The claim follows. 
@@ -1383,11 +1385,11 @@ In practice, this upper bound for $\sum_{n=1}^N \frac{b_n^t}{n^\sigma}$ is sligh
 \end{remark}
 
 Observe from \eqref{kappa-bound} that
-$$ |\kappa| \leq \frac{0.2 \times 0.2}{2(2.82 \times 10^{13}-6)} \leq 7.08 \times 10^{-16}$$
+$$ |\kappa| \leq \frac{0.2 \times 1}{2(2.82 \times 10^{13}-6)} \leq 3.55 \times 10^{-15}$$
 while from \eqref{gamma-bound} one has
 $$
 |\gamma| \leq 1.005 \left( \frac{x_N}{4\pi} \right)^{-y/2}$$
-so in particular since $0.2 \leq y \leq 1$ and $n \leq 1.0001 (\frac{x_N}{4\pi})^{1/2} \leq 1.0002 N^{-1}$
+so in particular since $0.2 \leq y \leq 1$ and $n \leq 1.0001 (\frac{x_N}{4\pi})^{1/2} \leq 1.0002 N$
 $$
 |\gamma| n^y \leq 1.006 N^{-0.2} n^{0.2}.$$
 Also from \eqref{res-bound} one has
@@ -1418,7 +1420,6 @@ The claim \eqref{ft0} follows.
 
 \subsection{Proof of claim (a)}\label{barrier-sec}
 
-For region (a) we again verify \eqref{ft0}.
 As $N = N_0$ is constant in this region, the function $f_t(x+iy)$ is holomorphic, so by Rouche's theorem, it suffices to show that for each time $0 \leq t \leq 0.2$, as $x+iy$ traverses the boundary $\partial R$ of the rectangle 
 $$ R \coloneqq \{ x+iy: X_0 - 0.5 \leq x \leq X_0 + 0.5; 0.2 \leq y \leq 1 \},$$
 the function $f_t(x+iy)$ stays outside of the ball $B \coloneqq \{ z: |z| \leq 1.25 \times 10^{-3} \}$, and furthermore has a winding number of zero around the origin.
@@ -1434,19 +1435,19 @@ Furthermore, the same is true for nearby times $t \leq t' \leq 0.2$ to $t$, as l
 and a bound of the form $|\frac{\partial}{\partial t} f_{\tilde t}(z)| \leq D_t$
 for $t \leq \tilde t \leq 0.2$ and $z \in \partial R$.
 
-This gives the following algorithm to verify (i) for the entire range $0 \leq t \leq 0.2$.  We start with $t=0$ and obtain bounds $D_t, D_z$ for the derivatives of $f_{\tilde t}(z)$ in the indicated ranges.  Because of the way the barrier location $X$ was selected, we expect $|f_t(x+iy)|$ to stay well above $1$ in magnitude.  We thus choose $n$ so that $\frac{D_z}{2n} \leq 1$, and evaluate $f_t(x_j+iy_j)$ at all the mesh points (in particular confirming that $|f_t(x_j+iy_j)|$ does stay well above $1$).  Using the minimum value of $|f_t(x_j+iy_j)|$, we can then use the condition \eqref{cond} to establish the claim for times in the interval $[t,t')$ where $t'>t$ is chosen so that \eqref{cond} holds (or $t'=0.2$, if that is also possible); the most aggressive choice of $t'$ would be one in which \eqref{cond} held with equality, but in practice we can afford to take more conservative values of $t'$ and still obtain good runtime performance.  If $t' < 0.2$, we then repeat the process, replacing $t$ by $t'$, until the entire range $0 \leq t \leq 0.2$ is verified.
+This gives the following algorithm to verify (a) for the entire range $0 \leq t \leq 0.2$.  We start with $t=0$ and obtain bounds $D_t, D_z$ for the derivatives of $f_{\tilde t}(z)$ in the indicated ranges.  Because of the way the barrier location $X$ was selected, we expect $|f_t(x+iy)|$ to stay well above $1$ in magnitude.  We thus choose $n$ so that $\frac{D_z}{2n} \leq 1$, and evaluate $f_t(x_j+iy_j)$ at all the mesh points (in particular confirming that $|f_t(x_j+iy_j)|$ does stay well above $1$).  Using the minimum value of $|f_t(x_j+iy_j)|$, we can then use the condition \eqref{cond} to establish the claim for times in the interval $[t,t')$ where $t'>t$ is chosen so that \eqref{cond} holds (or $t'=0.2$, if that is also possible); the most aggressive choice of $t'$ would be one in which \eqref{cond} held with equality, but in practice we can afford to take more conservative values of $t'$ and still obtain good runtime performance.  If $t' < 0.2$, we then repeat the process, replacing $t$ by $t'$, until the entire range $0 \leq t \leq 0.2$ is verified.
 
 To run this algorithm, we need bounds on $D_t$ and $D_z$.  This is achieved by the following lemma, which gives bounds which are somewhat complicated but which can be easily upper bounded numerically on $\partial R$:
 
 \begin{lemma} In the region \eqref{region}, and away from the jump discontinuities of $N$, we have
 \begin{align*}
- \left|\frac{\partial f_t}{\partial z}\right| &\leq  \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) \\
-&\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^{y} }{n^{\mathrm{Re}(s_{*})}}
+ \left|\frac{\partial f_t}{\partial z}\right| &\leq  \sum_{n=1}^N \frac{b_n^t}{n^{\Re s_*}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) \\
+&\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^{y} }{n^{\Re s_{*}}}
 \left( \frac{t \log n}{4(x-6)} + \left(\log \frac{|1+y+ix|}{4\pi} + \pi + \frac{3}{x}\right) \left(\frac{1}{2} + \frac{t}{4(x-6)}\right)\right)
 \end{align*}
 and
-\begin{align*} \left|\frac{\partial f_t}{\partial t}\right| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}\right) \\
-&\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^y}{n^{\mathrm{Re}(s_{*})}}
+\begin{align*} \left|\frac{\partial f_t}{\partial t}\right| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\Re s_*}} \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}\right) \\
+&\quad + |\gamma| N^{|\kappa|} \sum_{n=1}^N \frac{b_n^t n^y}{n^{\Re s_{*}}}
 \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6} + \frac{1}{4} \left(\frac{\pi}{2} + \frac{8}{x-6}\right) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right)\right).
 \end{align*}
 \end{lemma}
@@ -1466,7 +1467,7 @@ $$
 \left( \frac{\partial}{\partial x} \log \gamma - \frac{\partial s_{**}}{\partial x} \log n\right).$$
 From \eqref{sn-def}, \eqref{alpha-deriv-bound} we have
 \begin{align*}
- \frac{\partial s_*}{\partial x} &= -\frac{i}{2} - \frac{it}{4} \alpha'\left(\frac{1-y+ix}{2}\right) \\
+ \frac{\partial s_*}{\partial x} &= -\frac{i}{2} - \frac{it}{4} \alpha'\left(\frac{1+y-ix}{2}\right) \\
 &= -\frac{i}{2} + O_{\leq}\left( \frac{t}{4(x-6)} \right).
 \end{align*}
 Similarly we have
@@ -1474,13 +1475,13 @@ $$ \frac{\partial s_{**}}{\partial x} = \frac{i}{2} + O_{\leq}\left( \frac{t}{4(
 Writing $s = \frac{1-y+ix}{2}$, we have from \eqref{lambda-def}, \eqref{Mt-def} that
 $$ \log \gamma = \frac{t}{4} (\alpha(s)^2 - \alpha(1-s)^2) + \log M_0(s) - \log M_0(1-s) $$
 and hence by \eqref{alpha-def}
-$$ \frac{\partial \gamma}{\partial x} = \frac{it}{4} (\alpha(s) \alpha'(s) + \alpha(1-s) \alpha'(1-s))
+$$ \frac{\partial}{\partial x} \log \gamma = \frac{it}{4} (\alpha(s) \alpha'(s) + \alpha(1-s) \alpha'(1-s))
 + \frac{i}{2} \alpha(s) + \frac{i}{2} \alpha(1-s).$$
 From the triangle inequality and \eqref{alpha-deriv-bound}, we thus have
 \begin{align*}
-|\frac{\partial f_t}{\partial x}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_*)}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) \\
-&\quad + |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
-\left( \frac{t \log n}{4(x-6)} + \frac{|\alpha(s) + \alpha(1-s) - \log n|}{2} + \frac{t (|\alpha(s)| + |\alpha(1-s)|)}{4(x-6)}\right).
+|\frac{\partial f_t}{\partial x}| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\Re s_*}} \left(\frac{\log n}{2} + \frac{t \log n}{4(x-6)}\right) \\
+&\quad + |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\Re s_{**}}}
+\left( \frac{t \log n}{4(x-6)} + \frac{|\alpha(s)| + |\alpha(1-s)| - \log n}{2} + \frac{t (|\alpha(s)| + |\alpha(1-s)|)}{4(x-6)}\right).
 \end{align*}
 We have from \eqref{alpha-form} that
 $$ |\alpha(s)|, |\alpha(s) - \frac{1}{2} \log n| \leq \frac{1}{2} \log \frac{|1-y+ix|}{4\pi} + \frac{\pi}{2} + \frac{3}{2x} $$
@@ -1488,7 +1489,7 @@ since $n \leq N \leq \frac{x}{4\pi} \leq \frac{|1-y+ix|}{4\pi}$.  Similarly
 $$ |\alpha(1-s)|, |\alpha(1-s) - \frac{1}{2} \log n| \leq \frac{1}{2} \log \frac{|1+y+ix|}{4\pi} + \frac{\pi}{2} + \frac{3}{2x} $$
 and thus
 $$ |\alpha(s)+\alpha(1-s)|, |\alpha(s)+\alpha(1-s)-\log n| \leq \log \frac{|1+y+ix|}{4\pi} + \pi + \frac{3}{x}.$$
-Writing $\mathrm{Re}(s_{**}) = \mathrm{Re}(s_*) - y + \mathrm{Re}(\kappa)$, we then have the first estimate.
+Writing $\Re s_{**} = \Re s_* - y + \Re \kappa$, we then have the first estimate.
 
 Now we estimate the time derivative.  Since
 \begin{align*}
@@ -1518,8 +1519,8 @@ so that
 $$ \left|\alpha(s)^2 - \alpha(1-s)^2\right| \leq \left(\frac{\pi}{2} + \frac{8}{x-6}\right) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right).$$
 We conclude from the triangle inequality that
 \begin{align*}
- \left|\frac{\partial f_t}{\partial t}\right| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re} s_*}} \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}\right) \\
-&+ |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\mathrm{Re}(s_{**})}}
+ \left|\frac{\partial f_t}{\partial t}\right| &\leq \sum_{n=1}^N \frac{b_n^t}{n^{\Re s_*}} \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6}\right) \\
+&+ |\gamma| \sum_{n=1}^N \frac{b_n^t}{n^{\Re s_{**}}}
 \left(\frac{1}{4} \log n \log \frac{x}{4\pi n} + \frac{\pi}{8} \log n + \frac{2 \log n}{x-6} + \frac{1}{4} \left(\frac{\pi}{2} + \frac{8}{x-6}\right) \left(\log \frac{x}{4\pi} + \frac{8}{x-6}\right)\right)
 \end{align*}
 giving the second claim.
@@ -1534,7 +1535,7 @@ The first step in the barrier verification process was to precalculate a `stored
   \caption{Achieved error term in the Taylor expansion at $t=0$. Target was set at $20$ decimal places accuracy.}\label{fig1}
 \end{figure}
 
-The derivative bounds determine the number of mesh points required on each $xy$-rectangle and in the $t$-direction. Figure \ref{fig2} ilustrates that these bounds have been chosen quite conservatively:
+The derivative bounds determine the number of mesh points required on each $xy$-rectangle and in the $t$-direction. Figure \ref{fig2} illustrates that these bounds have been chosen quite conservatively:
 
 \begin{figure}[ht!]
   \includegraphics[width=1.0\linewidth]{Derivativebounds}
@@ -1574,10 +1575,10 @@ We wish to show that the holomorphic function $H_t(x+iy)/B_t(x+iy)$ does not van
 $$ E_{t,5}(x+iy) \coloneqq \prod_{p \leq 5} \left( 1 - \frac{b_p^t}{p^{s_*}}\right),$$
 where $s_*$ is given by \eqref{sn-def} the choice to use the first three primes $2,3,5$ was obtained after significant trial and error as giving the best numerical results in this range of $t,x,y$.  We have the upper bound
 $$
-|E_{t,5}(x+iy)| \leq \prod_{p \leq 5} \left(1 + \frac{b_p^t}{p^{\mathrm{Re} s_*}} \right).
+|E_{t,5}(x+iy)| \leq \prod_{p \leq 5} \left(1 + \frac{b_p^t}{p^{\Re s_*}} \right).
 $$
 When $N \geq N_0$, $0.2 \leq y \leq 1$ and $t = 0.2$, one easily verifies from \eqref{res-bound} that
-$$ \mathrm{Re} s_* \geq 1.7143 $$
+$$ \Re s_* \geq 1.7143 $$
 and hence
 $$ |E_{t,5}(x+iy)| \leq 1.635 $$ % 1.705 at p=7
 In particular, by Proposition \ref{sweep} we have
@@ -1590,11 +1591,11 @@ for $x+iy \in\partial R$.
 For future reference we also observe that for any $x+iy \in R$,
 the magnitude of $E_{t,5}(x+iy)$ can be bounded below by
 \begin{equation}\label{et5-lower}
- |E_{t,5}(x+iy)| \geq \prod_{p \leq 5} \left(1 - \frac{b_p^t}{p^{\mathrm{Re} s_*}} \right) \geq 0.534 
+ |E_{t,5}(x+iy)| \geq \prod_{p \leq 5} \left(1 - \frac{b_p^t}{p^{\Re s_*}} \right) \geq 0.534 
 \end{equation} %  0.512 when p=7
 and the argument has magnitude at most
 \begin{equation}\label{et5-phase}
-|\mathrm{arg}(E_{t,5}(x+iy))| \leq \sum_{p \leq 5} \sin^{-1} \frac{b_p^t}{p^{\mathrm{Re} s_*}} \leq 0.553. 
+|\mathrm{arg}(E_{t,5}(x+iy))| \leq \sum_{p \leq 5} \sin^{-1} \frac{b_p^t}{p^{\Re s_*}} \leq 0.553. 
 \end{equation} % 0.595 when p=7
 
 Of the four sides of the rectangle $\partial R$, the required estimate \eqref{star} will hold with significant room to spare, and we can proceed using rather crude estimates.  We first attend to the right edge of $\partial R$, in which $N = N_1$.  
@@ -1606,7 +1607,7 @@ in this region.  In particular $f_t(x+iy)$ has argument of magnitude at most $\s
 Now we attend to the left edge of $\partial R$, in which $x = X_0 - 0.5$ and $0.2 \leq y \leq 1$.  From the calculations for part (a) (see in particular Figure \ref{fig4a}) one can verify that (for instance) $|f_t(x+iy)| \geq 1$ and $|\mathrm{arg} f_t(x+iy)| \leq \frac{\pi}{2}$ in this region.  Combining this with \eqref{et5-lower}, \eqref{et5-phase}, we conclude that $E_{t,5}(x+iy) f_t(x+iy)$ has magnitude at least $0.534$ and argument at most $2.13$ in magnitude, again giving the claim \eqref{star} on this side from elementary trigonometry.
 
 Now we attend to the upper edge of $\partial R$, in which $N_0 \leq N \leq N_1$ and $y=1$.  From \eqref{res-bound} one now has
-$$ \mathrm{Re} s_* \geq 2.1143.$$
+$$ \Re s_* \geq 2.1143.$$
 In particular\footnote{The sum $\sum_{n=2}^{N_1} \frac{b_n^t}{n^{2.1143}}$ can be numerically computed directly, but one could also use Lemma \ref{largen} (using for instance $N_0 = 69098$) to obtain a usable upper bound as well.  Similarly for the other sums of this type that appear in this argument.}
 $$ \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} = 1 + O_{\leq}\left( \sum_{n=2}^{N_1} \frac{b_n^t}{n^{2.1143}} \right) = 1 + O_{\leq}( 0.7 ).$$
 Meanwhile, from \eqref{gamma-bound} one has
@@ -1614,9 +1615,9 @@ $$ |\gamma| \leq e^{0.02} \left( \frac{x}{4\pi} \right)^{-1/2} \leq 1.03 N^{-1}$
 and from \eqref{kappa-bound} one has
 $$ |\kappa| \leq \frac{ty}{2(x-6)} \leq 4 \times 10^{-13}$$
 and hence
-$$ |\gamma| \frac{n^y}{n^{s_* + \kappa}} = O_{\leq}( \frac{1.03}{N n^{1.1142}} )$$
+$$ |\gamma| \frac{n^y}{n^{s_* + \kappa}} = O_{\leq}\left( \frac{1.03}{N n^{1.1142}} \right)$$
 and
-$$   \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} = O_{\leq}\left( \sum_{n=2}^{N_0} \frac{1.03 b_n^t}{N_0 n^{1.1142}} + \sum_{n=N_0+1}^{N_1} \frac{1.03 b_n^t}{n^{2.1142}} \right) = O_{\leq}( 0.1 )$$
+$$   \gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} = O_{\leq}\left( \sum_{n=1}^{N_0} \frac{1.03 b_n^t}{N_0 n^{1.1142}} + \sum_{n=N_0+1}^{N_1} \frac{1.03 b_n^t}{n^{2.1142}} \right) = O_{\leq}( 0.1 )$$
 and hence
 $$ f_t(x+iy) = 1 + O_{\leq}(0.8).$$
 In particular $f_t(x+iy)$ has magnitude at least $0.2$ and argument at most $0.928$ in magnitude, hence $E_t(x+iy) f_t(x+iy)$ has magnitude at least $0.1068$ and argument at most $1.481$, at which point the claim follows from elementary trigonometry.
@@ -1632,13 +1633,13 @@ and hence
 \end{equation}
 In particular, using \eqref{gamma-bound} to bound
 \begin{align*}
-|\gamma| &\leq e^{0.02y} (x_N/4\pi)^{-y/2} \\
-&\leq e^{0.004} \left(N^2 - \frac{1}{80}  \right)^{-0.1} \\
-&\leq 1.005 N^{-0.2} \\
-&\leq 1.005 N_-^{-0.2}.
+|\gamma|n^y  &\leq e^{0.02y} (x_N/4\pi n^2)^{-y/2} \\
+&\leq e^{0.02} \left( (N^2 - \frac{1}{80}) / n^2  \right)^{-y/2} \\
+&\leq 1.03 (N^2/n^2)^{-0.1}\\
+&\leq 1.03 (n/N_-)^{-0.2}.
 \end{align*}
 we have
-$$ E_{t,5}(x+iy) f_t(x+iy) = E_{t,5}(x+iy) \sum_{n=1}^N \frac{b_n^t}{n^{\sigma+iT}} + O_{\leq}\left( 1.005 |E_{t,5}(x+iy)| 
+$$ E_{t,5}(x+iy) f_t(x+iy) = E_{t,5}(x+iy) \sum_{n=1}^N \frac{b_n^t}{n^{\sigma+iT}} + O_{\leq}\left( 1.03 |E_{t,5}(x+iy)| 
 \left|\sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma-iT}}\right| \right)
 + O_{\leq}( Z )$$
 where
@@ -1655,12 +1656,12 @@ Thus for instance $\beta_1 = 1$ and $\beta_p = 0$ for $p=2,3,5$, so that the Dir
 
 The product of $E_{t,5}(x+iy)$ and $\sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma-iT}}$ is not favorable due to the negative sign in the $\sigma-iT$ exponent.  But since $|z| |w| = |z \overline{w}|$, we have
 \begin{align*}
-1.005 |E_{t,5}(x+iy)| \left|\sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma-iT}}\right|  &=
-1.005 \left|E_{t,5}(x+iy) \sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma+iT}}\right|  \\
+1.03 |E_{t,5}(x+iy)| \left|\sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma-iT}}\right|  &=
+1.03 \left|E_{t,5}(x+iy) \sum_{n=1}^N (n/N_-)^{0.2} \frac{b_n^t}{n^{\sigma+iT}}\right|  \\
 &= \left|\sum_{n=1}^{DN} \frac{N_-^{-0.2} \alpha_{n}}{n^{\sigma+iT}}\right|
 \end{align*}
 where
-$$ \alpha_{n} \coloneqq 1.005 \sum_{d|n,D} \lambda_d (n/d)^{0.2} b_{n/d}^t.$$
+$$ \alpha_{n} \coloneqq 1.03 \sum_{d|n,D} \lambda_d (n/d)^{0.2} b_{n/d}^t.$$
 Note that the coefficients $\alpha_{n}, \beta_n$ are both real.  We now have
 \begin{equation}\label{ets}
  E_{t,5}(x+iy) f_t(x+iy) = \sum_{n=1}^{DN} \frac{\beta_n}{n^{\sigma+iT}} + O_{\leq}\left( \left|\sum_{n=1}^{DN} \frac{N_-^{-0.2} \alpha_{n}}{n^{\sigma+iT}}\right| \right) + O_{\leq}(Z).
@@ -1690,7 +1691,7 @@ for all phases $\theta \in \R$.  We may write
 \frac{|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n|/|1+e^{i\theta} N_-^{-0.2} \alpha_1|}{n^{\sigma}} \right) \right).
 \end{align*}
 By the cosine rule, we have
-$$ \left(|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n| / |1 + e^{i\theta} N_-^{-0.2} \alpha_1|\right)^2 = \frac{\beta_n^2 + N_-^{-0.2} \alpha_n^2 + 2 N_-^{-0.2} \alpha_n \beta_n \cos \theta}{1 + N_-^{-0.2} \alpha_1^2 + 2 N_-^{-0.2} \alpha_1 \cos \theta}.$$
+$$ \left(|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n| / |1 + e^{i\theta} N_-^{-0.2} \alpha_1|\right)^2 = \frac{\beta_n^2 + N_-^{-0.4} \alpha_n^2 + 2 N_-^{-0.2} \alpha_n \beta_n \cos \theta}{1 + N_-^{-0.4} \alpha_1^2 + 2 N_-^{-0.2} \alpha_1 \cos \theta}.$$
 This is a fractional linear function of $\cos \theta$ with no poles in the range $[-1,1]$ of $\cos \theta$.  Thus this function is monotone on this range and attains its maximum at either $\cos \theta=+1$ or $\cos \theta = -1$.  We conclude that
 $$ \frac{|\beta_n + e^{i\theta} N_-^{-0.2} \alpha_n|}{|1 + e^{i\theta} N_-^{-0.2} \alpha_1|} \leq \max\left( \frac{|\beta_n-N_-^{-0.2} \alpha_n|}{1-N_-^{-0.2} \alpha_1}, \frac{|\beta_n+N_-^{-0.2} \alpha_n|}{1+N_-^{-0.2} \alpha_1} \right)$$
 and thus
@@ -1769,7 +1770,7 @@ where
 \begin{align*}
 \gamma &= O( x^{-y/2} ) \\
 \kappa &= O(x^{-1}) \\
-\mathrm{Re}(s_*) &\geq \frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi}  - O(x^{-2}) \\
+\Re s_* &\geq \frac{1+y}{2} + \frac{t}{2} \log \frac{x}{4\pi}  - O(x^{-2}) \\
 e_A &= O\left( x^{-y/2} \sum_{n=1}^N b_n^t n^{-\frac{1-y}{2} - \frac{t}{2} \log \frac{x}{4\pi} - O(x^{-1})} \frac{\log^2 x}{x} \right) \\ 
 e_B &= O\left( \sum_{n=1}^N b_n^t n^{-\frac{1+y}{2} - \frac{t}{2} \log \frac{x}{4\pi} + O(x^{-1})} \frac{\log^2 x}{x} \right) \\ 
 e_{C,0} &= O\left( x^{-\frac{1+y}{4}} \right)
@@ -1788,11 +1789,11 @@ which, for $x \geq \exp(C/t)$ and $C$ large, is bounded by $O(2^{-ct\log x})$.  
 
 Now we prove (ii).  As before we have the expansion \eqref{exp}.  We have
 \begin{align*}
-\gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} &= O\left( x^{-y/2} \sum_{n=1}^N \frac{b_n^t}{n^{-\frac{1-y}{2} + \frac{t}{2} \log \frac{x}{4\pi}}} \right) \\
+\gamma \sum_{n=1}^N n^y \frac{b_n^t}{n^{\overline{s_*} + \kappa}} &= O\left( x^{-y/2} \sum_{n=1}^N \frac{b_n^t}{n^{\frac{1-y}{2} + \frac{t}{2} \log \frac{x}{4\pi}}} \right) \\
 &= O\left( x^{-y/2} \sum_{n=1}^N n^{\frac{y-1}{2}} \right) \\
 &= O(x^{-\frac{y-1}{4}});
 \end{align*}
-similar arguments give $e_A = O( \frac{\log^2 x}{x^{\frac{y-1}{4}}} )$, while
+similar arguments give $e_A = O( \frac{\log^2 x}{x} x^{\frac{1-y}{4}} )$, while
 \begin{align*}
 e_B &= O\left( \frac{\log^2 x}{x} \sum_{n=1}^N b_n^t n^{-\frac{1+y}{2}-\frac{t}{2} \log \frac{x}{4\pi}} \right) \\
 &= O\left( \frac{\log^2 x}{x} \sum_{n=1}^N n^{-2} \right) \\
@@ -1801,7 +1802,7 @@ e_B &= O\left( \frac{\log^2 x}{x} \sum_{n=1}^N b_n^t n^{-\frac{1+y}{2}-\frac{t}{
 We conclude that
 \begin{align*}
 \frac{H_t(x+yi)}{B_t(x+yi)} &= \sum_{n=1}^N \frac{b_n^t}{n^{s_*}} + O( x^{-\frac{y-1}{4}} ) \\
-&= 1 + O_{\leq}\left( \sum_{n=2}^N n^{-\frac{1+y}{2} - \frac{t}{2} \log \frac{x}{4\pi} - O(x^{-1})} \right) + O( x^{\frac{y-1}{4}} ) \\
+&= 1 + O_{\leq}\left( \sum_{n=2}^N n^{-\frac{1+y}{2} - \frac{t}{2} \log \frac{x}{4\pi} - O(x^{-1})} \right) + O( x^{-\frac{y-1}{4}} ) \\
 &= 1 + O_{\leq}\left( \sum_{n=2}^N n^{-2} \right) + O( x^{-1/2}) \\
 &= 1 + O_{\leq}\left( \frac{\pi^2}{6} - 1 \right) + O( x^{-1/2} ) \\
 &= 1 + O_{\leq}( 0.7 )
@@ -1840,10 +1841,10 @@ whenever $s = \frac{ix_*}{2} + O(1)$.  The first claim then follows by applying 
 
 For the second claim, we calculate
 \begin{align*}
-\mathrm{arg} M_t\left(\frac{1+ix_*}{2}\right) &= \frac{t}{4} \mathrm{Im} \alpha\left(\frac{1+ix_*}{2}\right)^2 + \pi - \frac{x_*}{4} \log \pi + \mathrm{Im}\left( \frac{-1+ix_*}{4} \log \frac{1+ix_*}{4} - \frac{1+ix_*}{4}\right) \\
+\mathrm{arg} M_t\left(\frac{1+ix_*}{2}\right) &= \frac{t}{4} \Im(\alpha\left(\frac{1+ix_*}{2}\right)^2) + \pi - \frac{x_*}{4} \log \pi + \Im \left( \frac{-1+ix_*}{4} \log \frac{1+ix_*}{4} - \frac{1+ix_*}{4}\right) \\
 &= \frac{t}{4} \left(\frac{\pi}{4} \log \frac{x_*}{4\pi} + O(\frac{\log x_*}{x_*})\right) + \pi - \frac{x_*}{4} \log \pi 
-+ \mathrm{Im}\left( \frac{-1+ix_*}{4} \left(\log \frac{x_*}{4} + \frac{i\pi}{2} - \frac{i}{x_*} + O\left(\frac{1}{x_*^2}\right) \right) \right) - \frac{x_*}{4} \\
-&= \frac{t \pi}{16} \log \frac{x_*}{4\pi} + \pi + \frac{x_*}{4} \log \pi 
++ \Im \left( \frac{-1+ix_*}{4} \left(\log \frac{x_*}{4} + \frac{i\pi}{2} - \frac{i}{x_*} + O\left(\frac{1}{x_*^2}\right) \right) \right) - \frac{x_*}{4} \\
+&= \frac{t \pi}{16} \log \frac{x_*}{4\pi} + \pi - \frac{x_*}{4} \log \pi - \frac{x_*}{4}
 + \frac{x_*}{4} \log \frac{x_*}{4} - \frac{\pi}{8} + O\left( \frac{\log x_*}{x_*} \right) \\
 &= \frac{t \pi}{16} \log \frac{x_*}{4\pi} + \frac{7\pi}{8} 
 + \frac{x_*}{4} \log \frac{x_*}{4\pi} - \frac{x_*}{4} + O\left( \frac{\log x_*}{x_*} \right) 
@@ -1889,23 +1890,20 @@ and hence $y = O\left( \frac{x_n^{-ct}}{\log x_n} \right)$.  We can now apply \e
 $$ \sin\left(\frac{x+iy-x_n}{4} \log \frac{x_n}{4\pi}\right) + O( x_n^{-ct} ) = 0$$
 which (when combined with the hypothesis that $|x-x_n|$ is minimal) forces $x - x_n = O\left( \frac{x_n^{-ct}}{\log x_n} \right)$.  This gives the claim.
 
-Next, we prove (iii).  In view of parts (i) and (ii), and adjusting $C$ if necessary, we may assume that $X$ takes the form $X = x_n+\frac{c}{\log x_n}$ for some $n \geq \exp( \frac{C}{t})$.  By the argument principle, $N_t(X)$ is equal to $\frac{-1}{2\pi}$ times the variation in the argument of $H_t$ on the boundary of the rectangle $\{ x+iy: 0 \leq x \leq X; -3 \leq y \leq 3 \}$ traversed clockwise, since there are no zeroes with imaginary part of magnitude greater than one.  By compactness, the variation on the left edge $\{ iy: -3 \leq y \leq 3 \}$ is $O(1)$, and similarly for any fixed portion $\{ x+3i: 0 \leq y \leq C \}$ of the upper edge.  From Proposition \ref{asymp} (and \eqref{htap}), we see that the variation of $H_t(x+iy) / M_t(\frac{1+y-ix}{2})$ on the remaining upper edge $\{ x+3i: C \leq x \leq X \}$ and on the top half $\{ X+iy: 0 \leq y \leq 3 \}$ of the right edge are both equal to $O(1)$.  Since $H_t = H_t^*$, the variation on the lower half of the rectangle is equal to that of the upper half. We thus conclude that
+Next, we prove (iii).  In view of parts (i) and (ii), and adjusting $C$ if necessary, we may assume that $X$ takes the form $X = x_n+\frac{c}{\log x_n}$ for some $n \geq \exp( \frac{C}{t})$.  By the argument principle, $N_t(X)$ is equal to $\frac{-1}{2\pi}$ times the variation in the argument of $H_t$ on the boundary of the rectangle $\{ x+iy: 0 \leq x \leq X; -3 \leq y \leq 3 \}$ traversed clockwise, since there are no zeroes with imaginary part of magnitude greater than one.  By compactness, the variation on the left edge $\{ iy: -3 \leq y \leq 3 \}$ is $O(1)$, and similarly for any fixed portion $\{ x+3i: 0 \leq x \leq C \}$ of the upper edge.  From Proposition \ref{asymp} (and \eqref{htap}), we see that the variation of $H_t(x+iy) / M_t(\frac{1+y-ix}{2})$ on the remaining upper edge $\{ x+3i: C \leq x \leq X \}$ and on the top half $\{ X+iy: 0 \leq y \leq 3 \}$ of the right edge are both equal to $O(1)$.  Since $H_t = H_t^*$, the variation on the lower half of the rectangle is equal to that of the upper half. We thus conclude that
 $$ N_t(X) = -\frac{1}{\pi} \mathrm{arg} M_t\left(\frac{1-iX}{2}\right)+ O(1)$$
-where we use a continuous branch of the argument of $M_t\left(\frac{1-iX}{2}\right)$ that is bounded at $3i$.  The claim now follows from Lemma \ref{mtform}.
+where we use a continuous branch of the argument of $M_t\left(\frac{1-iX}{2}\right)$ that is bounded at $3i$.  The claim now follows from Lemma \ref{mtform} (using $M_t = M_t^*$ to work with $\frac{1+iX}{2}$ instead of $\frac{1-iX}{2}$).
 
-Finally, we prove (iv).  From \eqref{htdef} and the rapid decrease of $\Phi$ it is easy to verify that the entire function $H_t$ has order $1$, while from the positivity of $\Phi$ we see that $H_t$ has no zero at the origin.  Thus by the Hadamard factorization theorem we have
-$$ H_t(z) = \exp(a+bz) \prod_n \left( 1 - \frac{z}{z_n} \right) \exp( \frac{z}{z_n} )$$
-for some complex numbers $a,b$, where $z_n$ are the zeroes of $H_t$ counting multiplicity; using the functional equation $H_t(z) = H_t(-z)$ we can index the zeros as $z_n = (z_n)_{n \in \Z \backslash \{0\}}$ with $z_{-n} = -z_n$, and conclude that $b=0$, and
-$$ H_t(z) = \exp(a) \prod_{n>0} \left( 1 - \frac{z^2}{z_n^2} \right).$$
-Taking logarithmic derivatives, we conclude that
+Finally, we prove (iv).  From the Hadamard factorization theorem as in the proof of Proposition \ref{dynam} we have
 \begin{equation}\label{hata}
- \frac{H'_t(z)}{H_t(z)} = \sum_{n>0} \left(\frac{1}{z-z_n} + \frac{1}{z+z_n}\right).
+ \frac{H'_t(z)}{H_t(z)} = \sum_{n>0} \left(\frac{1}{z-z_n} + \frac{1}{z+z_n}\right)
 \end{equation}
+where the zeroes of $H_t$ are indexed in pairs $\pm z_n$.
 Setting $z = X+4i$, we see from Proposition \ref{asymp} and the generalized Cauchy integral formula that the logarithmic derivative of $H_t(x+iy)/M_t\left(\frac{1+y-ix}{2}\right)$ is equal to $O(1)$ at $X+4i$ for all sufficiently large $X$, and hence for all $X$ by symmetry and compactness.  On the other hand, from Stirling's formula (or the logarithmic growth of the digamma function) one easily verifies that the logarithmic derivative of $M_t\left(\frac{1+y-ix}{2}\right)$  is equal to $O( \log(2+X) )$ at $X+4i$.  Hence $\frac{H'_t(X+4i)}{H_t(X+4i)} = O(\log(2+X))$.  Taking imaginary parts, we conclude that
-$$ \sum_{n>0} \frac{(4-y_n)}{(X-x_n)^2 + (4-y_n)^2} + \frac{(4-y_n)}{(X+x_n)^2 + (4+y_n)^2} = O(\log(2+X))$$
+$$ \sum_{n>0} -\frac{4-y_n}{(X-x_n)^2 + (4-y_n)^2} - \frac{4+y_n}{(X+x_n)^2 + (4+y_n)^2} = O(\log(2+X))$$
 where we write $z_n = x_n + iy_n$; equivalently one has
 $$ \sum_n \frac{(4-y_n)}{(X-x_n)^2 + (4-y_n)^2} = O(\log(2+X))$$
-where the sum now ranges over all zeroes, including any at the origin. Since $|y_n| \leq 1$, every zero in $[X,X+1]$ makes a contribution of at least $\frac{1}{100}$ (say).  As the summands are all positive, the first part of claim (iv) follows.  To prove the second part, we may assume by compactness that $x \geq C$.  Repeating the proof of (iii), and reduce to showing that the variation of $\mathrm{arg} H_t$ on the short vertical interval $\{ X+iy: 0 \leq y \leq 3 \}$ is $O( \log X )$.  If we let $\theta$ be a phase such that $e^{i\theta} H_t(X+3i)$ is real and positive, we see that this variation is at most $\pi(m+1)$, where $m$ is the number of zeroes of $\mathrm{Re} e^{i\theta} H_t(X+yi)$ for $0 \leq y \leq 3$, since every increment of $\pi$ in $\mathrm{arg} e^{i\theta} H_t$ must be accompanied by at least one such zero.  As $H_t = H_t^*$, this is also the number of zeroes of $e^{i\theta} H_t(X+yi) + e^{-i\theta} H_t(2X - (X+yi))$.  On the other hand, from Proposition \ref{asymp}(ii), (iii) and Jensen's formula we see that the number of such zeroes is $O( \log X )$, and the claim follows.
+where the sum now ranges over all zeroes, including any at the origin. Since $|y_n| \leq 1$, every zero in $[X,X+1]$ makes a contribution of at least $\frac{1}{100}$ (say).  As the summands are all positive, the first part of claim (iv) follows.  To prove the second part, we may assume by compactness that $x \geq C$.  Repeating the proof of (iii), and reduce to showing that the variation of $\mathrm{arg} H_t$ on the short vertical interval $\{ X+iy: 0 \leq y \leq 3 \}$ is $O( \log X )$.  If we let $\theta$ be a phase such that $e^{i\theta} H_t(X+3i)$ is real and positive, we see that this variation is at most $\pi(m+1)$, where $m$ is the number of zeroes of $\Re (e^{i\theta} H_t(X+yi))$ for $0 \leq y \leq 3$, since every increment of $\pi$ in $\mathrm{arg} e^{i\theta} H_t$ must be accompanied by at least one such zero.  As $H_t = H_t^*$, this is also the number of zeroes of $e^{i\theta} H_t(X+yi) + e^{-i\theta} H_t(2X - (X+yi))$.  On the other hand, from Proposition \ref{asymp}(ii), (iii) and Jensen's formula we see that the number of such zeroes is $O( \log X )$, and the claim follows.
 
 \begin{remark}\label{time-complexity}  Theorem \ref{Zero} gives good control on $H_t(x+iy)$ whenever $x \geq \exp( C/t )$.  As a consequence (and assuming for sake of argument that the Riemann hypothesis holds), then for any $\Lambda_0 > 0$, the bound $\Lambda \leq \Lambda_0$ should be numerically verifiable in time $O( \exp( O(1/\Lambda_0) ))$, by applying the arguments of previous sections with $t$ and $y$ set equal to small multiples of $\Lambda_0$.  We leave the details to the interested reader.
 \end{remark}
@@ -1966,7 +1964,7 @@ The table below collects some numerical results verifying the second two hypothe
 
 The selection of parameters in this table proceeded as follows.  One first located parameters $t_0, y_0, N_0$ (with the quantity $\Lambda = t_0 + \frac{1}{2} y_0^2$ as small as possible) for which one could obtain a good lower bound for $f_{t_0}(x+iy_0)$ when $x=N_0$; we arbitrarily chose a target lower bound of $|f_{t_0}(x+iy_0)| \geq 0.03$ to provide an adequate safety margin.  From \eqref{ftxy} one had
 \begin{equation}\label{ftxy-2}
- f_{t_0}(x+iy_0) = \sum_{n=1}^N \beta_n + O_{\leq}( |\gamma| |\sum_{n=1}^N \alpha_n| ) + O_{\leq}(\left( |\gamma| \sum_{n=1}^N n^{y_0} \frac{b_n^{t_0}}{n^\sigma} (n^{|\kappa|}-1) \right)
+ f_{t_0}(x+iy_0) = \sum_{n=1}^N \beta_n + O_{\leq}( |\gamma| |\sum_{n=1}^N \alpha_n| ) + O_{\leq}\left( |\gamma| \sum_{n=1}^N n^{y_0} \frac{b_n^{t_0}}{n^\sigma} (n^{|\kappa|}-1) \right)
 \end{equation}
 where
 $$ \beta_n \coloneqq \frac{b_n^{t_0}}{n^{\sigma+iT}}$$
@@ -1974,7 +1972,7 @@ and
 $$ \alpha_n \coloneqq n^{y_0} \frac{b_n^{t_0}}{n^{\sigma+iT}}.$$
 The final term on the right-hand side of \eqref{ftxy-2} can be estimated as in Section \ref{b-bound} and is negligible in practice.  To control the other two terms, we use the following lemma (which roughly speaking corresponds to a simplified version of the ``Euler 2 mollifier'' version of the ``Euler 5 mollifier'' analysis in Section \ref{b-bound}):
 
-\begin{lemma}\label{trib2}  Let $\alpha_1,\dots,\alpha_N$ be complex numbers, and let $\beta_2$ be a number such that whenever $1 \leq n \leq N$ is even, $\beta_2 a_{n/2}$ lies on the line segment $\{ \theta \alpha_n: 0 \leq \theta \leq 1\}$ connecting 0 with $\alpha_n$.  Then we have the lower bound
+\begin{lemma}\label{trib2}  Let $\alpha_1,\dots,\alpha_N$ be complex numbers, and let $\beta_2$ be a number such that whenever $1 \leq n \leq N$ is even, $\beta_2 \alpha_{n/2}$ lies on the line segment $\{ \theta \alpha_n: 0 \leq \theta \leq 1\}$ connecting 0 with $\alpha_n$.  Then we have the lower bound
 $$ |1-\beta_2| \left|\sum_{n=1}^N \alpha_n\right| \geq 2 |\alpha_1| - (1-|\beta_2|) \sum_{n=1}^N |\alpha_n| - 2 |\beta_2| \sum_{N/2 < n \leq N} |\alpha_n|$$
 and the upper bound
 $$ |1-\beta_2| \left|\sum_{n=1}^N \alpha_n\right| \leq (1-|\beta_2|) \sum_{n=1}^N |\alpha_n| + 2 |\beta_2| \sum_{N/2 < n \leq N} |\alpha_n|.$$
